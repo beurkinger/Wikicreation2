@@ -1,3 +1,36 @@
+@font-face
+{
+    font-family: Muli;
+    src: url('fonts/Muli.ttf');
+}
+
+@font-face
+{
+    font-family: Muli;
+    src: url('fonts/Muli-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face
+{
+    font-family: Muli;
+    src: url('fonts/Muli-Light.ttf');
+    font-weight: 200;
+}
+
+@font-face
+{
+    font-family: Montserrat;
+    src: url('fonts/Montserrat-Regular.ttf');
+}
+
+@font-face
+{
+    font-family: Montserrat;
+    src: url('fonts/Montserrat-Bold.ttf');
+    font-weight: bold;
+}
+
 *
 {
   border: 0;
