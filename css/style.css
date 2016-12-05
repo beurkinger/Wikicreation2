@@ -42,10 +42,20 @@ html, body
   width: 100%;
 }
 
+body.blue
+{
+  background-color: #232D5C;
+}
+
 #main-header
 {
   position: relative;
   padding: 50px 70px 0 70px;
+}
+
+body.blue #main-header
+{
+  background-color: #232D5C;
 }
 
 #main-container
@@ -57,7 +67,13 @@ html, body
 {
   display: block;
   position: relative; left: -2px;
-  width: 215px; height: auto;
+  width: 215px; height: 38px;
+  background-image: url('../img/main-logo-white.svg');
+}
+
+body.blue #main-logo
+{
+  background-image: url('../img/main-logo-blue.svg');
 }
 
 #main-header-right
@@ -77,7 +93,12 @@ html, body
 
 #main-header .language
 {
-  color: #B2B2B2;
+  color: #EC6669;
+}
+
+body.blue #main-header .language
+{
+  color: #FFF;
 }
 
 #main-header .language .separator, #main-menu .language .separator
@@ -89,7 +110,12 @@ html, body
 
 #main-header .language .separator
 {
-  border-right: 2px solid #B2B2B2;
+  border-right: 2px solid #EC6669;
+}
+
+body.blue #main-header .language .separator
+{
+  border-right: 2px solid #FFF;
 }
 
 #main-header .language .separator::before, #main-header .language .separator::before
@@ -102,12 +128,28 @@ html, body
  border-bottom: 2px solid #EC6669;
 }
 
+body.blue #main-header .language .selected
+{
+ border-bottom: 2px solid #FFF;
+}
+
 #main-header .menu-ham, #main-menu .menu-exit
 {
   display: block;
   position: absolute;
-  width: auto; height: 16px;
+  height: 16px;
   top: 71px; right: 70px;
+}
+
+#main-header .menu-ham
+{
+  width: 18px;
+  background-image: url('../img/menu-ham-white.svg');
+}
+
+body.blue #main-header .menu-ham
+{
+  background-image: url('../img/menu-ham-blue.svg');
 }
 
 #menus
@@ -139,6 +181,12 @@ html, body
 #main-menu .language .selected
 {
  border-bottom: 2px solid #FFF;
+}
+
+#main-menu .menu-exit
+{
+  width: 16px;
+  background-image: url('../img/menu-exit.svg');
 }
 
 #main-menu .search-form
@@ -241,20 +289,21 @@ html, body
   left: 0; right: 0;
   background-color: #FFF;
   color: #494949;
+  overflow-y: scroll;
 }
 
-#news-menu h2
+#news-menu .menu-title
 {
   display: block;
   margin: 70px 0 45px 0;
   font-family: Montserrat; font-size: 20px; font-weight: bold;
   line-height: 20px;
-  padding-bottom: 14px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #494949;
   text-transform: uppercase;
 }
 
-#news-menu h3
+#news-menu .title
 {
   display: block;
   margin: 35px 0 0 0;
@@ -262,7 +311,7 @@ html, body
   line-height: 20px;
 }
 
-#news-menu h4
+#news-menu .author
 {
   display: block;
   margin: 2px 0;
@@ -270,10 +319,11 @@ html, body
   line-height: 19px;
 }
 
-#news-menu p
+#news-menu .description
 {
   display: block;
   margin: 32px 0 35px 0;
   padding-bottom: 33px;
+  border-bottom: 1px solid #494949;
   font-family: Muli; font-size: 16px; font-weight: 200;
 }
