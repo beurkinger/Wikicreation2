@@ -335,102 +335,126 @@ body.blue #main-header .menu-ham
 /*---Main Container---*/
 #main-container
 {
-  margin: 0 70px;
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
 }
 
 /*---Article infos column---*/
-#article-infos
+#article-aside, #authors-filters
 {
   display: block;
   box-sizing: border-box;
-  position: fixed; top: 0; left: 0;
+  position: absolute; top: 0; left: 0;
   width: 360px; height: 100%;
-  padding: 155px 45px 0 70px;
+  padding: 154px 45px 0 70px;
   background-color: #F5F5F5;
 }
 
-#article-infos .author
+#article-aside .author
 {
   margin-bottom: 60px;
 }
 
-#article-infos .author-pic
+#article-aside .author-pic
 {
   float: left;
   width: 90px; height: 90px;
   border-radius: 100%;
   margin-right: 12px;
 }
-#article-infos .author-infos
+#article-aside .author-infos
 {
   height: 90px;
   display:table-cell;
   vertical-align:middle;
 }
 
-#article-infos .author-name
+#article-aside .author-name
 {
   font-family: Montserrat; color: #EC6669; font-size: 13px; font-weight: bold;
 }
 
-#article-infos .author-desc
+#article-aside .author-desc
 {
   font-family: Muli; color: #494949; font-size: 12px; font-weight: 200;
 }
 
-#article-infos .info
+#article-aside .info
 {
   width: 220px;
   margin: 36px 0;
 }
 
-#article-infos .info-title
+#article-aside .info-title
 {
   margin: 11px 0;
   font-family: Montserrat; color: #232D5C; font-size: 15px; font-weight: bold;
   text-transform: uppercase;
 }
 
-#article-infos .info-desc
+#article-aside .info-desc
 {
   font-family: Muli; color: #494949; font-size: 14px; font-weight: 200;
 }
 
-#article-infos .navigation
+#article-aside .navigation
 {
   display: block;
   list-style: none;
 }
 
-#article-infos .navigation li
+#article-aside .navigation li
 {
   margin-bottom: 22px;
 }
 
-#article-infos .navigation li .gauge
+#article-aside .navigation li .gauge
 {
   width: 100%; height: 8px;
   background-color: #CDCCCC;
   margin-top: 8px;
 }
 
-#article-infos .navigation li .gauge .percent
+#article-aside .navigation li .gauge .percent
 {
   width: 0%; height: 8px;
   background-color: #EC6669;
 }
 
-#article-infos .download
+#article-aside .download
 {
   width: 24px; height: auto;
   margin-right: 16px;
 }
 
 /*---Article main---*/
+#article-main-container, #authors-main-container
+{
+  position: absolute; top: 0; left: 360px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
 #article-main
 {
   display: block;
-  position: fixed; top: 0; left: 360px;
-  padding: 0 20%;
-  height: 100%;
+  margin: 88px 15% 0 15%;
+  font-family: Muli; color: #494949; font-size: 16px; font-weight: 200;
+}
+
+#article-main .article-infos
+{
+  font-family: Muli; color: #494949; font-size: 17px; font-weight: 200;
+}
+
+#article-main .article-title
+{
+  font-family: Montserrat; color: #262626; font-size: 30px; font-weight: bold;
+  text-transform: uppercase;
+  margin: 15px 0 36px 0;
+}
+
+#article-main p
+{
+  margin: 22px 0;
 }
