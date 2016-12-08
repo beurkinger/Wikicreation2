@@ -339,8 +339,8 @@ body.blue #main-header .menu-ham
   width: 100%; height: 100%;
 }
 
-/*---Article infos column---*/
-#article-aside, #authors-filters
+/*---Article infos column & authors filters column---*/
+#main-aside
 {
   display: block;
   box-sizing: border-box;
@@ -348,86 +348,144 @@ body.blue #main-header .menu-ham
   width: 360px; height: 100%;
   padding: 154px 45px 0 70px;
   background-color: #F5F5F5;
+  font-family: Muli; color: #494949; font-size: 14px; font-weight: 200;
 }
 
-#article-aside .author
+#main-aside .author
 {
   margin-bottom: 60px;
 }
 
-#article-aside .author-pic
+#main-aside .author-pic
 {
   float: left;
   width: 90px; height: 90px;
   border-radius: 100%;
   margin-right: 12px;
 }
-#article-aside .author-infos
+
+#main-aside .author-infos
 {
   height: 90px;
   display:table-cell;
   vertical-align:middle;
 }
 
-#article-aside .author-name
+#main-aside .author-name
 {
   font-family: Montserrat; color: #EC6669; font-size: 13px; font-weight: bold;
 }
 
-#article-aside .author-desc
+#main-aside .author-desc
 {
   font-family: Muli; color: #494949; font-size: 12px; font-weight: 200;
 }
 
-#article-aside .info
+#main-aside .info
 {
   width: 220px;
   margin: 36px 0;
 }
 
-#article-aside .info-title
+#main-aside .info-title
 {
   margin: 11px 0;
   font-family: Montserrat; color: #232D5C; font-size: 15px; font-weight: bold;
   text-transform: uppercase;
 }
 
-#article-aside .info-desc
-{
-  font-family: Muli; color: #494949; font-size: 14px; font-weight: 200;
-}
+#main-aside .info-desc {}
 
-#article-aside .navigation
+#main-aside .navigation
 {
   display: block;
   list-style: none;
 }
 
-#article-aside .navigation li
+#main-aside .navigation li
 {
   margin-bottom: 22px;
 }
 
-#article-aside .navigation li .gauge
+#main-aside .navigation li .gauge
 {
   width: 100%; height: 8px;
   background-color: #CDCCCC;
   margin-top: 8px;
 }
 
-#article-aside .navigation li .gauge .percent
+#main-aside .navigation li .gauge .percent
 {
   width: 0%; height: 8px;
   background-color: #EC6669;
 }
 
-#article-aside .download
+#main-aside .download
 {
   width: 24px; height: auto;
   margin-right: 16px;
 }
 
-/*---Article main---*/
+#main-aside .search-form
+{
+  display: block;
+  line-height: 0;
+  font-size: 0;
+  margin-bottom: 40px;
+}
+
+#main-aside .search-field, #main-aside .search-btn
+{
+  display: inline-block;
+  font-family: Montserrat; color: #494949; font-size: 20px;
+  line-height: 20px;
+  background: transparent;
+  border-style: solid;
+  border-color: #494949;
+}
+
+#main-aside .search-field
+{
+  width: 129px; height: 20px;
+  border-width: 1px;
+  padding: 10px 20px;
+}
+
+#main-aside .search-field::-webkit-input-placeholder { color: #494949; }
+#main-aside .search-field::-moz-placeholder { color: #494949; }
+#main-aside .search-field:-ms-input-placeholder {color: #494949; }
+#main-aside .search-field:-moz-placeholder { color: #494949; }
+
+#main-aside .search-btn
+{
+  width: 49px;
+  font-weight: bold;
+  padding: 10px;
+  border-width: 1px 1px 1px 0;
+}
+
+#main-aside .filters {}
+
+#main-aside .filter
+{
+  margin: 6px 0;
+}
+
+#main-aside .filter-name
+{
+  display: block;
+  margin-top: 11px;
+  padding-top: 11px;
+  border-top: 1px solid #494949;
+  font-family: Montserrat; color: #494949; font-size: 15px;
+}
+
+#main-aside .filter input[type=checkbox]
+{
+  margin-right: 4px;
+}
+
+/*---Article---*/
 #article-main-container, #authors-main-container
 {
   position: absolute; top: 0; left: 360px;
@@ -457,4 +515,47 @@ body.blue #main-header .menu-ham
 #article-main p
 {
   margin: 22px 0;
+}
+
+/*---Authors---*/
+#authors-main
+{
+  margin: 154px 0 0 20px;
+  line-height: 0;
+  font: 0;
+}
+
+#authors-main .author
+{
+  display: inline-block;
+  height: 90px;
+  margin-left: 26px;
+  margin-bottom: 60px;
+}
+
+#authors-main .author-pic
+{
+  float: left;
+  width: 54px; height: 54px;
+  border-radius: 100%;
+  margin-right: 12px;
+}
+
+#authors-main .author-infos
+{
+  display:table-cell;
+  vertical-align:middle;
+  width: 300px;
+}
+
+#authors-main .author-name
+{
+  font-family: Montserrat; color: #EC6669; font-size: 20px; font-weight: bold;
+  line-height: 22px;
+}
+
+#authors-main .author-desc
+{
+  font-family: Muli; color: #494949; font-size: 16px; font-weight: 200;
+  line-height: 22px;
 }
