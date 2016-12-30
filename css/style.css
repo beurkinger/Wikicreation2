@@ -47,7 +47,7 @@ html, body
 
 body.blue
 {
-  background-color: #232D5C;
+  background-color: #242D5C;
 }
 
 /*---Header---*/
@@ -61,7 +61,7 @@ body.blue
 #main-logo
 {
   display: block;
-  position: relative; top: 50px; left: 70px;
+  position: relative; top: 30px; left: 70px;
   width: 215px; height: 38px;
   background-image: url('../img/main-logo-white.svg');
 }
@@ -80,7 +80,7 @@ body.blue #main-logo
 #main-header .page-title
 {
   position: absolute; top: 66px; left: 406px;
-  font-family: Montserrat; color: #EC6669; font-size: 25px; font-weight: bold;
+  font-family: Montserrat; color: #FF6666; font-size: 25px; font-weight: bold;
   letter-spacing: 1px;
   line-height: 100%;
   text-transform: uppercase;
@@ -91,13 +91,13 @@ body.blue #main-logo
   position: absolute;
   font-family: Montserrat; font-size: 16px; font-weight: bold;
   line-height: 100%;
-  top: 69px; left: 70px;
+  top: 50px; left: 70px;
   letter-spacing: 1px;
 }
 
 #main-header .language
 {
-  color: #EC6669;
+  color: #FF6666;
 }
 
 body.blue #main-header .language
@@ -114,7 +114,7 @@ body.blue #main-header .language
 
 #main-header .language .separator
 {
-  border-right: 2px solid #EC6669;
+  border-right: 2px solid #FF6666;
 }
 
 body.blue #main-header .language .separator
@@ -129,12 +129,12 @@ body.blue #main-header .language .separator
 
 #main-header .language .selected
 {
- border-bottom: 2px solid #EC6669;
+ border-bottom: 2px solid #FF6666;
 }
 
 body.blue #main-header .language .selected
 {
- border-bottom: 2px solid #FFF;
+ border-bottom: 2px solid #FF6666;
 }
 
 #main-header .menu-ham, #main-menu .menu-exit, #author-profile-exit
@@ -142,7 +142,7 @@ body.blue #main-header .language .selected
   display: block;
   position: absolute;
   height: 16px;
-  top: 71px; right: 70px;
+  top: 50px; right: 70px;
 }
 
 #main-header .menu-ham
@@ -177,7 +177,7 @@ body.blue #main-header .menu-ham
 #main-menu
 {
   right: 0;
-  background-color: #EC6669;
+  background-color: #FF6666;
   color: #FFF;
 }
 
@@ -200,7 +200,7 @@ body.blue #main-header .menu-ham
 #main-menu .search-form
 {
   display: block;
-  margin-top: 86px;
+  margin-top: 80px;
   line-height: 0;
   font-size: 0;
 }
@@ -245,22 +245,17 @@ body.blue #main-header .menu-ham
 #main-menu .pages-list li
 {
   display:block;
-  border-top: 1px solid #FFF;
-  padding: 14px 0;
+  border-bottom: 1px solid #FFF;
+  padding: 12px 0;
   font-family: Muli; color: #FFF; font-size: 20px; font-weight: 200;
   line-height: 100%;
+  margin-bottom: 16px;
 }
 
 #main-menu .pages-list li a
 {
   text-decoration: none;
   color: #FFF;
-}
-
-#main-menu .pages-list li:first-of-type
-{
-  border-top: 0px solid transparent;
-  padding-top: 0px;
 }
 
 #main-menu .pages-list li.selected
@@ -296,25 +291,26 @@ body.blue #main-header .menu-ham
 {
   left: 0; right: 0;
   background-color: #FFF;
-  color: #494949;
+  color: #484848;
   overflow-y: scroll;
+  padding: 70px 50px;
 }
 
 #news-menu .menu-title
 {
   display: block;
-  margin: 70px 0 45px 0;
+  margin: 50px 0 45px 0;
   font-family: Montserrat; font-size: 20px; font-weight: bold;
   line-height: 100%;
   padding-bottom: 16px;
-  border-bottom: 1px solid #494949;
+  border-bottom: 1px solid #484848;
   text-transform: uppercase;
 }
 
 #news-menu .title
 {
   display: block;
-  margin: 35px 0 0 0;
+  margin: 35px 0 10px 0;
   font-family: Montserrat; font-size: 20px; font-weight: bold;
   line-height: 100%;
 }
@@ -322,7 +318,6 @@ body.blue #main-header .menu-ham
 #news-menu .author
 {
   display: block;
-  margin: 2px 0;
   font-family: Muli; font-size: 19px; font-weight: bold;
   line-height: 100%;
 }
@@ -330,9 +325,9 @@ body.blue #main-header .menu-ham
 #news-menu .description
 {
   display: block;
-  margin: 32px 0 35px 0;
+  margin: 25px 0 35px 0;
   padding-bottom: 33px;
-  border-bottom: 1px solid #494949;
+  border-bottom: 1px solid #484848;
   font-family: Muli; font-size: 16px; font-weight: 200;
 }
 
@@ -350,9 +345,9 @@ body.blue #main-header .menu-ham
   box-sizing: border-box;
   position: absolute; top: 0; left: 0;
   width: 360px; height: 100%;
-  padding: 154px 45px 0 70px;
+  padding: 150px 45px 0 70px;
   background-color: #F5F5F5;
-  font-family: Muli; color: #494949; font-size: 14px; font-weight: 200;
+  font-family: Muli; color: #484848; font-size: 14px; font-weight: 200;
 }
 
 #main-aside .author
@@ -377,12 +372,12 @@ body.blue #main-header .menu-ham
 
 #main-aside .author-name
 {
-  font-family: Montserrat; color: #EC6669; font-size: 13px; font-weight: bold;
+  font-family: Montserrat; color: #FF6666; font-size: 13px; font-weight: bold;
 }
 
 #main-aside .author-desc
 {
-  font-family: Muli; color: #494949; font-size: 12px; font-weight: 200;
+  font-family: Muli; color: #484848; font-size: 12px; font-weight: 200;
 }
 
 #main-aside .info
@@ -393,41 +388,30 @@ body.blue #main-header .menu-ham
 
 #main-aside .info-title
 {
-  margin: 11px 0;
-  font-family: Montserrat; color: #232D5C; font-size: 15px; font-weight: bold;
+  margin: 10px 0;
+  font-family: Montserrat; color: #242D5C; font-size: 15px; font-weight: bold;
   text-transform: uppercase;
 }
 
 #main-aside .info-desc {}
 
-#main-aside .navigation
-{
-  display: block;
-  list-style: none;
-}
-
-#main-aside .navigation li
-{
-  margin-bottom: 22px;
-}
-
-#main-aside .navigation li .gauge
+#main-aside .gauge
 {
   width: 100%; height: 8px;
   background-color: #CDCCCC;
   margin-top: 8px;
 }
 
-#main-aside .navigation li .gauge .percent
+#main-aside .gauge .percent
 {
   width: 0%; height: 8px;
-  background-color: #EC6669;
+  background-color: #FF6666;
 }
 
 #main-aside .download
 {
-  width: 24px; height: auto;
-  margin-right: 16px;
+  height: auto; height: 34px;
+  margin-right: 24px;
 }
 
 #main-aside .search-form
@@ -441,11 +425,11 @@ body.blue #main-header .menu-ham
 #main-aside .search-field, #main-aside .search-btn
 {
   display: inline-block;
-  font-family: Montserrat; color: #494949; font-size: 20px;
+  font-family: Montserrat; color: #484848; font-size: 20px;
   line-height: 100%;
   background: transparent;
   border-style: solid;
-  border-color: #494949;
+  border-color: #484848;
 }
 
 #main-aside .search-field
@@ -455,10 +439,10 @@ body.blue #main-header .menu-ham
   padding: 10px 20px;
 }
 
-#main-aside .search-field::-webkit-input-placeholder { color: #494949; }
-#main-aside .search-field::-moz-placeholder { color: #494949; }
-#main-aside .search-field:-ms-input-placeholder {color: #494949; }
-#main-aside .search-field:-moz-placeholder { color: #494949; }
+#main-aside .search-field::-webkit-input-placeholder { color: #484848; }
+#main-aside .search-field::-moz-placeholder { color: #484848; }
+#main-aside .search-field:-ms-input-placeholder {color: #484848; }
+#main-aside .search-field:-moz-placeholder { color: #484848; }
 
 #main-aside .search-btn
 {
@@ -480,8 +464,8 @@ body.blue #main-header .menu-ham
   display: block;
   margin-top: 11px;
   padding-top: 11px;
-  border-top: 1px solid #494949;
-  font-family: Montserrat; color: #494949; font-size: 15px;
+  border-top: 1px solid #484848;
+  font-family: Montserrat; color: #484848; font-size: 15px;
 }
 
 #main-aside .filter input[type=checkbox]
@@ -500,20 +484,23 @@ body.blue #main-header .menu-ham
 #article-main
 {
   display: block;
-  margin: 0px 15% 0 15%;
-  font-family: Muli; color: #494949; font-size: 16px; font-weight: 200;
+  margin: 120px 15% 0 15%;
+  font-family: Muli; color: #484848; font-size: 16px; font-weight: 200;
 }
 
 #article-main .article-infos
 {
-  font-family: Muli; color: #494949; font-size: 17px; font-weight: 200;
+  display: inline-block;
+  font-family: Muli; color: #484848; font-size: 17px; font-weight: 200;
+  padding: 0 0 14px 0;
+  border-bottom: 1px solid #484848;
 }
 
 #article-main .article-title
 {
-  font-family: Montserrat; color: #262626; font-size: 30px; font-weight: bold;
+  font-family: Montserrat; color: #484848; font-size: 30px; font-weight: bold;
   text-transform: uppercase;
-  margin: 15px 0 36px 0;
+  margin: 42px 0 36px 0;
 }
 
 #article-main p
@@ -554,7 +541,7 @@ body.blue #main-header .menu-ham
 
 #authors-main .author-name
 {
-  font-family: Montserrat; color: #EC6669; font-size: 20px; font-weight: bold;
+  font-family: Montserrat; color: #FF6666; font-size: 20px; font-weight: bold;
   line-height: 110%;
 }
 
@@ -572,7 +559,7 @@ body.blue #main-header .menu-ham
 
 #authors-main .author-desc
 {
-  font-family: Muli; color: #494949; font-size: 16px; font-weight: 200;
+  font-family: Muli; color: #484848; font-size: 16px; font-weight: 200;
   line-height: 140%;
 }
 
@@ -584,7 +571,7 @@ body.blue #main-header .menu-ham
   box-sizing: border-box;
   height: 100%; width: 500px;
   padding: 98px 70px 0 70px;
-  background-color: #232D5C;
+  background-color: #242D5C;
   overflow-y: scroll;
   box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.33);
 }
@@ -593,14 +580,14 @@ body.blue #main-header .menu-ham
 {
   display: block;
   width: 190px; height: 190px;
-  border: 5px solid #EC6669;
+  border: 5px solid #FF6666;
   margin: 0 auto 46px auto;
   border-radius: 100%;
 }
 
 #author-profile .author-name
 {
-  font-family: Montserrat; color: #EC6669; font-size: 20px; font-weight: bold;
+  font-family: Montserrat; color: #FF6666; font-size: 20px; font-weight: bold;
   line-height: 20px;
   padding-bottom: 6px;
 }
@@ -635,10 +622,10 @@ body.blue #main-header .menu-ham
 
 #author-profile .article-category-title
 {
-  font-family: Montserrat; color: #EC6669; font-size: 15px; font-weight: normal;
+  font-family: Montserrat; color: #FF6666; font-size: 15px; font-weight: normal;
   line-height: 100%;
   padding-bottom: 7px;
-  border-bottom: 1px solid #EC6669;;
+  border-bottom: 1px solid #FF6666;;
   margin-bottom: 15px;
 }
 
