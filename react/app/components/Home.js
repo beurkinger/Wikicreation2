@@ -1,7 +1,5 @@
 import React from 'react';
 
-var Home = React.createClass({
-  render: () => <h1>H O M E 666</h1>
-});
+const Home = () => <main id="main-container"></main>;
 
 module.exports = Home;

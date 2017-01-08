@@ -1,7 +1,12 @@
-require("style-loader!css-loader!./css/style.css")
+import React from 'react';
+import ReactDom from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './components/store';
+import App from './components/App';
 
-var React = require('react');
-var ReactDom = require('react-dom');
-var App = require('./components/App');
+console.log(store.getState());
 
-ReactDom.render(<App/>, document.getElementById('app'));
+ReactDom.render(
+  <Provider store={store}><App /></Provider>,
+  document.getElementById('root')
+);
