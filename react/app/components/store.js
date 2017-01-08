@@ -12,7 +12,22 @@ const themeReducer = function(state = initTheme, action) {
   }
 };
 
-const initMenu = { isVisible : false, news : {} };
+const initMenu = {
+  isVisible : false,
+  news : {},
+  mainLinks : [
+    { name :  'Accueil', path : '/', index: true },
+    { name :  'À propos', path : '/about' },
+    { name :  'Articles', path : '/articles' },
+    { name :  'Auteurs', path : '/authors' },
+    { name :  'Contribuer', path : '/contribute' }
+  ],
+  secondaryLinks : [
+    { name :  'Comité', path : '/committee' },
+    { name :  'Crédits et contact', path : '/credits-contacts' },
+    { name :  'Mentions légales', path : '/legal' },
+  ]
+};
 const menuReducer = function(state = initMenu, action) {
   switch (action.type) {
     case 'SHOW_MENU' :

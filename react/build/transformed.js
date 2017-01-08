@@ -23688,16 +23688,21 @@
 	  }
 	};
 
-	var initMenu = { visible: false, news: {} };
+	var initMenu = {
+	  isVisible: false,
+	  news: {},
+	  mainLinks: [{ name: 'Accueil', path: '/', index: true }, { name: 'À propos', path: '/about' }, { name: 'Articles', path: '/articles' }, { name: 'Auteurs', path: '/authors' }, { name: 'Contribuer', path: '/contribute' }],
+	  secondaryLinks: [{ name: 'Comité', path: '/committee' }, { name: 'Crédits et contact', path: '/credits-contacts' }, { name: 'Mentions légales', path: '/legal' }]
+	};
 	var menuReducer = function menuReducer() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initMenu;
 	  var action = arguments[1];
 
 	  switch (action.type) {
 	    case 'SHOW_MENU':
-	      return Object.assign({}, state, { visible: true });
+	      return Object.assign({}, state, { isVisible: true });
 	    case 'HIDE_MENU':
-	      return Object.assign({}, state, { visible: false });
+	      return Object.assign({}, state, { isVisible: false });
 	    default:
 	      return state;
 	  }
@@ -28761,7 +28766,7 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Menu = __webpack_require__(274);
+	var _Menu = __webpack_require__(273);
 
 	var _Menu2 = _interopRequireDefault(_Menu);
 
@@ -28774,12 +28779,15 @@
 	var Main = _react2.default.createClass({
 	  displayName: 'Main',
 
+	  propTypes: {
+	    theme: _react2.default.PropTypes.string.isRequired
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
 	      { id: 'app', className: this.props.theme },
 	      _react2.default.createElement(_Header2.default, null),
-	      _react2.default.createElement(Menu, null),
+	      _react2.default.createElement(_Menu2.default, null),
 	      this.props.children
 	    );
 	  }
@@ -28805,7 +28813,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _NavLink = __webpack_require__(273);
+	var _NavLink = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./NavLink\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _NavLink2 = _interopRequireDefault(_NavLink);
 
@@ -28814,6 +28822,9 @@
 	var Header = _react2.default.createClass({
 	  displayName: 'Header',
 
+	  propTypes: {
+	    showMenu: _react2.default.PropTypes.func.isRequired
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'header',
@@ -28853,36 +28864,8 @@
 
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Header);
 
-	// module.exports = Header;
-
 /***/ },
 /* 273 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(212);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var NavLink = _react2.default.createClass({
-	  displayName: 'NavLink',
-
-	  render: function render() {
-	    return _react2.default.createElement(_reactRouter.Link, _extends({}, this.props, { activeClassName: 'active' }));
-	  }
-	});
-
-	module.exports = NavLink;
-
-/***/ },
-/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28895,10 +28878,6 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _NavLink = __webpack_require__(273);
-
-	var _NavLink2 = _interopRequireDefault(_NavLink);
-
 	var _store = __webpack_require__(210);
 
 	var _store2 = _interopRequireDefault(_store);
@@ -28908,10 +28887,28 @@
 	var Menu = _react2.default.createClass({
 	  displayName: 'Menu',
 
+	  propTypes: {
+	    hideMenu: _react2.default.PropTypes.func.isRequired,
+	    isVisible: _react2.default.PropTypes.bool.isRequired,
+	    mainLinks: _react2.default.PropTypes.array.isRequired,
+	    secondaryLinks: _react2.default.PropTypes.array.isRequired
+	  },
+	  createLink: function createLink(link) {
+	    var isIndex = link.index ? true : false;
+	    return _react2.default.createElement(
+	      'li',
+	      { key: link.name },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: link.path, activeClassName: 'selected', onlyActiveOnIndex: isIndex },
+	        link.name
+	      )
+	    );
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'div',
-	      { id: 'menus', style: { 'display': this.props.visible ? 'block' : 'none' } },
+	      { id: 'menus', style: { 'display': this.props.isVisible ? 'block' : 'none' } },
 	      _react2.default.createElement(
 	        'nav',
 	        { id: 'main-menu' },
@@ -28944,70 +28941,12 @@
 	        _react2.default.createElement(
 	          'ul',
 	          { className: 'pages-list' },
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#' },
-	              'Accueil'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#' },
-	              '\xC0 propos'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            { className: 'selected' },
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#' },
-	              'Articles'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#' },
-	              'Auteurs'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'a',
-	              { href: '#' },
-	              'Contribuer'
-	            )
-	          )
+	          this.props.mainLinks.map(this.createLink)
 	        ),
 	        _react2.default.createElement(
 	          'ul',
 	          { className: 'footer' },
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Comit\xE9'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Cr\xE9dits et contact'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Mentions l\xE9gales'
-	          )
+	          this.props.secondaryLinks.map(this.createLink)
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -29062,7 +29001,11 @@
 	});
 
 	var mapStateToProps = function mapStateToProps(store) {
-	  return { visible: store.menu.visible };
+	  return {
+	    isVisible: store.menu.isVisible,
+	    mainLinks: store.menu.mainLinks,
+	    secondaryLinks: store.menu.secondaryLinks
+	  };
 	};
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, IndexLink } from 'react-router';
 import { connect } from 'react-redux';
 
-import NavLink from './NavLink';
-
 var Header = React.createClass({
+  propTypes: {
+    showMenu: React.PropTypes.func.isRequired
+  },
   render: function () {
     return (
       <header id="main-header">
@@ -29,5 +29,3 @@ const mapDispatchToProps = function(dispatch) {
 };
 
 module.exports = connect(null, mapDispatchToProps)(Header);
-
-// module.exports = Header;

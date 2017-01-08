@@ -6,6 +6,9 @@ import Menu from './Menu';
 import store from './store';
 
 const Main = React.createClass({
+  propTypes: {
+    theme: React.PropTypes.string.isRequired
+  },
   render: function () {
     return (
       <div id="app" className={this.props.theme}>

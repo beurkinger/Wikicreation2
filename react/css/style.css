@@ -258,7 +258,7 @@ html, body, #root, #app
   color: #FFF;
 }
 
-#main-menu .pages-list li.selected
+#main-menu .pages-list li a.active
 {
   font-family: Montserrat;
   font-weight: bold;
@@ -283,6 +283,7 @@ html, body, #root, #app
 
 #main-menu .footer a
 {
+  color: #FFF;
   text-decoration: none;
   margin-top: 22px;
 }

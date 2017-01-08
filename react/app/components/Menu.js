@@ -2,13 +2,28 @@ import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import { connect } from 'react-redux';
 
-import NavLink from './NavLink';
 import store from './store';
 
 const Menu = React.createClass({
+  propTypes: {
+    hideMenu: React.PropTypes.func.isRequired,
+    isVisible: React.PropTypes.bool.isRequired,
+    mainLinks: React.PropTypes.array.isRequired,
+    secondaryLinks: React.PropTypes.array.isRequired,
+  },
+  createLink: function(link) {
+      let isIndex = link.index ? true : false;
+      return (
+        <li key={link.name}>
+          <Link to={link.path} activeClassName="active" onlyActiveOnIndex={isIndex}>
+            {link.name}
+          </Link>
+        </li>
+      );
+  },
   render: function () {
     return (
-      <div id="menus" style={{ 'display': (this.props.visible ? 'block' : 'none') }}>
+      <div id="menus" style={{ 'display': this.props.isVisible ? 'block' : 'none' }}>
         <nav id="main-menu">
           <img className="menu-exit" src="img/menu-exit.svg" onClick={this.props.hideMenu} />
           <div className="language">
@@ -19,42 +34,10 @@ const Menu = React.createClass({
             <button className="search-btn" name="main-search-btn">Go</button>
           </form>
           <ul className="pages-list">
-            <li>
-              <a href="#">
-                Accueil
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                À propos
-              </a>
-            </li>
-            <li className="selected">
-              <a href="#">
-                Articles
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Auteurs
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Contribuer
-              </a>
-            </li>
+            {this.props.mainLinks.map(this.createLink)}
           </ul>
           <ul className="footer">
-            <li>
-              Comité
-            </li>
-            <li>
-              Crédits et contact
-            </li>
-            <li>
-              Mentions légales
-            </li>
+            {this.props.secondaryLinks.map(this.createLink)}
           </ul>
         </nav>
         <div id="news-menu">
@@ -90,7 +73,11 @@ const Menu = React.createClass({
 });
 
 const mapStateToProps = function (store) {
-   return {visible : store.menu.isVisible };
+   return {
+     isVisible : store.menu.isVisible,
+     mainLinks : store.menu.mainLinks,
+     secondaryLinks : store.menu.secondaryLinks
+   };
 };
 
 const mapDispatchToProps = function(dispatch) {
