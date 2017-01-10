@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import store from './store';
+import * as actions from './actions';
 
 const NavMenu = React.createClass({
   propTypes: {
@@ -52,7 +53,7 @@ const mapStateToProps = function (store) {
 const mapDispatchToProps = function(dispatch) {
   return {
     hideMenu: function() {
-      dispatch({ type : 'HIDE_MENU' });
+      dispatch(actions.hideMenu());
     }
   }
 };

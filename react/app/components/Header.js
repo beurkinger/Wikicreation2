@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import * as actions from './actions';
+
 var Header = React.createClass({
   propTypes: {
     showMenu: React.PropTypes.func.isRequired
@@ -23,7 +25,7 @@ var Header = React.createClass({
 const mapDispatchToProps = function(dispatch) {
   return {
     showMenu: function() {
-      dispatch({ type : 'SHOW_MENU' });
+      dispatch(actions.showMenu());
     }
   }
 };

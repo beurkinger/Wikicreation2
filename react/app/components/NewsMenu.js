@@ -1,18 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import fetch from 'isomorphic-fetch';
 
-import store from './store';
+import * as actions from './actions';
+import * as async from './async';
 
 const NewsMenu = React.createClass({
   propTypes: {
     articles: React.PropTypes.array.isRequired
   },
   componentDidMount: function() {
-    fetch('/json/news.json')
-    .then((response) => response.json())
-    .then((json) => store.dispatch({'type' : 'NEWS_SUCCESS', 'articles' : json}));
+    async.getNews();
   },
   createArticle: function(article) {
       return (
@@ -26,7 +24,7 @@ const NewsMenu = React.createClass({
           <p className="description">
             {article.desc}
           </p>
-          <Link className="link" to={"/articles" + article.id}>
+          <Link className="link" to={"/articles/" + article.id}>
             Lire l'article
           </Link>
         </div>
@@ -35,6 +33,9 @@ const NewsMenu = React.createClass({
   render: function () {
     return (
       <div id="news-menu">
+        <h2 className="menu-title">
+          Récemment parus
+        </h2>
         {this.props.articles.map(this.createArticle)}
       </div>
     );
