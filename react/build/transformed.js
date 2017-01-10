@@ -23690,7 +23690,6 @@
 
 	var initMenu = {
 	  isVisible: false,
-	  news: {},
 	  mainLinks: [{ name: 'Accueil', path: '/', index: true }, { name: 'À propos', path: '/about' }, { name: 'Articles', path: '/articles' }, { name: 'Auteurs', path: '/authors' }, { name: 'Contribuer', path: '/contribute' }],
 	  secondaryLinks: [{ name: 'Comité', path: '/committee' }, { name: 'Crédits et contact', path: '/credits-contacts' }, { name: 'Mentions légales', path: '/legal' }]
 	};
@@ -23704,6 +23703,20 @@
 	    case 'HIDE_MENU':
 	      return Object.assign({}, state, { isVisible: false });
 	    default:
+	      return state;
+	  }
+	};
+
+	var initNews = {
+	  isFetching: false,
+	  articles: []
+	};
+	var newsReducer = function newsReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initNews;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case 'FETCH_POST':
 	      return state;
 	  }
 	};
@@ -23737,6 +23750,7 @@
 	var appReducers = (0, _redux.combineReducers)({
 	  theme: themeReducer,
 	  menu: menuReducer,
+	  news: newsReducer,
 	  authorsFilter: authorsFilterReducer,
 	  articlesFilter: articlesFilterReducer
 	});
@@ -28809,13 +28823,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(212);
-
 	var _reactRedux = __webpack_require__(172);
-
-	var _NavLink = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./NavLink\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-	var _NavLink2 = _interopRequireDefault(_NavLink);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28878,6 +28886,14 @@
 
 	var _reactRedux = __webpack_require__(172);
 
+	var _NavMenu = __webpack_require__(274);
+
+	var _NavMenu2 = _interopRequireDefault(_NavMenu);
+
+	var _NewsMenu = __webpack_require__(275);
+
+	var _NewsMenu2 = _interopRequireDefault(_NewsMenu);
+
 	var _store = __webpack_require__(210);
 
 	var _store2 = _interopRequireDefault(_store);
@@ -28888,8 +28904,51 @@
 	  displayName: 'Menu',
 
 	  propTypes: {
+	    isVisible: _react2.default.PropTypes.bool.isRequired
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'menus', style: { 'display': this.props.isVisible ? 'block' : 'none' } },
+	      _react2.default.createElement(_NavMenu2.default, null),
+	      _react2.default.createElement(_NewsMenu2.default, null)
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    isVisible: store.menu.isVisible
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Menu);
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(212);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _store = __webpack_require__(210);
+
+	var _store2 = _interopRequireDefault(_store);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NavMenu = _react2.default.createClass({
+	  displayName: 'NavMenu',
+
+	  propTypes: {
 	    hideMenu: _react2.default.PropTypes.func.isRequired,
-	    isVisible: _react2.default.PropTypes.bool.isRequired,
 	    mainLinks: _react2.default.PropTypes.array.isRequired,
 	    secondaryLinks: _react2.default.PropTypes.array.isRequired
 	  },
@@ -28900,101 +28959,50 @@
 	      { key: link.name },
 	      _react2.default.createElement(
 	        _reactRouter.Link,
-	        { to: link.path, activeClassName: 'selected', onlyActiveOnIndex: isIndex },
+	        { to: link.path, activeClassName: 'active', onlyActiveOnIndex: isIndex },
 	        link.name
 	      )
 	    );
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      'div',
-	      { id: 'menus', style: { 'display': this.props.isVisible ? 'block' : 'none' } },
+	      'nav',
+	      { id: 'nav-menu' },
+	      _react2.default.createElement('img', { className: 'menu-exit', src: 'img/menu-exit.svg', onClick: this.props.hideMenu }),
 	      _react2.default.createElement(
-	        'nav',
-	        { id: 'main-menu' },
-	        _react2.default.createElement('img', { className: 'menu-exit', src: 'img/menu-exit.svg', onClick: this.props.hideMenu }),
+	        'div',
+	        { className: 'language' },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'language' },
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'selected' },
-	            'FR'
-	          ),
-	          _react2.default.createElement('div', { className: 'separator' }),
-	          _react2.default.createElement(
-	            'span',
-	            null,
-	            'EN'
-	          )
+	          'span',
+	          { className: 'selected' },
+	          'FR'
 	        ),
+	        _react2.default.createElement('div', { className: 'separator' }),
 	        _react2.default.createElement(
-	          'form',
-	          { className: 'search-form' },
-	          _react2.default.createElement('input', { className: 'search-field', name: 'main-search-field', placeholder: 'Recherche' }),
-	          _react2.default.createElement(
-	            'button',
-	            { className: 'search-btn', name: 'main-search-btn' },
-	            'Go'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'pages-list' },
-	          this.props.mainLinks.map(this.createLink)
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'footer' },
-	          this.props.secondaryLinks.map(this.createLink)
+	          'span',
+	          null,
+	          'EN'
 	        )
 	      ),
 	      _react2.default.createElement(
-	        'div',
-	        { id: 'news-menu' },
+	        'form',
+	        { className: 'search-form' },
+	        _react2.default.createElement('input', { className: 'search-field', name: 'main-search-field', placeholder: 'Recherche' }),
 	        _react2.default.createElement(
-	          'h2',
-	          { className: 'menu-title' },
-	          'R\xE9cemment parus'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'article' },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'title' },
-	            'Duchamps & Cr\xE9ation'
-	          ),
-	          _react2.default.createElement(
-	            'h4',
-	            { className: 'author' },
-	            'Ivan Toulouse'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            { className: 'description' },
-	            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'article' },
-	          _react2.default.createElement(
-	            'h3',
-	            { className: 'title' },
-	            'Jazz & Cr\xE9ation'
-	          ),
-	          _react2.default.createElement(
-	            'h4',
-	            { className: 'author' },
-	            'Jos\xE9 Romero Tenorio'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            { className: 'description' },
-	            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-	          )
+	          'button',
+	          { className: 'search-btn', name: 'main-search-btn' },
+	          'Go'
 	        )
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'pages-list' },
+	        this.props.mainLinks.map(this.createLink)
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'footer' },
+	        this.props.secondaryLinks.map(this.createLink)
 	      )
 	    );
 	  }
@@ -29002,7 +29010,6 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
-	    isVisible: store.menu.isVisible,
 	    mainLinks: store.menu.mainLinks,
 	    secondaryLinks: store.menu.secondaryLinks
 	  };
@@ -29016,19 +29023,131 @@
 	  };
 	};
 
-	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Menu);
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NavMenu);
 
-	// <div>
-	//   <ul>
-	//     <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
-	//     <li><NavLink to="/about">About</NavLink></li>
-	//     <li><NavLink to="/article/1">Article</NavLink></li>
-	//     <li><NavLink to="/articles">Articles</NavLink></li>
-	//     <li><NavLink to="/authors">Auteurs</NavLink></li>
-	//     <li><NavLink to="/contribute">Contribuer</NavLink></li>
-	//   </ul>
-	//   {this.props.children}
-	// </div>);
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(212);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _store = __webpack_require__(210);
+
+	var _store2 = _interopRequireDefault(_store);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NewsMenu = _react2.default.createClass({
+	  displayName: 'NewsMenu',
+
+	  propTypes: {
+	    articles: _react2.default.PropTypes.array.isRequired
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var self = this;
+	    var req = new XMLHttpRequest();
+	    req.open('GET', '/json/news.json', false);
+	    req.send(null);
+	    if (req.status == 200) ;
+	    dump(req.responseText);
+	  },
+	  createArticle: function createArticle(article) {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'article' },
+	      _react2.default.createElement(
+	        'h3',
+	        { className: 'title' },
+	        article.title
+	      ),
+	      _react2.default.createElement(
+	        'h4',
+	        { className: 'author' },
+	        article.author
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'description' },
+	        article.desc
+	      )
+	    );
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'news-menu' },
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'menu-title' },
+	        'R\xE9cemment parus'
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'article' },
+	        _react2.default.createElement(
+	          'h3',
+	          { className: 'title' },
+	          'Duchamps & Cr\xE9ation'
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          { className: 'author' },
+	          'Ivan Toulouse'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'description' },
+	          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { className: 'link' },
+	          'Lire l\'article'
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'article' },
+	        _react2.default.createElement(
+	          'h3',
+	          { className: 'title' },
+	          'Jazz & Cr\xE9ation'
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          { className: 'author' },
+	          'Jos\xE9 Romero Tenorio'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'description' },
+	          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { className: 'link' },
+	          'Lire l\'article'
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    articles: store.news.articles
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(NewsMenu);
 
 /***/ }
 /******/ ]);

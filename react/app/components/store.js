@@ -14,7 +14,6 @@ const themeReducer = function(state = initTheme, action) {
 
 const initMenu = {
   isVisible : false,
-  news : {},
   mainLinks : [
     { name :  'Accueil', path : '/', index: true },
     { name :  'À propos', path : '/about' },
@@ -34,6 +33,23 @@ const menuReducer = function(state = initMenu, action) {
       return Object.assign({}, state, { isVisible : true });
     case 'HIDE_MENU' :
       return Object.assign({}, state, { isVisible : false });
+    default:
+      return state;
+  }
+};
+
+const initNews = {
+  isFetching : false,
+  articles : []
+};
+const newsReducer = function(state = initNews, action) {
+  switch (action.type) {
+    case 'NEWS_REQUEST' :
+      return Object.assign({}, state, { isFetching : true });
+    case 'NEWS_SUCCESS' :
+      return Object.assign({}, state, { isFetching : false, articles : action.articles });
+      case 'NEWS_FAIL' :
+        return Object.assign({}, state, { isFetching : false });
     default:
       return state;
   }
@@ -62,6 +78,7 @@ const articlesFilterReducer = function(state = initArticlesFilter, action) {
 const appReducers = combineReducers({
   theme : themeReducer,
   menu : menuReducer,
+  news : newsReducer,
   authorsFilter : authorsFilterReducer,
   articlesFilter : articlesFilterReducer
 });
