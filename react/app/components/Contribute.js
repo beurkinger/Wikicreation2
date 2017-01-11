@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Contribute = React.createClass({
+const Contribute = React.createClass({
   render: () => <h1>Contribute 666</h1>
 });
 

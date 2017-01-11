@@ -1,16 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import store from './store';
 import * as actions from './actions';
+import Keywords from './Keywords';
+import store from './store';
 
-var ArticleAside = React.createClass({
+const ArticleAside = React.createClass({
   propTypes: {
     keywords: React.PropTypes.array.isRequired,
+    pdfFr : React.PropTypes.string.isRequired,
+    pdfEn : React.PropTypes.string.isRequired,
     authorId : React.PropTypes.number.isRequired,
     authorName : React.PropTypes.string.isRequired,
     authorTitle : React.PropTypes.string.isRequired,
     authorPic : React.PropTypes.string.isRequired,
+    percentRead : React.PropTypes.number.isRequired
   },
   render: function () {
     return (
@@ -31,24 +35,24 @@ var ArticleAside = React.createClass({
             Mots clefs de l'article
           </h2>
           <p className="info-desc">
-            {this.props.keywords}
+            <Keywords array={this.props.keywords} />
           </p>
         </div>
         <div className="info">
           <h2 className="info-title">
             Navigation sur l'article
           </h2>
-          <div className="gauge"><div className="percent" style={{'width' : '60%'}}></div></div>
+          <div className="gauge"><div className="percent" style={{'width' : this.props.percentRead + '%'}}></div></div>
         </div>
         <div className="info">
           <h2 className="info-title">
             Téléchargement
           </h2>
           <div className="downloads">
-            <a href="#">
+            <a href={'/' + this.props.pdfFr} target="_blank">
               <img className="download" src="img/download-fr.svg"/>
             </a>
-            <a href="#">
+            <a href={'/' + this.props.pdfEn} target="_blank">
               <img className="download" src="img/download-en.svg"/>
             </a>
           </div>
@@ -61,10 +65,13 @@ var ArticleAside = React.createClass({
 const mapStateToProps = function (store) {
    return {
      keywords: store.article.keywords,
+     pdfFr : store.article.pdfFr,
+     pdfEn : store.article.pdfEn,
      authorId : store.author.id,
      authorName : store.author.name,
      authorTitle : store.author.title,
      authorPic : store.author.pic,
+     percentRead : store.read
    };
 };
 

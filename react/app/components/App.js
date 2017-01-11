@@ -9,7 +9,7 @@ import Contribute from './Contribute';
 import Home from './Home';
 import Main from './Main';
 
-var App = React.createClass({
+const App = React.createClass({
   render: () => (
     <Router history={hashHistory}>
       <Route path="/" component={Main}>

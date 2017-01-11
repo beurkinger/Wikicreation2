@@ -12,6 +12,8 @@ export const ARTICLE_REQUEST = 'ARTICLE_REQUEST';
 export const ARTICLE_SUCCESS = 'ARTICLE_SUCCESS';
 export const ARTICLE_FAIL = 'ARTICLE_FAIL';
 
+export const SET_PERCENT_READ = 'SET_PERCENT_READ';
+
 export const SHOW_AUTHOR = 'SHOW_AUTHOR';
 export const HIDE_AUTHOR = 'HIDE_AUTHOR';
 export const AUTHOR_REQUEST = 'AUTHOR_REQUEST';

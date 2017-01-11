@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Authors = React.createClass({
+const Authors = React.createClass({
   render: () => <h1>Authors 666</h1>
 });
 

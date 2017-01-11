@@ -1,20 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import * as actions from './actions';
 import * as async from './async';
 import ArticleAside from './ArticleAside';
-import ArticleMain from './ArticleMain';
+import ArticleContent from './ArticleContent';
+import Author from './Author';
+import store from './store';
 
-var Article = React.createClass({
-  componentWillMount : function () { async.geArticle(this.props.params.id) },
-  render: function () {
-    return (
+const Article = React.createClass({
+  componentWillMount : function () {
+    this.props.setThemeWhite();
+    async.geArticle(this.props.params.id);
+  },
+  componentWillUnmount : function () {
+    this.props.setThemeBlue();
+  },
+  render: () => (
+    <div>
+      <Author />
       <main id="main-container">
         <ArticleAside />
-        <ArticleMain />
+        <ArticleContent />
       </main>
-    );
-  }
+    </div>
+  )
 });
 
-module.exports = Article;
+const mapDispatchToProps = function(dispatch) {
+  return {
+    setThemeWhite: () => dispatch(actions.setThemeWhite()),
+    setThemeBlue: () => dispatch(actions.setThemeBlue())
+  }
+};
+
+module.exports = connect(null,mapDispatchToProps)(Article);

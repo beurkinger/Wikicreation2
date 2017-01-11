@@ -1,6 +1,6 @@
 import React from 'react';
 
-var Articles = React.createClass({
+const Articles = React.createClass({
   render: function () {
     return <h1>Articles 666</h1>
   }

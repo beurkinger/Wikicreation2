@@ -37,6 +37,8 @@ export function articleSuccess (json) {
     date : json.date,
     keywords : json.keywords,
     body : json.body,
+    pdfFr : json.pdfFr,
+    pdfEn : json.pdfEn,
     categoryId : json.category.id,
     categoryName : json.category.name,
     authorId : json.author.id
@@ -46,8 +48,12 @@ export function articleFail () {
   return { type: actionTypes.ARTICLE_FAIL };
 };
 
+export function setPercentRead (percent) {
+  return { type: actionTypes.SET_PERCENT_READ, percent : percent  };
+};
+
 export function authorRequest () {
-  return { type: actionTypes.ARTICLE_REQUEST };
+  return { type: actionTypes.AUTHOR_REQUEST };
 };
 export function authorSuccess (json) {
   return {

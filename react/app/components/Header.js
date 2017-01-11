@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from './actions';
 
-var Header = React.createClass({
+const Header = React.createClass({
   propTypes: {
     showMenu: React.PropTypes.func.isRequired
   },
