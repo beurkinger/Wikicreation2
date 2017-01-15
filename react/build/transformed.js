@@ -23694,6 +23694,30 @@
 	  }
 	};
 
+	var initTitlebar = {
+	  isVisible: false,
+	  type: '',
+	  title: ''
+	};
+	var titlebarReducer = function titlebarReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initTitlebar;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case actionTypes.SHOW_TITLEBAR:
+	      return Object.assign({}, state, { isVisible: true });
+	    case actionTypes.HIDE_TITLEBAR:
+	      return Object.assign({}, state, { isVisible: false });
+	    case actionTypes.SET_TITLEBAR:
+	      return Object.assign({}, state, {
+	        type: action.type,
+	        title: action.title
+	      });
+	    default:
+	      return state;
+	  }
+	};
+
 	var initMenu = {
 	  isVisible: false,
 	  mainLinks: [{ name: 'Accueil', path: '/', index: true }, { name: 'À propos', path: '/about' }, { name: 'Articles', path: '/articles' }, { name: 'Auteurs', path: '/authors' }, { name: 'Contribuer', path: '/contribute' }],
@@ -23740,6 +23764,8 @@
 	  date: '',
 	  keywords: [],
 	  body: '',
+	  pdfFr: '',
+	  pdfEn: '',
 	  categoryId: -1,
 	  categoryName: '',
 	  authorId: -1
@@ -23759,6 +23785,8 @@
 	        date: action.date,
 	        keywords: action.keywords,
 	        body: action.body,
+	        pdfFr: action.pdfFr,
+	        pdfEn: action.pdfEn,
 	        categoryId: action.categoryId,
 	        categoryName: action.categoryName,
 	        authorId: action.authorId
@@ -23785,10 +23813,10 @@
 
 	var initAuthor = {
 	  isFetching: false,
-	  isVisible: false,
-	  id: 0,
+	  id: -1,
 	  name: '',
 	  title: '',
+	  desc: '',
 	  pic: ''
 	};
 	var authorReducer = function authorReducer() {
@@ -23796,10 +23824,6 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case actionTypes.SHOW_AUTHOR:
-	      return Object.assign({}, state, { isVisible: true });
-	    case actionTypes.HIDE_AUTHOR:
-	      return Object.assign({}, state, { isVisible: false });
 	    case actionTypes.AUTHOR_REQUEST:
 	      return Object.assign({}, state, { isFetching: true });
 	    case actionTypes.AUTHOR_SUCCESS:
@@ -23808,9 +23832,52 @@
 	        id: action.id,
 	        name: action.name,
 	        title: action.title,
+	        desc: action.desc,
 	        pic: action.pic
 	      });
 	    case actionTypes.AUTHOR_FAIL:
+	      return Object.assign({}, state, { isFetching: false });
+	    default:
+	      return state;
+	  }
+	};
+
+	var initAuthorPanel = {
+	  isVisible: false
+	};
+	var authorPanelReducer = function authorPanelReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initAuthorPanel;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case actionTypes.SHOW_AUTHOR_PANEL:
+	      return Object.assign({}, state, { isVisible: true });
+	    case actionTypes.HIDE_AUTHOR_PANEL:
+	      return Object.assign({}, state, { isVisible: false });
+	    default:
+	      return state;
+	  }
+	};
+
+	var initAuthorArticles = {
+	  isFetching: false,
+	  id: -1,
+	  articles: []
+	};
+	var authorArticlesReducer = function authorArticlesReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initAuthorArticles;
+	  var action = arguments[1];
+
+	  switch (action.type) {
+	    case actionTypes.AUTHOR_ARTICLES_REQUEST:
+	      return Object.assign({}, state, { isFetching: true });
+	    case actionTypes.AUTHOR_ARTICLES_SUCCESS:
+	      return Object.assign({}, state, {
+	        isFetching: false,
+	        id: action.id,
+	        articles: action.articles
+	      });
+	    case actionTypes.AUTHOR_ARTICLES_FAIL:
 	      return Object.assign({}, state, { isFetching: false });
 	    default:
 	      return state;
@@ -23845,11 +23912,14 @@
 
 	var appReducers = (0, _redux.combineReducers)({
 	  theme: themeReducer,
+	  titlebar: titlebar,
 	  menu: menuReducer,
 	  news: newsReducer,
 	  article: articleReducer,
 	  read: readReducer,
 	  author: authorReducer,
+	  authorPanel: authorPanelReducer,
+	  authorArticles: authorArticlesReducer,
 	  authorsFilter: authorsFilterReducer,
 	  articlesFilter: articlesFilterReducer
 	});
@@ -23873,6 +23943,10 @@
 	var SHOW_MENU = exports.SHOW_MENU = 'SHOW_MENU';
 	var HIDE_MENU = exports.HIDE_MENU = 'HIDE_MENU';
 
+	var SHOW_TITLEBAR = exports.SHOW_TITLEBAR = 'SHOW_TITLEBAR';
+	var HIDE_TITLEBAR = exports.HIDE_TITLEBAR = 'HIDE_TITLEBAR';
+	var SET_TITLEBAR = exports.SET_TITLEBAR = 'SET_TITLEBAR';
+
 	var NEWS_REQUEST = exports.NEWS_REQUEST = 'NEWS_REQUEST';
 	var NEWS_SUCCESS = exports.NEWS_SUCCESS = 'NEWS_SUCCESS';
 	var NEWS_FAIL = exports.NEWS_FAIL = 'NEWS_FAIL';
@@ -23883,11 +23957,16 @@
 
 	var SET_PERCENT_READ = exports.SET_PERCENT_READ = 'SET_PERCENT_READ';
 
-	var SHOW_AUTHOR = exports.SHOW_AUTHOR = 'SHOW_AUTHOR';
-	var HIDE_AUTHOR = exports.HIDE_AUTHOR = 'HIDE_AUTHOR';
 	var AUTHOR_REQUEST = exports.AUTHOR_REQUEST = 'AUTHOR_REQUEST';
 	var AUTHOR_SUCCESS = exports.AUTHOR_SUCCESS = 'AUTHOR_SUCCESS';
 	var AUTHOR_FAIL = exports.AUTHOR_FAIL = 'AUTHOR_FAIL';
+
+	var SHOW_AUTHOR_PANEL = exports.SHOW_AUTHOR_PANEL = 'SHOW_AUTHOR_PANEL';
+	var HIDE_AUTHOR_PANEL = exports.HIDE_AUTHOR_PANEL = 'HIDE_AUTHOR_PANEL';
+
+	var AUTHOR_ARTICLES_REQUEST = exports.AUTHOR_ARTICLES_REQUEST = 'AUTHOR_ARTICLES_REQUEST';
+	var AUTHOR_ARTICLES_SUCCESS = exports.AUTHOR_ARTICLES_SUCCESS = 'AUTHOR_ARTICLES_SUCCESS';
+	var AUTHOR_ARTICLES_FAIL = exports.AUTHOR_ARTICLES_FAIL = 'AUTHOR_ARTICLES_FAIL';
 
 /***/ },
 /* 212 */
@@ -28815,7 +28894,7 @@
 	    async.geArticle(this.props.params.id);
 	  },
 	  componentWillUnmount: function componentWillUnmount() {
-	    return undefined.props.setThemeBlue();
+	    this.props.setThemeBlue();
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -28838,7 +28917,7 @@
 	  };
 	};
 
-	module.exports = Article;
+	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Article);
 
 /***/ },
 /* 268 */
@@ -28851,6 +28930,9 @@
 	});
 	exports.setThemeBlue = setThemeBlue;
 	exports.setThemeWhite = setThemeWhite;
+	exports.showTitlebar = showTitlebar;
+	exports.hideTitlebar = hideTitlebar;
+	exports.setTitlebar = setTitlebar;
 	exports.showMenu = showMenu;
 	exports.hideMenu = hideMenu;
 	exports.newsRequest = newsRequest;
@@ -28863,6 +28945,11 @@
 	exports.authorRequest = authorRequest;
 	exports.authorSuccess = authorSuccess;
 	exports.authorFail = authorFail;
+	exports.showAuthorPanel = showAuthorPanel;
+	exports.hideAuthorPanel = hideAuthorPanel;
+	exports.authorArticlesRequest = authorArticlesRequest;
+	exports.authorArticlesSuccess = authorArticlesSuccess;
+	exports.authorArticlesFail = authorArticlesFail;
 
 	var _isomorphicFetch = __webpack_require__(269);
 
@@ -28881,6 +28968,16 @@
 	};
 	function setThemeWhite() {
 	  return { type: actionTypes.SET_THEME_WHITE };
+	};
+
+	function showTitlebar() {
+	  return { type: actionTypes.SHOW_TITLEBAR };
+	};
+	function hideTitlebar() {
+	  return { type: actionTypes.HIDE_TITLEBAR };
+	};
+	function setTitlebar(type, title) {
+	  return { type: actionTypes.SET_TITLEBAR };
 	};
 
 	function showMenu() {
@@ -28911,6 +29008,8 @@
 	    date: json.date,
 	    keywords: json.keywords,
 	    body: json.body,
+	    pdfFr: json.pdfFr,
+	    pdfEn: json.pdfEn,
 	    categoryId: json.category.id,
 	    categoryName: json.category.name,
 	    authorId: json.author.id
@@ -28933,11 +29032,33 @@
 	    id: json.id,
 	    name: json.name,
 	    title: json.title,
+	    desc: json.desc,
 	    pic: json.pic
 	  };
 	};
 	function authorFail() {
 	  return { type: actionTypes.AUTHOR_FAIL };
+	};
+
+	function showAuthorPanel() {
+	  return { type: actionTypes.SHOW_AUTHOR_PANEL };
+	};
+	function hideAuthorPanel() {
+	  return { type: actionTypes.HIDE_AUTHOR_PANEL };
+	};
+
+	function authorArticlesRequest() {
+	  return { type: actionTypes.AUTHOR_ARTICLES_REQUEST };
+	};
+	function authorArticlesSuccess(json) {
+	  return {
+	    type: actionTypes.AUTHOR_ARTICLES_SUCCESS,
+	    id: json.id,
+	    articles: json.articles
+	  };
+	};
+	function authorArticlesFail() {
+	  return { type: actionTypes.AUTHOR_ARTICLES_FAIL };
 	};
 
 /***/ },
@@ -29427,6 +29548,7 @@
 	});
 	exports.getNews = getNews;
 	exports.geArticle = geArticle;
+	exports.getAuthor = getAuthor;
 
 	var _actions = __webpack_require__(268);
 
@@ -29461,6 +29583,17 @@
 	  });
 	};
 
+	function getAuthor(id) {
+	  fetch('/json/author.json').then(function (response) {
+	    return response.json();
+	  }).then(function (json) {
+	    _store2.default.dispatch(actions.authorSuccess(json));
+	    _store2.default.dispatch(actions.authorArticlesSuccess(json));
+	  }).catch(function (response) {
+	    return _store2.default.dispatch(actions.authorFail());
+	  });
+	};
+
 /***/ },
 /* 272 */
 /***/ function(module, exports, __webpack_require__) {
@@ -29476,6 +29609,10 @@
 	var _actions = __webpack_require__(268);
 
 	var actions = _interopRequireWildcard(_actions);
+
+	var _async = __webpack_require__(271);
+
+	var async = _interopRequireWildcard(_async);
 
 	var _Keywords = __webpack_require__(273);
 
@@ -29494,11 +29631,18 @@
 
 	  propTypes: {
 	    keywords: _react2.default.PropTypes.array.isRequired,
+	    pdfFr: _react2.default.PropTypes.string.isRequired,
+	    pdfEn: _react2.default.PropTypes.string.isRequired,
 	    authorId: _react2.default.PropTypes.number.isRequired,
 	    authorName: _react2.default.PropTypes.string.isRequired,
 	    authorTitle: _react2.default.PropTypes.string.isRequired,
 	    authorPic: _react2.default.PropTypes.string.isRequired,
-	    percentRead: _react2.default.PropTypes.number.isRequired
+	    percentRead: _react2.default.PropTypes.number.isRequired,
+	    showAuthorPanel: _react2.default.PropTypes.func.isRequired
+	  },
+	  handleAuthorClick: function handleAuthorClick() {
+	    async.getAuthor(this.props.authorId);
+	    this.props.showAuthorPanel();
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -29506,8 +29650,8 @@
 	      { id: 'main-aside' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'author' },
-	        _react2.default.createElement('img', { className: 'author-pic', src: 'img/author-pic.jpg' }),
+	        { className: 'author', onClick: this.handleAuthorClick },
+	        _react2.default.createElement('img', { className: 'author-pic', src: "img/" + this.props.authorPic }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'author-infos' },
@@ -29564,12 +29708,12 @@
 	          { className: 'downloads' },
 	          _react2.default.createElement(
 	            'a',
-	            { href: '#' },
+	            { href: '/' + this.props.pdfFr, target: '_blank' },
 	            _react2.default.createElement('img', { className: 'download', src: 'img/download-fr.svg' })
 	          ),
 	          _react2.default.createElement(
 	            'a',
-	            { href: '#' },
+	            { href: '/' + this.props.pdfEn, target: '_blank' },
 	            _react2.default.createElement('img', { className: 'download', src: 'img/download-en.svg' })
 	          )
 	        )
@@ -29581,6 +29725,8 @@
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
 	    keywords: store.article.keywords,
+	    pdfFr: store.article.pdfFr,
+	    pdfEn: store.article.pdfEn,
 	    authorId: store.author.id,
 	    authorName: store.author.name,
 	    authorTitle: store.author.title,
@@ -29591,8 +29737,8 @@
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    showAuthor: function showAuthor() {
-	      dispatch(actions.showAuthor());
+	    showAuthorPanel: function showAuthorPanel() {
+	      dispatch(actions.showAuthorPanel());
 	    }
 	  };
 	};
@@ -29663,6 +29809,7 @@
 	  displayName: 'ArticleContent',
 
 	  propTypes: {
+	    id: _react2.default.PropTypes.number.isRequired,
 	    title: _react2.default.PropTypes.string.isRequired,
 	    date: _react2.default.PropTypes.string.isRequired,
 	    categoryName: _react2.default.PropTypes.string.isRequired,
@@ -29759,6 +29906,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
+	    id: store.article.id,
 	    title: store.article.title,
 	    date: store.article.date,
 	    keywords: store.article.keywords,
@@ -44827,11 +44975,15 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _Header = __webpack_require__(392);
+	var _Author = __webpack_require__(392);
+
+	var _Author2 = _interopRequireDefault(_Author);
+
+	var _Header = __webpack_require__(395);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Menu = __webpack_require__(393);
+	var _Menu = __webpack_require__(396);
 
 	var _Menu2 = _interopRequireDefault(_Menu);
 
@@ -44853,6 +45005,7 @@
 	      { id: 'app', className: this.props.theme },
 	      _react2.default.createElement(_Header2.default, null),
 	      _react2.default.createElement(_Menu2.default, null),
+	      _react2.default.createElement(_Author2.default, null),
 	      this.props.children
 	    );
 	  }
@@ -44866,6 +45019,182 @@
 
 /***/ },
 /* 392 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _actions = __webpack_require__(268);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	var _AuthorCategory = __webpack_require__(393);
+
+	var _AuthorCategory2 = _interopRequireDefault(_AuthorCategory);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Author = _react2.default.createClass({
+	  displayName: 'Author',
+
+	  propTypes: {
+	    id: _react2.default.PropTypes.number.isRequired,
+	    isVisible: _react2.default.PropTypes.bool.isRequired,
+	    name: _react2.default.PropTypes.string.isRequired,
+	    title: _react2.default.PropTypes.string.isRequired,
+	    desc: _react2.default.PropTypes.string.isRequired,
+	    pic: _react2.default.PropTypes.string.isRequired,
+	    articles: _react2.default.PropTypes.array.isRequired,
+	    hideAuthorPanel: _react2.default.PropTypes.func.isRequired
+	  },
+	  getCategories: function getCategories(category) {
+	    return _react2.default.createElement(_AuthorCategory2.default, { key: category.categoryId, id: category.categoryId, name: category.categoryName, articles: category.articles });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'author-profile', style: { 'display': this.props.isVisible ? 'block' : 'none' } },
+	      _react2.default.createElement('img', { id: 'author-profile-exit', className: 'clickable', src: 'img/author-profile-exit.svg', onClick: this.props.hideAuthorPanel }),
+	      _react2.default.createElement('img', { className: 'author-pic', src: "img/" + this.props.pic }),
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'author-name' },
+	        this.props.name
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'author-infos' },
+	        this.props.title
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'author-desc' },
+	        this.props.desc
+	      ),
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'articles' },
+	        'Articles'
+	      ),
+	      this.props.articles.map(this.getCategories)
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    isVisible: store.authorPanel.isVisible,
+	    id: store.author.id,
+	    name: store.author.name,
+	    title: store.author.title,
+	    desc: store.author.desc,
+	    pic: store.author.pic,
+	    articles: store.authorArticles.articles
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    hideAuthorPanel: function hideAuthorPanel() {
+	      dispatch(actions.hideAuthorPanel());
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Author);
+
+/***/ },
+/* 393 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AuthorArticle = __webpack_require__(394);
+
+	var _AuthorArticle2 = _interopRequireDefault(_AuthorArticle);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ArticleCategory = _react2.default.createClass({
+	  displayName: 'ArticleCategory',
+
+	  propTypes: {
+	    id: _react2.default.PropTypes.number.isRequired,
+	    name: _react2.default.PropTypes.string.isRequired,
+	    articles: _react2.default.PropTypes.array.isRequired
+	  },
+	  getArticle: function getArticle(article) {
+	    return _react2.default.createElement(_AuthorArticle2.default, { key: article.id, id: article.id, name: article.name });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'article-category' },
+	      _react2.default.createElement(
+	        'h3',
+	        { className: 'article-category-title' },
+	        'Crise \xE9conomique'
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'article-titles' },
+	        this.props.articles.map(this.getArticle)
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ArticleCategory;
+
+/***/ },
+/* 394 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(213);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AuthorArticle = _react2.default.createClass({
+	  displayName: 'AuthorArticle',
+
+	  propTypes: {
+	    id: _react2.default.PropTypes.number.isRequired,
+	    name: _react2.default.PropTypes.string.isRequired
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'li',
+	      null,
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: "articles/" + this.props.id },
+	        this.props.name
+	      )
+	    );
+	  }
+	});
+
+	module.exports = AuthorArticle;
+
+/***/ },
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44897,8 +45226,13 @@
 	      _react2.default.createElement('div', { id: 'main-logo' }),
 	      _react2.default.createElement(
 	        'div',
+	        { id: 'main-title' },
+	        'YOLO'
+	      ),
+	      _react2.default.createElement(
+	        'div',
 	        { id: 'main-header-right' },
-	        _react2.default.createElement('div', { className: 'menu-ham', onClick: this.props.showMenu }),
+	        _react2.default.createElement('div', { className: 'menu-ham clickable', onClick: this.props.showMenu }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'language' },
@@ -44930,7 +45264,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Header);
 
 /***/ },
-/* 393 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44943,11 +45277,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _NavMenu = __webpack_require__(394);
+	var _NavMenu = __webpack_require__(397);
 
 	var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
-	var _NewsMenu = __webpack_require__(395);
+	var _NewsMenu = __webpack_require__(398);
 
 	var _NewsMenu2 = _interopRequireDefault(_NewsMenu);
 
@@ -44982,7 +45316,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Menu);
 
 /***/ },
-/* 394 */
+/* 397 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45031,7 +45365,7 @@
 	    return _react2.default.createElement(
 	      'nav',
 	      { id: 'nav-menu' },
-	      _react2.default.createElement('img', { className: 'menu-exit', src: 'img/menu-exit.svg', onClick: this.props.hideMenu }),
+	      _react2.default.createElement('img', { className: 'menu-exit clickable', src: 'img/menu-exit.svg', onClick: this.props.hideMenu }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'language' },
@@ -45089,7 +45423,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NavMenu);
 
 /***/ },
-/* 395 */
+/* 398 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

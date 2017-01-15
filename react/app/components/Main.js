@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Author from './Author';
 import Header from './Header';
 import Menu from './Menu';
 import store from './store';
@@ -14,6 +15,7 @@ const Main = React.createClass({
       <div id="app" className={this.props.theme}>
         <Header />
         <Menu />
+        <Author />
         { this.props.children }
       </div>
     );

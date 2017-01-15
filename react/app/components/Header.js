@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from './actions';
+import Titlebar from './Titlebar';
 
 const Header = React.createClass({
   propTypes: {
@@ -11,8 +12,9 @@ const Header = React.createClass({
     return (
       <header id="main-header">
         <div id="main-logo"></div>
+        <Titlebar />
         <div id="main-header-right">
-          <div className="menu-ham" onClick={this.props.showMenu}></div>
+          <div className="menu-ham clickable" onClick={this.props.showMenu}></div>
           <div className="language">
             <span className="selected">FR</span><div className="separator"></div><span>EN</span>
           </div>

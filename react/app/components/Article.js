@@ -5,7 +5,6 @@ import * as actions from './actions';
 import * as async from './async';
 import ArticleAside from './ArticleAside';
 import ArticleContent from './ArticleContent';
-import Author from './Author';
 import store from './store';
 
 const Article = React.createClass({
@@ -17,13 +16,10 @@ const Article = React.createClass({
     this.props.setThemeBlue();
   },
   render: () => (
-    <div>
-      <Author />
-      <main id="main-container">
-        <ArticleAside />
-        <ArticleContent />
-      </main>
-    </div>
+    <main id="main-container">
+      <ArticleAside />
+      <ArticleContent />
+    </main>
   )
 });
 

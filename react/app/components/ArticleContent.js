@@ -1,14 +1,15 @@
 import React from 'react';
-import constants from './constants';
 import { connect } from 'react-redux';
 
 import * as actions from './actions';
+import {WEBSITE_URL} from './constants';
 import DateStr from './DateStr';
 import Keywords from './Keywords';
 import store from './store';
 
 const ArticleContent = React.createClass({
   propTypes: {
+    id : React.PropTypes.number.isRequired,
     title: React.PropTypes.string.isRequired,
     date: React.PropTypes.string.isRequired,
     categoryName: React.PropTypes.string.isRequired,
@@ -18,7 +19,7 @@ const ArticleContent = React.createClass({
     authorName : React.PropTypes.string.isRequired,
   },
   componentWillMount : function () { this.props.dispatchPercentRead(0) },
-  websiteUrl : constants.websiteUrl,
+  websiteUrl : WEBSITE_URL,
   body : null,
   handleScroll : function (e) {
     //Distance entre le haut de la fenetre et le container
@@ -71,6 +72,7 @@ const ArticleContent = React.createClass({
 
 const mapStateToProps = function (store) {
    return {
+     id : store.article.id,
      title: store.article.title,
      date: store.article.date,
      keywords: store.article.keywords,

@@ -9,6 +9,16 @@ export function setThemeWhite () {
   return { type: actionTypes.SET_THEME_WHITE };
 };
 
+export function showTitlebar () {
+  return { type: actionTypes.SHOW_TITLEBAR };
+};
+export function hideTitlebar () {
+  return { type: actionTypes.HIDE_TITLEBAR };
+};
+export function setTitlebar (type, title) {
+  return { type: actionTypes.SET_TITLEBAR };
+};
+
 export function showMenu () {
   return { type: actionTypes.SHOW_MENU };
 };
@@ -61,9 +71,31 @@ export function authorSuccess (json) {
     id : json.id,
     name : json.name,
     title : json.title,
+    desc : json.desc,
     pic : json.pic
  };
 };
 export function authorFail () {
   return { type: actionTypes.AUTHOR_FAIL };
+};
+
+export function showAuthorPanel () {
+  return { type: actionTypes.SHOW_AUTHOR_PANEL };
+};
+export function hideAuthorPanel () {
+  return { type: actionTypes.HIDE_AUTHOR_PANEL };
+};
+
+export function authorArticlesRequest () {
+  return { type: actionTypes.AUTHOR_ARTICLES_REQUEST };
+};
+export function authorArticlesSuccess (json) {
+  return {
+    type: actionTypes.AUTHOR_ARTICLES_SUCCESS,
+    id : json.id,
+    articles : json.articles
+ };
+};
+export function authorArticlesFail () {
+  return { type: actionTypes.AUTHOR_ARTICLES_FAIL };
 };
