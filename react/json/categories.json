@@ -1,0 +1,66 @@
+[
+  {
+    "id" : 1,
+    "name" : "Communication"
+  },
+  {
+    "id" : 2,
+    "name" : "Cinéma"
+  },
+  {
+    "id" : 3,
+    "name" : "Psychologie"
+  },
+  {
+    "id" : 4,
+    "name" : "Poétique"
+  },
+  {
+    "id" : 5,
+    "name" : "Arts Visuels"
+  },
+  {
+    "id" : 6,
+    "name" : "Sociologie"
+  },
+  {
+    "id" : 7,
+    "name" : "Philosophie"
+  },
+  {
+    "id" : 8,
+    "name" : "Ethno-Esthétique"
+  },
+  {
+    "id" : 9,
+    "name" : "Féminisme"
+  },
+  {
+    "id" : 10,
+    "name" : "Sémiotique"
+  },
+  {
+    "id" : 12,
+    "name" : "Musique"
+  },
+  {
+    "id" : 13,
+    "name" : "Sciences du langage"
+  },
+  {
+    "id" : 14,
+    "name" : "Danse"
+  },
+  {
+    "id" : 15,
+    "name" : "Sciences du design"
+  },
+  {
+    "id" : 16,
+    "name" : "Esthétique"
+  },
+  {
+    "id" : 17,
+    "name" : "Technologie"
+  }
+]

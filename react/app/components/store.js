@@ -163,6 +163,23 @@ const authorPanelReducer = function(state = initAuthorPanel, action) {
       return Object.assign({}, state, { isVisible : true });
     case actionTypes.HIDE_AUTHOR_PANEL :
       return Object.assign({}, state, { isVisible : false });
+};
+
+const initCategories = {
+  isFetching : false,
+  list : []
+};
+const categoriesReducer = function(state = initCategories, action) {
+  switch (action.type) {
+    case actionTypes.CATEGORIES_REQUEST :
+      return Object.assign({}, state, { isFetching : true });
+    case actionTypes.CATEGORIES_SUCCESS :
+      return Object.assign({}, state, {
+        isFetching : false,
+        list : action.list
+      });
+    case actionTypes.CATEGORIES_FAIL :
+      return Object.assign({}, state, { isFetching : false });
     default:
       return state;
   }
@@ -184,10 +201,44 @@ const authorArticlesReducer = function(state = initAuthorArticles, action) {
         articles : action.articles
       });
     case actionTypes.AUTHOR_ARTICLES_FAIL :
+};
+
+const initAuthors = {
+  isFetching : false,
+  list : []
+};
+const authorsReducer = function(state = initAuthors, action) {
+  switch (action.type) {
+    case actionTypes.AUTHORS_REQUEST :
+      return Object.assign({}, state, { isFetching : true });
+    case actionTypes.AUTHORS_SUCCESS :
+      return Object.assign({}, state, {
+        isFetching : false,
+        list : action.list
+      });
+    case actionTypes.AUTHORS_FAIL :
       return Object.assign({}, state, { isFetching : false });
     default:
       return state;
   }
+};
+
+const initArticleLanguages = [
+{
+    id : 'fr',
+    name : 'Français'
+  },
+  {
+    id : 'en',
+    name : 'Anglais'
+  },
+  {
+    id : 'oth',
+    name : 'Autres langues'
+  }
+];
+const articleLanguagesReducer = function(state = initArticleLanguages, action) {
+  return state;
 };
 
 const initAuthorsFilter = { theme : [] };
@@ -220,6 +271,8 @@ const appReducers = combineReducers({
   author : authorReducer,
   authorPanel : authorPanelReducer,
   authorArticles : authorArticlesReducer,
+  categories : categoriesReducer,
+  articleLanguages : articleLanguagesReducer,
   authorsFilter : authorsFilterReducer,
   articlesFilter : articlesFilterReducer
 });

@@ -62,6 +62,19 @@ export function setPercentRead (percent) {
   return { type: actionTypes.SET_PERCENT_READ, percent : percent  };
 };
 
+export function authorsRequest () {
+  return { type: actionTypes.AUTHORS_REQUEST };
+};
+export function authorsSuccess (json) {
+  return {
+    type: actionTypes.AUTHORS_SUCCESS,
+    list : json.list
+ };
+};
+export function authorsFail () {
+  return { type: actionTypes.AUTHORS_FAIL };
+};
+
 export function authorRequest () {
   return { type: actionTypes.AUTHOR_REQUEST };
 };
@@ -79,13 +92,6 @@ export function authorFail () {
   return { type: actionTypes.AUTHOR_FAIL };
 };
 
-export function showAuthorPanel () {
-  return { type: actionTypes.SHOW_AUTHOR_PANEL };
-};
-export function hideAuthorPanel () {
-  return { type: actionTypes.HIDE_AUTHOR_PANEL };
-};
-
 export function authorArticlesRequest () {
   return { type: actionTypes.AUTHOR_ARTICLES_REQUEST };
 };
@@ -98,4 +104,24 @@ export function authorArticlesSuccess (json) {
 };
 export function authorArticlesFail () {
   return { type: actionTypes.AUTHOR_ARTICLES_FAIL };
+};
+
+export function showAuthorPanel () {
+  return { type: actionTypes.SHOW_AUTHOR_PANEL };
+};
+export function hideAuthorPanel () {
+  return { type: actionTypes.HIDE_AUTHOR_PANEL };
+};
+
+export function categoriesRequest () {
+  return { type: actionTypes.CATEGORIES_REQUEST };
+};
+export function categoriesSuccess (json) {
+  return {
+    type: actionTypes.CATEGORIES_SUCCESS,
+    list : json
+ };
+};
+export function categoriesFail () {
+  return { type: actionTypes.CATEGORIES_FAIL };
 };
