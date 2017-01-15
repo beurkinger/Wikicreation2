@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from './actions';
+import * as async from './async';
 import Keywords from './Keywords';
 import store from './store';
 
@@ -14,13 +15,18 @@ const ArticleAside = React.createClass({
     authorName : React.PropTypes.string.isRequired,
     authorTitle : React.PropTypes.string.isRequired,
     authorPic : React.PropTypes.string.isRequired,
-    percentRead : React.PropTypes.number.isRequired
+    percentRead : React.PropTypes.number.isRequired,
+    showAuthorPanel: React.PropTypes.func.isRequired
+  },
+  handleAuthorClick : function () {
+    async.getAuthor(this.props.authorId);
+    this.props.showAuthorPanel();
   },
   render: function () {
     return (
       <aside id="main-aside">
-        <div className="author">
-          <img className="author-pic" src="img/author-pic.jpg"/>
+        <div className="author" onClick={this.handleAuthorClick}>
+          <img className="author-pic" src={"img/" + this.props.authorPic} />
           <div className="author-infos">
             <h3 className="author-name">
               {this.props.authorName}
@@ -77,8 +83,8 @@ const mapStateToProps = function (store) {
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    showAuthor: function() {
-      dispatch(actions.showAuthor());
+    showAuthorPanel: function() {
+      dispatch(actions.showAuthorPanel());
     }
   }
 };

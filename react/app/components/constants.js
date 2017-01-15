@@ -1,6 +1,3 @@
-const constants =
-{
-  websiteUrl : "http://wikicreation.com"
-}
-
-module.exports = constants;
+export const WEBSITE_URL = 'http://wikicreation.com';
+export const TITLE_TYPE_STD = 'TITLE_TYPE_STD';
+export const TITLE_TYPE_ARTICLE = 'TITLE_TYPE_ARTICLE';

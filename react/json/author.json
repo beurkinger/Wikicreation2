@@ -1,0 +1,23 @@
+{
+  "id" : 1,
+  "name" : "Kostantinos Vassiliou",
+  "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+  "desc" : "Konstantinos Vassiliou est docteur de l'université Paris 1 Panthéon-Sorbonne. Il est l'auteur du livre Pros tin technologia tis technis/Vers la technologie de l'art (2012, Plethron Press) et il a dirigé l'ouvrage Techni kai Dimiourgikotita/Art et créativité (Plethron Press, 2014). Il publie sur la théorie de l'art et de la culture, sujets qu'il enseigne à l'Ecole des Beaux Arts d'Athènes.",
+  "pic" : "author-pic.jpg",
+  "articles" : [
+    {
+      "categoryName" : "Philosophie",
+      "categoryId" : 1,
+      "articles" : [
+        {
+          "id" : 1,
+          "name" : "La Grèce et la création"
+        },
+        {
+          "id" : 2,
+          "name" : "Photographie et création"
+        }
+      ]
+    }
+  ]
+}

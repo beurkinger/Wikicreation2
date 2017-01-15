@@ -1,44 +1,65 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import * as actions from './actions';
+import AuthorCategory from './AuthorCategory';
 
 const Author = React.createClass({
+  propTypes : {
+    id : React.PropTypes.number.isRequired,
+    isVisible : React.PropTypes.bool.isRequired,
+    name : React.PropTypes.string.isRequired,
+    title : React.PropTypes.string.isRequired,
+    desc : React.PropTypes.string.isRequired,
+    pic : React.PropTypes.string.isRequired,
+    articles : React.PropTypes.array.isRequired,
+    hideAuthorPanel: React.PropTypes.func.isRequired
+  },
+  getCategories : function (category)
+  {
+    return <AuthorCategory key={category.categoryId} id={category.categoryId} name={category.categoryName} articles={category.articles} />;
+  },
   render: function () {
     return (
-      <div id="author-profile">
-        <img id="author-profile-exit" src="img/author-profile-exit.svg"/>
-        <img className="author-pic" src="img/author-pic1.jpg"/>
+      <div id="author-profile" style ={{'display' : (this.props.isVisible ? 'block' : 'none') }}>
+        <img id="author-profile-exit" className="clickable" src="img/author-profile-exit.svg" onClick={this.props.hideAuthorPanel} />
+        <img className="author-pic" src={"img/" + this.props.pic} />
         <h2 className="author-name">
-          Kostantinos Vassiliou
+          {this.props.name}
         </h2>
         <p className="author-infos">
-          Chargé d’enseignement, <br/>
-          École des Beaux Arts d’Athènes.
+          {this.props.title}
         </p>
         <p className="author-desc">
-          Konstantinos Vassiliou est docteur de l'université Paris 1 Panthéon-Sorbonne. Il est l'auteur du livre Pros tin technologia tis technis/Vers la technologie de l'art (2012, Plethron Press) et il a dirigé l'ouvrage Techni kai Dimiourgikotita/Art et créativité (Plethron Press, 2014). Il publie sur la théorie de l'art et de la culture, sujets qu'il enseigne à l'Ecole des Beaux Arts d'Athènes.
+          {this.props.desc}
         </p>
         <h2 className="articles">
           Articles
         </h2>
-        <div className="article-category">
-          <h3 className="article-category-title">
-            Crise économique
-          </h3>
-          <ul className="article-titles">
-            <li>
-              <a href="#">
-                La Grèce et la création
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                Photographie et création
-              </a>
-            </li>
-          </ul>
-        </div>
+        {this.props.articles.map(this.getCategories)}
       </div>
     )
   }
 });
 
-module.exports = Author;
+const mapStateToProps = function (store) {
+   return {
+     isVisible : store.authorPanel.isVisible,
+     id: store.author.id,
+     name : store.author.name,
+     title : store.author.title,
+     desc : store.author.desc,
+     pic : store.author.pic,
+     articles: store.authorArticles.articles
+   };
+};
+
+const mapDispatchToProps = function(dispatch) {
+  return {
+    hideAuthorPanel: function() {
+      dispatch(actions.hideAuthorPanel());
+    }
+  }
+};
+
+module.exports = connect (mapStateToProps, mapDispatchToProps) (Author);

@@ -71,19 +71,19 @@ html, body, #root, #app
   background-image: url('../img/main-logo-blue.svg');
 }
 
-#main-header-right
+#main-title
 {
-  position: absolute; top: 0; right: 0;
-  width: 360px; height: 88px;
-}
-
-#main-header .page-title
-{
-  position: absolute; top: 46px; left: 510px;
+  position: absolute; bottom: 30px; left: 510px;
   font-family: Montserrat; color: #FF6666; font-size: 25px; font-weight: bold;
   letter-spacing: 1px;
   line-height: 100%;
   text-transform: uppercase;
+}
+
+#main-header-right
+{
+  position: absolute; top: 0; right: 0;
+  width: 360px; height: 88px;
 }
 
 #main-header .language, #nav-menu .language
@@ -369,6 +369,11 @@ html, body, #root, #app
   margin-bottom: 60px;
 }
 
+#main-aside .author:hover
+{
+  cursor: pointer;
+}
+
 #main-aside .author-pic
 {
   float: left;
@@ -387,6 +392,11 @@ html, body, #root, #app
 #main-aside .author-name
 {
   font-family: Montserrat; color: #FF6666; font-size: 13px; font-weight: bold;
+}
+
+#main-aside .author:hover .author-name
+{
+  text-decoration: underline;
 }
 
 #main-aside .author-desc
@@ -434,29 +444,16 @@ html, body, #root, #app
   margin-right: 24px;
 }
 
-#main-aside .search-form
+#main-aside .search-field
 {
   display: block;
-  line-height: 0;
-  font-size: 0;
+  width: 178px; height: 20px;
+  border: 1px solid #FF6666;
+  padding: 10px 20px;
   margin-bottom: 40px;
-}
-
-#main-aside .search-field, #main-aside .search-btn
-{
-  display: inline-block;
   font-family: Montserrat; color: #FF6666; font-size: 20px;
   line-height: 100%;
   background: transparent;
-  border-style: solid;
-  border-color: #FF6666;
-}
-
-#main-aside .search-field
-{
-  width: 129px; height: 20px;
-  border-width: 1px;
-  padding: 10px 20px;
 }
 
 #main-aside .search-field::-webkit-input-placeholder { color: #FF6666; }
@@ -562,6 +559,13 @@ html, body, #root, #app
   column-gap: 100px;
 }
 
+#articles-main .theme
+{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #FF6666;
+  margin-bottom: 20px;
+}
+
 #articles-main .theme, #articles-main .theme-articles
 {
   -webkit-column-break-inside: avoid; /* Chrome, Safari */
@@ -590,16 +594,13 @@ html, body, #root, #app
 
 #articles-main .theme-title
 {
-  margin-top: 22px;
+  margin: 20px 0;
   font-family: Montserrat; color: #FF6666; font-size: 20px; font-weight: bold;
 }
 
 #articles-main .theme-articles
 {
   list-style: none;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #FF6666;
-  margin-bottom: 40px;
 }
 
 #articles-main .theme-articles li
@@ -765,4 +766,10 @@ html, body, #root, #app
 #contribute-main
 {
   margin: 0 auto;
+}
+
+/*---Other--*/
+.clickable:hover
+{
+  cursor: pointer;
 }

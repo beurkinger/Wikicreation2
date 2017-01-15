@@ -5,25 +5,21 @@ import * as actions from './actions';
 import * as async from './async';
 import ArticleAside from './ArticleAside';
 import ArticleContent from './ArticleContent';
-import Author from './Author';
 import store from './store';
 
 const Article = React.createClass({
   componentWillMount : function () {
     this.props.setThemeWhite();
-    async.geArticle(this.props.params.id);
+    async.getArticle(this.props.params.id);
   },
   componentWillUnmount : function () {
     this.props.setThemeBlue();
   },
   render: () => (
-    <div>
-      <Author />
-      <main id="main-container">
-        <ArticleAside />
-        <ArticleContent />
-      </main>
-    </div>
+    <main id="main-container">
+      <ArticleAside />
+      <ArticleContent />
+    </main>
   )
 });
 
