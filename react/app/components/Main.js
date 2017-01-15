@@ -7,12 +7,12 @@ import Menu from './Menu';
 import store from './store';
 
 const Main = React.createClass({
-  propTypes: {
-    theme: React.PropTypes.string.isRequired
+  getTheme : function () {
+    return this.props.location.pathname === '/' ? 'blue' : 'white'
   },
   render: function () {
     return (
-      <div id="app" className={this.props.theme}>
+      <div id="app" className={this.getTheme()}>
         <Header />
         <Menu />
         <Author />

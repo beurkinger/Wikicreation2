@@ -2,21 +2,9 @@ import { createStore, combineReducers } from 'redux';
 
 import * as actionTypes from './actionTypes';
 
-const initTheme = 'blue';
-const themeReducer = function(state = initTheme, action) {
-  switch (action.type) {
-    case actionTypes.SET_THEME_BLUE :
-      return 'blue';
-    case actionTypes.SET_THEME_WHITE :
-      return 'white';
-    default:
-      return state;
-  }
-};
-
 const initTitlebar = {
   isVisible : false,
-  type : '',
+  pageType : '',
   title : ''
 };
 const titlebarReducer = function(state = initTitlebar, action) {
@@ -27,7 +15,8 @@ const titlebarReducer = function(state = initTitlebar, action) {
       return Object.assign({}, state, { isVisible : false });
     case actionTypes.SET_TITLEBAR :
       return Object.assign({}, state, {
-        type : action.type,
+        isVisible : true,
+        pageType : action.pageType,
         title : action.title
       });
     default:
@@ -269,7 +258,6 @@ const articlesFilterReducer = function(state = initArticlesFilter, action) {
 };
 
 const appReducers = combineReducers({
-  theme : themeReducer,
   titlebar : titlebarReducer,
   menu : menuReducer,
   news : newsReducer,

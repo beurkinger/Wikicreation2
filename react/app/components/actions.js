@@ -2,21 +2,18 @@ import fetch from 'isomorphic-fetch';
 
 import * as actionTypes from './actionTypes';
 
-export function setThemeBlue () {
-  return { type: actionTypes.SET_THEME_BLUE };
-};
-export function setThemeWhite () {
-  return { type: actionTypes.SET_THEME_WHITE };
-};
-
 export function showTitlebar () {
   return { type: actionTypes.SHOW_TITLEBAR };
 };
 export function hideTitlebar () {
   return { type: actionTypes.HIDE_TITLEBAR };
 };
-export function setTitlebar (type, title) {
-  return { type: actionTypes.SET_TITLEBAR };
+export function setTitlebar (pageType, title) {
+  return {
+    type: actionTypes.SET_TITLEBAR,
+    pageType : pageType,
+    title : title ? title : ''
+  };
 };
 
 export function showMenu () {

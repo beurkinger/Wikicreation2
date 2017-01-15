@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { TITLE_TYPE_STD, TITLE_TYPE_ARTICLE } from './constants';
+import { PAGE_TYPE_STD, PAGE_TYPE_ARTICLE } from './constants';
 
 const Titlebar = React.createClass({
   propTypes: {
     isVisible : React.PropTypes.bool.isRequired,
-    type : React.PropTypes.string.isRequired,
+    pageType : React.PropTypes.string.isRequired,
     title : React.PropTypes.string.isRequired
   },
   getContent : function ()
@@ -25,7 +25,7 @@ const Titlebar = React.createClass({
 const mapStateToProps = function(store) {
   return {
     isVisible : store.titlebar.isVisible,
-    type : store.titlebar.type,
+    pageType : store.titlebar.pageType,
     title : store.titlebar.title
   }
 };

@@ -5,19 +5,12 @@ import * as actions from './actions';
 import * as async from './async';
 import AuthorsAside from './AuthorsAside';
 import AuthorsContent from './AuthorsContent';
+import { PAGE_TYPE_STD } from './constants';
 
 const Authors = React.createClass({
-  propTypes: {
-    setThemeBlue: React.PropTypes.func.isRequired,
-    setThemeWhite: React.PropTypes.func.isRequired
-  },
   componentWillMount : function () {
-    this.props.setThemeWhite();
     async.getCategories();
 
-  },
-  componentWillUnmount : function () {
-    this.props.setThemeBlue();
   },
   render: function () {
     return (
@@ -31,8 +24,7 @@ const Authors = React.createClass({
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    setThemeBlue: () => dispatch(actions.setThemeBlue()),
-    setThemeWhite: () => dispatch(actions.setThemeWhite())
+    setTitlebar: () => dispatch(actions.setTitlebar(PAGE_TYPE_STD, 'Articles'))
   }
 };
 
