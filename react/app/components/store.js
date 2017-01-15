@@ -163,6 +163,9 @@ const authorPanelReducer = function(state = initAuthorPanel, action) {
       return Object.assign({}, state, { isVisible : true });
     case actionTypes.HIDE_AUTHOR_PANEL :
       return Object.assign({}, state, { isVisible : false });
+    default:
+      return state;
+  }
 };
 
 const initCategories = {
@@ -201,6 +204,10 @@ const authorArticlesReducer = function(state = initAuthorArticles, action) {
         articles : action.articles
       });
     case actionTypes.AUTHOR_ARTICLES_FAIL :
+      return Object.assign({}, state, { isFetching : false });
+    default:
+      return state;
+  }
 };
 
 const initAuthors = {

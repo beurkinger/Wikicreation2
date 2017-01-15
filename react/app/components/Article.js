@@ -10,7 +10,7 @@ import store from './store';
 const Article = React.createClass({
   componentWillMount : function () {
     this.props.setThemeWhite();
-    async.geArticle(this.props.params.id);
+    async.getArticle(this.props.params.id);
   },
   componentWillUnmount : function () {
     this.props.setThemeBlue();

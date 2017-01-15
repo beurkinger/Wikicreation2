@@ -14,7 +14,7 @@ const ArticlesAside = React.createClass({
   getCheckbox : function (category) {
     return <CheckboxFilter label={category.name} handleChange={this.test} key={category.id} />
   },
-  test : () => console.log('yala'),,
+  test : () => console.log('yala'),
   render: function () {
     return (
       <aside id="main-aside">
