@@ -26,7 +26,7 @@ const ArticleAside = React.createClass({
     return (
       <aside id="main-aside">
         <div className="author" onClick={this.handleAuthorClick}>
-          <img className="author-pic" src={"img/" + this.props.authorPic} />
+          <img className="author-pic" src={"/img/" + this.props.authorPic} />
           <div className="author-infos">
             <h3 className="author-name">
               {this.props.authorName}
@@ -56,10 +56,10 @@ const ArticleAside = React.createClass({
           </h2>
           <div className="downloads">
             <a href={'/' + this.props.pdfFr} target="_blank">
-              <img className="download" src="img/download-fr.svg"/>
+              <img className="download" src="/img/download-fr.svg"/>
             </a>
             <a href={'/' + this.props.pdfEn} target="_blank">
-              <img className="download" src="img/download-en.svg"/>
+              <img className="download" src="/img/download-en.svg"/>
             </a>
           </div>
         </div>

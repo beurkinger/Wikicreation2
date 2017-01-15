@@ -28964,7 +28964,7 @@
 
 	  componentWillMount: function componentWillMount() {
 	    this.props.setThemeWhite();
-	    async.geArticle(this.props.params.id);
+	    async.getArticle(this.props.params.id);
 	  },
 	  componentWillUnmount: function componentWillUnmount() {
 	    this.props.setThemeBlue();

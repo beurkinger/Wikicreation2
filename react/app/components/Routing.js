@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import About from './About';
 import Article from'./Article';
@@ -9,9 +9,9 @@ import Contribute from './Contribute';
 import Home from './Home';
 import Main from './Main';
 
-const App = React.createClass({
+const Routing = React.createClass({
   render: () => (
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
       <Route path="/" component={Main}>
         <IndexRoute component={Home}/>
         <Route path="/about" component={About}/>
@@ -24,4 +24,4 @@ const App = React.createClass({
   )
 });
 
-module.exports = App;
+module.exports = Routing;

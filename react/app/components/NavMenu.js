@@ -24,7 +24,7 @@ const NavMenu = React.createClass({
   render: function () {
     return (
       <nav id="nav-menu">
-        <img className="menu-exit clickable" src="img/menu-exit.svg" onClick={this.props.hideMenu} />
+        <img className="menu-exit clickable" src="/img/menu-exit.svg" onClick={this.props.hideMenu} />
         <div className="language">
           <span className="selected">FR</span><div className="separator"></div><span>EN</span>
         </div>

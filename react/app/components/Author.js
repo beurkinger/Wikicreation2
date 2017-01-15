@@ -22,8 +22,8 @@ const Author = React.createClass({
   render: function () {
     return (
       <div id="author-profile" style ={{'display' : (this.props.isVisible ? 'block' : 'none') }}>
-        <img id="author-profile-exit" className="clickable" src="img/author-profile-exit.svg" onClick={this.props.hideAuthorPanel} />
-        <img className="author-pic" src={"img/" + this.props.pic} />
+        <img id="author-profile-exit" className="clickable" src="/img/author-profile-exit.svg" onClick={this.props.hideAuthorPanel} />
+        <img className="author-pic" src={"/img/" + this.props.pic} />
         <h2 className="author-name">
           {this.props.name}
         </h2>
