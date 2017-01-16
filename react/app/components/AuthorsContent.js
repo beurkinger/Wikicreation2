@@ -7,11 +7,18 @@ const AuthorsContent = React.createClass({
   propTypes : {
     authors : React.PropTypes.array.isRequired,
   },
+  getAuthor : (author) => (
+    <AuthorCard id={author.id}
+                name={author.name}
+                title={author.title}
+                pic={author.pic}
+                key={author.id} />
+  ),
   render: function () {
     return (
       <div id="main-content">
         <div id="authors-main">
-          <AuthorCard />
+          { this.props.authors.map(this.getAuthor) }
         </div>
       </div>
     )

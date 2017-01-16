@@ -1,13 +1,19 @@
 import React from 'react';
 
+import Link from 'react-router/lib/Link';
+
 const ArticleCard = props => (
-  return <div></div>;
+  <li>
+    <Link to={ 'articles/' + props.id }>
+      {props.title}
+    </Link>
+  </li>
 );
 
 ArticleCard.propTypes =
 {
-  id : React.PropTypes.number,
-  title : React.PropTypes.string
+  id : React.PropTypes.number.isRequired,
+  title : React.PropTypes.string.isRequired
 };
 
 module.exports = ArticleCard;

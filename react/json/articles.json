@@ -5,359 +5,359 @@
     "articles" : [
       {
         "id" : 1,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 2,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 3,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 4,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 11,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       }
     ]
   },
   {
     "categoryName" : "Poétique",
-    "categoryId" : 1,
+    "categoryId" : 2,
     "articles" : [
       {
         "id" : 2,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 4,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       }
     ]
   },
   {
     "categoryName" : "Philosophie",
-    "categoryId" : 1,
+    "categoryId" : 3,
     "articles" : [
       {
         "id" : 4,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 11,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       }
     ]
   },
   {
     "categoryName" : "Psychologie",
-    "categoryId" : 1,
+    "categoryId" : 4,
     "articles" : [
       {
         "id" : 2,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 3,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 4,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 11,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       }
     ]
   },
   {
     "categoryName" : "Arts Visuels",
-    "categoryId" : 1,
+    "categoryId" : 5,
     "articles" : [
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 11,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       }
     ]
   },
   {
     "categoryName" : "Ethno-Esthétique",
-    "categoryId" : 1,
+    "categoryId" : 6,
     "articles" : [
       {
         "id" : 2,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 3,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 4,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 11,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       }
     ]
   },
   {
     "categoryName" : "Cinéma",
-    "categoryId" : 1,
+    "categoryId" : 7,
     "articles" : [
       {
         "id" : 1,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 2,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 3,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       }
     ]
   },
   {
     "categoryName" : "Sociologie",
-    "categoryId" : 1,
+    "categoryId" : 8,
     "articles" : [
       {
         "id" : 3,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 4,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 11,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       }
     ]
   },
   {
     "categoryName" : "Féminisme",
-    "categoryId" : 1,
+    "categoryId" : 9,
     "articles" : [
       {
         "id" : 2,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 4,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 5,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 6,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 7,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       },
       {
         "id" : 8,
-        "name" : "Duchamp et création"
+        "title" : "Duchamp et création"
       },
       {
         "id" : 9,
-        "name" : "La Grèce et la création"
+        "title" : "La Grèce et la création"
       },
       {
         "id" : 10,
-        "name" : "Découverte et création"
+        "title" : "Découverte et création"
       },
       {
         "id" : 11,
-        "name" : "Virtuel et création"
+        "title" : "Virtuel et création"
       }
     ]
   }

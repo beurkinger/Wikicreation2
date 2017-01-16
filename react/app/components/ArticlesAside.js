@@ -48,9 +48,4 @@ const mapStateToProps = function (store) {
    };
 };
 
-const mapDispatchToProps = function(dispatch) {
-  return {
-  }
-};
-
-module.exports = connect(mapStateToProps, mapDispatchToProps)(ArticlesAside);
+module.exports = connect(mapStateToProps)(ArticlesAside);

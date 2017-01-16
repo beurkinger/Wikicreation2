@@ -23938,7 +23938,6 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initArticles;
 	  var action = arguments[1];
 
-	  console.log(action);
 	  switch (action.type) {
 	    case actionTypes.ARTICLES_REQUEST:
 	      return Object.assign({}, state, { isFetching: true });
@@ -24115,19 +24114,19 @@
 
 	var _Articles2 = _interopRequireDefault(_Articles);
 
-	var _Authors = __webpack_require__(377);
+	var _Authors = __webpack_require__(381);
 
 	var _Authors2 = _interopRequireDefault(_Authors);
 
-	var _Contribute = __webpack_require__(380);
+	var _Contribute = __webpack_require__(385);
 
 	var _Contribute2 = _interopRequireDefault(_Contribute);
 
-	var _Home = __webpack_require__(381);
+	var _Home = __webpack_require__(386);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Main = __webpack_require__(382);
+	var _Main = __webpack_require__(387);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -43915,11 +43914,7 @@
 	  };
 	};
 
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
-	};
-
-	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticlesAside);
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ArticlesAside);
 
 /***/ },
 /* 374 */
@@ -43979,447 +43974,52 @@
 /* 376 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
+	var _ArticlesCategory = __webpack_require__(377);
+
+	var _ArticlesCategory2 = _interopRequireDefault(_ArticlesCategory);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Articles = _react2.default.createClass({
-	  displayName: "Articles",
+	var ArticlesContent = _react2.default.createClass({
+	  displayName: 'ArticlesContent',
 
+	  propTypes: {
+	    articles: _react2.default.PropTypes.array.isRequired
+	  },
+	  getCategory: function getCategory(category) {
+	    return _react2.default.createElement(_ArticlesCategory2.default, { id: category.categoryId,
+	      name: category.categoryName,
+	      articles: category.articles,
+	      key: category.categoryId });
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "div",
-	      { id: "main-content" },
+	      'div',
+	      { id: 'main-content' },
 	      _react2.default.createElement(
-	        "div",
-	        { id: "articles-main" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Communication"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Po\xE9tique"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Philosophie"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Psychologie"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Arts Visuels"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Ethno-Esth\xE9tique"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Cin\xE9ma"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "Sociologie"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "theme" },
-	          _react2.default.createElement(
-	            "h2",
-	            { className: "theme-title" },
-	            "F\xE9minisme"
-	          ),
-	          _react2.default.createElement(
-	            "ul",
-	            { className: "theme-articles" },
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "D\xE9couverte et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Virtual et cr\xE9ation"
-	            ),
-	            _react2.default.createElement(
-	              "li",
-	              null,
-	              "Duchamp et cr\xE9ation"
-	            )
-	          )
-	        )
+	        'div',
+	        { id: 'articles-main' },
+	        this.props.articles.map(this.getCategory)
 	      )
 	    );
 	  }
 	});
 
-	module.exports = Articles;
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    articles: store.articles.list
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ArticlesContent);
 
 /***/ },
 /* 377 */
@@ -44433,53 +44033,40 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _ArticleCard = __webpack_require__(378);
 
-	var actions = _interopRequireWildcard(_actions);
-
-	var _async = __webpack_require__(254);
-
-	var async = _interopRequireWildcard(_async);
-
-	var _AuthorsAside = __webpack_require__(378);
-
-	var _AuthorsAside2 = _interopRequireDefault(_AuthorsAside);
-
-	var _AuthorsContent = __webpack_require__(379);
-
-	var _AuthorsContent2 = _interopRequireDefault(_AuthorsContent);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	var _ArticleCard2 = _interopRequireDefault(_ArticleCard);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Authors = _react2.default.createClass({
-	  displayName: 'Authors',
-
-	  componentWillMount: function componentWillMount() {
-	    async.getCategories();
-	    async.getAuthors();
-	    this.props.setTitlebar();
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'main',
-	      { id: 'main-container' },
-	      _react2.default.createElement(_AuthorsAside2.default, null),
-	      _react2.default.createElement(_AuthorsContent2.default, null)
-	    );
-	  }
-	});
-
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    setTitlebar: function setTitlebar() {
-	      dispatch(actions.setStdTitlebar('Auteurs'));
-	    }
+	var ArticleCategory = function ArticleCategory(props) {
+	  var getArticle = function getArticle(article) {
+	    return _react2.default.createElement(_ArticleCard2.default, { id: article.id, title: article.title, key: article.id });
 	  };
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'theme' },
+	    _react2.default.createElement(
+	      'h2',
+	      { className: 'theme-title' },
+	      props.name
+	    ),
+	    _react2.default.createElement(
+	      'ul',
+	      { className: 'theme-articles' },
+	      props.articles.map(getArticle)
+	    )
+	  );
 	};
 
-	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Authors);
+	ArticleCategory.propTypes = {
+	  id: _react2.default.PropTypes.number.isRequired,
+	  name: _react2.default.PropTypes.string.isRequired,
+	  articles: _react2.default.PropTypes.array.isRequired
+	};
+
+	module.exports = ArticleCategory;
 
 /***/ },
 /* 378 */
@@ -44491,934 +44078,33 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(172);
-
-	var _async = __webpack_require__(254);
-
-	var _CheckboxFilter = __webpack_require__(374);
-
-	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
-
-	var _TextFilter = __webpack_require__(375);
-
-	var _TextFilter2 = _interopRequireDefault(_TextFilter);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var AuthorsAside = _react2.default.createClass({
-	  displayName: 'AuthorsAside',
-
-	  propTypes: { categories: _react2.default.PropTypes.array.isRequired },
-	  componentWillMount: function componentWillMount() {
-	    return (0, _async.getCategories)();
-	  },
-	  getCheckbox: function getCheckbox(category) {
-	    return _react2.default.createElement(_CheckboxFilter2.default, { label: category.name, handleChange: this.test, key: category.id });
-	  },
-	  test: function test() {
-	    return console.log('yala');
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'aside',
-	      { id: 'main-aside' },
-	      _react2.default.createElement(_TextFilter2.default, { handleChange: this.test }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'info' },
-	        _react2.default.createElement(
-	          'h2',
-	          { className: 'info-title' },
-	          'Filtrer par'
-	        ),
-	        _react2.default.createElement(
-	          'h3',
-	          { className: 'filter-name' },
-	          'Th\xE8mes'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'filters' },
-	          this.props.categories.map(this.getCheckbox)
-	        )
-	      )
-	    );
-	  }
-	});
-
-	var mapStateToProps = function mapStateToProps(store) {
-	  return {
-	    categories: store.categories.list
-	  };
-	};
-
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
-	};
-
-	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AuthorsAside);
-
-/***/ },
-/* 379 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var AuthorsContent = _react2.default.createClass({
-	  displayName: "AuthorsContent",
-
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { id: "main-content" },
-	      _react2.default.createElement(
-	        "div",
-	        { id: "authors-main" },
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic1.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Dominique Berthet"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes. ",
-	              _react2.default.createElement("br", null),
-	              "Yolo"
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic2.png" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Catherine Guesde"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic3.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Jan Baetens"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic1.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Dominique Berthet"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic2.png" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Catherine Guesde"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic3.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Jan Baetens"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic1.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Dominique Berthet"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic2.png" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Catherine Guesde"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic3.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Jan Baetens"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic1.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Dominique Berthet"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic2.png" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Catherine Guesde"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic3.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Jan Baetens"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic1.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Dominique Berthet"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic2.png" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Catherine Guesde"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic3.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Jan Baetens"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic1.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Dominique Berthet"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic2.png" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Catherine Guesde"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic3.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                _react2.default.createElement(
-	                  "a",
-	                  { href: "#" },
-	                  "Jan Baetens"
-	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic1.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Dominique Berthet"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic2.png" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Catherine Guesde"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "author" },
-	          _react2.default.createElement("img", { className: "author-pic", src: "/img/author-pic3.jpg" }),
-	          _react2.default.createElement(
-	            "div",
-	            { className: "author-infos" },
-	            _react2.default.createElement(
-	              "h3",
-	              { className: "author-name" },
-	              _react2.default.createElement(
-	                "a",
-	                { href: "#" },
-	                "Jan Baetens"
-	              )
-	            ),
-	            _react2.default.createElement(
-	              "p",
-	              { className: "author-desc" },
-	              "Charg\xE9 d\u2019enseignement, ",
-	              _react2.default.createElement("br", null),
-	              "\xC9cole des Beaux Arts d\u2019Ath\xE8nes."
-	            )
-	          )
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = AuthorsContent;
-
-/***/ },
-/* 380 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Contribute = _react2.default.createClass({
-	  displayName: 'Contribute',
-
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'h1',
-	      null,
-	      'Contribute 666'
-	    );
-	  }
-	});
-
-	module.exports = Contribute;
-
-/***/ },
-/* 381 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _actions = __webpack_require__(255);
-
-	var actions = _interopRequireWildcard(_actions);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Home = _react2.default.createClass({
-	  displayName: 'Home',
-
-	  componentWillMount: function componentWillMount() {
-	    this.props.emptyTitlebar();
-	  },
-	  render: function render() {
-	    return _react2.default.createElement('main', { id: 'main-container' });
-	  }
-	});
-
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    emptyTitlebar: function emptyTitlebar() {
-	      return dispatch(actions.emptyTitlebar());
-	    }
-	  };
-	};
-
-	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Home);
-
-/***/ },
-/* 382 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _Author = __webpack_require__(383);
-
-	var _Author2 = _interopRequireDefault(_Author);
-
-	var _Header = __webpack_require__(388);
-
-	var _Header2 = _interopRequireDefault(_Header);
-
-	var _Menu = __webpack_require__(390);
-
-	var _Menu2 = _interopRequireDefault(_Menu);
-
-	var _store = __webpack_require__(210);
-
-	var _store2 = _interopRequireDefault(_store);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Main = _react2.default.createClass({
-	  displayName: 'Main',
-
-	  getTheme: function getTheme() {
-	    return this.props.location.pathname === '/' ? 'blue' : 'white';
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { id: 'app', className: this.getTheme() },
-	      _react2.default.createElement(_Header2.default, null),
-	      _react2.default.createElement(_Menu2.default, null),
-	      _react2.default.createElement(_Author2.default, null),
-	      this.props.children
-	    );
-	  }
-	});
-
-	var mapStateToProps = function mapStateToProps(store) {
-	  return { theme: store.theme };
-	};
-
-	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Main);
-
-/***/ },
-/* 383 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _actions = __webpack_require__(255);
-
-	var actions = _interopRequireWildcard(_actions);
-
-	var _AuthorCategory = __webpack_require__(384);
-
-	var _AuthorCategory2 = _interopRequireDefault(_AuthorCategory);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Author = _react2.default.createClass({
-	  displayName: 'Author',
-
-	  propTypes: {
-	    id: _react2.default.PropTypes.number.isRequired,
-	    isVisible: _react2.default.PropTypes.bool.isRequired,
-	    name: _react2.default.PropTypes.string.isRequired,
-	    title: _react2.default.PropTypes.string.isRequired,
-	    desc: _react2.default.PropTypes.string.isRequired,
-	    pic: _react2.default.PropTypes.string.isRequired,
-	    articles: _react2.default.PropTypes.array.isRequired,
-	    hideAuthorPanel: _react2.default.PropTypes.func.isRequired
-	  },
-	  getCategories: function getCategories(category) {
-	    return _react2.default.createElement(_AuthorCategory2.default, { key: category.categoryId, id: category.categoryId, name: category.categoryName, articles: category.articles });
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { id: 'author-profile', style: { 'display': this.props.isVisible ? 'block' : 'none' } },
-	      _react2.default.createElement('img', { id: 'author-profile-exit', className: 'clickable', src: '/img/author-profile-exit.svg', onClick: this.props.hideAuthorPanel }),
-	      _react2.default.createElement('img', { className: 'author-pic', src: "/img/" + this.props.pic }),
-	      _react2.default.createElement(
-	        'h2',
-	        { className: 'author-name' },
-	        this.props.name
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'author-infos' },
-	        this.props.title
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'author-desc' },
-	        this.props.desc
-	      ),
-	      _react2.default.createElement(
-	        'h2',
-	        { className: 'articles' },
-	        'Articles'
-	      ),
-	      this.props.articles.map(this.getCategories)
-	    );
-	  }
-	});
-
-	var mapStateToProps = function mapStateToProps(store) {
-	  return {
-	    isVisible: store.authorPanel.isVisible,
-	    id: store.author.id,
-	    name: store.author.name,
-	    title: store.author.title,
-	    desc: store.author.desc,
-	    pic: store.author.pic,
-	    articles: store.authorArticles.articles
-	  };
-	};
-
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    hideAuthorPanel: function hideAuthorPanel() {
-	      dispatch(actions.hideAuthorPanel());
-	    }
-	  };
-	};
-
-	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Author);
-
-/***/ },
-/* 384 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _AuthorArticle = __webpack_require__(385);
-
-	var _AuthorArticle2 = _interopRequireDefault(_AuthorArticle);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var ArticleCategory = _react2.default.createClass({
-	  displayName: 'ArticleCategory',
-
-	  propTypes: {
-	    id: _react2.default.PropTypes.number.isRequired,
-	    name: _react2.default.PropTypes.string.isRequired,
-	    articles: _react2.default.PropTypes.array.isRequired
-	  },
-	  getArticle: function getArticle(article) {
-	    return _react2.default.createElement(_AuthorArticle2.default, { key: article.id, id: article.id, name: article.name });
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'article-category' },
-	      _react2.default.createElement(
-	        'h3',
-	        { className: 'article-category-title' },
-	        'Crise \xE9conomique'
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        { className: 'article-titles' },
-	        this.props.articles.map(this.getArticle)
-	      )
-	    );
-	  }
-	});
-
-	module.exports = ArticleCategory;
-
-/***/ },
-/* 385 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Link = __webpack_require__(386);
+	var _Link = __webpack_require__(379);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var AuthorArticle = _react2.default.createClass({
-	  displayName: 'AuthorArticle',
+	var ArticleCard = function ArticleCard(props) {
+	  return _react2.default.createElement(
+	    'li',
+	    null,
+	    _react2.default.createElement(
+	      _Link2.default,
+	      { to: 'articles/' + props.id },
+	      props.title
+	    )
+	  );
+	};
 
-	  propTypes: {
-	    id: _react2.default.PropTypes.number.isRequired,
-	    name: _react2.default.PropTypes.string.isRequired
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'li',
-	      null,
-	      _react2.default.createElement(
-	        _Link2.default,
-	        { to: "articles/" + this.props.id },
-	        this.props.name
-	      )
-	    );
-	  }
-	});
+	ArticleCard.propTypes = {
+	  id: _react2.default.PropTypes.number.isRequired,
+	  title: _react2.default.PropTypes.string.isRequired
+	};
 
-	module.exports = AuthorArticle;
+	module.exports = ArticleCard;
 
 /***/ },
-/* 386 */
+/* 379 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45435,7 +44121,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _PropTypes = __webpack_require__(387);
+	var _PropTypes = __webpack_require__(380);
 
 	var _ContextUtils = __webpack_require__(230);
 
@@ -45582,7 +44268,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 387 */
+/* 380 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45615,6 +44301,384 @@
 	});
 
 /***/ },
+/* 381 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _actions = __webpack_require__(255);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	var _async = __webpack_require__(254);
+
+	var async = _interopRequireWildcard(_async);
+
+	var _AuthorsAside = __webpack_require__(382);
+
+	var _AuthorsAside2 = _interopRequireDefault(_AuthorsAside);
+
+	var _AuthorsContent = __webpack_require__(383);
+
+	var _AuthorsContent2 = _interopRequireDefault(_AuthorsContent);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Authors = _react2.default.createClass({
+	  displayName: 'Authors',
+
+	  componentWillMount: function componentWillMount() {
+	    async.getCategories();
+	    async.getAuthors();
+	    this.props.setTitlebar();
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'main',
+	      { id: 'main-container' },
+	      _react2.default.createElement(_AuthorsAside2.default, null),
+	      _react2.default.createElement(_AuthorsContent2.default, null)
+	    );
+	  }
+	});
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    setTitlebar: function setTitlebar() {
+	      dispatch(actions.setStdTitlebar('Auteurs'));
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Authors);
+
+/***/ },
+/* 382 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _async = __webpack_require__(254);
+
+	var _CheckboxFilter = __webpack_require__(374);
+
+	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
+
+	var _TextFilter = __webpack_require__(375);
+
+	var _TextFilter2 = _interopRequireDefault(_TextFilter);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AuthorsAside = _react2.default.createClass({
+	  displayName: 'AuthorsAside',
+
+	  propTypes: { categories: _react2.default.PropTypes.array.isRequired },
+	  componentWillMount: function componentWillMount() {
+	    return (0, _async.getCategories)();
+	  },
+	  getCheckbox: function getCheckbox(category) {
+	    return _react2.default.createElement(_CheckboxFilter2.default, { label: category.name, handleChange: this.test, key: category.id });
+	  },
+	  test: function test() {
+	    return console.log('yala');
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'aside',
+	      { id: 'main-aside' },
+	      _react2.default.createElement(_TextFilter2.default, { handleChange: this.test }),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'info' },
+	        _react2.default.createElement(
+	          'h2',
+	          { className: 'info-title' },
+	          'Filtrer par'
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          { className: 'filter-name' },
+	          'Th\xE8mes'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'filters' },
+	          this.props.categories.map(this.getCheckbox)
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    categories: store.categories.list
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {};
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AuthorsAside);
+
+/***/ },
+/* 383 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _AuthorCard = __webpack_require__(384);
+
+	var _AuthorCard2 = _interopRequireDefault(_AuthorCard);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AuthorsContent = _react2.default.createClass({
+	  displayName: 'AuthorsContent',
+
+	  propTypes: {
+	    authors: _react2.default.PropTypes.array.isRequired
+	  },
+	  getAuthor: function getAuthor(author) {
+	    return _react2.default.createElement(_AuthorCard2.default, { id: author.id,
+	      name: author.name,
+	      title: author.title,
+	      pic: author.pic,
+	      key: author.id });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'main-content' },
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'authors-main' },
+	        this.props.authors.map(this.getAuthor)
+	      )
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    authors: store.authors.list
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorsContent);
+
+/***/ },
+/* 384 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _async = __webpack_require__(254);
+
+	var async = _interopRequireWildcard(_async);
+
+	var _reactRedux = __webpack_require__(172);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AuthorCard = function AuthorCard(props) {
+	  var handleAuthorClick = function handleAuthorClick() {
+	    async.getAuthor(props.id);
+	    props.showAuthorPanel();
+	  };
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'author', onClick: 'handleAuthorClick' },
+	    _react2.default.createElement('img', { className: 'author-pic', src: "/img/" + props.pic }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'author-infos' },
+	      _react2.default.createElement(
+	        'h3',
+	        { className: 'author-name' },
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#' },
+	          props.name
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'author-desc' },
+	        props.title
+	      )
+	    )
+	  );
+	};
+
+	AuthorCard.propTypes = {
+	  id: _react2.default.PropTypes.number.isRequired,
+	  name: _react2.default.PropTypes.string.isRequired,
+	  title: _react2.default.PropTypes.string.isRequired,
+	  pic: _react2.default.PropTypes.string.isRequired,
+	  showAuthor: _react2.default.PropTypes.func.isRequired
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    showAuthor: function showAuthor() {
+	      return dispatch(actions.showAuthor());
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorCard);
+
+/***/ },
+/* 385 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Contribute = _react2.default.createClass({
+	  displayName: 'Contribute',
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Contribute 666'
+	    );
+	  }
+	});
+
+	module.exports = Contribute;
+
+/***/ },
+/* 386 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _actions = __webpack_require__(255);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Home = _react2.default.createClass({
+	  displayName: 'Home',
+
+	  componentWillMount: function componentWillMount() {
+	    this.props.emptyTitlebar();
+	  },
+	  render: function render() {
+	    return _react2.default.createElement('main', { id: 'main-container' });
+	  }
+	});
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    emptyTitlebar: function emptyTitlebar() {
+	      return dispatch(actions.emptyTitlebar());
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Home);
+
+/***/ },
+/* 387 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _Author = __webpack_require__(388);
+
+	var _Author2 = _interopRequireDefault(_Author);
+
+	var _Header = __webpack_require__(391);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _Menu = __webpack_require__(393);
+
+	var _Menu2 = _interopRequireDefault(_Menu);
+
+	var _store = __webpack_require__(210);
+
+	var _store2 = _interopRequireDefault(_store);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Main = _react2.default.createClass({
+	  displayName: 'Main',
+
+	  getTheme: function getTheme() {
+	    return this.props.location.pathname === '/' ? 'blue' : 'white';
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'app', className: this.getTheme() },
+	      _react2.default.createElement(_Header2.default, null),
+	      _react2.default.createElement(_Menu2.default, null),
+	      _react2.default.createElement(_Author2.default, null),
+	      this.props.children
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return { theme: store.theme };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Main);
+
+/***/ },
 /* 388 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -45630,7 +44694,185 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _Titlebar = __webpack_require__(389);
+	var _AuthorCategory = __webpack_require__(389);
+
+	var _AuthorCategory2 = _interopRequireDefault(_AuthorCategory);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Author = _react2.default.createClass({
+	  displayName: 'Author',
+
+	  propTypes: {
+	    id: _react2.default.PropTypes.number.isRequired,
+	    isVisible: _react2.default.PropTypes.bool.isRequired,
+	    name: _react2.default.PropTypes.string.isRequired,
+	    title: _react2.default.PropTypes.string.isRequired,
+	    desc: _react2.default.PropTypes.string.isRequired,
+	    pic: _react2.default.PropTypes.string.isRequired,
+	    articles: _react2.default.PropTypes.array.isRequired,
+	    hideAuthorPanel: _react2.default.PropTypes.func.isRequired
+	  },
+	  getCategories: function getCategories(category) {
+	    return _react2.default.createElement(_AuthorCategory2.default, { key: category.categoryId, id: category.categoryId, name: category.categoryName, articles: category.articles });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'author-profile', style: { 'display': this.props.isVisible ? 'block' : 'none' } },
+	      _react2.default.createElement('img', { id: 'author-profile-exit', className: 'clickable', src: '/img/author-profile-exit.svg', onClick: this.props.hideAuthorPanel }),
+	      _react2.default.createElement('img', { className: 'author-pic', src: "/img/" + this.props.pic }),
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'author-name' },
+	        this.props.name
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'author-infos' },
+	        this.props.title
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'author-desc' },
+	        this.props.desc
+	      ),
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'articles' },
+	        'Articles'
+	      ),
+	      this.props.articles.map(this.getCategories)
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    isVisible: store.authorPanel.isVisible,
+	    id: store.author.id,
+	    name: store.author.name,
+	    title: store.author.title,
+	    desc: store.author.desc,
+	    pic: store.author.pic,
+	    articles: store.authorArticles.articles
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    hideAuthorPanel: function hideAuthorPanel() {
+	      dispatch(actions.hideAuthorPanel());
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Author);
+
+/***/ },
+/* 389 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _AuthorArticle = __webpack_require__(390);
+
+	var _AuthorArticle2 = _interopRequireDefault(_AuthorArticle);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ArticleCategory = _react2.default.createClass({
+	  displayName: 'ArticleCategory',
+
+	  propTypes: {
+	    id: _react2.default.PropTypes.number.isRequired,
+	    name: _react2.default.PropTypes.string.isRequired,
+	    articles: _react2.default.PropTypes.array.isRequired
+	  },
+	  getArticle: function getArticle(article) {
+	    return _react2.default.createElement(_AuthorArticle2.default, { key: article.id, id: article.id, name: article.name });
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'article-category' },
+	      _react2.default.createElement(
+	        'h3',
+	        { className: 'article-category-title' },
+	        'Crise \xE9conomique'
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'article-titles' },
+	        this.props.articles.map(this.getArticle)
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ArticleCategory;
+
+/***/ },
+/* 390 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Link = __webpack_require__(379);
+
+	var _Link2 = _interopRequireDefault(_Link);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AuthorArticle = _react2.default.createClass({
+	  displayName: 'AuthorArticle',
+
+	  propTypes: {
+	    id: _react2.default.PropTypes.number.isRequired,
+	    name: _react2.default.PropTypes.string.isRequired
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'li',
+	      null,
+	      _react2.default.createElement(
+	        _Link2.default,
+	        { to: "articles/" + this.props.id },
+	        this.props.name
+	      )
+	    );
+	  }
+	});
+
+	module.exports = AuthorArticle;
+
+/***/ },
+/* 391 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _actions = __webpack_require__(255);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	var _Titlebar = __webpack_require__(392);
 
 	var _Titlebar2 = _interopRequireDefault(_Titlebar);
 
@@ -45685,7 +44927,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Header);
 
 /***/ },
-/* 389 */
+/* 392 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45745,7 +44987,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Titlebar);
 
 /***/ },
-/* 390 */
+/* 393 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45754,21 +44996,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(386);
+	var _Link = __webpack_require__(379);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
-	var _IndexLink = __webpack_require__(391);
+	var _IndexLink = __webpack_require__(394);
 
 	var _IndexLink2 = _interopRequireDefault(_IndexLink);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _NavMenu = __webpack_require__(392);
+	var _NavMenu = __webpack_require__(395);
 
 	var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
-	var _NewsMenu = __webpack_require__(393);
+	var _NewsMenu = __webpack_require__(396);
 
 	var _NewsMenu2 = _interopRequireDefault(_NewsMenu);
 
@@ -45803,7 +45045,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Menu);
 
 /***/ },
-/* 391 */
+/* 394 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45816,7 +45058,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(386);
+	var _Link = __webpack_require__(379);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -45836,7 +45078,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 392 */
+/* 395 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45845,7 +45087,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(386);
+	var _Link = __webpack_require__(379);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -45945,7 +45187,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NavMenu);
 
 /***/ },
-/* 393 */
+/* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45954,7 +45196,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(386);
+	var _Link = __webpack_require__(379);
 
 	var _Link2 = _interopRequireDefault(_Link);
 

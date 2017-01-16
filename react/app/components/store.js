@@ -237,7 +237,6 @@ const initArticles = {
   list : []
 };
 const articlesReducer = function(state = initArticles, action) {
-  console.log(action);
   switch (action.type) {
     case actionTypes.ARTICLES_REQUEST :
       return Object.assign({}, state, { isFetching : true });

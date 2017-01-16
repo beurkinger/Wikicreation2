@@ -1,28 +1,42 @@
 import React from 'react';
 
-const AuthorCard = props => (
-  <div className="author">
-    <img className="author-pic" src="/img/author-pic1.jpg"/>
-    <div className="author-infos">
-      <h3 className="author-name">
-        <a href="#">
-          Dominique Berthet
-        </a>
-      </h3>
-      <p className="author-desc">
-        Chargé d’enseignement, <br/>
-        École des Beaux Arts d’Athènes. <br/>
-        Yolo
-      </p>
+import * as async from './async';
+import * as actions from './actions';
+import {connect} from 'react-redux';
+
+const AuthorCard = props => {
+  const handleAuthorClick = () => {
+    async.getAuthor(props.id);
+    props.showAuthorPanel();
+  };
+  return (
+    <div className="author" onClick={handleAuthorClick} >
+      <img className="author-pic" src={ "/img/" +  props.pic }/>
+      <div className="author-infos">
+        <h3 className="author-name">
+          {props.name}
+        </h3>
+        <p className="author-desc">
+          {props.title}
+        </p>
+      </div>
     </div>
-  </div>
-);
+  )
+};
 
 AuthorCard.propTypes =
 {
-  id : React.PropTypes.number,
-  name : React.PropTypes.string,
-  title : React.PropTypes.string
+  id : React.PropTypes.number.isRequired,
+  name : React.PropTypes.string.isRequired,
+  title : React.PropTypes.string.isRequired,
+  pic : React.PropTypes.string.isRequired,
+  showAuthorPanel : React.PropTypes.func.isRequired
 };
 
-module.exports = AuthorCard;
+const mapDispatchToProps = function(dispatch) {
+  return {
+    showAuthorPanel: () => dispatch(actions.showAuthorPanel())
+  }
+};
+
+module.exports = connect(null, mapDispatchToProps)(AuthorCard);
