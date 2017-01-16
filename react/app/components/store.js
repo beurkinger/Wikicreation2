@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 
 import * as actionTypes from './actionTypes';
+import * as constants from './constants';
 
 const initTitlebar = {
   isVisible : false,
@@ -13,12 +14,24 @@ const titlebarReducer = function(state = initTitlebar, action) {
       return Object.assign({}, state, { isVisible : true });
     case actionTypes.HIDE_TITLEBAR :
       return Object.assign({}, state, { isVisible : false });
-    case actionTypes.SET_TITLEBAR :
+    case actionTypes.SET_ARTICLE_TITLEBAR :
+      return Object.assign({}, state, {
+        isVisible : false,
+        pageType : constants.PAGE_TYPE_ARTICLE,
+        title : ''
+      });
+    case actionTypes.SET_STD_TITLEBAR :
       return Object.assign({}, state, {
         isVisible : true,
-        pageType : action.pageType,
+        pageType : constants.PAGE_TYPE_STD,
         title : action.title
       });
+    case actionTypes.EMPTY_TITLEBAR :
+      return Object.assign({}, state, {
+        isVisible : false,
+        pageType : constants.PAGE_TYPE_STD,
+        title : 'Wikicreation'
+       });
     default:
       return state;
   }
@@ -62,6 +75,26 @@ const newsReducer = function(state = initNews, action) {
       return Object.assign({}, state, { isFetching : false, articles : action.articles });
       case actionTypes.NEWS_FAIL :
         return Object.assign({}, state, { isFetching : false });
+    default:
+      return state;
+  }
+};
+
+const initAuthors = {
+  isFetching : false,
+  list : []
+};
+const authorsReducer = function(state = initAuthors, action) {
+  switch (action.type) {
+    case actionTypes.AUTHORS_REQUEST :
+      return Object.assign({}, state, { isFetching : true });
+    case actionTypes.AUTHORS_SUCCESS :
+      return Object.assign({}, state, {
+        isFetching : false,
+        list : action.list
+      });
+    case actionTypes.AUTHORS_FAIL :
+      return Object.assign({}, state, { isFetching : false });
     default:
       return state;
   }
@@ -199,20 +232,21 @@ const authorArticlesReducer = function(state = initAuthorArticles, action) {
   }
 };
 
-const initAuthors = {
+const initArticles = {
   isFetching : false,
   list : []
 };
-const authorsReducer = function(state = initAuthors, action) {
+const articlesReducer = function(state = initArticles, action) {
+  console.log(action);
   switch (action.type) {
-    case actionTypes.AUTHORS_REQUEST :
+    case actionTypes.ARTICLES_REQUEST :
       return Object.assign({}, state, { isFetching : true });
-    case actionTypes.AUTHORS_SUCCESS :
+    case actionTypes.ARTICLES_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,
         list : action.list
       });
-    case actionTypes.AUTHORS_FAIL :
+    case actionTypes.ARTICLES_FAIL :
       return Object.assign({}, state, { isFetching : false });
     default:
       return state;
@@ -261,15 +295,16 @@ const appReducers = combineReducers({
   titlebar : titlebarReducer,
   menu : menuReducer,
   news : newsReducer,
+  articles : articlesReducer,
   article : articleReducer,
   read: readReducer,
   author : authorReducer,
+  authors : authorsReducer,
   authorPanel : authorPanelReducer,
   authorArticles : authorArticlesReducer,
   categories : categoriesReducer,
   articleLanguages : articleLanguagesReducer,
-  authorsFilter : authorsFilterReducer,
-  articlesFilter : articlesFilterReducer
+  authorsFilter : authorsFilterReducer
 });
 
 let store = createStore(appReducers);

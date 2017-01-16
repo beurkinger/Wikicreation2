@@ -8,12 +8,19 @@ export function showTitlebar () {
 export function hideTitlebar () {
   return { type: actionTypes.HIDE_TITLEBAR };
 };
-export function setTitlebar (pageType, title) {
+export function setArticleTitlebar () {
   return {
-    type: actionTypes.SET_TITLEBAR,
-    pageType : pageType,
+    type: actionTypes.SET_ARTICLE_TITLEBAR
+  };
+};
+export function setStdTitlebar (title) {
+  return {
+    type: actionTypes.SET_STD_TITLEBAR,
     title : title ? title : ''
   };
+};
+export function emptyTitlebar () {
+  return { type: actionTypes.EMPTY_TITLEBAR };
 };
 
 export function showMenu () {
@@ -30,7 +37,22 @@ export function newsSuccess (json) {
   return { type: actionTypes.NEWS_SUCCESS, articles : json };
 };
 export function newsFail () {
+  console.warn('Problem while retrieving news : "' + msg + '"');
   return { type: actionTypes.NEWS_FAIL };
+};
+
+export function articlesRequest () {
+  return { type: actionTypes.ARTICLES_REQUEST };
+};
+export function articlesSuccess (json) {
+  return {
+    type: actionTypes.ARTICLES_SUCCESS,
+    list : json
+ };
+};
+export function articlesFail (msg) {
+  console.warn('Problem while retrieving articles : "' + msg + '"');
+  return { type: actionTypes.ARTICLES_FAIL };
 };
 
 export function articleRequest () {
@@ -52,6 +74,7 @@ export function articleSuccess (json) {
  };
 };
 export function articleFail () {
+  console.warn('Problem while retrieving articles : "' + msg + '"');
   return { type: actionTypes.ARTICLE_FAIL };
 };
 
@@ -65,10 +88,11 @@ export function authorsRequest () {
 export function authorsSuccess (json) {
   return {
     type: actionTypes.AUTHORS_SUCCESS,
-    list : json.list
+    list : json
  };
 };
-export function authorsFail () {
+export function authorsFail (msg) {
+  console.warn('Problem while retrieving authors : "' + msg + '"');
   return { type: actionTypes.AUTHORS_FAIL };
 };
 
@@ -86,6 +110,7 @@ export function authorSuccess (json) {
  };
 };
 export function authorFail () {
+  console.warn('Problem while retrieving author : "' + msg + '"');
   return { type: actionTypes.AUTHOR_FAIL };
 };
 
@@ -100,6 +125,7 @@ export function authorArticlesSuccess (json) {
  };
 };
 export function authorArticlesFail () {
+  console.warn('Problem while retrieving articles : "' + msg + '"');
   return { type: actionTypes.AUTHOR_ARTICLES_FAIL };
 };
 
@@ -120,5 +146,6 @@ export function categoriesSuccess (json) {
  };
 };
 export function categoriesFail () {
+  console.warn('Problem while retrieving categories : "' + msg + '"');
   return { type: actionTypes.CATEGORIES_FAIL };
 };

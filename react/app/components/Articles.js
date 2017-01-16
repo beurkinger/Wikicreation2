@@ -5,11 +5,12 @@ import * as actions from './actions';
 import * as async from './async';
 import ArticlesAside from './ArticlesAside';
 import ArticlesContent from './ArticlesContent';
-import { PAGE_TYPE_STD } from './constants';
 
 const Articles = React.createClass({
   componentWillMount : function () {
     async.getCategories();
+    async.getArticles();
+    this.props.setTitlebar();
   },
   render: function () {
     return (
@@ -23,7 +24,7 @@ const Articles = React.createClass({
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    setTitlebar: () => dispatch(actions.setTitlebar(PAGE_TYPE_STD, 'Articles'))
+    setTitlebar: () => dispatch(actions.setStdTitlebar('Articles'))
   }
 };
 

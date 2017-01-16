@@ -7,15 +7,23 @@ const Titlebar = React.createClass({
   propTypes: {
     isVisible : React.PropTypes.bool.isRequired,
     pageType : React.PropTypes.string.isRequired,
-    title : React.PropTypes.string.isRequired
+    title : React.PropTypes.string.isRequired,
+    articleTitle : React.PropTypes.string.isRequired
   },
   getContent : function ()
   {
-    return this.props.title;
+    if (this.props.pageType === PAGE_TYPE_STD)
+    {
+      return <h1 className="std-title">{this.props.title}</h1>;
+    }
+    else if (this.props.pageType === PAGE_TYPE_ARTICLE)
+    {
+      return <h1 className="article-title">{this.props.articleTitle}</h1>;
+    }
   },
   render: function () {
     return (
-      <div id="main-title" style={{'display' : this.props.isVisible ? 'block' : 'none'}}>
+      <div id="main-title-container" style={{'display' : this.props.isVisible ? 'block' : 'none'}}>
         {this.getContent()}
       </div>
     );
@@ -26,7 +34,8 @@ const mapStateToProps = function(store) {
   return {
     isVisible : store.titlebar.isVisible,
     pageType : store.titlebar.pageType,
-    title : store.titlebar.title
+    title : store.titlebar.title,
+    articleTitle : store.article.title
   }
 };
 

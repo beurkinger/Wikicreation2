@@ -17,26 +17,52 @@ const ArticleContent = React.createClass({
     keywords: React.PropTypes.array.isRequired,
     body: React.PropTypes.string.isRequired,
     authorName : React.PropTypes.string.isRequired,
+    isTitlebarVisible : React.PropTypes.bool.isRequired
   },
-  componentWillMount : function () { this.props.dispatchPercentRead(0) },
+  componentWillMount : function () { this.props.setPercentRead(0) },
   websiteUrl : WEBSITE_URL,
   body : null,
+  title : null,
   handleScroll : function (e) {
+    let container = e.target;
+    this.updatePercentRead(container);
+    this.updateTitle(container);
+  },
+  updatePercentRead : function (container) {
+    //On récupère la référence au corps du texte de l'article
+    let body = this.body;
     //Distance entre le haut de la fenetre et le container
-    let mainTop = e.target.getBoundingClientRect().top;
+    let mainTop = container.getBoundingClientRect().top;
     //Position de départ du corps de texte
-    let startPos = this.body.offsetTop + mainTop;
+    let startPos = body.offsetTop + mainTop;
     //Distance à pacourir
-    let distanceToScroll = this.body.offsetHeight - window.innerHeight + startPos;
+    let distanceToScroll = body.offsetHeight - window.innerHeight + startPos;
     //Position actuelle du corps de texte
-    let currPos = this.body.getBoundingClientRect().top;
+    let currPos = body.getBoundingClientRect().top;
     //Distance parcourue
     let distanceScrolled = startPos - currPos;
     //Pourcentage parcouru
     let percent = (distanceScrolled / distanceToScroll) * 100;
     //On limite le pourcentage à 100
     percent = percent > 100 ? 100 : percent;
-    this.props.dispatchPercentRead(percent);
+    this.props.setPercentRead(percent);
+  },
+  updateTitle: function (container) {
+    //On récupère la référence au titre de l'article
+    let title = this.title;
+    //Position de la partie supérieure du container
+    let mainTop = container.getBoundingClientRect().top;
+    //Position  de la partie inférieur du titre
+    let titleBottom = title.getBoundingClientRect().bottom;
+
+    if (titleBottom <= mainTop)
+    {
+      if (!this.props.isTitlebarVisible) this.props.showTitlebar();
+    }
+    else
+    {
+      if (this.props.isTitlebarVisible) this.props.hideTitlebar();
+    }
   },
   render: function () {
     return (
@@ -45,7 +71,7 @@ const ArticleContent = React.createClass({
           <h5 className="article-infos">
             {this.props.categoryName} • <DateStr date={this.props.date} format="MMMM YYYY" locale="fr" />
           </h5>
-          <h2 className="article-title">
+          <h2 className="article-title" ref={(elt) => { this.title = elt }}>
             {this.props.title}
           </h2>
           <h3 className="article-author">
@@ -81,14 +107,15 @@ const mapStateToProps = function (store) {
      categoryName : store.article.categoryName,
      authorName : store.author.name,
      authorPic : store.author.pic,
+     isTitlebarVisible : store.titlebar.isVisible
    };
 };
 
 const mapDispatchToProps = function(dispatch) {
   return {
-    dispatchPercentRead: function(percent) {
-      dispatch(actions.setPercentRead(percent));
-    }
+    setPercentRead: (percent) => dispatch(actions.setPercentRead(percent)),
+    hideTitlebar: () => dispatch(actions.hideTitlebar()),
+    showTitlebar: () => dispatch(actions.showTitlebar())
   }
 };
 
