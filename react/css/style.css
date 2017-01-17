@@ -419,6 +419,11 @@ html, body, #root, #app
   font-family: Muli; color: #484848; font-size: 12px; font-weight: 200;
 }
 
+#main-aside .author:hover .author-desc
+{
+  text-decoration: underline;
+}
+
 #main-aside .info
 {
   width: 220px;
@@ -438,7 +443,7 @@ html, body, #root, #app
 {
   width: 100%; height: 8px;
   background-color: #CDCCCC;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 #main-aside .gauge .percent
@@ -449,7 +454,7 @@ html, body, #root, #app
 
 #main-aside .downloads
 {
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 #main-aside .downloads a
