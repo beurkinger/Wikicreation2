@@ -222,8 +222,7 @@ html, body, #root, #app
 
 #nav-menu .search-field, #nav-menu .search-btn
 {
-  display: inline-block;
-  font-family: Montserrat; color: #FFF; font-size: 20px;
+  font-family: Muli; color: #FFF; font-size: 20px; font-weight: 200;
   line-height: 100%;
   background: transparent;
   border-style: solid;
@@ -232,9 +231,11 @@ html, body, #root, #app
 
 #nav-menu .search-field
 {
-  width: 129px; height: 20px;
-  border-width: 1px;
-  padding: 10px 20px;
+  display: block;
+  float: left;
+  width: 130px; height: 20px;
+  border-width: 1px 0 1px 1px;
+  padding: 8px 10px 12px 10px;
 }
 
 #nav-menu .search-field::-webkit-input-placeholder { color: #FFF; }
@@ -244,11 +245,19 @@ html, body, #root, #app
 
 #nav-menu .search-btn
 {
+  display: block;
   width: 49px;
   font-weight: bold;
-  padding: 10px;
+  padding: 10px 10px 9px 10px;
   border-width: 1px 1px 1px 0;
 }
+
+#nav-menu .search-btn img
+{
+  height: 20px;
+  width: auto;
+}
+
 
 #nav-menu .pages-list
 {
@@ -275,7 +284,6 @@ html, body, #root, #app
 
 #nav-menu .pages-list li a.active
 {
-  font-family: Montserrat;
   font-weight: bold;
 }
 

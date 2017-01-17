@@ -30,7 +30,9 @@ const NavMenu = React.createClass({
         </div>
         <form className="search-form">
           <input className="search-field" name="main-search-field" placeholder="Recherche"/>
-          <button className="search-btn" name="main-search-btn">Go</button>
+          <button className="search-btn" name="main-search-btn">
+            <img src="/img/find.svg" />
+          </button>
         </form>
         <ul className="pages-list">
           {this.props.mainLinks.map(this.createLink)}
