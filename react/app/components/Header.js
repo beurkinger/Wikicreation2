@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import * as actions from './actions';
 import Titlebar from './Titlebar';
@@ -11,7 +12,7 @@ const Header = React.createClass({
   render: function () {
     return (
       <header id="main-header">
-        <div id="main-logo"></div>
+        <Link to="/" id="main-logo"></Link>
         <Titlebar />
         <div id="main-header-right">
           <div className="menu-ham clickable" onClick={this.props.showMenu}></div>

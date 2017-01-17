@@ -24106,7 +24106,7 @@
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Article = __webpack_require__(253);
+	var _Article = __webpack_require__(256);
 
 	var _Article2 = _interopRequireDefault(_Article);
 
@@ -27636,49 +27636,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var About = _react2.default.createClass({
-	  displayName: 'About',
-
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'h1',
-	      null,
-	      'About 666'
-	    );
-	  }
-	});
-
-	module.exports = About;
-
-/***/ },
-/* 253 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(254);
-
-	var async = _interopRequireWildcard(_async);
-
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
-
-	var _ArticleAside = __webpack_require__(258);
-
-	var _ArticleAside2 = _interopRequireDefault(_ArticleAside);
-
-	var _ArticleContent = __webpack_require__(260);
-
-	var _ArticleContent2 = _interopRequireDefault(_ArticleContent);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -27688,15 +27650,124 @@
 	  displayName: 'Article',
 
 	  componentWillMount: function componentWillMount() {
-	    async.getArticle(this.props.params.id);
 	    this.props.setTitlebar();
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'main',
 	      { id: 'main-container' },
-	      _react2.default.createElement(_ArticleAside2.default, null),
-	      _react2.default.createElement(_ArticleContent2.default, null)
+	      _react2.default.createElement(
+	        'aside',
+	        { id: 'main-aside' },
+	        _react2.default.createElement(
+	          'div',
+	          { 'class': 'info' },
+	          _react2.default.createElement(
+	            'h2',
+	            { 'class': 'info-title' },
+	            'Pr\xE9sentation de la publication'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { 'class': 'info' },
+	          _react2.default.createElement(
+	            'h2',
+	            { 'class': 'info-title' },
+	            'Un projet \xE9ditorial relationnel'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { 'class': 'info' },
+	          _react2.default.createElement(
+	            'h2',
+	            { 'class': 'info-title' },
+	            'Editeur'
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'main-content' },
+	        _react2.default.createElement(
+	          'article',
+	          { id: 'article-main' },
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'article-body' },
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'WikiCreation est une publication scientifique en ligne nouvelle et novatrice. Son objet d\u2019\xE9tude est la notion et l\u2019acte de cr\xE9ation dans tous leurs \xE9tats, sous tous leurs aspects, selon toutes les approches. WikiCreation est donc ouverte \xE0 toutes les disciplines et a l\u2019ambition de devenir une publication de r\xE9f\xE9rence dans le domaine des \xE9tudes de la cr\xE9ation.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Le comit\xE9 scientifique de WikiCreation est international, comme son comit\xE9 de lecture (peer review), qui s\xE9lectionne les articles qui lui sont soumis \xE0 partir d\u2019une lecture en double aveugle.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Cette publication en ligne est ouverte \xE0 tous les chercheurs, des sp\xE9cialistes reconnus aux doctorants. Les articles en fran\xE7ais sont traduits en anglais et inversement. Les articles dans une autre langue que le fran\xE7ais ont aussi leur version anglaise. Si les articles publi\xE9s respectent les exigences acad\xE9miques (r\xE9f\xE9rences bibliographiques, notes, etc.), ils restent n\xE9anmoins accessibles \xE0 un public \xE9tendu.'
+	            ),
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Un projet \xE9ditorial relationnel'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Le projet \xE9pist\xE9mologique et \xE9ditorial de WikiCreation est de type relationnel. Il est centr\xE9 sur l\u2019\xE9tude de la relation que la cr\xE9ation entretient avec ses environnements. Dans chaque article, le concept de cr\xE9ation est donc heuristiquement articul\xE9 \xE0 une autre notion, \xE0 un autre un concept, \xE0 un autre champ. Ainsi la cr\xE9ation n\u2019est-elle pas d\xE9finie comme un absolu mais dans un r\xE9seau de relations.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Chaque article s\u2019\xE9vertue donc \xE0 montrer comment telle notion judicieusement choisie par affinit\xE9 permet d\u2019explorer, d\u2019\xE9clairer, d\u2019enrichir, de nourrir, d\u2019exemplifier, le concept de cr\xE9ation, et r\xE9ciproquement. L\u2019\xE9tude de la relation entre deux, voire trois notions est donc le pivot de chaque article.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Ces duos ou trios peuvent \xEAtre des notions proches, comme \xAB cr\xE9ativit\xE9 et cr\xE9ation \xBB, ou adverses comme \xAB la cr\xE9ation comme processus et la cr\xE9ation comme r\xE9sultat \xBB, ou contradictoires comme \xAB cr\xE9ation et destruction \xBB, ou diff\xE9rentes comme \xAB s\xE9rendipit\xE9 et cr\xE9ation \xBB ou \xAB sommeil, r\xEAve et cr\xE9ation \xBB, ou encore \xAB crise, changement et cr\xE9ation \xBB, etc.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'WikiCreation permet ainsi \xE0 d\u2019autres chercheurs ou groupes de chercheurs d\u2019apporter des contributions distinctes sur les m\xEAmes combinaisons.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Les articles \xE9tudient l\u2019acte cr\xE9atif, qu\u2019il soit artistique, scientifique, technologique, savant ou ordinaire, dans ses fonctions \xE0 la fois anthropologiques et soci\xE9tales. La cr\xE9ation est donc le fil rouge de l\u2019ensemble de la publication et son d\xE9nominateur commun. Un tel r\xE9seau, constitu\xE9 en regard de notions ou concepts divers, permet ainsi de la circonscrire d\u2019article en article.'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'C\u2019est donc une entreprise collective et \xE9ventuellement collaborative qui travaille sur la notion de cr\xE9ation par la multiplication des points de vue et leur mise en tension dans un m\xEAme espace num\xE9rique dot\xE9 de moteurs de recherche et de moteurs s\xE9mantiques.'
+	            ),
+	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              'Editeur'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Le comit\xE9 de r\xE9daction est constitu\xE9 de Richard Conte (Po\xEF\xE9ticien), Bernard Darras (S\xE9mioticien), Christophe Genin (Philosophe).'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Institut ACTE UMR 8218',
+	              _react2.default.createElement('br', null),
+	              'Universit\xE9 Paris 1 Panth\xE9on-Sorbonne & CNRS',
+	              _react2.default.createElement('br', null),
+	              'LabEx CAP'
+	            )
+	          )
+	        )
+	      )
 	    );
 	  }
 	});
@@ -27704,105 +27775,15 @@
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    setTitlebar: function setTitlebar() {
-	      return dispatch(actions.setArticleTitlebar());
+	      return dispatch(actions.setStdTitlebar('À Propos'));
 	    }
 	  };
 	};
 
-	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Article);
+	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(About);
 
 /***/ },
-/* 254 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.getNews = getNews;
-	exports.getArticles = getArticles;
-	exports.getArticle = getArticle;
-	exports.getAuthors = getAuthors;
-	exports.getAuthor = getAuthor;
-	exports.getCategories = getCategories;
-
-	var _actions = __webpack_require__(255);
-
-	var actions = _interopRequireWildcard(_actions);
-
-	var _store = __webpack_require__(210);
-
-	var _store2 = _interopRequireDefault(_store);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function getNews() {
-	  fetch('/json/news.json').then(function (response) {
-	    return response.json();
-	  }).then(function (json) {
-	    return _store2.default.dispatch(actions.newsSuccess(json));
-	  }).catch(function (response) {
-	    return _store2.default.dispatch(actions.newsFail(response));
-	  });
-	};
-
-	function getArticles(id) {
-	  fetch('/json/articles.json').then(function (response) {
-	    return response.json();
-	  }).then(function (json) {
-	    _store2.default.dispatch(actions.articlesSuccess(json));
-	  }).catch(function (response) {
-	    return _store2.default.dispatch(actions.articlesFail(response));
-	  });
-	};
-
-	function getArticle(id) {
-	  fetch('/json/article.json').then(function (response) {
-	    return response.json();
-	  }).then(function (json) {
-	    _store2.default.dispatch(actions.articleSuccess(json));
-	    _store2.default.dispatch(actions.authorSuccess(json.author));
-	  }).catch(function (response) {
-	    return _store2.default.dispatch(actions.articleFail(response));
-	  });
-	};
-
-	function getAuthors(id) {
-	  fetch('/json/authors.json').then(function (response) {
-	    return response.json();
-	  }).then(function (json) {
-	    _store2.default.dispatch(actions.authorsSuccess(json));
-	  }).catch(function (response) {
-	    return _store2.default.dispatch(actions.authorsFail(response));
-	  });
-	};
-
-	function getAuthor(id) {
-	  fetch('/json/author.json').then(function (response) {
-	    return response.json();
-	  }).then(function (json) {
-	    _store2.default.dispatch(actions.authorSuccess(json));
-	    _store2.default.dispatch(actions.authorArticlesSuccess(json));
-	  }).catch(function (response) {
-	    return _store2.default.dispatch(actions.authorFail(response));
-	  });
-	};
-
-	function getCategories(id) {
-	  fetch('/json/categories.json').then(function (response) {
-	    return response.json();
-	  }).then(function (json) {
-	    return _store2.default.dispatch(actions.categoriesSuccess(json));
-	  }).catch(function (response) {
-	    return _store2.default.dispatch(actions.categoriesFail(response));
-	  });
-	};
-
-/***/ },
-/* 255 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27842,7 +27823,7 @@
 	exports.categoriesSuccess = categoriesSuccess;
 	exports.categoriesFail = categoriesFail;
 
-	var _isomorphicFetch = __webpack_require__(256);
+	var _isomorphicFetch = __webpack_require__(254);
 
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
@@ -28003,19 +27984,19 @@
 	};
 
 /***/ },
-/* 256 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(257);
+	__webpack_require__(255);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 257 */
+/* 255 */
 /***/ function(module, exports) {
 
 	(function(self) {
@@ -28479,6 +28460,155 @@
 
 
 /***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _async = __webpack_require__(257);
+
+	var async = _interopRequireWildcard(_async);
+
+	var _actions = __webpack_require__(253);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	var _ArticleAside = __webpack_require__(258);
+
+	var _ArticleAside2 = _interopRequireDefault(_ArticleAside);
+
+	var _ArticleContent = __webpack_require__(260);
+
+	var _ArticleContent2 = _interopRequireDefault(_ArticleContent);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Article = _react2.default.createClass({
+	  displayName: 'Article',
+
+	  componentWillMount: function componentWillMount() {
+	    async.getArticle(this.props.params.id);
+	    this.props.setTitlebar();
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'main',
+	      { id: 'main-container' },
+	      _react2.default.createElement(_ArticleAside2.default, null),
+	      _react2.default.createElement(_ArticleContent2.default, null)
+	    );
+	  }
+	});
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    setTitlebar: function setTitlebar() {
+	      return dispatch(actions.setArticleTitlebar());
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Article);
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.getNews = getNews;
+	exports.getArticles = getArticles;
+	exports.getArticle = getArticle;
+	exports.getAuthors = getAuthors;
+	exports.getAuthor = getAuthor;
+	exports.getCategories = getCategories;
+
+	var _actions = __webpack_require__(253);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	var _store = __webpack_require__(210);
+
+	var _store2 = _interopRequireDefault(_store);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function getNews() {
+	  fetch('/json/news.json').then(function (response) {
+	    return response.json();
+	  }).then(function (json) {
+	    return _store2.default.dispatch(actions.newsSuccess(json));
+	  }).catch(function (response) {
+	    return _store2.default.dispatch(actions.newsFail(response));
+	  });
+	};
+
+	function getArticles(id) {
+	  fetch('/json/articles.json').then(function (response) {
+	    return response.json();
+	  }).then(function (json) {
+	    _store2.default.dispatch(actions.articlesSuccess(json));
+	  }).catch(function (response) {
+	    return _store2.default.dispatch(actions.articlesFail(response));
+	  });
+	};
+
+	function getArticle(id) {
+	  fetch('/json/article.json').then(function (response) {
+	    return response.json();
+	  }).then(function (json) {
+	    _store2.default.dispatch(actions.articleSuccess(json));
+	    _store2.default.dispatch(actions.authorSuccess(json.author));
+	  }).catch(function (response) {
+	    return _store2.default.dispatch(actions.articleFail(response));
+	  });
+	};
+
+	function getAuthors(id) {
+	  fetch('/json/authors.json').then(function (response) {
+	    return response.json();
+	  }).then(function (json) {
+	    _store2.default.dispatch(actions.authorsSuccess(json));
+	  }).catch(function (response) {
+	    return _store2.default.dispatch(actions.authorsFail(response));
+	  });
+	};
+
+	function getAuthor(id) {
+	  fetch('/json/author.json').then(function (response) {
+	    return response.json();
+	  }).then(function (json) {
+	    _store2.default.dispatch(actions.authorSuccess(json));
+	    _store2.default.dispatch(actions.authorArticlesSuccess(json));
+	  }).catch(function (response) {
+	    return _store2.default.dispatch(actions.authorFail(response));
+	  });
+	};
+
+	function getCategories(id) {
+	  fetch('/json/categories.json').then(function (response) {
+	    return response.json();
+	  }).then(function (json) {
+	    return _store2.default.dispatch(actions.categoriesSuccess(json));
+	  }).catch(function (response) {
+	    return _store2.default.dispatch(actions.categoriesFail(response));
+	  });
+	};
+
+/***/ },
 /* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28490,11 +28620,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _async = __webpack_require__(254);
+	var _async = __webpack_require__(257);
 
 	var async = _interopRequireWildcard(_async);
 
@@ -28665,7 +28795,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -43781,11 +43911,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _async = __webpack_require__(254);
+	var _async = __webpack_require__(257);
 
 	var async = _interopRequireWildcard(_async);
 
@@ -43841,7 +43971,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(254);
+	var _async = __webpack_require__(257);
 
 	var _CheckboxFilter = __webpack_require__(374);
 
@@ -44312,11 +44442,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _async = __webpack_require__(254);
+	var _async = __webpack_require__(257);
 
 	var async = _interopRequireWildcard(_async);
 
@@ -44372,7 +44502,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(254);
+	var _async = __webpack_require__(257);
 
 	var _CheckboxFilter = __webpack_require__(374);
 
@@ -44499,9 +44629,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _async = __webpack_require__(254);
+	var _async = __webpack_require__(257);
 
 	var async = _interopRequireWildcard(_async);
+
+	var _actions = __webpack_require__(253);
+
+	var actions = _interopRequireWildcard(_actions);
 
 	var _reactRedux = __webpack_require__(172);
 
@@ -44516,7 +44650,7 @@
 	  };
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'author', onClick: 'handleAuthorClick' },
+	    { className: 'author', onClick: handleAuthorClick },
 	    _react2.default.createElement('img', { className: 'author-pic', src: "/img/" + props.pic }),
 	    _react2.default.createElement(
 	      'div',
@@ -44524,11 +44658,7 @@
 	      _react2.default.createElement(
 	        'h3',
 	        { className: 'author-name' },
-	        _react2.default.createElement(
-	          'a',
-	          { href: '#' },
-	          props.name
-	        )
+	        props.name
 	      ),
 	      _react2.default.createElement(
 	        'p',
@@ -44544,18 +44674,18 @@
 	  name: _react2.default.PropTypes.string.isRequired,
 	  title: _react2.default.PropTypes.string.isRequired,
 	  pic: _react2.default.PropTypes.string.isRequired,
-	  showAuthor: _react2.default.PropTypes.func.isRequired
+	  showAuthorPanel: _react2.default.PropTypes.func.isRequired
 	};
 
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    showAuthor: function showAuthor() {
-	      return dispatch(actions.showAuthor());
+	    showAuthorPanel: function showAuthorPanel() {
+	      return dispatch(actions.showAuthorPanel());
 	    }
 	  };
 	};
 
-	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorCard);
+	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(AuthorCard);
 
 /***/ },
 /* 385 */
@@ -44595,7 +44725,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -44690,7 +44820,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -44868,7 +44998,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -45097,7 +45227,7 @@
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -45202,11 +45332,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(255);
+	var _actions = __webpack_require__(253);
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _async = __webpack_require__(254);
+	var _async = __webpack_require__(257);
 
 	var async = _interopRequireWildcard(_async);
 

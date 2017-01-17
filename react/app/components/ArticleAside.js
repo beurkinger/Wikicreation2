@@ -38,17 +38,17 @@ const ArticleAside = React.createClass({
         </div>
         <div className="info">
           <h2 className="info-title">
+            Navigation sur l'article
+          </h2>
+          <div className="gauge"><div className="percent" style={{'width' : this.props.percentRead + '%'}}></div></div>
+        </div>
+        <div className="info">
+          <h2 className="info-title">
             Mots clefs de l'article
           </h2>
           <p className="info-desc">
             <Keywords array={this.props.keywords} />
           </p>
-        </div>
-        <div className="info">
-          <h2 className="info-title">
-            Navigation sur l'article
-          </h2>
-          <div className="gauge"><div className="percent" style={{'width' : this.props.percentRead + '%'}}></div></div>
         </div>
         <div className="info">
           <h2 className="info-title">

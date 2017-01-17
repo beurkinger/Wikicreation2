@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import * as actions from './actions';
-import AuthorCategory from './AuthorCategory';
+import AuthorArticle from './AuthorArticle';
 
 const Author = React.createClass({
   propTypes : {
@@ -15,9 +15,15 @@ const Author = React.createClass({
     articles : React.PropTypes.array.isRequired,
     hideAuthorPanel: React.PropTypes.func.isRequired
   },
-  getCategories : function (category)
+  getArticles : function (article)
   {
-    return <AuthorCategory key={category.categoryId} id={category.categoryId} name={category.categoryName} articles={category.articles} />;
+    return <AuthorArticle key={article.id}
+                          id={article.id}
+                          title={article.title}
+                          date={article.date}
+                          categoryId={article.category.id}
+                          categoryName={article.category.name}
+                          />;
   },
   render: function () {
     return (
@@ -36,7 +42,9 @@ const Author = React.createClass({
         <h2 className="articles">
           Articles
         </h2>
-        {this.props.articles.map(this.getCategories)}
+        <ul className="articles-list">
+          {this.props.articles.map(this.getArticles)}
+        </ul>
       </div>
     )
   }
