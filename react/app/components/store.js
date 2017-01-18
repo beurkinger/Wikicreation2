@@ -1,311 +1,39 @@
 import { createStore, combineReducers } from 'redux';
 
-import * as actionTypes from './actionTypes';
-import * as constants from './constants';
+import articleReducers from './article/store';
+import articlesReducers from './articles/store';
+import authorReducers from './author/store';
+import authorsReducers from './authors/store';
+import headerReducers from './header/store';
+import menuReducers from './menu/store';
+import sharedReducers from './shared/store';
 
-const initTitlebar = {
-  isVisible : false,
-  pageType : '',
-  title : ''
-};
-const titlebarReducer = function(state = initTitlebar, action) {
-  switch (action.type) {
-    case actionTypes.SHOW_TITLEBAR :
-      return Object.assign({}, state, { isVisible : true });
-    case actionTypes.HIDE_TITLEBAR :
-      return Object.assign({}, state, { isVisible : false });
-    case actionTypes.SET_ARTICLE_TITLEBAR :
-      return Object.assign({}, state, {
-        isVisible : false,
-        pageType : constants.PAGE_TYPE_ARTICLE,
-        title : ''
-      });
-    case actionTypes.SET_STD_TITLEBAR :
-      return Object.assign({}, state, {
-        isVisible : true,
-        pageType : constants.PAGE_TYPE_STD,
-        title : action.title
-      });
-    case actionTypes.EMPTY_TITLEBAR :
-      return Object.assign({}, state, {
-        isVisible : false,
-        pageType : constants.PAGE_TYPE_STD,
-        title : 'Wikicreation'
-       });
-    default:
-      return state;
-  }
-};
-
-const initMenu = {
-  isVisible : false,
-  mainLinks : [
-    { name :  'Accueil', path : '/', index: true },
-    { name :  'À propos', path : '/about' },
-    { name :  'Articles', path : '/articles' },
-    { name :  'Auteurs', path : '/authors' },
-    { name :  'Contribuer', path : '/contribute' }
-  ],
-  secondaryLinks : [
-    { name :  'Comité', path : '/committee' },
-    { name :  'Crédits et contact', path : '/credits-contacts' },
-    { name :  'Mentions légales', path : '/legal' },
-  ]
-};
-const menuReducer = function(state = initMenu, action) {
-  switch (action.type) {
-    case actionTypes.SHOW_MENU :
-      return Object.assign({}, state, { isVisible : true });
-    case actionTypes.HIDE_MENU :
-      return Object.assign({}, state, { isVisible : false });
-    default:
-      return state;
-  }
-};
-
-const initNews = {
-  isFetching : false,
-  articles : []
-};
-const newsReducer = function(state = initNews, action) {
-  switch (action.type) {
-    case actionTypes.NEWS_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.NEWS_SUCCESS :
-      return Object.assign({}, state, { isFetching : false, articles : action.articles });
-      case actionTypes.NEWS_FAIL :
-        return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
-const initAuthors = {
-  isFetching : false,
-  list : []
-};
-const authorsReducer = function(state = initAuthors, action) {
-  switch (action.type) {
-    case actionTypes.AUTHORS_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.AUTHORS_SUCCESS :
-      return Object.assign({}, state, {
-        isFetching : false,
-        list : action.list
-      });
-    case actionTypes.AUTHORS_FAIL :
-      return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
-const initArticle = {
-  isFetching : false,
-  id : -1,
-  title : '',
-  date : '',
-  keywords : [],
-  body : '',
-  pdfFr : '',
-  pdfEn : '',
-  categoryId : -1,
-  categoryName : '',
-  authorId : -1,
-};
-const articleReducer = function(state = initArticle, action) {
-  switch (action.type) {
-    case actionTypes.ARTICLE_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.ARTICLE_SUCCESS :
-      return Object.assign({}, state, {
-        isFetching : false,
-        id : action.id,
-        title : action.title,
-        date : action.date,
-        keywords : action.keywords,
-        body : action.body,
-        pdfFr : action.pdfFr,
-        pdfEn : action.pdfEn,
-        categoryId : action.categoryId,
-        categoryName : action.categoryName,
-        authorId : action.authorId
-      });
-    case actionTypes.ARTICLE_FAIL :
-      return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
-const initRead = 0;
-const readReducer = function(state = initRead, action) {
-  switch (action.type) {
-    case actionTypes.SET_PERCENT_READ :
-      return action.percent;
-    default:
-      return state;
-  }
-};
-
-const initAuthor = {
-  isFetching : false,
-  id : -1,
-  name : '',
-  title : '',
-  desc : '',
-  pic : ''
-};
-const authorReducer = function(state = initAuthor, action) {
-  switch (action.type) {
-    case actionTypes.AUTHOR_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.AUTHOR_SUCCESS :
-      return Object.assign({}, state, {
-        isFetching : false,
-        id : action.id,
-        name : action.name,
-        title : action.title,
-        desc : action.desc,
-        pic : action.pic
-      });
-    case actionTypes.AUTHOR_FAIL :
-      return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
-const initAuthorPanel = {
-  isVisible : false
-};
-const authorPanelReducer = function(state = initAuthorPanel, action) {
-  switch (action.type) {
-    case actionTypes.SHOW_AUTHOR_PANEL :
-      return Object.assign({}, state, { isVisible : true });
-    case actionTypes.HIDE_AUTHOR_PANEL :
-      return Object.assign({}, state, { isVisible : false });
-    default:
-      return state;
-  }
-};
-
-const initCategories = {
-  isFetching : false,
-  list : []
-};
-const categoriesReducer = function(state = initCategories, action) {
-  switch (action.type) {
-    case actionTypes.CATEGORIES_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.CATEGORIES_SUCCESS :
-      return Object.assign({}, state, {
-        isFetching : false,
-        list : action.list
-      });
-    case actionTypes.CATEGORIES_FAIL :
-      return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
-const initAuthorArticles = {
-  isFetching : false,
-  id : -1,
-  articles : []
-};
-const authorArticlesReducer = function(state = initAuthorArticles, action) {
-  switch (action.type) {
-    case actionTypes.AUTHOR_ARTICLES_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.AUTHOR_ARTICLES_SUCCESS:
-      return Object.assign({}, state, {
-        isFetching : false,
-        id : action.id,
-        articles : action.articles
-      });
-    case actionTypes.AUTHOR_ARTICLES_FAIL :
-      return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
-const initArticles = {
-  isFetching : false,
-  list : []
-};
-const articlesReducer = function(state = initArticles, action) {
-  switch (action.type) {
-    case actionTypes.ARTICLES_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.ARTICLES_SUCCESS :
-      return Object.assign({}, state, {
-        isFetching : false,
-        list : action.list
-      });
-    case actionTypes.ARTICLES_FAIL :
-      return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
-const initArticleLanguages = [
+const mergeObjects = (objects) =>
 {
-    id : 'fr',
-    name : 'Français'
-  },
+  let newObj = {};
+  for (let i = 0; i < objects.length; i ++)
   {
-    id : 'en',
-    name : 'Anglais'
-  },
-  {
-    id : 'oth',
-    name : 'Autres langues'
+    let obj = objects[i];
+    for (let key in obj)
+    {
+      newObj[key] = obj[key];
+    }
   }
-];
-const articleLanguagesReducer = function(state = initArticleLanguages, action) {
-  return state;
-};
+  return newObj;
+}
 
-const initAuthorsFilter = { theme : [] };
-const authorsFilterReducer = function(state = initAuthorsFilter, action) {
-  switch (action.type) {
-    case actionTypes.FILTER_AUTHORS_THEME :
-      return Object.assign({}, state, { theme : action.theme });
-    default:
-      return state;
-  }
-};
+const reducers = mergeObjects([
+  articleReducers,
+  articlesReducers,
+  authorReducers,
+  authorsReducers,
+  headerReducers,
+  menuReducers,
+  sharedReducers
+]);
 
-const initArticlesFilter = { theme : [] };
-const articlesFilterReducer = function(state = initArticlesFilter, action) {
-  switch (action.type) {
-    case actionTypes.FILTER_ARTICLES_THEME :
-      return Object.assign({}, state, { theme : action.theme });
-    default:
-      return state;
-  }
-};
+const appReducers = combineReducers(reducers);
 
-const appReducers = combineReducers({
-  titlebar : titlebarReducer,
-  menu : menuReducer,
-  news : newsReducer,
-  articles : articlesReducer,
-  article : articleReducer,
-  read: readReducer,
-  author : authorReducer,
-  authors : authorsReducer,
-  authorPanel : authorPanelReducer,
-  authorArticles : authorArticlesReducer,
-  categories : categoriesReducer,
-  articleLanguages : articleLanguagesReducer,
-  authorsFilter : authorsFilterReducer
-});
-
-let store = createStore(appReducers);
+const store = createStore(appReducers);
 
 module.exports = store;

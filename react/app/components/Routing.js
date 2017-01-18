@@ -4,12 +4,12 @@ import Route from 'react-router/lib/Router';
 import IndexRoute from 'react-router/lib/IndexRoute';
 import browserHistory from 'react-router/lib/browserHistory';
 
-import About from './About';
-import Article from'./Article';
-import Articles from './Articles';
-import Authors from './Authors';
-import Contribute from './Contribute';
-import Home from './Home';
+import About from './about/components/About';
+import Article from './article/components/Article';
+import Articles from './articles/components/Articles';
+import Authors from './authors/components/Authors';
+import Contribute from './contribute/components/Contribute';
+import Home from './home/components/Home';
 import Main from './Main';
 
 const Routing = React.createClass({
