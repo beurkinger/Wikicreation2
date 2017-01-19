@@ -20,13 +20,13 @@ const authorsReducer = function(state = initAuthors, action) {
   }
 };
 
-const initAuthorsFilter = { name : '', theme : [] };
+const initAuthorsFilter = { name : '', categories : [] };
 const authorsFilterReducer = function(state = initAuthorsFilter, action) {
   switch (action.type) {
     case actionTypes.FILTER_AUTHORS_NAME :
       return Object.assign({}, state, { title : action.name });
     case actionTypes.FILTER_AUTHORS_CATEGORY :
-      return Object.assign({}, state, { theme : action.theme });
+      return Object.assign({}, state, { categories : action.categories });
     default:
       return state;
   }

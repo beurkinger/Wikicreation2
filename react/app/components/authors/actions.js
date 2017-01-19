@@ -14,7 +14,7 @@ export function authorsFail (msg) {
   return { type: actionTypes.AUTHORS_FAIL };
 };
 
-export function filterAuthorsTitle (name) {
+export function filterAuthorsName (name) {
   return { type: actionTypes.FILTER_AUTHORS_NAME, name : name };
 };
 export function filterAuthorsCategory (categories) {

@@ -1,29 +1,31 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import {filterArticlesTitle, filterArticlesCategory, filterArticlesLanguage} from '../actions';
+import async from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import LanguagesFilter from './LanguagesFilter';
 import TextFilter from '../../shared/components/TextFilter';
 
 const ArticlesAside = React.createClass({
-  getInitialState : () => ({
-    title : '',
-    categories : [],
-    languages : []
-   }),
+  propTypes : {
+    title : React.PropTypes.string.isRequired,
+    categories : React.PropTypes.array.isRequired,
+    languages : React.PropTypes.array.isRequired
+   },
   handleTitleFilter : function (str) {
-    this.setState({ title : str });
+    this.props.filterTitle(str);
   },
   handleCategoriesFilter : function (categoriesArray) {
-    this.setState({categories : categoriesArray});
+    this.props.filterCategory(categoriesArray);
   },
   handleLanguagesFilter : function (languagesArray) {
-    this.setState({languages : languagesArray});
+    this.props.filterLanguage(languagesArray);
   },
   render: function () {
     return (
       <aside id="main-aside">
-        <TextFilter value={this.state.title} handleChange={this.handleTitleFilter} />
+        <TextFilter value={this.props.title} handleChange={this.handleTitleFilter} />
         <div className="info">
           <h2 className="info-title">
             Filtrer par
@@ -44,4 +46,20 @@ const ArticlesAside = React.createClass({
   }
 });
 
-module.exports = connect()(ArticlesAside);
+const mapStateToProps = function (store) {
+   return {
+     title : store.articlesFilter.title,
+     categories : store.articlesFilter.categories,
+     languages : store.articlesFilter.languages
+   };
+};
+
+const mapDispatchToProps = function(dispatch) {
+  return {
+    filterTitle : (str) => dispatch(filterArticlesTitle(str)),
+    filterCategory : (cat) => dispatch(filterArticlesCategory(cat)),
+    filterLanguage : (lan) => dispatch(filterArticlesLanguage(lan)),
+  }
+};
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(ArticlesAside);
