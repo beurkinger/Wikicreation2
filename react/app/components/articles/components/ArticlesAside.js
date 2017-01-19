@@ -1,34 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getCategories} from '../../shared/async';
-import {ARTICLE_LANGUAGES} from '../constants';
-import CheckboxFilter from '../../shared/components/CheckboxFilter';
+import CategoriesFilter from './CategoriesFilter';
+import LanguagesFilter from './LanguagesFilter';
 import TextFilter from '../../shared/components/TextFilter';
 
 const ArticlesAside = React.createClass({
-  propTypes: {
-    categories : React.PropTypes.array.isRequired
-  },
   getInitialState : () => ({
-    filters : {
-      title : '',
-      categories : {}
-    }
-  }),
-  componentWillMount : () => getCategories(),
-  getCheckbox : function (category) {
-    return (
-      <CheckboxFilter label={category.name}
-                    handleChange={this.test}
-                    key={category.id} />
-    )
+    title : '',
+    categories : [],
+    languages : []
+   }),
+  handleTitleFilter : function (str) {
+    this.setState({ title : str });
   },
-  test : () => console.log('yala'),
+  handleCategoriesFilter : function (categoriesArray) {
+    this.setState({categories : categoriesArray});
+  },
+  handleLanguagesFilter : function (languagesArray) {
+    this.setState({languages : languagesArray});
+  },
   render: function () {
+    console.log(this.state);
     return (
       <aside id="main-aside">
-        <TextFilter value={this.state.filters.title} handleChange={this.test} />
+        <TextFilter value={this.state.title} handleChange={this.handleTitleFilter} />
         <div className="info">
           <h2 className="info-title">
             Filtrer par
@@ -37,22 +33,16 @@ const ArticlesAside = React.createClass({
             Langages
           </h3>
           <div className="filters">
-            { ARTICLE_LANGUAGES.map(this.getCheckbox) }
+            <LanguagesFilter handleChange={this.handleLanguagesFilter} />
           </div>
           <h3 className="filter-name">
             Thèmes
           </h3>
-          <div className="filters">
-            { this.props.categories.map(this.getCheckbox) }
-          </div>
+          <CategoriesFilter handleChange={this.handleCategoriesFilter} />
         </div>
       </aside>
     )
   }
 });
 
-const mapStateToProps = (store) => ({
-     categories: store.categories.list
-});
-
-module.exports = connect(mapStateToProps)(ArticlesAside);
+module.exports = connect()(ArticlesAside);

@@ -1,25 +1,23 @@
 import React from 'react';
 import moment from 'moment';
 
-const DateStr = React.createClass({
-  propTypes: {
-    date: React.PropTypes.string.isRequired,
-    format: React.PropTypes.string,
-    locale: React.PropTypes.string
-  },
-  formatDate : function() {
-    if (!this.props.date || this.props.date === '') return '';
-    let date = moment(this.props.date);
-    if (this.props.locale) date.locale('fr');
-    let format = this.props.format ? this.props.format : null;
+const DateStr = (props) => {
+  const formatDate = () => {
+    if (!props.date || props.date === '') return '';
+    let date = moment(props.date);
+    if (props.locale) date.locale('fr');
+    let format = props.format ? props.format : null;
     let string = date.format(format)
     return string;
-  },
-  render: function () {
-    return (
-      <span>{this.formatDate()}</span>
-    );
-  }
-});
+  };
+
+  return <span>{formatDate()}</span>
+};
+
+DateStr.propTypes = {
+  date: React.PropTypes.string.isRequired,
+  format: React.PropTypes.string,
+  locale: React.PropTypes.string
+};
 
 module.exports = DateStr;

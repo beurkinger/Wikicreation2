@@ -1,14 +1,18 @@
 import React from 'react';
 
-const TextFilter = props => (
-  <form className="search-form">
-    <input  className="search-field"
-            value={props.value}
-            placeholder={props.label ? props.label : 'Ecrire pour filtrer'}
-            onChange={props.handleChange} />
-    <button className="search-btn"></button>
-  </form>
-);
+const TextFilter = props => {
+  const handleTextChange = (e) => props.handleChange(e.target.value);
+
+  return (
+    <form className="search-form">
+      <input  className="search-field"
+              value={props.value}
+              placeholder={props.label ? props.label : 'Ecrire pour filtrer'}
+              onChange={handleTextChange} />
+      <button className="search-btn"></button>
+    </form>
+  )
+};
 
 TextFilter.propTypes =
 {
