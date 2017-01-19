@@ -20,29 +20,15 @@ const articlesReducer = function(state = initArticles, action) {
   }
 };
 
-const initArticleLanguages = [
-{
-    id : 'fr',
-    name : 'Français'
-  },
-  {
-    id : 'en',
-    name : 'Anglais'
-  },
-  {
-    id : 'oth',
-    name : 'Autres langues'
-  }
-];
-const articleLanguagesReducer = function(state = initArticleLanguages, action) {
-  return state;
-};
-
-const initArticlesFilter = { theme : [] };
+const initArticlesFilter = { title : '', languages : [], categories : [] };
 const articlesFilterReducer = function(state = initArticlesFilter, action) {
   switch (action.type) {
-    case actionTypes.FILTER_ARTICLES_THEME :
-      return Object.assign({}, state, { theme : action.theme });
+    case actionTypes.FILTER_ARTICLES_TITLE :
+      return Object.assign({}, state, { title : action.title });
+    case actionTypes.FILTER_ARTICLES_CATEGORY :
+      return Object.assign({}, state, { theme : action.categories });
+    case actionTypes.FILTER_ARTICLES_LANGUAGE :
+      return Object.assign({}, state, { theme : action.languages });
     default:
       return state;
   }
@@ -50,6 +36,5 @@ const articlesFilterReducer = function(state = initArticlesFilter, action) {
 
 module.exports = {
   articles : articlesReducer,
-  articleLanguages : articleLanguagesReducer,
   articlesFilter : articlesFilterReducer
 };

@@ -2,23 +2,33 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {getCategories} from '../../shared/async';
+import {ARTICLE_LANGUAGES} from '../constants';
 import CheckboxFilter from '../../shared/components/CheckboxFilter';
 import TextFilter from '../../shared/components/TextFilter';
 
 const ArticlesAside = React.createClass({
   propTypes: {
-    categories : React.PropTypes.array.isRequired,
-    languages : React.PropTypes.array.isRequired
+    categories : React.PropTypes.array.isRequired
   },
+  getInitialState : () => ({
+    filters : {
+      title : '',
+      categories : {}
+    }
+  }),
   componentWillMount : () => getCategories(),
   getCheckbox : function (category) {
-    return <CheckboxFilter label={category.name} handleChange={this.test} key={category.id} />
+    return (
+      <CheckboxFilter label={category.name}
+                    handleChange={this.test}
+                    key={category.id} />
+    )
   },
   test : () => console.log('yala'),
   render: function () {
     return (
       <aside id="main-aside">
-        <TextFilter handleChange={this.test} />
+        <TextFilter value={this.state.filters.title} handleChange={this.test} />
         <div className="info">
           <h2 className="info-title">
             Filtrer par
@@ -27,7 +37,7 @@ const ArticlesAside = React.createClass({
             Langages
           </h3>
           <div className="filters">
-            { this.props.languages.map(this.getCheckbox) }
+            { ARTICLE_LANGUAGES.map(this.getCheckbox) }
           </div>
           <h3 className="filter-name">
             Thèmes
@@ -41,11 +51,8 @@ const ArticlesAside = React.createClass({
   }
 });
 
-const mapStateToProps = function (store) {
-   return {
-     categories: store.categories.list,
-     languages : store.articleLanguages
-   };
-};
+const mapStateToProps = (store) => ({
+     categories: store.categories.list
+});
 
 module.exports = connect(mapStateToProps)(ArticlesAside);

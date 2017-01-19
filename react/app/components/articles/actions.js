@@ -13,3 +13,14 @@ export function articlesFail (msg) {
   console.warn('Problem while retrieving articles : "' + msg + '"');
   return { type: actionTypes.ARTICLES_FAIL };
 };
+
+
+export function filterArticlesTitle (title) {
+  return { type: actionTypes.FILTER_ARTICLES_TITLE, title : title };
+};
+export function filterArticlesCategory (categories) {
+  return { type: actionTypes.FILTER_ARTICLES_CATEGORY, categories : categories };
+};
+export function filterArticlesLanguage (languages) {
+  return { type: actionTypes.FILTER_ARTICLES_LANGUAGE, languages : languages };
+};

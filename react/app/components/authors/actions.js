@@ -13,3 +13,10 @@ export function authorsFail (msg) {
   console.warn('Problem while retrieving authors : "' + msg + '"');
   return { type: actionTypes.AUTHORS_FAIL };
 };
+
+export function filterAuthorsTitle (name) {
+  return { type: actionTypes.FILTER_AUTHORS_NAME, name : name };
+};
+export function filterAuthorsCategory (categories) {
+  return { type: actionTypes.FILTER_AUTHORS_CATEGORY, categories : categories };
+};

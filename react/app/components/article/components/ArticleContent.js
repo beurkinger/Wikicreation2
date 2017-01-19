@@ -20,7 +20,6 @@ const ArticleContent = React.createClass({
     isTitlebarVisible : React.PropTypes.bool.isRequired
   },
   componentWillMount : function () { this.props.setPercentRead(0) },
-  websiteUrl : WEBSITE_URL,
   body : null,
   title : null,
   handleScroll : function (e) {
@@ -87,7 +86,7 @@ const ArticleContent = React.createClass({
             </h3>
             <p>
               {this.props.authorName}, {this.props.title}, publié le <DateStr date={this.props.date} format="D MMMM YYYY" locale="fr" /> <br />
-              URL : {this.websiteUrl}/articles/{this.props.id}
+            URL : {WEBSITE_URL}/articles/{this.props.id}
             </p>
           </footer>
         </article>
