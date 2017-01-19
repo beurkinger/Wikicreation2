@@ -498,7 +498,8 @@ html, body, #root, #app
 
 #main-aside .search-btn
 {
-  display: block;
+  display: inline-block;
+  box-sizing: border-box;
   width: 48px; height: 42px;
   padding: 10px 10px 9px 10px;
   border-width: 1px 1px 1px 0;

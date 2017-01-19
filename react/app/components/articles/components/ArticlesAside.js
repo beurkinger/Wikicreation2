@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import CategoriesFilter from './CategoriesFilter';
+import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import LanguagesFilter from './LanguagesFilter';
 import TextFilter from '../../shared/components/TextFilter';
 
@@ -21,7 +21,6 @@ const ArticlesAside = React.createClass({
     this.setState({languages : languagesArray});
   },
   render: function () {
-    console.log(this.state);
     return (
       <aside id="main-aside">
         <TextFilter value={this.state.title} handleChange={this.handleTitleFilter} />

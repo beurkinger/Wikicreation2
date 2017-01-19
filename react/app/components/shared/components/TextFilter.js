@@ -9,7 +9,7 @@ const TextFilter = props => {
               value={props.value}
               placeholder={props.label ? props.label : 'Ecrire pour filtrer'}
               onChange={handleTextChange} />
-      <button className="search-btn"></button>
+      <div className="search-btn"></div>
     </form>
   )
 };

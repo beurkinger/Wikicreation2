@@ -1,21 +1,24 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getCategories} from '../../shared/async';
-import CheckboxFilter from '../../shared/components/CheckboxFilter';
+import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import TextFilter from '../../shared/components/TextFilter';
 
 const AuthorsAside = React.createClass({
-  propTypes : { categories : React.PropTypes.array.isRequired },
-  componentWillMount : () => getCategories(),
-  getCheckbox : function (category) {
-    return <CheckboxFilter label={category.name} handleChange={this.test} key={category.id} />
-  },
-  test : () => console.log('yala'),
+  getInitialState : () => ({
+    name : '',
+    categories : []
+   }),
+   handleNameFilter : function (str) {
+     this.setState({ name : str });
+   },
+   handleCategoriesFilter : function (categoriesArray) {
+     this.setState({categories : categoriesArray});
+   },
   render: function () {
     return (
       <aside id="main-aside">
-        <TextFilter handleChange={this.test} />
+        <TextFilter value={this.state.name} handleChange={this.handleNameFilter} />
         <div className="info">
           <h2 className="info-title">
             Filtrer par
@@ -23,24 +26,16 @@ const AuthorsAside = React.createClass({
           <h3 className="filter-name">
             Thèmes
           </h3>
-          <div className="filters">
-            { this.props.categories.map(this.getCheckbox) }
-          </div>
+          <CategoriesFilter handleChange={this.handleCategoriesFilter} />
         </div>
       </aside>
     )
   }
 });
 
-const mapStateToProps = function (store) {
-   return {
-     categories: store.categories.list
-   }
-};
-
 const mapDispatchToProps = function(dispatch) {
   return {
   }
 };
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(AuthorsAside);
+module.exports = connect(mapDispatchToProps)(AuthorsAside);
