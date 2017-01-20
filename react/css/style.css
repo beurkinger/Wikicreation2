@@ -171,6 +171,14 @@ html, body, #root, #app
   background-image: url('../img/menu-ham-blue.svg');
 }
 
+/*---Background affiché lorsqu'un menu est visible---*/
+#menusBackground
+{
+  z-index: 80;
+  position: fixed; top: 0; right: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+}
 
 /*---Menus---*/
 #menus

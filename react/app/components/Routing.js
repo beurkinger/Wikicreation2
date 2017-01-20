@@ -10,7 +10,7 @@ import Articles from './articles/components/Articles';
 import Authors from './authors/components/Authors';
 import Contribute from './contribute/components/Contribute';
 import Home from './home/components/Home';
-import Main from './Main';
+import Main from './main/components/Main';
 
 const Routing = React.createClass({
   render: () => (

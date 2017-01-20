@@ -5,6 +5,7 @@ import articlesReducers from './articles/reducers';
 import authorReducers from './author/reducers';
 import authorsReducers from './authors/reducers';
 import headerReducers from './header/reducers';
+import menusBackgroundReducers from './main/reducers';
 import menuReducers from './menu/reducers';
 import sharedReducers from './shared/reducers';
 
@@ -29,6 +30,7 @@ const reducers = mergeObjects([
   authorsReducers,
   headerReducers,
   menuReducers,
+  menusBackgroundReducers,
   sharedReducers
 ]);
 
