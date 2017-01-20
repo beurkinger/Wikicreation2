@@ -2,20 +2,24 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {filterAuthorsName, filterAuthorsCategory} from '../actions';
-import async from '../async';
+import {getAuthors} from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import TextFilter from '../../shared/components/TextFilter';
 
 const AuthorsAside = React.createClass({
   propTypes : {
     name : React.PropTypes.string.isRequired,
-    categories : React.PropTypes.array.isRequired
+    categories : React.PropTypes.array.isRequired,
+    filterName : React.PropTypes.func.isRequired,
+    filterCategory : React.PropTypes.func.isRequired,
    },
    handleNameFilter : function (str) {
      this.props.filterName(str);
+     getAuthors();
    },
    handleCategoriesFilter : function (categoriesArray) {
      this.props.filterCategory(categoriesArray);
+     getAuthors();
    },
   render: function () {
     return (
