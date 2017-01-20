@@ -26,9 +26,9 @@ const articlesFilterReducer = function(state = initArticlesFilter, action) {
     case actionTypes.FILTER_ARTICLES_TITLE :
       return Object.assign({}, state, { title : action.title });
     case actionTypes.FILTER_ARTICLES_CATEGORY :
-      return Object.assign({}, state, { theme : action.categories });
+      return Object.assign({}, state, { categories : action.categories });
     case actionTypes.FILTER_ARTICLES_LANGUAGE :
-      return Object.assign({}, state, { theme : action.languages });
+      return Object.assign({}, state, { languages : action.languages });
     default:
       return state;
   }

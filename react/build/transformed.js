@@ -23850,9 +23850,9 @@
 	    case actionTypes.FILTER_ARTICLES_TITLE:
 	      return Object.assign({}, state, { title: action.title });
 	    case actionTypes.FILTER_ARTICLES_CATEGORY:
-	      return Object.assign({}, state, { theme: action.categories });
+	      return Object.assign({}, state, { categories: action.categories });
 	    case actionTypes.FILTER_ARTICLES_LANGUAGE:
-	      return Object.assign({}, state, { theme: action.languages });
+	      return Object.assign({}, state, { languages: action.languages });
 	    default:
 	      return state;
 	  }
@@ -24026,7 +24026,7 @@
 	  }
 	};
 
-	var initAuthorsFilter = { name: '', theme: [] };
+	var initAuthorsFilter = { name: '', categories: [] };
 	var authorsFilterReducer = function authorsFilterReducer() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initAuthorsFilter;
 	  var action = arguments[1];
@@ -24035,7 +24035,7 @@
 	    case actionTypes.FILTER_AUTHORS_NAME:
 	      return Object.assign({}, state, { title: action.name });
 	    case actionTypes.FILTER_AUTHORS_CATEGORY:
-	      return Object.assign({}, state, { theme: action.theme });
+	      return Object.assign({}, state, { categories: action.categories });
 	    default:
 	      return state;
 	  }
@@ -43601,7 +43601,35 @@
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function getArticles(id) {
-	  fetch('/json/articles.json').then(function (response) {
+	  var baseUrl = '/json/articles.json';
+	  var queryStr = '?';
+	  var titleStr = '',
+	      categoriesStr = '',
+	      languagesStr = '';
+	  var filter = _store2.default.getState().articlesFilter;
+
+	  titleStr = String.trim(filter.title);
+	  if (titleStr && titleStr !== '') queryStr += 'title=' + titleStr;
+
+	  for (var i = 0; i < filter.categories; i++) {
+	    if (i === 0) categoriesStr += '&';
+	    if (i > 0) categoriesStr += ',';
+	    categoriesStr += String.trim(filter.categories[i]);
+	  }
+	  if (categoriesStr && categoriesStr !== '') queryStr += 'categories=' + categoriesStr;
+
+	  for (var i = 0; i < filter.languages; i++) {
+	    if (i === 0) languagesStr += '&';
+	    if (i > 0) languagesStr += ',';
+	    languagesStr += String.trim(filter.languages[i]);
+	  }
+	  if (languagesStr && languagesStr !== '') queryStr += 'languages=' + languagesStr;
+
+	  var url = baseUrl + (queryStr !== '?' ? queryStr : '');
+
+	  console.log(url);
+
+	  fetch(url).then(function (response) {
 	    return response.json();
 	  }).then(function (json) {
 	    _store2.default.dispatch(actions.articlesSuccess(json));
@@ -43734,6 +43762,10 @@
 
 	var _reactRedux = __webpack_require__(172);
 
+	var _actions = __webpack_require__(389);
+
+	var _async = __webpack_require__(388);
+
 	var _CategoriesFilter = __webpack_require__(393);
 
 	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
@@ -43751,27 +43783,28 @@
 	var ArticlesAside = _react2.default.createClass({
 	  displayName: 'ArticlesAside',
 
-	  getInitialState: function getInitialState() {
-	    return {
-	      title: '',
-	      categories: [],
-	      languages: []
-	    };
+	  propTypes: {
+	    title: _react2.default.PropTypes.string.isRequired,
+	    categories: _react2.default.PropTypes.array.isRequired,
+	    languages: _react2.default.PropTypes.array.isRequired
 	  },
 	  handleTitleFilter: function handleTitleFilter(str) {
-	    this.setState({ title: str });
+	    this.props.filterTitle(str);
+	    (0, _async.getArticles)();
 	  },
 	  handleCategoriesFilter: function handleCategoriesFilter(categoriesArray) {
-	    this.setState({ categories: categoriesArray });
+	    this.props.filterCategory(categoriesArray);
+	    (0, _async.getArticles)();
 	  },
 	  handleLanguagesFilter: function handleLanguagesFilter(languagesArray) {
-	    this.setState({ languages: languagesArray });
+	    this.props.filterLanguage(languagesArray);
+	    (0, _async.getArticles)();
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'aside',
 	      { id: 'main-aside' },
-	      _react2.default.createElement(_TextFilter2.default, { value: this.state.title, handleChange: this.handleTitleFilter }),
+	      _react2.default.createElement(_TextFilter2.default, { value: this.props.title, handleChange: this.handleTitleFilter }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'info' },
@@ -43801,7 +43834,29 @@
 	  }
 	});
 
-	module.exports = (0, _reactRedux.connect)()(ArticlesAside);
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    title: store.articlesFilter.title,
+	    categories: store.articlesFilter.categories,
+	    languages: store.articlesFilter.languages
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    filterTitle: function filterTitle(str) {
+	      return dispatch((0, _actions.filterArticlesTitle)(str));
+	    },
+	    filterCategory: function filterCategory(cat) {
+	      return dispatch((0, _actions.filterArticlesCategory)(cat));
+	    },
+	    filterLanguage: function filterLanguage(lan) {
+	      return dispatch((0, _actions.filterArticlesLanguage)(lan));
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticlesAside);
 
 /***/ },
 /* 393 */
@@ -44009,17 +44064,43 @@
 	  propTypes: {
 	    label: _react2.default.PropTypes.string,
 	    value: _react2.default.PropTypes.string.isRequired,
-	    handleChange: _react2.default.PropTypes.func.isRequired
+	    handleChange: _react2.default.PropTypes.func.isRequired,
+	    delay: _react2.default.PropTypes.number
+	  },
+	  getDefaultProps: function getDefaultProps() {
+	    return { delay: 500 };
+	  },
+	  getInitialState: function getInitialState() {
+	    return { value: this.props.value };
+	  },
+	  componentWillMount: function componentWillMount() {
+	    this.timeout = null;
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    if (this.timeout) clearTimeout(this.timeout);
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    this.setState({ value: nextProps.value });
 	  },
 	  handleTextChange: function handleTextChange(e) {
-	    this.props.handleChange(e.target.value);
+	    var value = e.target.value;
+	    this.setState({ value: value });
+	    this.delayedPropsUpdate(value);
+	  },
+	  delayedPropsUpdate: function delayedPropsUpdate(value) {
+	    var _this = this;
+
+	    clearTimeout(this.timeout);
+	    this.timeout = setTimeout(function () {
+	      _this.props.handleChange(value);
+	    }, this.props.delay);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      "form",
 	      { className: "search-form" },
 	      _react2.default.createElement("input", { className: "search-field",
-	        value: this.props.value,
+	        value: this.state.value,
 	        placeholder: this.props.label ? this.props.label : 'Ecrire pour filtrer',
 	        onChange: this.handleTextChange }),
 	      _react2.default.createElement("div", { className: "search-btn" })
@@ -44460,7 +44541,7 @@
 	exports.authorsRequest = authorsRequest;
 	exports.authorsSuccess = authorsSuccess;
 	exports.authorsFail = authorsFail;
-	exports.filterAuthorsTitle = filterAuthorsTitle;
+	exports.filterAuthorsName = filterAuthorsName;
 	exports.filterAuthorsCategory = filterAuthorsCategory;
 
 	var _actionTypes = __webpack_require__(218);
@@ -44483,7 +44564,7 @@
 	  return { type: actionTypes.AUTHORS_FAIL };
 	};
 
-	function filterAuthorsTitle(name) {
+	function filterAuthorsName(name) {
 	  return { type: actionTypes.FILTER_AUTHORS_NAME, name: name };
 	};
 	function filterAuthorsCategory(categories) {
@@ -44502,6 +44583,12 @@
 
 	var _reactRedux = __webpack_require__(172);
 
+	var _actions = __webpack_require__(405);
+
+	var _async = __webpack_require__(404);
+
+	var _async2 = _interopRequireDefault(_async);
+
 	var _CategoriesFilter = __webpack_require__(393);
 
 	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
@@ -44515,23 +44602,21 @@
 	var AuthorsAside = _react2.default.createClass({
 	  displayName: 'AuthorsAside',
 
-	  getInitialState: function getInitialState() {
-	    return {
-	      name: '',
-	      categories: []
-	    };
+	  propTypes: {
+	    name: _react2.default.PropTypes.string.isRequired,
+	    categories: _react2.default.PropTypes.array.isRequired
 	  },
 	  handleNameFilter: function handleNameFilter(str) {
-	    this.setState({ name: str });
+	    this.props.filterName(str);
 	  },
 	  handleCategoriesFilter: function handleCategoriesFilter(categoriesArray) {
-	    this.setState({ categories: categoriesArray });
+	    this.props.filterCategory(categoriesArray);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
 	      'aside',
 	      { id: 'main-aside' },
-	      _react2.default.createElement(_TextFilter2.default, { value: this.state.name, handleChange: this.handleNameFilter }),
+	      _react2.default.createElement(_TextFilter2.default, { value: this.props.name, handleChange: this.handleNameFilter }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'info' },
@@ -44551,11 +44636,25 @@
 	  }
 	});
 
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    name: store.authorsFilter.name,
+	    categories: store.authorsFilter.categories
+	  };
 	};
 
-	module.exports = (0, _reactRedux.connect)(mapDispatchToProps)(AuthorsAside);
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    filterName: function filterName(str) {
+	      return dispatch((0, _actions.filterAuthorsName)(str));
+	    },
+	    filterCategory: function filterCategory(cat) {
+	      return dispatch((0, _actions.filterAuthorsCategory)(cat));
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AuthorsAside);
 
 /***/ },
 /* 407 */

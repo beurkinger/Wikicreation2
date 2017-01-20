@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {filterArticlesTitle, filterArticlesCategory, filterArticlesLanguage} from '../actions';
-import async from '../async';
+import {getArticles} from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import LanguagesFilter from './LanguagesFilter';
 import TextFilter from '../../shared/components/TextFilter';
@@ -15,12 +15,15 @@ const ArticlesAside = React.createClass({
    },
   handleTitleFilter : function (str) {
     this.props.filterTitle(str);
+    getArticles();
   },
   handleCategoriesFilter : function (categoriesArray) {
     this.props.filterCategory(categoriesArray);
+    getArticles();
   },
   handleLanguagesFilter : function (languagesArray) {
     this.props.filterLanguage(languagesArray);
+    getArticles();
   },
   render: function () {
     return (
