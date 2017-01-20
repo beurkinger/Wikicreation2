@@ -23671,33 +23671,33 @@
 
 	var _redux = __webpack_require__(183);
 
-	var _store = __webpack_require__(211);
+	var _reducers = __webpack_require__(211);
 
-	var _store2 = _interopRequireDefault(_store);
+	var _reducers2 = _interopRequireDefault(_reducers);
 
-	var _store3 = __webpack_require__(213);
+	var _reducers3 = __webpack_require__(213);
 
-	var _store4 = _interopRequireDefault(_store3);
+	var _reducers4 = _interopRequireDefault(_reducers3);
 
-	var _store5 = __webpack_require__(215);
+	var _reducers5 = __webpack_require__(215);
 
-	var _store6 = _interopRequireDefault(_store5);
+	var _reducers6 = _interopRequireDefault(_reducers5);
 
-	var _store7 = __webpack_require__(217);
+	var _reducers7 = __webpack_require__(217);
 
-	var _store8 = _interopRequireDefault(_store7);
+	var _reducers8 = _interopRequireDefault(_reducers7);
 
-	var _store9 = __webpack_require__(219);
+	var _reducers9 = __webpack_require__(219);
 
-	var _store10 = _interopRequireDefault(_store9);
+	var _reducers10 = _interopRequireDefault(_reducers9);
 
-	var _store11 = __webpack_require__(222);
+	var _reducers11 = __webpack_require__(222);
 
-	var _store12 = _interopRequireDefault(_store11);
+	var _reducers12 = _interopRequireDefault(_reducers11);
 
-	var _store13 = __webpack_require__(224);
+	var _reducers13 = __webpack_require__(224);
 
-	var _store14 = _interopRequireDefault(_store13);
+	var _reducers14 = _interopRequireDefault(_reducers13);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23712,7 +23712,7 @@
 	  return newObj;
 	};
 
-	var reducers = mergeObjects([_store2.default, _store4.default, _store6.default, _store8.default, _store10.default, _store12.default, _store14.default]);
+	var reducers = mergeObjects([_reducers2.default, _reducers4.default, _reducers6.default, _reducers8.default, _reducers10.default, _reducers12.default, _reducers14.default]);
 
 	var appReducers = (0, _redux.combineReducers)(reducers);
 
@@ -43602,32 +43602,34 @@
 
 	function getArticles(id) {
 	  var baseUrl = '/json/articles.json';
-	  var queryStr = '?';
+	  var queryStr = '';
 	  var titleStr = '',
 	      categoriesStr = '',
 	      languagesStr = '';
 	  var filter = _store2.default.getState().articlesFilter;
 
-	  titleStr = String.trim(filter.title);
+	  titleStr = String(filter.title).trim();
 	  if (titleStr && titleStr !== '') queryStr += 'title=' + titleStr;
 
-	  for (var i = 0; i < filter.categories; i++) {
-	    if (i === 0) categoriesStr += '&';
+	  for (var i = 0; i < filter.categories.length; i++) {
 	    if (i > 0) categoriesStr += ',';
-	    categoriesStr += String.trim(filter.categories[i]);
+	    categoriesStr += filter.categories[i].toString().trim();
 	  }
-	  if (categoriesStr && categoriesStr !== '') queryStr += 'categories=' + categoriesStr;
-
-	  for (var i = 0; i < filter.languages; i++) {
-	    if (i === 0) languagesStr += '&';
-	    if (i > 0) languagesStr += ',';
-	    languagesStr += String.trim(filter.languages[i]);
+	  if (categoriesStr !== '') {
+	    queryStr += queryStr !== '' ? '&' : '';
+	    queryStr += 'categories=' + categoriesStr;
 	  }
-	  if (languagesStr && languagesStr !== '') queryStr += 'languages=' + languagesStr;
 
-	  var url = baseUrl + (queryStr !== '?' ? queryStr : '');
+	  for (var _i = 0; _i < filter.languages.length; _i++) {
+	    if (_i > 0) languagesStr += ',';
+	    languagesStr += filter.languages[_i].toString().trim();
+	  }
+	  if (languagesStr !== '') {
+	    queryStr += queryStr !== '' ? '&' : '';
+	    queryStr += 'languages=' + languagesStr;
+	  }
 
-	  console.log(url);
+	  var url = baseUrl + (queryStr !== '' ? '?' + queryStr : '');
 
 	  fetch(url).then(function (response) {
 	    return response.json();

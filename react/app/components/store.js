@@ -1,12 +1,12 @@
 import { createStore, combineReducers } from 'redux';
 
-import articleReducers from './article/store';
-import articlesReducers from './articles/store';
-import authorReducers from './author/store';
-import authorsReducers from './authors/store';
-import headerReducers from './header/store';
-import menuReducers from './menu/store';
-import sharedReducers from './shared/store';
+import articleReducers from './article/reducers';
+import articlesReducers from './articles/reducers';
+import authorReducers from './author/reducers';
+import authorsReducers from './authors/reducers';
+import headerReducers from './header/reducers';
+import menuReducers from './menu/reducers';
+import sharedReducers from './shared/reducers';
 
 const mergeObjects = (objects) =>
 {
