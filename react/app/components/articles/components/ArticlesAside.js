@@ -7,62 +7,59 @@ import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import LanguagesFilter from './LanguagesFilter';
 import TextFilter from '../../shared/components/TextFilter';
 
-const ArticlesAside = React.createClass({
-  propTypes : {
-    title : React.PropTypes.string.isRequired,
-    categories : React.PropTypes.array.isRequired,
-    languages : React.PropTypes.array.isRequired
-   },
-  handleTitleFilter : function (str) {
-    this.props.filterTitle(str);
+const ArticlesAside = (props) => {
+  const handleTitleFilter = (str) => {
+    props.filterTitle(str);
     getArticles();
-  },
-  handleCategoriesFilter : function (categoriesArray) {
-    this.props.filterCategory(categoriesArray);
+  };
+  const handleCategoriesFilter = (categoriesArray) => {
+    props.filterCategory(categoriesArray);
     getArticles();
-  },
-  handleLanguagesFilter : function (languagesArray) {
-    this.props.filterLanguage(languagesArray);
+  };
+  const handleLanguagesFilter = (languagesArray) => {
+    props.filterLanguage(languagesArray);
     getArticles();
-  },
-  render: function () {
-    return (
-      <aside id="main-aside">
-        <TextFilter value={this.props.title} handleChange={this.handleTitleFilter} />
-        <div className="info">
-          <h2 className="info-title">
-            Filtrer par
-          </h2>
-          <h3 className="filter-name">
-            Langages
-          </h3>
-          <div className="filters">
-            <LanguagesFilter handleChange={this.handleLanguagesFilter} />
-          </div>
-          <h3 className="filter-name">
-            Thèmes
-          </h3>
-          <CategoriesFilter handleChange={this.handleCategoriesFilter} />
+  };
+  return (
+    <aside id="main-aside">
+      <TextFilter value={props.title} handleChange={handleTitleFilter} />
+      <div className="info">
+        <h2 className="info-title">
+          {props.messages.filterBy}
+        </h2>
+        <h3 className="filter-name">
+          {props.messages.languages}
+        </h3>
+        <div className="filters">
+          <LanguagesFilter handleChange={handleLanguagesFilter} />
         </div>
-      </aside>
-    )
-  }
-});
-
-const mapStateToProps = function (store) {
-   return {
-     title : store.articlesFilter.title,
-     categories : store.articlesFilter.categories,
-     languages : store.articlesFilter.languages
-   };
+        <h3 className="filter-name">
+          {props.messages.themes}
+        </h3>
+        <CategoriesFilter handleChange={handleCategoriesFilter} />
+      </div>
+    </aside>
+  )
 };
 
-const mapDispatchToProps = function(dispatch) {
-  return {
+ArticlesAside.propTypes = {
+  messages : React.PropTypes.object.isRequired,
+  title : React.PropTypes.string.isRequired,
+  categories : React.PropTypes.array.isRequired,
+  languages : React.PropTypes.array.isRequired
+};
+
+const mapStateToProps = (store) => ({
+  messages : store.messages.strings.filter,
+  title : store.articlesFilter.title,
+  categories : store.articlesFilter.categories,
+  languages : store.articlesFilter.languages
+});
+
+const mapDispatchToProps = (dispatch) => ({
     filterTitle : (str) => dispatch(filterArticlesTitle(str)),
     filterCategory : (cat) => dispatch(filterArticlesCategory(cat)),
     filterLanguage : (lan) => dispatch(filterArticlesLanguage(lan)),
-  }
-};
+});
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(ArticlesAside);

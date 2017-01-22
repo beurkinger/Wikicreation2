@@ -9,6 +9,7 @@ import Keywords from './Keywords';
 
 const ArticleContent = React.createClass({
   propTypes: {
+    messages : React.PropTypes.object.isRequired,
     id : React.PropTypes.number.isRequired,
     title: React.PropTypes.string.isRequired,
     date: React.PropTypes.string.isRequired,
@@ -19,9 +20,11 @@ const ArticleContent = React.createClass({
     authorName : React.PropTypes.string.isRequired,
     isTitlebarVisible : React.PropTypes.bool.isRequired
   },
-  componentWillMount : function () { this.props.setPercentRead(0) },
-  body : null,
-  title : null,
+  componentWillMount : function () {
+    this.body = null;
+    this.title = null;
+    this.props.setPercentRead(0) ;
+  },
   handleScroll : function (e) {
     let container = e.target;
     this.updatePercentRead(container);
@@ -77,15 +80,15 @@ const ArticleContent = React.createClass({
             {this.props.authorName}
           </h3>
           <h4 className="article-keywords">
-            Mots-clés : <Keywords array={this.props.keywords} />
+            {this.props.messages.keywords} <Keywords array={this.props.keywords} />
           </h4>
           <div id="article-body" dangerouslySetInnerHTML={{__html: this.props.body}} ref={(elt) => { this.body = elt }}></div>
           <footer id="article-footer">
             <h3>
-              Pour citer cet article
+              {this.props.messages.toQuote}
             </h3>
             <p>
-              {this.props.authorName}, {this.props.title}, publié le <DateStr date={this.props.date} format="D MMMM YYYY" locale="fr" /> <br />
+              {this.props.authorName}, {this.props.title}, {this.props.messages.publishedOn} <DateStr date={this.props.date} format="D MMMM YYYY" locale="fr" /> <br />
             URL : {WEBSITE_URL}/articles/{this.props.id}
             </p>
           </footer>
@@ -97,6 +100,7 @@ const ArticleContent = React.createClass({
 
 const mapStateToProps = function (store) {
    return {
+     messages : store.messages.strings.article.content,
      id : store.article.id,
      title: store.article.title,
      date: store.article.date,

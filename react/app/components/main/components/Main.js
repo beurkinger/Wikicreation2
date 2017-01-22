@@ -7,26 +7,26 @@ import Menu from '../../menu/components/Menu';
 import MenusBackground from './MenusBackground';
 import store from '../../store';
 
-const Main = React.createClass({
-  getCategory : function () {
-    return this.props.location.pathname === '/' ? 'blue' : 'white'
-  },
-  render: function () {
-    return (
-      <div id="app" className={this.getCategory()}>
-        <Header />
-        <Menu />
-        <MenusBackground />
-        <Author />
-        { this.props.children }
-      </div>
-    );
-  }
-});
+const Main = (props) => {
+  const getCategory =  () => {
+    return props.location.pathname === '/' ? 'blue' : 'white'
+  };
+  const handleKeyUp = (e) => {
+    console.log(e);
+  };
+  return (
+    <div id="app" className={getCategory()} onKeyUp={handleKeyUp}>
+      <Header />
+      <Menu />
+      <MenusBackground />
+      <Author />
+      { props.children }
+    </div>
+  )
+};
 
-const mapStateToProps = function (store)
-{
-   return {theme : store.theme };
-}
+const mapStateToProps = (store) => ({
+  theme : store.theme
+});
 
 module.exports = connect(mapStateToProps)(Main);

@@ -19,10 +19,8 @@ const Article = React.createClass({
   )
 });
 
-const mapDispatchToProps = function(dispatch) {
-  return {
-    setTitlebar: () => dispatch(setArticleTitlebar())
-  }
-};
+const mapDispatchToProps = (dispatch) => ({
+  setTitlebar: () => dispatch(setArticleTitlebar())
+});
 
 module.exports = connect(null, mapDispatchToProps)(Article);

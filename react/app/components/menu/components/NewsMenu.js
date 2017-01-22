@@ -7,9 +7,10 @@ import * as async from '../async';
 
 const NewsMenu = React.createClass({
   propTypes: {
+    messages : React.PropTypes.object.isRequired,
     articles: React.PropTypes.array.isRequired
   },
-  componentDidMount: function() {
+  componentDidMount: () => {
     async.getNews();
   },
   createArticle: function(article) {
@@ -25,7 +26,7 @@ const NewsMenu = React.createClass({
             {article.desc}
           </p>
           <Link className="link" to={"/articles/" + article.id}>
-            Lire l'article
+            {this.props.messages.readArticle}
           </Link>
         </div>
       );
@@ -34,7 +35,7 @@ const NewsMenu = React.createClass({
     return (
       <div id="news-menu">
         <h2 className="menu-title">
-          Récemment parus
+          {this.props.messages.newArticles}
         </h2>
         {this.props.articles.map(this.createArticle)}
       </div>
@@ -42,10 +43,9 @@ const NewsMenu = React.createClass({
   }
 });
 
-const mapStateToProps = function (store) {
-   return {
-     articles : store.news.articles
-   };
-};
+const mapStateToProps = (store) => ({
+  messages : store.messages.strings.menu.newsMenu,
+  articles : store.news.articles
+});
 
 module.exports = connect(mapStateToProps)(NewsMenu);

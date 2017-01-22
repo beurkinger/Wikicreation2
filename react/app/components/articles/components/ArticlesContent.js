@@ -3,26 +3,25 @@ import {connect} from 'react-redux';
 
 import ArticlesCategory from './ArticlesCategory';
 
-const ArticlesContent = React.createClass({
-  propTypes : {
-    articles : React.PropTypes.array.isRequired,
-  },
-  getCategory : (category) => (
+const ArticlesContent = (props) => {
+  const getCategory = (category) => (
     <ArticlesCategory id={category.categoryId}
                       name={category.categoryName}
                       articles={category.articles}
                       key={category.categoryId} />
-  ),
-  render: function () {
-    return (
-      <div id="main-content">
-        <div id="articles-main">
-          {this.props.articles.map(this.getCategory)}
-        </div>
+  );
+  return (
+    <div id="main-content">
+      <div id="articles-main">
+        {props.articles.map(getCategory)}
       </div>
-    )
-  }
-});
+    </div>
+  )
+};
+
+ArticlesContent.propTypes = {
+  articles : React.PropTypes.array.isRequired,
+};
 
 const mapStateToProps = function (store) {
    return {

@@ -10,10 +10,8 @@ const Home = React.createClass({
   render : () => <main id="main-container"></main>
 });
 
-const mapDispatchToProps = function (dispatch) {
-  return {
-    emptyTitlebar: () => dispatch(emptyTitlebar())
-  }
-};
+const mapDispatchToProps = (dispatch) => ({
+  emptyTitlebar: () => dispatch(emptyTitlebar())
+});
 
 module.exports = connect(null, mapDispatchToProps)(Home);

@@ -5,10 +5,7 @@ import {hideMenu} from '../../menu/actions';
 import {hideAuthorPanel} from '../../author/actions';
 
 const MenusBackground = (props) => {
-  const handleClick = function ()
-  {
-    props.hideMenus();
-  };
+  const handleClick  = () => props.hideMenus();
   return (
     <div  id="menusBackground"
           style = {{ display : props.isVisible ? 'block' : 'none' }}

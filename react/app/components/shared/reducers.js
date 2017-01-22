@@ -1,4 +1,6 @@
 import * as actionTypes from './actionTypes';
+import {APP_LOCALES} from '../constants';
+import messages from './messages';
 
 const initCategories = {
   isFetching : false,
@@ -20,6 +22,28 @@ const categoriesReducer = function(state = initCategories, action) {
   }
 };
 
+const initMessages = {
+  locale : APP_LOCALES.EN,
+  strings : messages[APP_LOCALES.EN]
+};
+const messagesReducer = function(state = initMessages, action) {
+  switch (action.type) {
+    case actionTypes.SET_LOCALE_FR :
+      return Object.assign({}, state, {
+        locale : APP_LOCALES.FR,
+        strings : messages[APP_LOCALES.FR]
+      });
+    case actionTypes.SET_LOCALE_EN :
+      return Object.assign({}, state, {
+        locale : APP_LOCALES.EN,
+        strings : messages[APP_LOCALES.EN]
+      });
+    default:
+      return state;
+  }
+};
+
 module.exports = {
-  categories : categoriesReducer
+  categories : categoriesReducer,
+  messages : messagesReducer
 };
