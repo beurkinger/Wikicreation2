@@ -24208,8 +24208,8 @@
 
 	var initMenu = {
 	  isVisible: false,
-	  mainLinks: [{ name: 'Accueil', path: '/', index: true }, { name: 'À propos', path: '/about' }, { name: 'Articles', path: '/articles' }, { name: 'Auteurs', path: '/authors' }, { name: 'Contribuer', path: '/contribute' }],
-	  secondaryLinks: [{ name: 'Comité', path: '/committee' }, { name: 'Crédits et contact', path: '/credits-contacts' }, { name: 'Mentions légales', path: '/legal' }]
+	  mainLinks: [{ name: 'home', path: '/', index: true }, { name: 'about', path: '/about' }, { name: 'articles', path: '/articles' }, { name: 'authors', path: '/authors' }, { name: 'contribute', path: '/contribute' }],
+	  secondaryLinks: [{ name: 'committee', path: '/committee' }, { name: 'creditsAndContacts', path: '/credits-contacts' }, { name: 'legalNotice', path: '/legal' }]
 	};
 	var menuReducer = function menuReducer() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initMenu;
@@ -24294,8 +24294,8 @@
 	};
 
 	var initMessages = {
-	  locale: _constants.APP_LOCALES.EN,
-	  strings: _messages2.default[_constants.APP_LOCALES.EN]
+	  locale: _constants.APP_LOCALES.FR,
+	  strings: _messages2.default[_constants.APP_LOCALES.FR]
 	};
 	var messagesReducer = function messagesReducer() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initMessages;
@@ -24349,10 +24349,7 @@
 	});
 	var WEBSITE_URL = exports.WEBSITE_URL = 'http://wikicreation.com';
 
-	var APP_LOCALES = exports.APP_LOCALES = {
-	  FR: 'FR',
-	  EN: 'EN'
-	};
+	var APP_LOCALES = exports.APP_LOCALES = { FR: 'fr', EN: 'en' };
 
 /***/ },
 /* 228 */
@@ -24384,8 +24381,8 @@
 	  },
 	  filter: {
 	    filterBy: 'Filtrer par',
-	    language: 'Langages',
-	    theme: 'Thèmes'
+	    languages: 'Langages',
+	    themes: 'Thèmes'
 	  },
 	  author: {
 	    main: {
@@ -24398,6 +24395,16 @@
 	    }
 	  },
 	  menu: {
+	    navMenu: {
+	      home: 'Accueil',
+	      about: 'À propos',
+	      articles: 'Articles',
+	      authors: 'Auteurs',
+	      contribute: 'Contribuer',
+	      committee: 'Comité',
+	      creditsAndContacts: 'Crédits et contact',
+	      legalNotice: 'Mentions légales'
+	    },
 	    newsMenu: {
 	      readArticle: "Lire l'article",
 	      newArticles: "Récemment parus"
@@ -24425,8 +24432,8 @@
 	  },
 	  filter: {
 	    filterBy: 'Filter by',
-	    language: 'Languages',
-	    theme: 'Themes'
+	    languages: 'Languages',
+	    themes: 'Themes'
 	  },
 	  author: {
 	    main: {
@@ -24439,6 +24446,16 @@
 	    }
 	  },
 	  menu: {
+	    navMenu: {
+	      home: 'Home',
+	      about: 'About',
+	      articles: 'Articles',
+	      authors: 'Authors',
+	      contribute: 'Contribute',
+	      committee: 'Committee',
+	      creditsAndContacts: 'Credits and contact',
+	      legalNotice: 'Legal Notice'
+	    },
 	    newsMenu: {
 	      readArticle: "Read the article",
 	      newArticles: "Recent articles"
@@ -24482,19 +24499,19 @@
 
 	var _Articles2 = _interopRequireDefault(_Articles);
 
-	var _Authors = __webpack_require__(401);
+	var _Authors = __webpack_require__(406);
 
 	var _Authors2 = _interopRequireDefault(_Authors);
 
-	var _Contribute = __webpack_require__(410);
+	var _Contribute = __webpack_require__(412);
 
 	var _Contribute2 = _interopRequireDefault(_Contribute);
 
-	var _Home = __webpack_require__(411);
+	var _Home = __webpack_require__(413);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Main = __webpack_require__(412);
+	var _Main = __webpack_require__(414);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -28699,7 +28716,7 @@
 	        _react2.default.createElement(
 	          'h4',
 	          { className: 'article-keywords' },
-	          this.props.messages.article.content.keywords,
+	          this.props.messages.keywords,
 	          ' ',
 	          _react2.default.createElement(_Keywords2.default, { array: this.props.keywords })
 	        ),
@@ -28712,7 +28729,7 @@
 	          _react2.default.createElement(
 	            'h3',
 	            null,
-	            this.props.messages.article.content.toQuote
+	            this.props.messages.toQuote
 	          ),
 	          _react2.default.createElement(
 	            'p',
@@ -28721,7 +28738,7 @@
 	            ', ',
 	            this.props.title,
 	            ', ',
-	            this.props.messages.article.content.publishedOn,
+	            this.props.messages.publishedOn,
 	            ' ',
 	            _react2.default.createElement(_DateStr2.default, { date: this.props.date, format: 'D MMMM YYYY', locale: 'fr' }),
 	            ' ',
@@ -28739,7 +28756,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
-	    messages: store.messages.strings,
+	    messages: store.messages.strings.article.content,
 	    id: store.article.id,
 	    title: store.article.title,
 	    date: store.article.date,
@@ -43712,11 +43729,11 @@
 
 	var _async2 = __webpack_require__(393);
 
-	var _ArticlesAside = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./ArticlesAside\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _ArticlesAside = __webpack_require__(395);
 
 	var _ArticlesAside2 = _interopRequireDefault(_ArticlesAside);
 
-	var _ArticlesContent = __webpack_require__(396);
+	var _ArticlesContent = __webpack_require__(401);
 
 	var _ArticlesContent2 = _interopRequireDefault(_ArticlesContent);
 
@@ -43731,7 +43748,7 @@
 	  componentWillMount: function componentWillMount() {
 	    (0, _async2.getCategories)();
 	    (0, _async.getArticles)();
-	    this.props.setTitlebar(this.props.messages.articles.main.title);
+	    this.props.setTitlebar(this.props.messages.title);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -43745,7 +43762,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
-	    messages: store.messages.strings
+	    messages: store.messages.strings.articles.main
 	  };
 	};
 
@@ -43979,7 +43996,113 @@
 	};
 
 /***/ },
-/* 395 */,
+/* 395 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _actions = __webpack_require__(391);
+
+	var _async = __webpack_require__(390);
+
+	var _CategoriesFilter = __webpack_require__(396);
+
+	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
+
+	var _LanguagesFilter = __webpack_require__(398);
+
+	var _LanguagesFilter2 = _interopRequireDefault(_LanguagesFilter);
+
+	var _TextFilter = __webpack_require__(400);
+
+	var _TextFilter2 = _interopRequireDefault(_TextFilter);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ArticlesAside = function ArticlesAside(props) {
+	  var handleTitleFilter = function handleTitleFilter(str) {
+	    props.filterTitle(str);
+	    (0, _async.getArticles)();
+	  };
+	  var handleCategoriesFilter = function handleCategoriesFilter(categoriesArray) {
+	    props.filterCategory(categoriesArray);
+	    (0, _async.getArticles)();
+	  };
+	  var handleLanguagesFilter = function handleLanguagesFilter(languagesArray) {
+	    props.filterLanguage(languagesArray);
+	    (0, _async.getArticles)();
+	  };
+	  return _react2.default.createElement(
+	    'aside',
+	    { id: 'main-aside' },
+	    _react2.default.createElement(_TextFilter2.default, { value: props.title, handleChange: handleTitleFilter }),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'info' },
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'info-title' },
+	        props.messages.filterBy
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        { className: 'filter-name' },
+	        props.messages.languages
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'filters' },
+	        _react2.default.createElement(_LanguagesFilter2.default, { handleChange: handleLanguagesFilter })
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        { className: 'filter-name' },
+	        props.messages.themes
+	      ),
+	      _react2.default.createElement(_CategoriesFilter2.default, { handleChange: handleCategoriesFilter })
+	    )
+	  );
+	};
+
+	ArticlesAside.propTypes = {
+	  messages: _react2.default.PropTypes.object.isRequired,
+	  title: _react2.default.PropTypes.string.isRequired,
+	  categories: _react2.default.PropTypes.array.isRequired,
+	  languages: _react2.default.PropTypes.array.isRequired
+	};
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    messages: store.messages.strings.filter,
+	    title: store.articlesFilter.title,
+	    categories: store.articlesFilter.categories,
+	    languages: store.articlesFilter.languages
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    filterTitle: function filterTitle(str) {
+	      return dispatch((0, _actions.filterArticlesTitle)(str));
+	    },
+	    filterCategory: function filterCategory(cat) {
+	      return dispatch((0, _actions.filterArticlesCategory)(cat));
+	    },
+	    filterLanguage: function filterLanguage(lan) {
+	      return dispatch((0, _actions.filterArticlesLanguage)(lan));
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticlesAside);
+
+/***/ },
 /* 396 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -43991,7 +44114,259 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _ArticlesCategory = __webpack_require__(397);
+	var _async = __webpack_require__(393);
+
+	var _CheckboxFilter = __webpack_require__(397);
+
+	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CategoriesFilter = _react2.default.createClass({
+	  displayName: 'CategoriesFilter',
+
+	  propTypes: {
+	    categories: _react2.default.PropTypes.array.isRequired,
+	    handleChange: _react2.default.PropTypes.func.isRequired
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      filter: new Set()
+	    };
+	  },
+	  componentWillMount: function componentWillMount() {
+	    (0, _async.getCategories)();
+	  },
+	  getCheckbox: function getCheckbox(category) {
+	    return _react2.default.createElement(_CheckboxFilter2.default, { label: category.name,
+	      value: category.id,
+	      handleChange: this.handleCheckboxChange,
+	      key: category.id });
+	  },
+	  handleCheckboxChange: function handleCheckboxChange(categoryId) {
+	    var filter = this.state.filter;
+	    if (filter.has(categoryId)) {
+	      filter.delete(categoryId);
+	    } else {
+	      filter.add(categoryId);
+	    }
+	    this.props.handleChange(Array.from(filter));
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'filters' },
+	      this.props.categories.map(this.getCheckbox)
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    categories: store.categories.list
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(CategoriesFilter);
+
+/***/ },
+/* 397 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var CheckboxFilter = _react2.default.createClass({
+	  displayName: "CheckboxFilter",
+
+	  propTypes: {
+	    label: _react2.default.PropTypes.string.isRequired,
+	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]).isRequired,
+	    handleChange: _react2.default.PropTypes.func.isRequired
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      isChecked: false
+	    };
+	  },
+	  handleCheckboxChange: function handleCheckboxChange() {
+	    this.setState({ isChecked: !this.state.isChecked });
+	    this.props.handleChange(this.props.value);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { className: "filter" },
+	      _react2.default.createElement("input", { type: "checkbox",
+	        value: this.props.value,
+	        checked: this.state.isChecked,
+	        onChange: this.handleCheckboxChange }),
+	      this.props.label
+	    );
+	  }
+	});
+
+	module.exports = CheckboxFilter;
+
+/***/ },
+/* 398 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _CheckboxFilter = __webpack_require__(397);
+
+	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
+
+	var _constants = __webpack_require__(399);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LanguagesFilter = _react2.default.createClass({
+	  displayName: 'LanguagesFilter',
+
+	  propTypes: {
+	    handleChange: _react2.default.PropTypes.func.isRequired
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      filter: new Set()
+	    };
+	  },
+	  getCheckbox: function getCheckbox(language) {
+	    return _react2.default.createElement(_CheckboxFilter2.default, { label: language.name,
+	      value: language.id,
+	      handleChange: this.handleCheckboxChange,
+	      key: language.id });
+	  },
+	  handleCheckboxChange: function handleCheckboxChange(languageId) {
+	    var filter = this.state.filter;
+	    if (filter.has(languageId)) {
+	      filter.delete(languageId);
+	    } else {
+	      filter.add(languageId);
+	    }
+	    this.props.handleChange(Array.from(filter));
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'filters' },
+	      _constants.ARTICLE_LANGUAGES.map(this.getCheckbox)
+	    );
+	  }
+	});
+
+	module.exports = LanguagesFilter;
+
+/***/ },
+/* 399 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ARTICLE_LANGUAGES = exports.ARTICLE_LANGUAGES = [{
+	  id: 'fr',
+	  name: 'Français'
+	}, {
+	  id: 'en',
+	  name: 'Anglais'
+	}, {
+	  id: 'oth',
+	  name: 'Autres langues'
+	}];
+
+/***/ },
+/* 400 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TextFilter = _react2.default.createClass({
+	  displayName: "TextFilter",
+
+	  propTypes: {
+	    label: _react2.default.PropTypes.string,
+	    value: _react2.default.PropTypes.string.isRequired,
+	    handleChange: _react2.default.PropTypes.func.isRequired,
+	    delay: _react2.default.PropTypes.number
+	  },
+	  getDefaultProps: function getDefaultProps() {
+	    return { delay: 500 };
+	  },
+	  getInitialState: function getInitialState() {
+	    return { value: this.props.value };
+	  },
+	  componentWillMount: function componentWillMount() {
+	    this.timeout = null;
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    if (this.timeout) clearTimeout(this.timeout);
+	  },
+	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+	    this.setState({ value: nextProps.value });
+	  },
+	  handleTextChange: function handleTextChange(e) {
+	    var value = e.target.value;
+	    this.setState({ value: value });
+	    this.delayedPropsUpdate(value);
+	  },
+	  delayedPropsUpdate: function delayedPropsUpdate(value) {
+	    var _this = this;
+
+	    clearTimeout(this.timeout);
+	    this.timeout = setTimeout(function () {
+	      _this.props.handleChange(value);
+	    }, this.props.delay);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "form",
+	      { className: "search-form" },
+	      _react2.default.createElement("input", { className: "search-field",
+	        value: this.state.value,
+	        placeholder: this.props.label ? this.props.label : 'Ecrire pour filtrer',
+	        onChange: this.handleTextChange }),
+	      _react2.default.createElement("div", { className: "search-btn" })
+	    );
+	  }
+	});
+
+	module.exports = TextFilter;
+
+/***/ },
+/* 401 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _ArticlesCategory = __webpack_require__(402);
 
 	var _ArticlesCategory2 = _interopRequireDefault(_ArticlesCategory);
 
@@ -44028,7 +44403,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ArticlesContent);
 
 /***/ },
-/* 397 */
+/* 402 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44039,7 +44414,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _ArticleCard = __webpack_require__(398);
+	var _ArticleCard = __webpack_require__(403);
 
 	var _ArticleCard2 = _interopRequireDefault(_ArticleCard);
 
@@ -44075,7 +44450,7 @@
 	module.exports = ArticleCategory;
 
 /***/ },
-/* 398 */
+/* 403 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44084,7 +44459,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(399);
+	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -44110,7 +44485,7 @@
 	module.exports = ArticleCard;
 
 /***/ },
-/* 399 */
+/* 404 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -44127,7 +44502,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _PropTypes = __webpack_require__(400);
+	var _PropTypes = __webpack_require__(405);
 
 	var _ContextUtils = __webpack_require__(246);
 
@@ -44274,7 +44649,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 400 */
+/* 405 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44307,7 +44682,7 @@
 	});
 
 /***/ },
-/* 401 */
+/* 406 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44322,13 +44697,13 @@
 
 	var _async = __webpack_require__(393);
 
-	var _async2 = __webpack_require__(402);
+	var _async2 = __webpack_require__(407);
 
-	var _AuthorsAside = __webpack_require__(404);
+	var _AuthorsAside = __webpack_require__(409);
 
 	var _AuthorsAside2 = _interopRequireDefault(_AuthorsAside);
 
-	var _AuthorsContent = __webpack_require__(408);
+	var _AuthorsContent = __webpack_require__(410);
 
 	var _AuthorsContent2 = _interopRequireDefault(_AuthorsContent);
 
@@ -44363,7 +44738,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Authors);
 
 /***/ },
-/* 402 */
+/* 407 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44373,7 +44748,7 @@
 	});
 	exports.getAuthors = getAuthors;
 
-	var _actions = __webpack_require__(403);
+	var _actions = __webpack_require__(408);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -44406,7 +44781,7 @@
 	};
 
 /***/ },
-/* 403 */
+/* 408 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44448,7 +44823,7 @@
 	};
 
 /***/ },
-/* 404 */
+/* 409 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44459,15 +44834,15 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(403);
+	var _actions = __webpack_require__(408);
 
-	var _async = __webpack_require__(402);
+	var _async = __webpack_require__(407);
 
-	var _CategoriesFilter = __webpack_require__(405);
+	var _CategoriesFilter = __webpack_require__(396);
 
 	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
 
-	var _TextFilter = __webpack_require__(407);
+	var _TextFilter = __webpack_require__(400);
 
 	var _TextFilter2 = _interopRequireDefault(_TextFilter);
 
@@ -44492,12 +44867,12 @@
 	      _react2.default.createElement(
 	        'h2',
 	        { className: 'info-title' },
-	        'Filtrer par'
+	        props.messages.filterBy
 	      ),
 	      _react2.default.createElement(
 	        'h3',
 	        { className: 'filter-name' },
-	        'Th\xE8mes'
+	        props.messages.themes
 	      ),
 	      _react2.default.createElement(_CategoriesFilter2.default, { handleChange: handleCategoriesFilter })
 	    )
@@ -44505,6 +44880,7 @@
 	};
 
 	AuthorsAside.propTypes = {
+	  messages: _react2.default.PropTypes.object.isRequired,
 	  name: _react2.default.PropTypes.string.isRequired,
 	  categories: _react2.default.PropTypes.array.isRequired,
 	  filterName: _react2.default.PropTypes.func.isRequired,
@@ -44513,6 +44889,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
+	    messages: store.messages.strings.filter,
 	    name: store.authorsFilter.name,
 	    categories: store.authorsFilter.categories
 	  };
@@ -44532,7 +44909,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AuthorsAside);
 
 /***/ },
-/* 405 */
+/* 410 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44543,182 +44920,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(393);
-
-	var _CheckboxFilter = __webpack_require__(406);
-
-	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CategoriesFilter = _react2.default.createClass({
-	  displayName: 'CategoriesFilter',
-
-	  propTypes: {
-	    categories: _react2.default.PropTypes.array.isRequired,
-	    handleChange: _react2.default.PropTypes.func.isRequired
-	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      filter: new Set()
-	    };
-	  },
-	  componentWillMount: function componentWillMount() {
-	    (0, _async.getCategories)();
-	  },
-	  getCheckbox: function getCheckbox(category) {
-	    return _react2.default.createElement(_CheckboxFilter2.default, { label: category.name,
-	      value: category.id,
-	      handleChange: this.handleCheckboxChange,
-	      key: category.id });
-	  },
-	  handleCheckboxChange: function handleCheckboxChange(categoryId) {
-	    var filter = this.state.filter;
-	    if (filter.has(categoryId)) {
-	      filter.delete(categoryId);
-	    } else {
-	      filter.add(categoryId);
-	    }
-	    this.props.handleChange(Array.from(filter));
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'filters' },
-	      this.props.categories.map(this.getCheckbox)
-	    );
-	  }
-	});
-
-	var mapStateToProps = function mapStateToProps(store) {
-	  return {
-	    categories: store.categories.list
-	  };
-	};
-
-	module.exports = (0, _reactRedux.connect)(mapStateToProps)(CategoriesFilter);
-
-/***/ },
-/* 406 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var CheckboxFilter = _react2.default.createClass({
-	  displayName: "CheckboxFilter",
-
-	  propTypes: {
-	    label: _react2.default.PropTypes.string.isRequired,
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]).isRequired,
-	    handleChange: _react2.default.PropTypes.func.isRequired
-	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      isChecked: false
-	    };
-	  },
-	  handleCheckboxChange: function handleCheckboxChange() {
-	    this.setState({ isChecked: !this.state.isChecked });
-	    this.props.handleChange(this.props.value);
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { className: "filter" },
-	      _react2.default.createElement("input", { type: "checkbox",
-	        value: this.props.value,
-	        checked: this.state.isChecked,
-	        onChange: this.handleCheckboxChange }),
-	      this.props.label
-	    );
-	  }
-	});
-
-	module.exports = CheckboxFilter;
-
-/***/ },
-/* 407 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var TextFilter = _react2.default.createClass({
-	  displayName: "TextFilter",
-
-	  propTypes: {
-	    label: _react2.default.PropTypes.string,
-	    value: _react2.default.PropTypes.string.isRequired,
-	    handleChange: _react2.default.PropTypes.func.isRequired,
-	    delay: _react2.default.PropTypes.number
-	  },
-	  getDefaultProps: function getDefaultProps() {
-	    return { delay: 500 };
-	  },
-	  getInitialState: function getInitialState() {
-	    return { value: this.props.value };
-	  },
-	  componentWillMount: function componentWillMount() {
-	    this.timeout = null;
-	  },
-	  componentWillUnmount: function componentWillUnmount() {
-	    if (this.timeout) clearTimeout(this.timeout);
-	  },
-	  componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-	    this.setState({ value: nextProps.value });
-	  },
-	  handleTextChange: function handleTextChange(e) {
-	    var value = e.target.value;
-	    this.setState({ value: value });
-	    this.delayedPropsUpdate(value);
-	  },
-	  delayedPropsUpdate: function delayedPropsUpdate(value) {
-	    var _this = this;
-
-	    clearTimeout(this.timeout);
-	    this.timeout = setTimeout(function () {
-	      _this.props.handleChange(value);
-	    }, this.props.delay);
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "form",
-	      { className: "search-form" },
-	      _react2.default.createElement("input", { className: "search-field",
-	        value: this.state.value,
-	        placeholder: this.props.label ? this.props.label : 'Ecrire pour filtrer',
-	        onChange: this.handleTextChange }),
-	      _react2.default.createElement("div", { className: "search-btn" })
-	    );
-	  }
-	});
-
-	module.exports = TextFilter;
-
-/***/ },
-/* 408 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(172);
-
-	var _AuthorCard = __webpack_require__(409);
+	var _AuthorCard = __webpack_require__(411);
 
 	var _AuthorCard2 = _interopRequireDefault(_AuthorCard);
 
@@ -44756,7 +44958,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorsContent);
 
 /***/ },
-/* 409 */
+/* 411 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44818,7 +45020,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(AuthorCard);
 
 /***/ },
-/* 410 */
+/* 412 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44844,7 +45046,7 @@
 	module.exports = Contribute;
 
 /***/ },
-/* 411 */
+/* 413 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44881,7 +45083,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Home);
 
 /***/ },
-/* 412 */
+/* 414 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44892,19 +45094,19 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _Author = __webpack_require__(413);
+	var _Author = __webpack_require__(415);
 
 	var _Author2 = _interopRequireDefault(_Author);
 
-	var _Header = __webpack_require__(415);
+	var _Header = __webpack_require__(417);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Menu = __webpack_require__(431);
+	var _Menu = __webpack_require__(434);
 
 	var _Menu2 = _interopRequireDefault(_Menu);
 
-	var _MenusBackground = __webpack_require__(435);
+	var _MenusBackground = __webpack_require__(438);
 
 	var _MenusBackground2 = _interopRequireDefault(_MenusBackground);
 
@@ -44918,12 +45120,9 @@
 	  var getCategory = function getCategory() {
 	    return props.location.pathname === '/' ? 'blue' : 'white';
 	  };
-	  var handleKeyUp = function handleKeyUp(e) {
-	    console.log(e);
-	  };
 	  return _react2.default.createElement(
 	    'div',
-	    { id: 'app', className: getCategory(), onKeyUp: handleKeyUp },
+	    { id: 'app', className: getCategory() },
 	    _react2.default.createElement(_Header2.default, null),
 	    _react2.default.createElement(_Menu2.default, null),
 	    _react2.default.createElement(_MenusBackground2.default, null),
@@ -44941,7 +45140,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Main);
 
 /***/ },
-/* 413 */
+/* 415 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -44956,7 +45155,7 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _AuthorArticle = __webpack_require__(414);
+	var _AuthorArticle = __webpack_require__(416);
 
 	var _AuthorArticle2 = _interopRequireDefault(_AuthorArticle);
 
@@ -44997,7 +45196,7 @@
 	    _react2.default.createElement(
 	      'h2',
 	      { className: 'articles' },
-	      'Articles'
+	      props.messages.articles
 	    ),
 	    _react2.default.createElement(
 	      'ul',
@@ -45009,6 +45208,7 @@
 
 	Author.propTypes = {
 	  isVisible: _react2.default.PropTypes.bool.isRequired,
+	  messages: _react2.default.PropTypes.object.isRequired,
 	  id: _react2.default.PropTypes.number.isRequired,
 	  name: _react2.default.PropTypes.string.isRequired,
 	  title: _react2.default.PropTypes.string.isRequired,
@@ -45021,6 +45221,7 @@
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
 	    isVisible: store.authorPanel.isVisible,
+	    messages: store.messages.strings.author.main,
 	    id: store.author.id,
 	    name: store.author.name,
 	    title: store.author.title,
@@ -45041,7 +45242,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Author);
 
 /***/ },
-/* 414 */
+/* 416 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45054,7 +45255,7 @@
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
-	var _Link = __webpack_require__(399);
+	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -45094,7 +45295,7 @@
 	module.exports = AuthorArticle;
 
 /***/ },
-/* 415 */
+/* 417 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45105,11 +45306,15 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _reactRouter = __webpack_require__(416);
+	var _reactRouter = __webpack_require__(418);
 
-	var _actions = __webpack_require__(429);
+	var _actions = __webpack_require__(431);
 
-	var _Titlebar = __webpack_require__(430);
+	var _LanguageSwitch = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../shared/components/LanguageSwitch\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
+
+	var _Titlebar = __webpack_require__(433);
 
 	var _Titlebar2 = _interopRequireDefault(_Titlebar);
 
@@ -45125,21 +45330,7 @@
 	      'div',
 	      { id: 'main-header-right' },
 	      _react2.default.createElement('div', { className: 'menu-ham clickable', onClick: props.showMenu }),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'language' },
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'selected' },
-	          'FR'
-	        ),
-	        _react2.default.createElement('div', { className: 'separator' }),
-	        _react2.default.createElement(
-	          'span',
-	          null,
-	          'EN'
-	        )
-	      )
+	      _react2.default.createElement(_LanguageSwitch2.default, null)
 	    )
 	  );
 	};
@@ -45159,7 +45350,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Header);
 
 /***/ },
-/* 416 */
+/* 418 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45176,7 +45367,7 @@
 	  }
 	});
 
-	var _PropTypes = __webpack_require__(400);
+	var _PropTypes = __webpack_require__(405);
 
 	Object.defineProperty(exports, 'locationShape', {
 	  enumerable: true,
@@ -45204,19 +45395,19 @@
 
 	var _Router3 = _interopRequireDefault(_Router2);
 
-	var _Link2 = __webpack_require__(399);
+	var _Link2 = __webpack_require__(404);
 
 	var _Link3 = _interopRequireDefault(_Link2);
 
-	var _IndexLink2 = __webpack_require__(417);
+	var _IndexLink2 = __webpack_require__(419);
 
 	var _IndexLink3 = _interopRequireDefault(_IndexLink2);
 
-	var _withRouter2 = __webpack_require__(418);
+	var _withRouter2 = __webpack_require__(420);
 
 	var _withRouter3 = _interopRequireDefault(_withRouter2);
 
-	var _IndexRedirect2 = __webpack_require__(419);
+	var _IndexRedirect2 = __webpack_require__(421);
 
 	var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
 
@@ -45224,11 +45415,11 @@
 
 	var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
 
-	var _Redirect2 = __webpack_require__(420);
+	var _Redirect2 = __webpack_require__(422);
 
 	var _Redirect3 = _interopRequireDefault(_Redirect2);
 
-	var _Route2 = __webpack_require__(421);
+	var _Route2 = __webpack_require__(423);
 
 	var _Route3 = _interopRequireDefault(_Route2);
 
@@ -45236,7 +45427,7 @@
 
 	var _RouterContext3 = _interopRequireDefault(_RouterContext2);
 
-	var _match2 = __webpack_require__(422);
+	var _match2 = __webpack_require__(424);
 
 	var _match3 = _interopRequireDefault(_match2);
 
@@ -45244,7 +45435,7 @@
 
 	var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
 
-	var _applyRouterMiddleware2 = __webpack_require__(425);
+	var _applyRouterMiddleware2 = __webpack_require__(427);
 
 	var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
 
@@ -45252,11 +45443,11 @@
 
 	var _browserHistory3 = _interopRequireDefault(_browserHistory2);
 
-	var _hashHistory2 = __webpack_require__(426);
+	var _hashHistory2 = __webpack_require__(428);
 
 	var _hashHistory3 = _interopRequireDefault(_hashHistory2);
 
-	var _createMemoryHistory2 = __webpack_require__(423);
+	var _createMemoryHistory2 = __webpack_require__(425);
 
 	var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
 
@@ -45289,7 +45480,7 @@
 	exports.createMemoryHistory = _createMemoryHistory3.default;
 
 /***/ },
-/* 417 */
+/* 419 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45302,7 +45493,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(399);
+	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -45322,7 +45513,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 418 */
+/* 420 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45347,7 +45538,7 @@
 
 	var _ContextUtils = __webpack_require__(246);
 
-	var _PropTypes = __webpack_require__(400);
+	var _PropTypes = __webpack_require__(405);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45400,7 +45591,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 419 */
+/* 421 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45419,7 +45610,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _Redirect = __webpack_require__(420);
+	var _Redirect = __webpack_require__(422);
 
 	var _Redirect2 = _interopRequireDefault(_Redirect);
 
@@ -45470,7 +45661,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 420 */
+/* 422 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45579,7 +45770,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 421 */
+/* 423 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45643,7 +45834,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 422 */
+/* 424 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45658,7 +45849,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _createMemoryHistory = __webpack_require__(423);
+	var _createMemoryHistory = __webpack_require__(425);
 
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
@@ -45721,7 +45912,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 423 */
+/* 425 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -45737,7 +45928,7 @@
 
 	var _useBasename2 = _interopRequireDefault(_useBasename);
 
-	var _createMemoryHistory = __webpack_require__(424);
+	var _createMemoryHistory = __webpack_require__(426);
 
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
@@ -45757,7 +45948,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 424 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45903,7 +46094,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 425 */
+/* 427 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -45966,14 +46157,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 426 */
+/* 428 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _createHashHistory = __webpack_require__(427);
+	var _createHashHistory = __webpack_require__(429);
 
 	var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 
@@ -45987,7 +46178,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 427 */
+/* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46008,7 +46199,7 @@
 
 	var _DOMUtils = __webpack_require__(256);
 
-	var _HashProtocol = __webpack_require__(428);
+	var _HashProtocol = __webpack_require__(430);
 
 	var HashProtocol = _interopRequireWildcard(_HashProtocol);
 
@@ -46140,7 +46331,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 428 */
+/* 430 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -46282,7 +46473,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 429 */
+/* 431 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46321,7 +46512,8 @@
 	};
 
 /***/ },
-/* 430 */
+/* 432 */,
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46378,7 +46570,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Titlebar);
 
 /***/ },
-/* 431 */
+/* 434 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46387,21 +46579,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(399);
+	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
-	var _IndexLink = __webpack_require__(417);
+	var _IndexLink = __webpack_require__(419);
 
 	var _IndexLink2 = _interopRequireDefault(_IndexLink);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _NavMenu = __webpack_require__(432);
+	var _NavMenu = __webpack_require__(435);
 
 	var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
-	var _NewsMenu = __webpack_require__(433);
+	var _NewsMenu = __webpack_require__(436);
 
 	var _NewsMenu2 = _interopRequireDefault(_NewsMenu);
 
@@ -46427,7 +46619,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Menu);
 
 /***/ },
-/* 432 */
+/* 435 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46436,13 +46628,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(399);
+	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(429);
+	var _actions = __webpack_require__(431);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -46459,7 +46651,7 @@
 	      _react2.default.createElement(
 	        _Link2.default,
 	        { to: link.path, activeClassName: 'active', onlyActiveOnIndex: isIndex },
-	        link.name
+	        props.messages[link.name]
 	      )
 	    );
 	  };
@@ -46502,6 +46694,7 @@
 	};
 
 	NavMenu.propTypes = {
+	  messages: _react2.default.PropTypes.object.isRequired,
 	  hideMenu: _react2.default.PropTypes.func.isRequired,
 	  mainLinks: _react2.default.PropTypes.array.isRequired,
 	  secondaryLinks: _react2.default.PropTypes.array.isRequired
@@ -46509,6 +46702,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
+	    messages: store.messages.strings.menu.navMenu,
 	    mainLinks: store.menu.mainLinks,
 	    secondaryLinks: store.menu.secondaryLinks
 	  };
@@ -46525,7 +46719,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NavMenu);
 
 /***/ },
-/* 433 */
+/* 436 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46534,17 +46728,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(399);
+	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(429);
+	var _actions = __webpack_require__(431);
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _async = __webpack_require__(434);
+	var _async = __webpack_require__(437);
 
 	var async = _interopRequireWildcard(_async);
 
@@ -46556,6 +46750,7 @@
 	  displayName: 'NewsMenu',
 
 	  propTypes: {
+	    messages: _react2.default.PropTypes.object.isRequired,
 	    articles: _react2.default.PropTypes.array.isRequired
 	  },
 	  componentDidMount: function componentDidMount() {
@@ -46583,7 +46778,7 @@
 	      _react2.default.createElement(
 	        _Link2.default,
 	        { className: 'link', to: "/articles/" + article.id },
-	        'Lire l\'article'
+	        this.props.messages.readArticle
 	      )
 	    );
 	  },
@@ -46594,7 +46789,7 @@
 	      _react2.default.createElement(
 	        'h2',
 	        { className: 'menu-title' },
-	        'R\xE9cemment parus'
+	        this.props.messages.newArticles
 	      ),
 	      this.props.articles.map(this.createArticle)
 	    );
@@ -46602,13 +46797,16 @@
 	});
 
 	var mapStateToProps = function mapStateToProps(store) {
-	  return { articles: store.news.articles };
+	  return {
+	    messages: store.messages.strings.menu.newsMenu,
+	    articles: store.news.articles
+	  };
 	};
 
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(NewsMenu);
 
 /***/ },
-/* 434 */
+/* 437 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46618,7 +46816,7 @@
 	});
 	exports.getNews = getNews;
 
-	var _actions = __webpack_require__(429);
+	var _actions = __webpack_require__(431);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -46641,7 +46839,7 @@
 	};
 
 /***/ },
-/* 435 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46652,7 +46850,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(429);
+	var _actions = __webpack_require__(431);
 
 	var _actions2 = __webpack_require__(273);
 

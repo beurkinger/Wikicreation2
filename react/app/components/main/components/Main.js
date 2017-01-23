@@ -11,11 +11,8 @@ const Main = (props) => {
   const getCategory =  () => {
     return props.location.pathname === '/' ? 'blue' : 'white'
   };
-  const handleKeyUp = (e) => {
-    console.log(e);
-  };
   return (
-    <div id="app" className={getCategory()} onKeyUp={handleKeyUp}>
+    <div id="app" className={getCategory()}>
       <Header />
       <Menu />
       <MenusBackground />

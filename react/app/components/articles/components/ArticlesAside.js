@@ -22,7 +22,9 @@ const ArticlesAside = (props) => {
   };
   return (
     <aside id="main-aside">
-      <TextFilter value={props.title} handleChange={handleTitleFilter} />
+      <TextFilter value={props.title}
+                  handleChange={handleTitleFilter}
+                  label={props.messages.writeToFilter} />
       <div className="info">
         <h2 className="info-title">
           {props.messages.filterBy}

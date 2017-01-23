@@ -3,16 +3,16 @@ import * as actionTypes from './actionTypes';
 const initMenu = {
   isVisible : false,
   mainLinks : [
-    { name :  'Accueil', path : '/', index: true },
-    { name :  'À propos', path : '/about' },
-    { name :  'Articles', path : '/articles' },
-    { name :  'Auteurs', path : '/authors' },
-    { name :  'Contribuer', path : '/contribute' }
+    { name :  'home', path : '/', index: true },
+    { name :  'about', path : '/about' },
+    { name :  'articles', path : '/articles' },
+    { name :  'authors', path : '/authors' },
+    { name :  'contribute', path : '/contribute' }
   ],
   secondaryLinks : [
-    { name :  'Comité', path : '/committee' },
-    { name :  'Crédits et contact', path : '/credits-contacts' },
-    { name :  'Mentions légales', path : '/legal' },
+    { name :  'committee', path : '/committee' },
+    { name :  'creditsAndContacts', path : '/credits-contacts' },
+    { name :  'legalNotice', path : '/legal' },
   ]
 };
 const menuReducer = function(state = initMenu, action) {

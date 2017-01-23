@@ -142,6 +142,11 @@ html, body, #root, #app
   content: " ";
 }
 
+#main-header .language span:hover, #nav-menu .language span:hover
+{
+  cursor: pointer;
+}
+
 #main-header .language .selected
 {
  border-bottom: 2px solid #FF6666;

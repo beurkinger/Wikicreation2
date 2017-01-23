@@ -17,10 +17,12 @@ const AuthorsAside =(props) => {
   };
   return (
     <aside id="main-aside">
-      <TextFilter value={props.name} handleChange={handleNameFilter} />
+      <TextFilter value={props.name}
+                  handleChange={handleNameFilter}
+                  label={props.messages.writeToFilter} />
       <div className="info">
         <h2 className="info-title">
-          {props.messages.filterBy}
+          {props.messages.FilterBy}
         </h2>
         <h3 className="filter-name">
           {props.messages.themes}

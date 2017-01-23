@@ -18,9 +18,10 @@ messages[APP_LOCALES.FR] = {
   articles : {
     main : {
       title : 'Articles'
-    }
+    },
   },
   filter : {
+    writeToFilter : 'Ecrire pour filtrer',
     filterBy : 'Filtrer par',
     languages : 'Langages',
     themes : 'Thèmes'
@@ -36,6 +37,17 @@ messages[APP_LOCALES.FR] = {
     }
   },
   menu : {
+    navMenu : {
+      search : 'Rechercher',
+      home :  'Accueil',
+      about :  'À propos',
+      articles : 'Articles',
+      authors : 'Auteurs',
+      contribute : 'Contribuer',
+      committee : 'Comité',
+      creditsAndContacts : 'Crédits et contact',
+      legalNotice : 'Mentions légales',
+    },
     newsMenu : {
       readArticle : "Lire l'article",
       newArticles : "Récemment parus"
@@ -62,6 +74,7 @@ messages[APP_LOCALES.EN] = {
     }
   },
   filter : {
+    writeToFilter : 'Write to filter',
     filterBy : 'Filter by',
     languages : 'Languages',
     themes : 'Themes'
@@ -77,6 +90,17 @@ messages[APP_LOCALES.EN] = {
     }
   },
   menu : {
+    navMenu : {
+      search : 'Search',
+      home :  'Home',
+      about :  'About',
+      articles : 'Articles',
+      authors : 'Authors',
+      contribute : 'Contribute',
+      committee : 'Committee',
+      creditsAndContacts : 'Credits and contact',
+      legalNotice : 'Legal Notice',
+    },
     newsMenu : {
       readArticle : "Read the article",
       newArticles : "Recent articles"

@@ -23,20 +23,15 @@ const categoriesReducer = function(state = initCategories, action) {
 };
 
 const initMessages = {
-  locale : APP_LOCALES.EN,
-  strings : messages[APP_LOCALES.EN]
+  locale : APP_LOCALES.FR,
+  strings : messages[APP_LOCALES.FR]
 };
 const messagesReducer = function(state = initMessages, action) {
   switch (action.type) {
-    case actionTypes.SET_LOCALE_FR :
+    case actionTypes.SET_LOCALE :
       return Object.assign({}, state, {
-        locale : APP_LOCALES.FR,
-        strings : messages[APP_LOCALES.FR]
-      });
-    case actionTypes.SET_LOCALE_EN :
-      return Object.assign({}, state, {
-        locale : APP_LOCALES.EN,
-        strings : messages[APP_LOCALES.EN]
+        locale : action.locale,
+        strings : messages[action.locale]
       });
     default:
       return state;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
 import {showMenu} from '../../menu/actions';
+import LanguageSwitch from '../../shared/components/LanguageSwitch';
 import Titlebar from './Titlebar';
 
 const Header = (props) => (
@@ -11,9 +12,7 @@ const Header = (props) => (
     <Titlebar />
     <div id="main-header-right">
       <div className="menu-ham clickable" onClick={props.showMenu}></div>
-      <div className="language">
-        <span className="selected">FR</span><div className="separator"></div><span>EN</span>
-      </div>
+      <LanguageSwitch />
     </div>
   </header>
 );

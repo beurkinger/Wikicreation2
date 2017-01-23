@@ -3,6 +3,8 @@ import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
+import LanguageSwitch from '../../shared/components/LanguageSwitch';
+import Search from './Search';
 
 const NavMenu = (props) => {
   const createLink = (link) => {
@@ -10,7 +12,7 @@ const NavMenu = (props) => {
     return (
       <li key={link.name}>
         <Link to={link.path} activeClassName="active" onlyActiveOnIndex={isIndex}>
-          {link.name}
+          {props.messages[link.name]}
         </Link>
       </li>
     );
@@ -18,13 +20,8 @@ const NavMenu = (props) => {
   return (
     <nav id="nav-menu">
       <img className="menu-exit clickable" src="/img/menu-exit.svg" onClick={props.hideMenu} />
-      <div className="language">
-        <span className="selected">FR</span><div className="separator"></div><span>EN</span>
-      </div>
-      <form className="search-form">
-        <input className="search-field" name="main-search-field" placeholder="Recherche"/>
-        <button className="search-btn" name="main-search-btn"></button>
-      </form>
+      <LanguageSwitch />
+      <Search label={props.messages.search} />
       <ul className="pages-list">
         {props.mainLinks.map(createLink)}
       </ul>
@@ -36,14 +33,16 @@ const NavMenu = (props) => {
 };
 
 NavMenu.propTypes = {
+  messages : React.PropTypes.object.isRequired,
   hideMenu: React.PropTypes.func.isRequired,
   mainLinks: React.PropTypes.array.isRequired,
   secondaryLinks: React.PropTypes.array.isRequired
 };
 
 const mapStateToProps = (store) => ({
-   mainLinks : store.menu.mainLinks,
-   secondaryLinks : store.menu.secondaryLinks
+  messages : store.messages.strings.menu.navMenu,
+  mainLinks : store.menu.mainLinks,
+  secondaryLinks : store.menu.secondaryLinks
 });
 
 const mapDispatchToProps = (dispatch) => ({
