@@ -23857,6 +23857,8 @@
 	      return Object.assign({}, state, { categories: action.categories });
 	    case actionTypes.FILTER_ARTICLES_LANGUAGE:
 	      return Object.assign({}, state, { languages: action.languages });
+	    case actionTypes.EMPTY_ARTICLES_FILTER:
+	      return Object.assign({}, state, initArticlesFilter);
 	    default:
 	      return state;
 	  }
@@ -23883,6 +23885,7 @@
 	var FILTER_ARTICLES_TITLE = exports.FILTER_ARTICLES_TITLE = 'FILTER_ARTICLES_TITLE';
 	var FILTER_ARTICLES_CATEGORY = exports.FILTER_ARTICLES_CATEGORY = 'FILTER_ARTICLES_CATEGORY';
 	var FILTER_ARTICLES_LANGUAGE = exports.FILTER_ARTICLES_LANGUAGE = 'FILTER_ARTICLES_LANGUAGE';
+	var EMPTY_ARTICLES_FILTER = exports.EMPTY_ARTICLES_FILTER = 'EMPTY_ARTICLES_FILTER';
 
 /***/ },
 /* 215 */
@@ -24302,15 +24305,10 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case actionTypes.SET_LOCALE_FR:
+	    case actionTypes.SET_LOCALE:
 	      return Object.assign({}, state, {
-	        locale: _constants.APP_LOCALES.FR,
-	        strings: _messages2.default[_constants.APP_LOCALES.FR]
-	      });
-	    case actionTypes.SET_LOCALE_EN:
-	      return Object.assign({}, state, {
-	        locale: _constants.APP_LOCALES.EN,
-	        strings: _messages2.default[_constants.APP_LOCALES.EN]
+	        locale: action.locale,
+	        strings: _messages2.default[action.locale]
 	      });
 	    default:
 	      return state;
@@ -24335,8 +24333,7 @@
 	var CATEGORIES_SUCCESS = exports.CATEGORIES_SUCCESS = 'CATEGORIES_SUCCESS';
 	var CATEGORIES_FAIL = exports.CATEGORIES_FAIL = 'CATEGORIES_FAIL';
 
-	var SET_LANGUAGE_FR = exports.SET_LANGUAGE_FR = 'SET_LANGUAGE_FR';
-	var SET_LANGUAGE_EN = exports.SET_LANGUAGE_EN = 'SET_LANGUAGE_EN';
+	var SET_LOCALE = exports.SET_LOCALE = 'SET_LOCALE';
 
 /***/ },
 /* 227 */
@@ -24380,6 +24377,7 @@
 	    }
 	  },
 	  filter: {
+	    writeToFilter: 'Ecrire pour filtrer',
 	    filterBy: 'Filtrer par',
 	    languages: 'Langages',
 	    themes: 'Thèmes'
@@ -24396,6 +24394,7 @@
 	  },
 	  menu: {
 	    navMenu: {
+	      search: 'Rechercher',
 	      home: 'Accueil',
 	      about: 'À propos',
 	      articles: 'Articles',
@@ -24431,6 +24430,7 @@
 	    }
 	  },
 	  filter: {
+	    writeToFilter: 'Write to filter',
 	    filterBy: 'Filter by',
 	    languages: 'Languages',
 	    themes: 'Themes'
@@ -24447,6 +24447,7 @@
 	  },
 	  menu: {
 	    navMenu: {
+	      search: 'Search',
 	      home: 'Home',
 	      about: 'About',
 	      articles: 'Articles',
@@ -43836,6 +43837,7 @@
 	exports.filterArticlesTitle = filterArticlesTitle;
 	exports.filterArticlesCategory = filterArticlesCategory;
 	exports.filterArticlesLanguage = filterArticlesLanguage;
+	exports.emptyArticlesFilter = emptyArticlesFilter;
 
 	var _actionTypes = __webpack_require__(214);
 
@@ -43865,6 +43867,9 @@
 	};
 	function filterArticlesLanguage(languages) {
 	  return { type: actionTypes.FILTER_ARTICLES_LANGUAGE, languages: languages };
+	};
+	function emptyArticlesFilter() {
+	  return { type: actionTypes.EMPTY_ARTICLES_FILTER };
 	};
 
 /***/ },
@@ -43974,6 +43979,7 @@
 	exports.categoriesRequest = categoriesRequest;
 	exports.categoriesSuccess = categoriesSuccess;
 	exports.categoriesFail = categoriesFail;
+	exports.setLocale = setLocale;
 
 	var _actionTypes = __webpack_require__(226);
 
@@ -43993,6 +43999,10 @@
 	function categoriesFail(msg) {
 	  console.warn('Problem while retrieving categories : "' + msg + '"');
 	  return { type: actionTypes.CATEGORIES_FAIL };
+	};
+
+	function setLocale(locale) {
+	  return { type: actionTypes.SET_LOCALE, locale: locale };
 	};
 
 /***/ },
@@ -44041,7 +44051,9 @@
 	  return _react2.default.createElement(
 	    'aside',
 	    { id: 'main-aside' },
-	    _react2.default.createElement(_TextFilter2.default, { value: props.title, handleChange: handleTitleFilter }),
+	    _react2.default.createElement(_TextFilter2.default, { value: props.title,
+	      handleChange: handleTitleFilter,
+	      label: props.messages.writeToFilter }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'info' },
@@ -44058,14 +44070,14 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'filters' },
-	        _react2.default.createElement(_LanguagesFilter2.default, { handleChange: handleLanguagesFilter })
+	        _react2.default.createElement(_LanguagesFilter2.default, { filter: props.languages, handleChange: handleLanguagesFilter })
 	      ),
 	      _react2.default.createElement(
 	        'h3',
 	        { className: 'filter-name' },
 	        props.messages.themes
 	      ),
-	      _react2.default.createElement(_CategoriesFilter2.default, { handleChange: handleCategoriesFilter })
+	      _react2.default.createElement(_CategoriesFilter2.default, { filter: props.categories, handleChange: handleCategoriesFilter })
 	    )
 	  );
 	};
@@ -44127,30 +44139,29 @@
 
 	  propTypes: {
 	    categories: _react2.default.PropTypes.array.isRequired,
+	    filter: _react2.default.PropTypes.array.isRequired,
 	    handleChange: _react2.default.PropTypes.func.isRequired
-	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      filter: new Set()
-	    };
 	  },
 	  componentWillMount: function componentWillMount() {
 	    (0, _async.getCategories)();
 	  },
 	  getCheckbox: function getCheckbox(category) {
+	    var isChecked = this.props.filter.indexOf(category.id) !== -1 ? true : false;
 	    return _react2.default.createElement(_CheckboxFilter2.default, { label: category.name,
 	      value: category.id,
+	      isChecked: isChecked,
 	      handleChange: this.handleCheckboxChange,
 	      key: category.id });
 	  },
 	  handleCheckboxChange: function handleCheckboxChange(categoryId) {
-	    var filter = this.state.filter;
-	    if (filter.has(categoryId)) {
-	      filter.delete(categoryId);
+	    var filter = this.props.filter.slice(0);
+	    var index = filter.indexOf(categoryId);
+	    if (index !== -1) {
+	      filter.splice(index, 1);
 	    } else {
-	      filter.add(categoryId);
+	      filter.push(categoryId);
 	    }
-	    this.props.handleChange(Array.from(filter));
+	    this.props.handleChange(filter);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -44181,35 +44192,28 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var CheckboxFilter = _react2.default.createClass({
-	  displayName: "CheckboxFilter",
+	var CheckboxFilter = function CheckboxFilter(props) {
+	  var handleCheckboxChange = function handleCheckboxChange() {
+	    return props.handleChange(props.value);
+	  };
 
-	  propTypes: {
-	    label: _react2.default.PropTypes.string.isRequired,
-	    value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]).isRequired,
-	    handleChange: _react2.default.PropTypes.func.isRequired
-	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      isChecked: false
-	    };
-	  },
-	  handleCheckboxChange: function handleCheckboxChange() {
-	    this.setState({ isChecked: !this.state.isChecked });
-	    this.props.handleChange(this.props.value);
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { className: "filter" },
-	      _react2.default.createElement("input", { type: "checkbox",
-	        value: this.props.value,
-	        checked: this.state.isChecked,
-	        onChange: this.handleCheckboxChange }),
-	      this.props.label
-	    );
-	  }
-	});
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "filter" },
+	    _react2.default.createElement("input", { type: "checkbox",
+	      value: props.value,
+	      checked: props.isChecked,
+	      onChange: handleCheckboxChange }),
+	    props.label
+	  );
+	};
+
+	CheckboxFilter.propTypes = {
+	  label: _react2.default.PropTypes.string.isRequired,
+	  value: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.number]).isRequired,
+	  isChecked: _react2.default.PropTypes.bool.isRequired,
+	  handleChange: _react2.default.PropTypes.func.isRequired
+	};
 
 	module.exports = CheckboxFilter;
 
@@ -44237,27 +44241,26 @@
 	  displayName: 'LanguagesFilter',
 
 	  propTypes: {
+	    filter: _react2.default.PropTypes.array.isRequired,
 	    handleChange: _react2.default.PropTypes.func.isRequired
 	  },
-	  getInitialState: function getInitialState() {
-	    return {
-	      filter: new Set()
-	    };
-	  },
 	  getCheckbox: function getCheckbox(language) {
+	    var isChecked = this.props.filter.indexOf(language.id) !== -1 ? true : false;
 	    return _react2.default.createElement(_CheckboxFilter2.default, { label: language.name,
 	      value: language.id,
+	      isChecked: isChecked,
 	      handleChange: this.handleCheckboxChange,
 	      key: language.id });
 	  },
 	  handleCheckboxChange: function handleCheckboxChange(languageId) {
-	    var filter = this.state.filter;
-	    if (filter.has(languageId)) {
-	      filter.delete(languageId);
+	    var filter = this.props.filter.slice(0);
+	    var index = filter.indexOf(languageId);
+	    if (index !== -1) {
+	      filter.splice(index, 1);
 	    } else {
-	      filter.add(languageId);
+	      filter.push(languageId);
 	    }
-	    this.props.handleChange(Array.from(filter));
+	    this.props.handleChange(filter);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -44860,21 +44863,23 @@
 	  return _react2.default.createElement(
 	    'aside',
 	    { id: 'main-aside' },
-	    _react2.default.createElement(_TextFilter2.default, { value: props.name, handleChange: handleNameFilter }),
+	    _react2.default.createElement(_TextFilter2.default, { value: props.name,
+	      handleChange: handleNameFilter,
+	      label: props.messages.writeToFilter }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'info' },
 	      _react2.default.createElement(
 	        'h2',
 	        { className: 'info-title' },
-	        props.messages.filterBy
+	        props.messages.FilterBy
 	      ),
 	      _react2.default.createElement(
 	        'h3',
 	        { className: 'filter-name' },
 	        props.messages.themes
 	      ),
-	      _react2.default.createElement(_CategoriesFilter2.default, { handleChange: handleCategoriesFilter })
+	      _react2.default.createElement(_CategoriesFilter2.default, { filter: props.categories, handleChange: handleCategoriesFilter })
 	    )
 	  );
 	};
@@ -45106,7 +45111,7 @@
 
 	var _Menu2 = _interopRequireDefault(_Menu);
 
-	var _MenusBackground = __webpack_require__(438);
+	var _MenusBackground = __webpack_require__(439);
 
 	var _MenusBackground2 = _interopRequireDefault(_MenusBackground);
 
@@ -45310,7 +45315,7 @@
 
 	var _actions = __webpack_require__(431);
 
-	var _LanguageSwitch = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../shared/components/LanguageSwitch\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _LanguageSwitch = __webpack_require__(432);
 
 	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
 
@@ -46512,7 +46517,73 @@
 	};
 
 /***/ },
-/* 432 */,
+/* 432 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _actions = __webpack_require__(394);
+
+	var actions = _interopRequireWildcard(_actions);
+
+	var _constants = __webpack_require__(227);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var LanguageSwitch = function LanguageSwitch(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'language' },
+	    _react2.default.createElement(
+	      'span',
+	      { className: props.locale === _constants.APP_LOCALES.FR ? 'selected' : '',
+	        onClick: props.setFrench
+	      },
+	      'FR'
+	    ),
+	    _react2.default.createElement('div', { className: 'separator' }),
+	    _react2.default.createElement(
+	      'span',
+	      { className: props.locale === _constants.APP_LOCALES.EN ? 'selected' : '',
+	        onClick: props.setEnglish
+	      },
+	      'EN'
+	    )
+	  );
+	};
+
+	LanguageSwitch.propTypes = {
+	  locale: _react2.default.PropTypes.string.isRequired
+	};
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    locale: store.messages.locale
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    setFrench: function setFrench() {
+	      return dispatch(actions.setLocale(_constants.APP_LOCALES.FR));
+	    },
+	    setEnglish: function setEnglish() {
+	      return dispatch(actions.setLocale(_constants.APP_LOCALES.EN));
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LanguageSwitch);
+
+/***/ },
 /* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -46593,7 +46664,7 @@
 
 	var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
-	var _NewsMenu = __webpack_require__(436);
+	var _NewsMenu = __webpack_require__(437);
 
 	var _NewsMenu2 = _interopRequireDefault(_NewsMenu);
 
@@ -46628,6 +46699,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _MenuLink = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../shared/MenuLink\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _MenuLink2 = _interopRequireDefault(_MenuLink);
+
 	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
@@ -46637,6 +46712,14 @@
 	var _actions = __webpack_require__(431);
 
 	var actions = _interopRequireWildcard(_actions);
+
+	var _LanguageSwitch = __webpack_require__(432);
+
+	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
+
+	var _Search = __webpack_require__(436);
+
+	var _Search2 = _interopRequireDefault(_Search);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -46659,27 +46742,8 @@
 	    'nav',
 	    { id: 'nav-menu' },
 	    _react2.default.createElement('img', { className: 'menu-exit clickable', src: '/img/menu-exit.svg', onClick: props.hideMenu }),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'language' },
-	      _react2.default.createElement(
-	        'span',
-	        { className: 'selected' },
-	        'FR'
-	      ),
-	      _react2.default.createElement('div', { className: 'separator' }),
-	      _react2.default.createElement(
-	        'span',
-	        null,
-	        'EN'
-	      )
-	    ),
-	    _react2.default.createElement(
-	      'form',
-	      { className: 'search-form' },
-	      _react2.default.createElement('input', { className: 'search-field', name: 'main-search-field', placeholder: 'Recherche' }),
-	      _react2.default.createElement('button', { className: 'search-btn', name: 'main-search-btn' })
-	    ),
+	    _react2.default.createElement(_LanguageSwitch2.default, null),
+	    _react2.default.createElement(_Search2.default, { label: props.messages.search }),
 	    _react2.default.createElement(
 	      'ul',
 	      { className: 'pages-list' },
@@ -46728,6 +46792,76 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
+	var _browserHistory = __webpack_require__(249);
+
+	var _browserHistory2 = _interopRequireDefault(_browserHistory);
+
+	var _actions = __webpack_require__(391);
+
+	var _actions2 = __webpack_require__(431);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Search = _react2.default.createClass({
+	  displayName: 'Search',
+
+	  propTypes: {
+	    label: _react2.default.PropTypes.string,
+	    search: _react2.default.PropTypes.func.isRequired
+	  },
+	  getInitialState: function getInitialState() {
+	    return {
+	      searchStr: ''
+	    };
+	  },
+	  handleInput: function handleInput(e) {
+	    this.setState({ searchStr: e.target.value });
+	  },
+	  handleSubmit: function handleSubmit(e) {
+	    e.preventDefault();
+	    this.props.search(this.state.searchStr);
+	    _browserHistory2.default.push('/articles');
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'form',
+	      { className: 'search-form', onSubmit: this.handleSubmit },
+	      _react2.default.createElement('input', { className: 'search-field',
+	        onChange: this.handleInput,
+	        value: this.state.searchStr,
+	        placeholder: this.props.label }),
+	      _react2.default.createElement('button', { type: 'submit', className: 'search-btn' })
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {};
+	};
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    search: function search(str) {
+	      dispatch((0, _actions.emptyArticlesFilter)());
+	      dispatch((0, _actions.filterArticlesTitle)(str));
+	      dispatch((0, _actions2.hideMenu)());
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Search);
+
+/***/ },
+/* 437 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _Link = __webpack_require__(404);
 
 	var _Link2 = _interopRequireDefault(_Link);
@@ -46738,7 +46872,7 @@
 
 	var actions = _interopRequireWildcard(_actions);
 
-	var _async = __webpack_require__(437);
+	var _async = __webpack_require__(438);
 
 	var async = _interopRequireWildcard(_async);
 
@@ -46806,7 +46940,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(NewsMenu);
 
 /***/ },
-/* 437 */
+/* 438 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -46839,7 +46973,7 @@
 	};
 
 /***/ },
-/* 438 */
+/* 439 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

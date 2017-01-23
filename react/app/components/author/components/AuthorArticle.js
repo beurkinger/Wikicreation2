@@ -6,7 +6,7 @@ import Link from 'react-router/lib/Link'
 const AuthorArticle = (props) => (
   <li>
     <h3 className = "article-title">
-      <Link to={"articles/" + props.id}>
+      <Link onClick={props.handleClick} to={"articles/" + props.id}>
         { props.title }
       </Link>
     </h3>
@@ -21,7 +21,8 @@ AuthorArticle.propTypes = {
   title : React.PropTypes.string.isRequired,
   date : React.PropTypes.string.isRequired,
   categoryId : React.PropTypes.number.isRequired,
-  categoryName : React.PropTypes.string.isRequired
+  categoryName : React.PropTypes.string.isRequired,
+  handleClick : React.PropTypes.func.isRequired
 };
 
 module.exports = AuthorArticle;

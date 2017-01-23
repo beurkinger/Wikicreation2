@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
 
-import * as actions from '../actions';
+import {hideMenu} from '../actions';
 import LanguageSwitch from '../../shared/components/LanguageSwitch';
 import Search from './Search';
 
@@ -11,7 +11,7 @@ const NavMenu = (props) => {
     let isIndex = link.index ? true : false;
     return (
       <li key={link.name}>
-        <Link to={link.path} activeClassName="active" onlyActiveOnIndex={isIndex}>
+        <Link to={link.path} onClick={props.hideMenu} activeClassName="active" onlyActiveOnIndex={isIndex}>
           {props.messages[link.name]}
         </Link>
       </li>
@@ -46,7 +46,7 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  hideMenu: () => dispatch(actions.hideMenu())
+  hideMenu: () => dispatch(hideMenu())
 });
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(NavMenu);

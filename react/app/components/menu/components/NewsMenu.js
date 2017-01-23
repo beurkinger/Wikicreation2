@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
 
-import * as actions from '../actions';
+import {hideMenu} from '../actions';
 import * as async from '../async';
 
 const NewsMenu = React.createClass({
@@ -25,7 +25,9 @@ const NewsMenu = React.createClass({
           <p className="description">
             {article.desc}
           </p>
-          <Link className="link" to={"/articles/" + article.id}>
+          <Link className="link"
+                to={"/articles/" + article.id}
+                onClick={this.props.hideMenu} >
             {this.props.messages.readArticle}
           </Link>
         </div>
@@ -45,7 +47,12 @@ const NewsMenu = React.createClass({
 
 const mapStateToProps = (store) => ({
   messages : store.messages.strings.menu.newsMenu,
-  articles : store.news.articles
+  articles : store.news.articles,
+  hideMenu: React.PropTypes.func.isRequired
 });
 
-module.exports = connect(mapStateToProps)(NewsMenu);
+const mapDispatchToProps = (dispatch) => ({
+  hideMenu: () => dispatch(hideMenu())
+});
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(NewsMenu);

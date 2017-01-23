@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import * as actions from '../actions';
+import {hideAuthorPanel} from '../actions';
 import AuthorArticle from './AuthorArticle';
 
 const Author = (props) => {
@@ -12,6 +12,7 @@ const Author = (props) => {
                     date={article.date}
                     categoryId={article.category.id}
                     categoryName={article.category.name}
+                    handleClick={props.hideAuthorPanel}
                     />
   );
   return (
@@ -61,7 +62,7 @@ const mapStateToProps = (store) => ({
  });
 
 const mapDispatchToProps = (dispatch) => ({
-  hideAuthorPanel : () => dispatch(actions.hideAuthorPanel())
+  hideAuthorPanel : () => dispatch(hideAuthorPanel())
 });
 
 module.exports = connect (mapStateToProps, mapDispatchToProps) (Author);
