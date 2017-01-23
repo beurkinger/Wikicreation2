@@ -4,19 +4,21 @@ import messages from './messages';
 
 const initCategories = {
   isFetching : false,
+  isDone : false,
   list : []
 };
 const categoriesReducer = function(state = initCategories, action) {
   switch (action.type) {
     case actionTypes.CATEGORIES_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
+      return Object.assign({}, state, { isFetching : true, isDone : false });
     case actionTypes.CATEGORIES_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,
+        isDone : true,
         list : action.list
       });
     case actionTypes.CATEGORIES_FAIL :
-      return Object.assign({}, state, { isFetching : false });
+      return Object.assign({}, state, { isFetching : false, isDone : false });
     default:
       return state;
   }

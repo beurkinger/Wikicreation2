@@ -28,16 +28,20 @@ const menuReducer = function(state = initMenu, action) {
 
 const initNews = {
   isFetching : false,
+  isDone : false,
   articles : []
 };
 const newsReducer = function(state = initNews, action) {
   switch (action.type) {
     case actionTypes.NEWS_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
+      return Object.assign({}, state, { isFetching : true, isDone : false });
     case actionTypes.NEWS_SUCCESS :
-      return Object.assign({}, state, { isFetching : false, articles : action.articles });
+      return Object.assign({}, state, {
+        isFetching : false,
+        isDone : true,
+        articles : action.articles });
       case actionTypes.NEWS_FAIL :
-        return Object.assign({}, state, { isFetching : false });
+        return Object.assign({}, state, { isFetching : false, isDone : false });
     default:
       return state;
   }

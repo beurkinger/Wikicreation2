@@ -2,6 +2,7 @@ import * as actionTypes from './actionTypes';
 
 const initArticle = {
   isFetching : false,
+  isDone : false,
   id : -1,
   title : '',
   date : '',
@@ -16,10 +17,11 @@ const initArticle = {
 const articleReducer = function(state = initArticle, action) {
   switch (action.type) {
     case actionTypes.ARTICLE_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
+      return Object.assign({}, state, { isFetching : true, isDone : false });
     case actionTypes.ARTICLE_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,
+        isDone : true,
         id : action.id,
         title : action.title,
         date : action.date,
@@ -32,7 +34,7 @@ const articleReducer = function(state = initArticle, action) {
         authorId : action.authorId
       });
     case actionTypes.ARTICLE_FAIL :
-      return Object.assign({}, state, { isFetching : false });
+      return Object.assign({}, state, { isFetching : false, isDone : false });
     default:
       return state;
   }

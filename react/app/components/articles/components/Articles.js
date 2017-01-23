@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 import {setStdTitlebar} from '../../header/actions';
 import {getArticles} from '../async';
-import {getCategories} from '../../shared/async';
 import ArticlesAside from './ArticlesAside';
 import ArticlesContent from './ArticlesContent';
 
@@ -12,7 +11,6 @@ const Articles = React.createClass({
     messages : React.PropTypes.object.isRequired
   },
   componentWillMount : function () {
-    getCategories();
     getArticles();
     this.props.setTitlebar(this.props.messages.title);
   },

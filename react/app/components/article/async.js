@@ -1,8 +1,11 @@
-import {articleSuccess, articleFail} from './actions';
+import {articleRequest, articleSuccess, articleFail} from './actions';
 import {authorSuccess} from '../author/actions';
 import store from '../store';
 
 export function getArticle (id) {
+
+  store.dispatch(articleRequest());
+
   fetch('/json/article.json')
   .then(response => response.json())
   .then(json => {

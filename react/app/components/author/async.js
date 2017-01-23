@@ -2,6 +2,8 @@ import * as actions from './actions';
 import store from '../store';
 
 export function getAuthor (id) {
+  store.dispatch(actions.authorRequest());
+
   fetch('/json/author.json')
   .then(response => response.json())
   .then(json => {

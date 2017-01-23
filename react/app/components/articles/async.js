@@ -3,6 +3,8 @@ import store from '../store';
 import QueryHelper from '../shared/helpers/QueryHelper';
 
 export function getArticles (id) {
+  store.dispatch(actions.articlesRequest());
+  
   const baseUrl = '/json/articles.json';
   let filter = store.getState().articlesFilter;
 
