@@ -27,7 +27,7 @@ const AuthorsAside =(props) => {
         <h3 className="filter-name">
           {props.messages.themes}
         </h3>
-        <CategoriesFilter handleChange={handleCategoriesFilter} />
+        <CategoriesFilter filter={props.categories} handleChange={handleCategoriesFilter} />
       </div>
     </aside>
   )
