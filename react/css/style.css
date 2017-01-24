@@ -757,7 +757,7 @@ html, body, #root, #app
 #author-profile.hide
 {
   left: -575px;
-  transition: right 500ms ease 100ms;
+  transition: left 500ms ease 100ms;
 }
 
 #author-profile.show
