@@ -7,9 +7,18 @@ import AuthorsAside from './AuthorsAside';
 import AuthorsContent from './AuthorsContent';
 
 const Authors = React.createClass({
+  propTypes : {
+    title : React.PropTypes.string.isRequired
+  },
   componentWillMount : function () {
     getAuthors();
-    this.props.setTitlebar();
+    this.updateTitlebar(this.props);
+  },
+  componentWillUpdate : function (nextProps) {
+    this.updateTitlebar(nextProps);
+  },
+  updateTitlebar : function (props) {
+    this.props.setTitlebar(props.title);
   },
   render: function () {
     return (
@@ -21,12 +30,12 @@ const Authors = React.createClass({
   }
 });
 
-const mapDispatchToProps = function(dispatch) {
-  return {
-    setTitlebar: () => {
-      dispatch(setStdTitlebar('Auteurs'))
-    }
-  }
-};
+const mapStateToProps = (store) => ({
+  title : store.messages.strings.authors.main.title
+});
 
-module.exports = connect(null, mapDispatchToProps)(Authors);
+const mapDispatchToProps = (dispatch) => ({
+  setTitlebar: (str) => dispatch(setStdTitlebar(str))
+});
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Authors);

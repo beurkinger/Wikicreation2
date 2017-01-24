@@ -4,8 +4,17 @@ import {connect} from 'react-redux';
 import {setStdTitlebar} from '../../header/actions';
 
 const About = React.createClass({
+  propTypes : {
+    title : React.PropTypes.string.isRequired
+  },
   componentWillMount : function () {
-    this.props.setTitlebar();
+    this.updateTitlebar(this.props);
+  },
+  componentWillUpdate : function (nextProps) {
+    this.updateTitlebar(nextProps);
+  },
+  updateTitlebar : function (props) {
+    this.props.setTitlebar(props.title);
   },
   render: () => (
     <main id="main-container">
@@ -77,10 +86,12 @@ const About = React.createClass({
   )
 });
 
-const mapDispatchToProps = function(dispatch) {
-  return {
-    setTitlebar: () => dispatch(setStdTitlebar('À Propos'))
-  }
-};
+const mapStateToProps = (store) => ({
+  title : store.messages.strings.about.main.title
+});
 
-module.exports = connect(null, mapDispatchToProps)(About);
+const mapDispatchToProps = (dispatch) => ({
+  setTitlebar: (str) => dispatch(setStdTitlebar(str))
+});
+
+module.exports = connect(mapStateToProps, mapDispatchToProps)(About);

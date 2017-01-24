@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import DateStr from '../../shared/components/DateStr';
 import Link from 'react-router/lib/Link'
@@ -11,12 +12,13 @@ const AuthorArticle = (props) => (
       </Link>
     </h3>
     <p className="article-infos">
-      {props.categoryName} • <DateStr date={props.date} format="MMMM YYYY" locale="fr" />
+      {props.categoryName} • <DateStr date={props.date} format="month-year" locale={props.locale} />
     </p>
   </li>
 );
 
 AuthorArticle.propTypes = {
+  locale : React.PropTypes.string.isRequired,
   id : React.PropTypes.number.isRequired,
   title : React.PropTypes.string.isRequired,
   date : React.PropTypes.string.isRequired,
@@ -25,4 +27,8 @@ AuthorArticle.propTypes = {
   handleClick : React.PropTypes.func.isRequired
 };
 
-module.exports = AuthorArticle;
+const mapStateToProps = (store) => ({
+  locale : store.messages.locale
+});
+
+module.exports = connect(mapStateToProps)(AuthorArticle);

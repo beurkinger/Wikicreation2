@@ -3,6 +3,11 @@ import {APP_LOCALES} from '../constants';
 const messages = {};
 
 messages[APP_LOCALES.FR] = {
+  about : {
+    main : {
+      title : 'À Propos'
+    }
+  },
   article : {
     aside : {
       progress : "Navigation sur l'article",
@@ -56,6 +61,11 @@ messages[APP_LOCALES.FR] = {
 };
 
 messages[APP_LOCALES.EN] = {
+  about : {
+    main : {
+      title : 'About'
+    }
+  },
   article : {
     aside : {
       progress : "Reading progress",
@@ -86,7 +96,7 @@ messages[APP_LOCALES.EN] = {
   },
   authors : {
     main : {
-      title : 'Auteurs'
+      title : 'Authors'
     }
   },
   menu : {

@@ -10,6 +10,7 @@ import Keywords from './Keywords';
 const ArticleContent = React.createClass({
   propTypes: {
     messages : React.PropTypes.object.isRequired,
+    locale : React.PropTypes.string.isRequired,
     id : React.PropTypes.number.isRequired,
     title: React.PropTypes.string.isRequired,
     date: React.PropTypes.string.isRequired,
@@ -71,7 +72,7 @@ const ArticleContent = React.createClass({
       <div id="main-content" onScroll={this.handleScroll}>
         <article id="article-main">
           <h5 className="article-infos">
-            {this.props.categoryName} • <DateStr date={this.props.date} format="MMMM YYYY" locale="fr" />
+            {this.props.categoryName} • <DateStr date={this.props.date} format="month-year" locale={this.props.locale} />
           </h5>
           <h2 className="article-title" ref={(elt) => { this.title = elt }}>
             {this.props.title}
@@ -101,6 +102,7 @@ const ArticleContent = React.createClass({
 const mapStateToProps = function (store) {
    return {
      messages : store.messages.strings.article.content,
+     locale : store.messages.locale,
      id : store.article.id,
      title: store.article.title,
      date: store.article.date,

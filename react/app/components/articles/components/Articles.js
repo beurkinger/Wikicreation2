@@ -8,11 +8,17 @@ import ArticlesContent from './ArticlesContent';
 
 const Articles = React.createClass({
   propTypes : {
-    messages : React.PropTypes.object.isRequired
+    title : React.PropTypes.string.isRequired
   },
   componentWillMount : function () {
     getArticles();
-    this.props.setTitlebar(this.props.messages.title);
+    this.updateTitlebar(this.props);
+  },
+  componentWillUpdate : function (nextProps) {
+    this.updateTitlebar(nextProps);
+  },
+  updateTitlebar : function (props) {
+    this.props.setTitlebar(props.title);
   },
   render: function () {
     return (
@@ -25,7 +31,7 @@ const Articles = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
-  messages : store.messages.strings.articles.main
+  title : store.messages.strings.articles.main.title
 });
 
 const mapDispatchToProps = (dispatch) => ({
