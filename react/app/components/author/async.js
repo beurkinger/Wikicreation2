@@ -1,14 +1,17 @@
-import * as actions from './actions';
+import {authorRequest, authorSuccess, authorFail, authorArticlesSuccess} from './actions';
+import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import store from '../store';
 
 export function getAuthor (id) {
-  store.dispatch(actions.authorRequest());
+  store.dispatch(authorRequest());
 
-  fetch('/json/author.json')
-  .then(response => response.json())
-  .then(json => {
-    store.dispatch(actions.authorSuccess(json));
-    store.dispatch(actions.authorArticlesSuccess(json));
-  })
-  .catch(response => store.dispatch(actions.authorFail(response)));
+  httpRequestHelper('/json/author.json',
+    (response) => {
+      store.dispatch(authorSuccess(response));
+      store.dispatch(authorArticlesSuccess(response));
+    },
+    (error) => {
+      store.dispatch(authorFail(error));
+    }
+  );
 };

@@ -8,6 +8,7 @@ const AuthorsContent = (props) => {
     <AuthorCard id={author.id}
                 name={author.name}
                 title={author.title}
+                school={author.school}
                 pic={author.pic}
                 key={author.id} />
   );

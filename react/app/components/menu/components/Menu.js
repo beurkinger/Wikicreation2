@@ -7,7 +7,7 @@ import NavMenu from './NavMenu';
 import NewsMenu from './NewsMenu';
 
 const Menu = (props) => (
-  <div id="menus" style={{ 'display': props.isVisible ? 'block' : 'none' }}>
+  <div id="menus" className={ props.isVisible ? 'show' : 'hide' }>
     <NavMenu />
     <NewsMenu />
   </div>

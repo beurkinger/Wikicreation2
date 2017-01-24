@@ -6,11 +6,18 @@ export function getArticle (id) {
 
   store.dispatch(articleRequest());
 
-  fetch('/json/article.json')
-  .then(response => response.json())
-  .then(json => {
-    store.dispatch(articleSuccess(json));
-    store.dispatch(authorSuccess(json.author));
-  })
-  .catch(response => store.dispatch(articleFail(response)));
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", '/json/article.json', true);
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      let response = JSON.parse(xhr.responseText);
+      store.dispatch(articleSuccess(response));
+      store.dispatch(authorSuccess(response.author));
+    }
+    else {
+      store.dispatch(articleFail(xhr.status + ':' + xhr.response));
+    }
+  }
+  xhr.send(null);
 };

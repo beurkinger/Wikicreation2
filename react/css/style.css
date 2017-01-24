@@ -177,21 +177,34 @@ html, body, #root, #app
 }
 
 /*---Background affiché lorsqu'un menu est visible---*/
-#menusBackground
+#menus-background
 {
   z-index: 80;
   position: fixed; top: 0; right: 0;
   width: 100%; height: 100%;
   background: transparent;
+  /*background : rgba(0, 0, 0, 0.1);*/
 }
 
 /*---Menus---*/
 #menus
 {
   z-index: 100;
-  position: fixed; top: 0; right: 0;
+  position: fixed; top: 0;
   width: 720px; height: 100%;
   box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.33);
+}
+
+#menus.hide
+{
+  right: -795px;
+  transition: right 500ms ease 100ms;
+}
+
+#menus.show
+{
+  right: 0;
+  transition: right 800ms ease 0s;
 }
 
 #nav-menu, #news-menu
@@ -732,13 +745,25 @@ html, body, #root, #app
 #author-profile
 {
   z-index: 90;
-  position: fixed; top:0; left:0;
+  position: fixed; top:0;
   box-sizing: border-box;
   height: 100%; width: 500px;
   padding: 98px 70px 0 70px;
   background-color: #F4F4F4;
   overflow-y: scroll;
   box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.33);
+}
+
+#author-profile.hide
+{
+  left: -575px;
+  transition: right 500ms ease 100ms;
+}
+
+#author-profile.show
+{
+  left: 0;
+  transition: left 800ms ease 0s;
 }
 
 #author-profile .author-pic

@@ -1,20 +1,23 @@
-import * as actions from './actions';
-import store from '../store';
+import {authorsRequest, authorsSuccess, authorsFail} from './actions';
 import QueryHelper from '../shared/helpers/QueryHelper';
+import httpRequestHelper from '../shared/helpers/httpRequestHelper';
+import store from '../store';
 
 export function getAuthors (id) {
-  store.dispatch(actions.authorsRequest());
-  
+  store.dispatch(authorsRequest());
+
   const baseUrl = '/json/authors.json';
   let filter = store.getState().authorsFilter;
   let queryHelper = new QueryHelper(baseUrl);
   queryHelper.addString('name', filter.name);
   queryHelper.addArray('categories', filter.categories);
 
-  fetch(queryHelper.getUrl())
-  .then(response => response.json())
-  .then(json => {
-    store.dispatch(actions.authorsSuccess(json));
-  })
-  .catch(response => store.dispatch(actions.authorsFail(response)));
+  httpRequestHelper(queryHelper.getUrl(),
+    (response) => {
+      store.dispatch(authorsSuccess(response));
+    },
+    (error) => {
+      store.dispatch(authorsFail(error));
+    }
+  );
 };

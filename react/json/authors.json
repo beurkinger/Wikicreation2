@@ -2,97 +2,113 @@
   {
     "id" : 1,
     "name" : "Kostantinos Vassiliou",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic.jpg"
   },
   {
     "id" : 2,
     "name" : "Dominique Berthet",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic1.jpg"
   },
   {
     "id" : 3,
     "name" : "Catherine Guesde",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic2.png"
   },
   {
     "id" : 4,
     "name" : "Jan Baetens",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic3.jpg"
   },
   {
     "id" : 5,
     "name" : "Elisabeth Amblard",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic.jpg"
   },
   {
     "id" : 6,
     "name" : "Anne Beyaert-Geslin",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic1.jpg"
   },
   {
     "id" : 7,
     "name" : "Richard Conte",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic2.png"
   },
   {
     "id" : 8,
     "name" : "Aline Caillet",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic3.jpg"
   },
   {
     "id" : 9,
     "name" : "Kostantinos Vassiliou",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic.jpg"
   },
   {
     "id" : 10,
     "name" : "Dominique Berthet",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic1.jpg"
   },
   {
     "id" : 11,
     "name" : "Catherine Guesde",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic2.png"
   },
   {
     "id" : 12,
     "name" : "Jan Baetens",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic3.jpg"
   },
   {
     "id" : 13,
     "name" : "Elisabeth Amblard",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic.jpg"
   },
   {
     "id" : 14,
     "name" : "Anne Beyaert-Geslin",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic1.jpg"
   },
   {
     "id" : 15,
     "name" : "Richard Conte",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic2.png"
   },
   {
     "id" : 16,
     "name" : "Aline Caillet",
-    "title" : "Chargé d’enseignement, École des Beaux Arts d’Athènes.",
+    "title" : "Chargé d’enseignement",
+    "school" : "École des Beaux Arts d’Athènes",
     "pic" : "author-pic3.jpg"
   }
 ]

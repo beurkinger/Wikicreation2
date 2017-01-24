@@ -17,7 +17,8 @@ const AuthorCard = props => {
           {props.name}
         </h3>
         <p className="author-desc">
-          {props.title}
+          {props.title}, <br/>
+          {props.school}
         </p>
       </div>
     </div>
@@ -29,6 +30,7 @@ AuthorCard.propTypes =
   id : React.PropTypes.number.isRequired,
   name : React.PropTypes.string.isRequired,
   title : React.PropTypes.string.isRequired,
+  school : React.PropTypes.string.isRequired,
   pic : React.PropTypes.string.isRequired,
   showAuthorPanel : React.PropTypes.func.isRequired
 };

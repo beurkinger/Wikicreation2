@@ -6,6 +6,7 @@ const initAuthor = {
   id : -1,
   name : '',
   title : '',
+  school : '',
   desc : '',
   pic : ''
 };
@@ -20,6 +21,7 @@ const authorReducer = function(state = initAuthor, action) {
         id : action.id,
         name : action.name,
         title : action.title,
+        school : action.school,
         desc : action.desc,
         pic : action.pic
       });

@@ -16,14 +16,15 @@ const Author = (props) => {
                     />
   );
   return (
-    <div id="author-profile" style ={{'display' : (props.isVisible ? 'block' : 'none') }}>
+    <div id="author-profile" className={ props.isVisible ? 'show' : 'hide' }>
       <img id="author-profile-exit" className="clickable" src="/img/author-profile-exit.svg" onClick={props.hideAuthorPanel} />
       <img className="author-pic" src={"/img/" + props.pic} />
       <h2 className="author-name">
         {props.name}
       </h2>
       <p className="author-infos">
-        {props.title}
+        {props.title}, <br/>
+        {props.school}
       </p>
       <p className="author-desc">
         {props.desc}
@@ -44,6 +45,7 @@ Author.propTypes = {
   id : React.PropTypes.number.isRequired,
   name : React.PropTypes.string.isRequired,
   title : React.PropTypes.string.isRequired,
+  school : React.PropTypes.string.isRequired,
   desc : React.PropTypes.string.isRequired,
   pic : React.PropTypes.string.isRequired,
   articles : React.PropTypes.array.isRequired,
@@ -56,6 +58,7 @@ const mapStateToProps = (store) => ({
    id: store.author.id,
    name : store.author.name,
    title : store.author.title,
+   school : store.author.school,
    desc : store.author.desc,
    pic : store.author.pic,
    articles: store.authorArticles.articles

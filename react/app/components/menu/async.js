@@ -1,14 +1,19 @@
-import * as actions from './actions';
+import {newsRequest, newsSuccess, newsFail} from './actions';
+import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import store from '../store';
 
 export function getNews () {
   let isDone = store.getState().news.isDone;
   if (isDone) return;
 
-  store.dispatch(actions.newsRequest());
+  store.dispatch(newsRequest());
 
-  fetch('/json/news.json')
-  .then(response => response.json())
-  .then(json => store.dispatch(actions.newsSuccess(json)))
-  .catch(response => store.dispatch(actions.newsFail(response)));
+  httpRequestHelper('/json/news.json',
+    (response) => {
+      store.dispatch(newsSuccess(response));
+    },
+    (error) => {
+      store.dispatch(newsFail(error));
+    }
+  );
 };

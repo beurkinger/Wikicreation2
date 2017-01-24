@@ -22,7 +22,7 @@ const AuthorsAside =(props) => {
                   label={props.messages.writeToFilter} />
       <div className="info">
         <h2 className="info-title">
-          {props.messages.FilterBy}
+          {props.messages.filterBy}
         </h2>
         <h3 className="filter-name">
           {props.messages.themes}

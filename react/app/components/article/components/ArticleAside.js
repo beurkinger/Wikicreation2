@@ -19,7 +19,8 @@ const ArticleAside = (props) => {
             {props.authorName}
           </h3>
           <p className="author-desc">
-            {props.authorTitle}
+            {props.authorTitle}, <br/>
+            {props.authorSchool}
           </p>
         </div>
       </div>
@@ -62,6 +63,7 @@ ArticleAside.propTypes = {
   authorId : React.PropTypes.number.isRequired,
   authorName : React.PropTypes.string.isRequired,
   authorTitle : React.PropTypes.string.isRequired,
+  authorSchool : React.PropTypes.string.isRequired,
   authorPic : React.PropTypes.string.isRequired,
   percentRead : React.PropTypes.number.isRequired,
   showAuthorPanel: React.PropTypes.func.isRequired
@@ -75,6 +77,7 @@ const mapStateToProps = (store) => ({
   authorId : store.author.id,
   authorName : store.author.name,
   authorTitle : store.author.title,
+  authorSchool : store.author.school,
   authorPic : store.author.pic,
   percentRead : store.read
 });

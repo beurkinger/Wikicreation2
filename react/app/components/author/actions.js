@@ -9,6 +9,7 @@ export function authorSuccess (json) {
     id : json.id,
     name : json.name,
     title : json.title,
+    school : json.school,
     desc : json.desc,
     pic : json.pic
  };
