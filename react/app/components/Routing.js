@@ -9,6 +9,7 @@ import Article from './article/components/Article';
 import Articles from './articles/components/Articles';
 import Authors from './authors/components/Authors';
 import Contribute from './contribute/components/Contribute';
+import Error from './error/components/Error';
 import Home from './home/components/Home';
 import Main from './main/components/Main';
 
@@ -22,6 +23,7 @@ const Routing = React.createClass({
         <Route path="/articles/:id" component={Article}/>
         <Route path="/authors" component={Authors}/>
         <Route path="/contribute" component={Contribute}/>
+        <Route path="*" component={Error} />
       </Route>
     </Router>
   )
