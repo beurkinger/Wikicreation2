@@ -198,7 +198,7 @@ html, body, #root, #app
 #menus.hide
 {
   right: -795px;
-  transition: right 500ms ease 100ms;
+  transition: right 800ms ease 100ms;
 }
 
 #menus.show
@@ -757,7 +757,7 @@ html, body, #root, #app
 #author-profile.hide
 {
   left: -575px;
-  transition: left 500ms ease 100ms;
+  transition: left 800ms ease 100ms;
 }
 
 #author-profile.show
