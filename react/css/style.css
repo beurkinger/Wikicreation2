@@ -97,9 +97,17 @@ html, body, #root, #app
   font-family: Montserrat; color: #FF6666; font-size: 25px; font-weight: bold;
 }
 
+
+#main-title-container .article-infos
+{
+  font-family: Muli; color: #484848; font-size: 13px; font-weight: 200;
+  margin-bottom: 10px;
+}
+
 #main-title-container .article-title
 {
   font-family: Montserrat; color: #484848; font-size: 16px; font-weight: bold;
+  margin-bottom: 2px;
 }
 
 #main-header-right
@@ -190,7 +198,7 @@ html, body, #root, #app
   position: absolute; top: 0; right: 0;
   width: 100%; height: 100%;
   background: transparent;
-  /*background : rgba(0, 0, 0, 0.1);*/
+  background : rgba(0, 0, 0, 0.04);
 }
 
 /*---Menus---*/
@@ -433,7 +441,13 @@ html, body, #root, #app
   float: left;
   width: 90px; height: 90px;
   border-radius: 100%;
-  margin-right: 12px;
+  margin-right: 11px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+#main-aside .author:hover .author-pic {
+  border: 1px solid #FF6666;
 }
 
 #main-aside .author-infos
@@ -458,10 +472,10 @@ html, body, #root, #app
   font-family: Muli; color: #484848; font-size: 12px; font-weight: 200;
 }
 
-#main-aside .author:hover .author-desc
+/*#main-aside .author:hover .author-desc
 {
   text-decoration: underline;
-}
+}*/
 
 #main-aside .info
 {
@@ -506,8 +520,19 @@ html, body, #root, #app
 
 #main-aside .download
 {
-  height: auto; height: 34px;
+  display: inline-block;
+  width: 18px; height: 36px;
   margin-right: 24px;
+}
+
+#main-aside .download.fr
+{
+  background-image: url('/img/download-fr.svg');
+}
+
+#main-aside .download.en
+{
+  background-image: url('/img/download-en.svg');
 }
 
 #main-aside .search-field, #main-aside .search-btn
@@ -755,7 +780,14 @@ html, body, #root, #app
   float: left;
   width: 54px; height: 54px;
   border-radius: 100%;
-  margin-right: 12px;
+  margin-right: 11px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+#authors-main .author:hover .author-pic
+{
+  border: 1px solid #FF6666;
 }
 
 #authors-main .author-infos
@@ -793,7 +825,7 @@ html, body, #root, #app
   position: absolute; top:0;
   box-sizing: border-box;
   height: 100%; width: 500px;
-  padding: 98px 70px 0 70px;
+  padding: 90px 70px 0 70px;
   background-color: #FFF;
   overflow-y: auto;
   box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.33);
@@ -811,32 +843,38 @@ html, body, #root, #app
   transition: left 500ms ease-out 0s;
 }
 
+#author-profile-exit
+{
+  width: 16px;
+  background-image: url('../img/author-profile-exit.svg');
+}
+
 #author-profile .author-pic
 {
   display: block;
   width: 150px; height: 150px;
-  border: 4px solid #FF6666;
-  margin: 0 auto 60px auto;
+  border: 2px solid #FF6666;
+  margin: 0 auto 50px auto;
   border-radius: 100%;
 }
 
 #author-profile .author-name
 {
-  font-family: Montserrat; color: #FF6666; font-size: 20px; font-weight: bold;
-  line-height: 20px;
+  font-family: Montserrat; color: #FF6666; font-size: 18px; font-weight: bold;
+  line-height: 100%;
   padding-bottom: 6px;
 }
 
 #author-profile .author-infos
 {
-  font-family: Muli; color: #484848; font-size: 16px; font-weight: normal;
+  font-family: Muli; color: #484848; font-size: 15px; font-weight: normal;
   line-height: 130%;
   margin-bottom: 21px;
 }
 
 #author-profile .author-desc
 {
-  font-family: Muli; color: #484848; font-size: 16px; font-weight: 200; font-weight: 200;
+  font-family: Muli; color: #484848; font-size: 15px; font-weight: 200; font-weight: 200;
   line-height: 130%;
   padding: 23px 0;
   border-width: 1px 0; border-style: solid; border-color: #484848;
@@ -845,7 +883,7 @@ html, body, #root, #app
 
 #author-profile .articles
 {
-  font-family: Montserrat; color: #484848; font-size: 20px; font-weight: bold;
+  font-family: Montserrat; color: #484848; font-size: 18px; font-weight: bold;
   line-height: 100%;
   text-transform: uppercase;
   margin-bottom : 18px;

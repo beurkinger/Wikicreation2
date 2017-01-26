@@ -19,7 +19,7 @@ const NavMenu = (props) => {
   };
   return (
     <nav id="nav-menu">
-      <img className="menu-exit clickable" src="/img/menu-exit.svg" onClick={props.hideMenu} />
+      <div className="menu-exit clickable" onClick={props.hideMenu}></div>
       <LanguageSwitch />
       <Search label={props.messages.search} />
       <ul className="pages-list">

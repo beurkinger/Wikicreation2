@@ -5,13 +5,17 @@ import {showAuthorPanel} from '../../author/actions';
 import {connect} from 'react-redux';
 
 const AuthorCard = props => {
+  const getAuthorPicStyle = (picUrl) => ({
+    backgroundImage : "url(/img/" + picUrl + ')',
+    backgroundSize : 'cover'
+   });
   const handleAuthorClick = () => {
     getAuthor(props.id);
     props.showAuthorPanel();
   };
   return (
     <div className="author" onClick={handleAuthorClick} >
-      <img className="author-pic" src={ "/img/" +  props.pic }/>
+      <div className="author-pic" style={getAuthorPicStyle(props.pic)}></div>
       <div className="author-infos">
         <h3 className="author-name">
           {props.name}

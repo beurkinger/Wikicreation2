@@ -5,6 +5,10 @@ import {hideAuthorPanel} from '../actions';
 import AuthorArticle from './AuthorArticle';
 
 const Author = (props) => {
+  const getAuthorPicStyle = (picUrl) => ({
+    backgroundImage : "url(/img/" + picUrl + ')',
+    backgroundSize : 'cover'
+   });
   const getArticles = (article) => (
     <AuthorArticle key={article.id}
                     id={article.id}
@@ -17,8 +21,8 @@ const Author = (props) => {
   );
   return (
     <div id="author-profile" className={ props.isVisible ? 'show' : 'hide' }>
-      <img id="author-profile-exit" className="clickable" src="/img/author-profile-exit.svg" onClick={props.hideAuthorPanel} />
-      <img className="author-pic" src={"/img/" + props.pic} />
+      <div id="author-profile-exit" className="clickable" onClick={props.hideAuthorPanel}></div>
+      <div className="author-pic" style={getAuthorPicStyle(props.pic)} ></div>
       <h2 className="author-name">
         {props.name}
       </h2>

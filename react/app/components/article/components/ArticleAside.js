@@ -6,6 +6,10 @@ import {getAuthor} from '../../author/async';
 import Keywords from './Keywords';
 
 const ArticleAside = (props) => {
+  const getAuthorPicStyle = (picUrl) => ({
+    backgroundImage : "url(/img/" + picUrl + ')',
+    backgroundSize : 'cover'
+   });
   const handleAuthorClick = () => {
     getAuthor(props.authorId);
     props.showAuthorPanel();
@@ -13,7 +17,7 @@ const ArticleAside = (props) => {
   return (
     <aside id="main-aside">
       <div className="author" onClick={handleAuthorClick}>
-        <img className="author-pic" src={"/img/" + props.authorPic} />
+        <div className="author-pic" style={getAuthorPicStyle(props.authorPic)} ></div>
         <div className="author-infos">
           <h3 className="author-name">
             {props.authorName}
@@ -44,10 +48,10 @@ const ArticleAside = (props) => {
         </h2>
         <div className="downloads">
           <a href={'/' + props.pdfFr} target="_blank">
-            <img className="download" src="/img/download-fr.svg"/>
+            <div className="download fr"></div>
           </a>
           <a href={'/' + props.pdfEn} target="_blank">
-            <img className="download" src="/img/download-en.svg"/>
+            <div className="download en"></div>
           </a>
         </div>
       </div>
