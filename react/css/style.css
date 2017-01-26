@@ -205,13 +205,13 @@ html, body, #root, #app
 #menus.hide
 {
   right: -795px;
-  transition: right 800ms ease 100ms;
+  transition: right 500ms ease-out 100ms;
 }
 
 #menus.show
 {
   right: 0;
-  transition: right 800ms ease 0s;
+  transition: right 500ms ease-out 0s;
 }
 
 #nav-menu, #news-menu
@@ -547,9 +547,13 @@ html, body, #root, #app
 }
 
 #main-aside .filters {
-  max-height: 220px;
-  overflow-x: hidden; overflow-y: auto;
+  max-height: 218px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 
+#main-aside .filters:hover {
+  overflow-y: auto ;
 }
 
 #main-aside .filter
@@ -560,15 +564,26 @@ html, body, #root, #app
 #main-aside .filter-name
 {
   display: block;
-  margin: 11px 0 5px 0;
+  margin: 11px 0 3px 0;
   padding-top: 11px;
   border-top: 1px solid #242D5C;
   font-family: Montserrat; color: #242D5C; font-size: 15px; font-weight: normal;
 }
 
-#main-aside .filter input[type=checkbox]
+#main-aside .filter span
 {
-  margin-right: 4px;
+  display:inline-block;
+  box-sizing: border-box;
+  width: 12px; height: 12px;
+  border: 1px solid #484848;
+  padding: 2px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+#main-aside .filter span.checked {
+    background: #FF6666;
+    background-clip : content-box;
 }
 
 /*---Main content---*/
@@ -787,13 +802,13 @@ html, body, #root, #app
 #author-profile.hide
 {
   left: -575px;
-  transition: left 800ms ease 100ms;
+  transition: left 500ms ease-out 100ms;
 }
 
 #author-profile.show
 {
   left: 0;
-  transition: left 800ms ease 0s;
+  transition: left 500ms ease-out 0s;
 }
 
 #author-profile .author-pic

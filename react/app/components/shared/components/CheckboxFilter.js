@@ -5,11 +5,9 @@ const CheckboxFilter = (props) => {
 
   return (
     <div className="filter">
-      <input  type="checkbox"
-              value={props.value}
-              checked={props.isChecked}
-              onChange={handleCheckboxChange} />
-      {props.label}
+      <span className={props.isChecked ? 'checked' : ''}
+          onClick={handleCheckboxChange}></span>
+        {props.label}
     </div>
   )
 };
