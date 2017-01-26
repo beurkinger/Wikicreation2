@@ -5,7 +5,7 @@ const error = (props) => (
     <div id="main-content" className="full-size">
       <div id="error-main">
         <div className="error-container">
-          <h2 className="error-sorry">
+          <h2 className="error-404">
             404
           </h2>
           <div className="error-right">
