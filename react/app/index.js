@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './components/store';
-import Routing from './components/Routing';
+import store from './store';
+import Routing from './Routing';
 
 ReactDom.render(
   <Provider store={store}><Routing /></Provider>,

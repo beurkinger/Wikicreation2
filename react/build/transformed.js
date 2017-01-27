@@ -31953,8 +31953,6 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 	var Titlebar = function Titlebar(props) {
 	  var getContent = function getContent() {
 	    if (props.pageType === _constants.PAGE_TYPE_STD) {
@@ -31970,14 +31968,11 @@
 	  );
 	};
 
-	Titlebar.propTypes = _defineProperty({
-	  locale: _react2.default.PropTypes.string.isRequired,
+	Titlebar.propTypes = {
 	  isVisible: _react2.default.PropTypes.bool.isRequired,
 	  pageType: _react2.default.PropTypes.string.isRequired,
-	  title: _react2.default.PropTypes.string.isRequired,
-	  categoryName: _react2.default.PropTypes.string.isRequired,
-	  date: _react2.default.PropTypes.string.isRequired
-	}, 'categoryName', _react2.default.PropTypes.string.isRequired);
+	  title: _react2.default.PropTypes.string.isRequired
+	};
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
@@ -32049,20 +32044,18 @@
 /* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(172);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var StandardTitle = function StandardTitle(props) {
 	  return _react2.default.createElement(
-	    'h1',
-	    { className: 'std-title' },
+	    "h1",
+	    { className: "std-title" },
 	    props.title
 	  );
 	};
@@ -32071,7 +32064,7 @@
 	  title: _react2.default.PropTypes.string.isRequired
 	};
 
-	module.exports = (0, _reactRedux.connect)(mapStateToProps)(StandardTitle);
+	module.exports = StandardTitle;
 
 /***/ },
 /* 328 */
