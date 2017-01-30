@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {setPercentRead} from '../actions';
 import {hideTitlebar, showTitlebar} from '../../header/actions';
-import {WEBSITE_URL} from '../../constants';
+import {WEBSITE_URL} from '../../shared/constants';
 import DateStr from '../../shared/components/DateStr';
 import Keywords from './Keywords';
 
@@ -110,7 +110,8 @@ const mapStateToProps = function (store) {
      body: store.article.body,
      categoryId : store.article.categoryId,
      categoryName : store.article.categoryName,
-     authorName : store.article.authorName,
+     authorName : store.author.name,
+     authorPic : store.author.pic,
      isTitlebarVisible : store.titlebar.isVisible
    };
 };

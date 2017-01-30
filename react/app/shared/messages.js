@@ -57,6 +57,9 @@ messages[APP_LOCALES.FR] = {
       readArticle : "Lire l'article",
       newArticles : "Récemment parus"
     }
+  },
+  preview : {
+    readArticle : "Lire l'article",
   }
 };
 
@@ -115,6 +118,9 @@ messages[APP_LOCALES.EN] = {
       readArticle : "Read the article",
       newArticles : "Recent articles"
     }
+  },
+  preview : {
+    readArticle : "Read the article",
   }
 };
 

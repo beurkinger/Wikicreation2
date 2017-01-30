@@ -15,11 +15,7 @@ export function getArticles (id) {
   queryHelper.addArray('languages', filter.languages);
 
   httpRequestHelper(queryHelper.getUrl(),
-    (response) => {
-      store.dispatch(articlesSuccess(response))
-    },
-    (error) => {
-      store.dispatch(articlesFail(error))
-    }
+    response => store.dispatch(articlesSuccess(response)),
+    error => store.dispatch(articlesFail(error))
   );
 };

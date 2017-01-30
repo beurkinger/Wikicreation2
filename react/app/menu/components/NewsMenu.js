@@ -25,7 +25,7 @@ const NewsMenu = React.createClass({
           <p className="description">
             {article.desc}
           </p>
-          <Link className="link"
+          <Link className="btn link"
                 to={"/articles/" + article.id}
                 onClick={this.props.hideMenu} >
             {this.props.messages.readArticle}

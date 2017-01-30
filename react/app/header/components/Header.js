@@ -10,10 +10,8 @@ const Header = (props) => (
   <header id="main-header">
     <Link to="/" id="main-logo"></Link>
     <Titlebar />
-    <div id="main-header-right">
-      <div className="menu-ham clickable" onClick={props.showMenu}></div>
-      <LanguageSwitch />
-    </div>
+    <div className="menu-ham clickable" onClick={props.showMenu}></div>
+    <LanguageSwitch />
   </header>
 );
 

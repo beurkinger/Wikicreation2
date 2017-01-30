@@ -15,7 +15,11 @@ export function articleSuccess (json) {
     pdfEn : json.pdfEn,
     categoryId : json.category.id,
     categoryName : json.category.name,
-    authorId : json.author.id
+    authorId : json.author.id,
+    authorName : json.author.name,
+    authorTitle : json.author.title,
+    authorSchool : json.author.school,
+    authorPic : json.author.pic,
  };
 };
 export function articleFail (msg) {

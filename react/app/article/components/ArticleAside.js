@@ -79,10 +79,10 @@ const mapStateToProps = (store) => ({
   pdfFr : store.article.pdfFr,
   pdfEn : store.article.pdfEn,
   authorId : store.author.id,
-  authorName : store.author.name,
-  authorTitle : store.author.title,
-  authorSchool : store.author.school,
-  authorPic : store.author.pic,
+  authorName : store.article.authorName,
+  authorTitle : store.article.authorTitle,
+  authorSchool : store.article.authorSchool,
+  authorPic : store.article.authorPic,
   percentRead : store.read
 });
 

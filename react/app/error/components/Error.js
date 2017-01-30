@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Link from 'react-router/lib/Link';
+
 const error = (props) => (
   <main id="main-container">
     <div id="main-content" className="full-size">
@@ -16,11 +18,14 @@ const error = (props) => (
               La page que vous cherchez <br/>
               n’est pas disponible
             </p>
-            <div className="error-button">
+            <Link to="/" className="btn btn-red btn-arrow-right error-button">
               Revenir au site
-            </div>
+            </Link>
           </div>
         </div>
+      </div>
+      <div className="btn btn-red btn-download error-button">
+        Télécharger la fiche technique
       </div>
     </div>
   </main>

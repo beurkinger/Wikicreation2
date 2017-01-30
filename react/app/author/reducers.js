@@ -8,7 +8,8 @@ const initAuthor = {
   title : '',
   school : '',
   desc : '',
-  pic : ''
+  pic : '',
+  articles : []
 };
 const authorReducer = function(state = initAuthor, action) {
   switch (action.type) {
@@ -23,7 +24,8 @@ const authorReducer = function(state = initAuthor, action) {
         title : action.title,
         school : action.school,
         desc : action.desc,
-        pic : action.pic
+        pic : action.pic,
+        articles : action.articles
       });
     case actionTypes.AUTHOR_FAIL :
       return Object.assign({}, state, { isFetching : false, isDone : false });
@@ -46,30 +48,7 @@ const authorPanelReducer = function(state = initAuthorPanel, action) {
   }
 };
 
-const initAuthorArticles = {
-  isFetching : false,
-  id : -1,
-  articles : []
-};
-const authorArticlesReducer = function(state = initAuthorArticles, action) {
-  switch (action.type) {
-    case actionTypes.AUTHOR_ARTICLES_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
-    case actionTypes.AUTHOR_ARTICLES_SUCCESS:
-      return Object.assign({}, state, {
-        isFetching : false,
-        id : action.id,
-        articles : action.articles
-      });
-    case actionTypes.AUTHOR_ARTICLES_FAIL :
-      return Object.assign({}, state, { isFetching : false });
-    default:
-      return state;
-  }
-};
-
 module.exports = {
   author : authorReducer,
-  authorArticles : authorArticlesReducer,
   authorPanel : authorPanelReducer
 }

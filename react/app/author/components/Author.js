@@ -65,7 +65,7 @@ const mapStateToProps = (store) => ({
    school : store.author.school,
    desc : store.author.desc,
    pic : store.author.pic,
-   articles: store.authorArticles.articles
+   articles: store.author.articles
  });
 
 const mapDispatchToProps = (dispatch) => ({

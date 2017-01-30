@@ -3,15 +3,16 @@ import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import store from '../store';
 
 export function getAuthor (id) {
+
+  var storeAuthor = store.getState().author;
+  if (storeAuthor.isDone && storeAuthor.id === parseInt(id)) return;
+
   store.dispatch(authorRequest());
 
   httpRequestHelper('/json/author.json',
-    (response) => {
+    response => {
       store.dispatch(authorSuccess(response));
-      store.dispatch(authorArticlesSuccess(response));
     },
-    (error) => {
-      store.dispatch(authorFail(error));
-    }
+    error => store.dispatch(authorFail(error))
   );
 };

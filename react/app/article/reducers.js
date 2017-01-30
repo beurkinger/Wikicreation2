@@ -13,6 +13,10 @@ const initArticle = {
   categoryId : -1,
   categoryName : '',
   authorId : -1,
+  authorName : '',
+  authorTitle : '',
+  authorSchool : '',
+  authorPic : ''
 };
 const articleReducer = function(state = initArticle, action) {
   switch (action.type) {
@@ -31,7 +35,11 @@ const articleReducer = function(state = initArticle, action) {
         pdfEn : action.pdfEn,
         categoryId : action.categoryId,
         categoryName : action.categoryName,
-        authorId : action.authorId
+        authorId : action.authorId,
+        authorName : action.authorName,
+        authorTitle : action.authorTitle,
+        authorSchool : action.authorSchool,
+        authorPic : action.authorPic,
       });
     case actionTypes.ARTICLE_FAIL :
       return Object.assign({}, state, { isFetching : false, isDone : false });
