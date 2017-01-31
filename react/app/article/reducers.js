@@ -21,7 +21,7 @@ const initArticle = {
 const articleReducer = function(state = initArticle, action) {
   switch (action.type) {
     case actionTypes.ARTICLE_REQUEST :
-      return Object.assign({}, state, { isFetching : true, isDone : false });
+      return Object.assign({}, initArticle, { isFetching : true, isDone : false, id : action.id });
     case actionTypes.ARTICLE_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,
@@ -42,7 +42,7 @@ const articleReducer = function(state = initArticle, action) {
         authorPic : action.authorPic,
       });
     case actionTypes.ARTICLE_FAIL :
-      return Object.assign({}, state, { isFetching : false, isDone : false });
+      return initArticle;
     default:
       return state;
   }

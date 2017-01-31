@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {emptyTitlebar} from '../../header/actions';
 import {showPreviewPanel} from '../actions';
 import Preview from './Preview';
+import PreviewBackground from './PreviewBackground';
 
 import {getPreview} from '../async';
 
@@ -22,6 +23,7 @@ const Home = React.createClass({
   render : function () {
     return (
       <main id="main-container">
+        <PreviewBackground />
         <Preview />
         <button style={{margin: '200px 200px', color : '#FFF'}} onClick={this.preview}>test test</button>
       </main>

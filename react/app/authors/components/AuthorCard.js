@@ -1,4 +1,5 @@
 import React from 'react';
+import browserHistory from 'react-router/lib/browserHistory'
 
 import {getAuthor} from '../../author/async';
 import {showAuthorPanel} from '../../author/actions';
@@ -12,6 +13,7 @@ const AuthorCard = props => {
   const handleAuthorClick = () => {
     getAuthor(props.id);
     props.showAuthorPanel();
+    browserHistory.push('/authors/' + props.id);
   };
   return (
     <div className="author" onClick={handleAuthorClick} >

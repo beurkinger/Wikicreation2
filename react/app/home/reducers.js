@@ -32,7 +32,7 @@ const initPreview = {
 const previewReducer = function(state = initPreview, action) {
   switch (action.type) {
     case actionTypes.PREVIEW_REQUEST :
-      return Object.assign({}, state, { isFetching : true, isDone : false });
+      return Object.assign({}, initPreview, { isFetching : true, isDone : false, id : action.id });
     case actionTypes.PREVIEW_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,
@@ -47,7 +47,7 @@ const previewReducer = function(state = initPreview, action) {
         authorName : action.authorName
       });
     case actionTypes.PREVIEW_FAIL :
-      return Object.assign({}, state, { isFetching : false, isDone : false });
+      return initPreview;
     default:
       return state;
   }

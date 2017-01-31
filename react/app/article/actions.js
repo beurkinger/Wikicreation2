@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 
-export function articleRequest () {
-  return { type: actionTypes.ARTICLE_REQUEST };
+export function articleRequest (id) {
+  return { type: actionTypes.ARTICLE_REQUEST, id : id };
 };
 export function articleSuccess (json) {
   return {

@@ -14,8 +14,8 @@ const Main = (props) => {
   return (
     <div id="app" className={getCategory()}>
       <Header />
-      <Menu />
       <MenusBackground />
+      <Menu />
       <Author />
       { props.children }
     </div>

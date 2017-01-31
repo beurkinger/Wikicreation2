@@ -21,6 +21,7 @@ const Author = (props) => {
   );
   return (
     <div id="author-profile" className={ props.isVisible ? 'show' : 'hide' }>
+
       <div id="author-profile-exit" className="clickable" onClick={props.hideAuthorPanel}></div>
       <div className="author-pic" style={getAuthorPicStyle(props.pic)} ></div>
       <h2 className="author-name">

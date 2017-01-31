@@ -3,7 +3,8 @@ import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import store from '../store';
 
 export function getCategories (id) {
-  if (store.getState().categories.isDone) return;
+  var storeCategories = store.getState().categories;
+  if (storeCategories.isFetching || storeCategories.isDone) return;
 
   store.dispatch(categoriesRequest());
 

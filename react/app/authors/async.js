@@ -4,6 +4,10 @@ import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import store from '../store';
 
 export function getAuthors (id) {
+
+  var storeAuthors = store.getState().authors;
+  if (storeAuthors.isFetching || storeAuthors.isDone) return;
+
   store.dispatch(authorsRequest());
 
   const baseUrl = '/json/authors.json';

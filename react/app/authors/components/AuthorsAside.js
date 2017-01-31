@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {filterAuthorsName, filterAuthorsCategory} from '../actions';
 import {getAuthors} from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
+import PageLoading from '../../shared/components/PageLoading';
 import TextFilter from '../../shared/components/TextFilter';
 
 const AuthorsAside =(props) => {
@@ -17,6 +18,7 @@ const AuthorsAside =(props) => {
   };
   return (
     <aside id="main-aside">
+      <PageLoading switches={[props.isCategoriesDone]} />
       <TextFilter value={props.name}
                   handleChange={handleNameFilter}
                   label={props.messages.writeToFilter} />
@@ -35,8 +37,9 @@ const AuthorsAside =(props) => {
 
 AuthorsAside.propTypes = {
   messages : React.PropTypes.object.isRequired,
-  name : React.PropTypes.string.isRequired,
   categories : React.PropTypes.array.isRequired,
+  isCategoriesDone : React.PropTypes.bool.isRequired,
+  name : React.PropTypes.string.isRequired,
   filterName : React.PropTypes.func.isRequired,
   filterCategory : React.PropTypes.func.isRequired,
 };
@@ -44,7 +47,8 @@ AuthorsAside.propTypes = {
 const mapStateToProps = (store) => ({
   messages : store.messages.strings.filter,
   name : store.authorsFilter.name,
-  categories : store.authorsFilter.categories
+  categories : store.authorsFilter.categories,
+  isCategoriesDone : store.categories.isDone
 });
 
 const mapDispatchToProps = (dispatch) => ({

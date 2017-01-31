@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getCategories} from '../../shared/async';
 import CheckboxFilter from '../../shared/components/CheckboxFilter';
 
 const CategoriesFilter = React.createClass({
@@ -9,9 +8,6 @@ const CategoriesFilter = React.createClass({
     categories : React.PropTypes.array.isRequired,
     filter : React.PropTypes.array.isRequired,
     handleChange : React.PropTypes.func.isRequired
-  },
-  componentWillMount : () => {
-    getCategories()
   },
   getCheckbox : function (category) {
     let isChecked = this.props.filter.indexOf(category.id) !== -1 ? true : false;

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import AuthorCard from './AuthorCard';
+import PageLoading from '../../shared/components/PageLoading';
 
 const AuthorsContent = (props) => {
   const getAuthor = (author) => (
@@ -14,6 +15,7 @@ const AuthorsContent = (props) => {
   );
   return (
     <div id="main-content">
+      <PageLoading switches={[props.isAuthorsDone]} />
       <div id="authors-main">
         { props.authors.map(getAuthor) }
       </div>
@@ -23,10 +25,12 @@ const AuthorsContent = (props) => {
 
 AuthorsContent.propTypes = {
   authors : React.PropTypes.array.isRequired,
+  isAuthorsDone : React.PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (store) => ({
-   authors: store.authors.list
+   authors: store.authors.list,
+   isAuthorsDone : store.authors.isDone
 });
 
 module.exports = connect(mapStateToProps)(AuthorsContent);

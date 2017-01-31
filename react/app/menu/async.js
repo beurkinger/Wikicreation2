@@ -3,7 +3,8 @@ import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import store from '../store';
 
 export function getNews () {
-  if (store.getState().news.isDone) return;
+  var storeNews = store.getState().news;
+  if (storeNews.isDone) return;
 
   store.dispatch(newsRequest());
 

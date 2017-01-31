@@ -6,9 +6,9 @@ import store from '../store';
 export function getArticle (id) {
 
   var storeArticle = store.getState().article;
-  if (storeArticle.isDone && storeArticle.id === parseInt(id)) return;
+  if (storeArticle.id === parseInt(id) && (storeArticle.isDone || storeArticle.isFetching) ) return;
 
-  store.dispatch(articleRequest());
+  store.dispatch(articleRequest(parseInt(id)));
 
   httpRequestHelper('/json/article.json',
     response => store.dispatch(articleSuccess(response)),

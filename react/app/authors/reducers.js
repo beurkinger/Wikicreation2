@@ -2,19 +2,21 @@ import * as actionTypes from './actionTypes';
 
 const initAuthors = {
   isFetching : false,
+  isDone : false,
   list : []
 };
 const authorsReducer = function(state = initAuthors, action) {
   switch (action.type) {
     case actionTypes.AUTHORS_REQUEST :
-      return Object.assign({}, state, { isFetching : true });
+      return Object.assign({}, state, { isFetching : true, isDone : false });
     case actionTypes.AUTHORS_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,
+        isDone : true,
         list : action.list
       });
     case actionTypes.AUTHORS_FAIL :
-      return Object.assign({}, state, { isFetching : false });
+      return Object.assign({}, state, { isFetching : false, isDone : false });
     default:
       return state;
   }

@@ -5,6 +5,7 @@ import {filterArticlesTitle, filterArticlesCategory, filterArticlesLanguage} fro
 import {getArticles} from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import LanguagesFilter from './LanguagesFilter';
+import PageLoading from '../../shared/components/PageLoading';
 import TextFilter from '../../shared/components/TextFilter';
 
 const ArticlesAside = (props) => {
@@ -22,6 +23,7 @@ const ArticlesAside = (props) => {
   };
   return (
     <aside id="main-aside">
+      <PageLoading switches={[props.isCategoriesDone]} />
       <TextFilter value={props.title}
                   handleChange={handleTitleFilter}
                   label={props.messages.writeToFilter} />
@@ -44,15 +46,17 @@ const ArticlesAside = (props) => {
 
 ArticlesAside.propTypes = {
   messages : React.PropTypes.object.isRequired,
-  title : React.PropTypes.string.isRequired,
   categories : React.PropTypes.array.isRequired,
+  isCategoriesDone : React.PropTypes.bool.isRequired,
+  title : React.PropTypes.string.isRequired,
   languages : React.PropTypes.array.isRequired
 };
 
 const mapStateToProps = (store) => ({
   messages : store.messages.strings.filter,
-  title : store.articlesFilter.title,
   categories : store.articlesFilter.categories,
+  isCategoriesDone : store.categories.isDone,
+  title : store.articlesFilter.title,
   languages : store.articlesFilter.languages
 });
 

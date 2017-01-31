@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {setStdTitlebar} from '../../header/actions';
 import {getArticles} from '../async';
+import {getCategories} from '../../shared/async';
 import ArticlesAside from './ArticlesAside';
 import ArticlesContent from './ArticlesContent';
 
@@ -12,6 +13,7 @@ const Articles = React.createClass({
   },
   componentWillMount : function () {
     getArticles();
+    getCategories()
     this.updateTitlebar(this.props);
   },
   componentWillUpdate : function (nextProps) {
@@ -31,7 +33,7 @@ const Articles = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
-  title : store.messages.strings.articles.main.title
+  title : store.messages.strings.articles.main.title,
 });
 
 const mapDispatchToProps = (dispatch) => ({

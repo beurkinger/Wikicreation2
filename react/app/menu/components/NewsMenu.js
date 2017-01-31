@@ -39,6 +39,7 @@ const NewsMenu = React.createClass({
         <h2 className="menu-title">
           {this.props.messages.newArticles}
         </h2>
+
         {this.props.articles.map(this.createArticle)}
       </div>
     );

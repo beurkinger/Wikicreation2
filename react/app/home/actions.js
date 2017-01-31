@@ -10,8 +10,8 @@ export function extendPreviewPanel () {
   return { type: actionTypes.EXTEND_PREVIEW_PANEL };
 };
 
-export function previewRequest () {
-  return { type: actionTypes.PREVIEW_REQUEST };
+export function previewRequest (id) {
+  return { type: actionTypes.PREVIEW_REQUEST, id : id };
 };
 export function previewSuccess (json) {
   return {

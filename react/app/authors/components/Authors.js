@@ -2,17 +2,35 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {setStdTitlebar} from '../../header/actions';
+import {getCategories} from '../../shared/async';
 import {getAuthors} from '../async';
+import {getAuthor} from '../../author/async';
 import AuthorsAside from './AuthorsAside';
 import AuthorsContent from './AuthorsContent';
+import {showAuthorPanel} from '../../author/actions';
 
 const Authors = React.createClass({
   propTypes : {
-    title : React.PropTypes.string.isRequired
+    title : React.PropTypes.string.isRequired,
+    isCategoriesDone : React.PropTypes.bool.isRequired,
+    showAuthorPanel : React.PropTypes.func.isRequired
   },
   componentWillMount : function () {
     getAuthors();
+    getCategories();
     this.updateTitlebar(this.props);
+    if (this.props.params && this.props.params.id) {
+      getAuthor(parseInt(this.props.params.id));
+      let props = this.props;
+      setTimeout(function() {
+        props.showAuthorPanel();
+      }, 500);
+    }
+  },
+  componentDidMount : function () {
+    if (this.props.params && this.props.params.id) {
+
+    }
   },
   componentWillUpdate : function (nextProps) {
     this.updateTitlebar(nextProps);
@@ -31,11 +49,13 @@ const Authors = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
-  title : store.messages.strings.authors.main.title
+  title : store.messages.strings.authors.main.title,
+  isCategoriesDone : store.categories.isDone
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setTitlebar: (str) => dispatch(setStdTitlebar(str))
+  setTitlebar: (str) => dispatch(setStdTitlebar(str)),
+  showAuthorPanel: () => dispatch(showAuthorPanel())
 });
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(Authors);

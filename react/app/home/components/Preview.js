@@ -3,20 +3,26 @@ import browserHistory from 'react-router/lib/browserHistory'
 import { connect } from 'react-redux';
 
 import DateStr from '../../shared/components/DateStr';
-import {extendPreviewPanel} from '../actions';
+import {hidePreviewPanel, extendPreviewPanel} from '../actions';
+import {getArticle} from '../../article/async';
 import LanguageSwitch from '../../shared/components/LanguageSwitch';
+import PageLoading from '../../shared/components/PageLoading';
 import {showMenu} from '../../menu/actions';
-
-
 
 const Preview = (props) => {
   const handleClick = () => {
+    getArticle(1);
     props.extendPreviewPanel();
-    setTimeout(() => browserHistory.push('/articles/1'), 500);
+    setTimeout(() => {
+      browserHistory.push('/articles/1');
+      props.hidePreviewPanel();
+    }, 500);
   };
   return (
     <div id="article-preview" className={ (props.isVisible ? 'show' : 'hide') + ' ' + (props.isExtended ? 'extend' : '') }>
+      <PageLoading switches={[props.isDone]} />
       <div id="article-preview-content">
+        <div className="preview-exit clickable" onClick={props.hidePreviewPanel}></div>
         <div className="menu-ham clickable" onClick={props.showMenu}></div>
         <LanguageSwitch />
         <h5 className="article-infos">
@@ -45,6 +51,7 @@ Preview.propTypes = {
   locale : React.PropTypes.string.isRequired,
   messages : React.PropTypes.object.isRequired,
   id : React.PropTypes.number.isRequired,
+  isDone : React.PropTypes.bool.isRequired,
   title: React.PropTypes.string.isRequired,
   date: React.PropTypes.string.isRequired,
   categoryName: React.PropTypes.string.isRequired,
@@ -58,6 +65,7 @@ const mapStateToProps = (store) => ({
   locale : store.messages.locale,
   messages : store.messages.strings.preview,
   id : store.preview.id,
+  isDone : store.preview.isDone,
   title: store.preview.title,
   date: store.preview.date,
   desc: store.preview.desc,
@@ -67,6 +75,7 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     extendPreviewPanel : () => dispatch(extendPreviewPanel()),
+    hidePreviewPanel : () => dispatch(hidePreviewPanel()),
     showMenu: () => dispatch(showMenu())
 });
 

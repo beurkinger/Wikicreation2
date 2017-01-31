@@ -21,7 +21,7 @@ const Routing = React.createClass({
         <Route path="/about" component={About}/>
         <Route path="/articles" component={Articles}/>
         <Route path="/articles/:id" component={Article}/>
-        <Route path="/authors" component={Authors}/>
+        <Route path="/authors(/:id)" component={Authors}/>
         <Route path="/contribute" component={Contribute}/>
         <Route path="*" component={Error} />
       </Route>

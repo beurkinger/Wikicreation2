@@ -4,6 +4,10 @@ import QueryHelper from '../shared/helpers/QueryHelper';
 import store from '../store';
 
 export function getArticles (id) {
+
+  // var storeArticles = store.getState().articles;
+  // if (storeArticles.isFetching || storeArticles.isDone) return;
+
   store.dispatch(articlesRequest());
 
   const baseUrl = '/json/articles.json';

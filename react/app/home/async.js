@@ -4,7 +4,10 @@ import store from '../store';
 
 export function getPreview (id) {
 
-  store.dispatch(previewRequest());
+  var storePreview = store.getState().preview;
+  if (storePreview.id === parseInt(id) && (storePreview.isFetching || storePreview.isDone) ) return;
+
+  store.dispatch(previewRequest(parseInt(id)));
 
   httpRequestHelper('/json/preview.json',
     response => store.dispatch(previewSuccess(response)),

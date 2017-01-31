@@ -18,14 +18,11 @@ const error = (props) => (
               La page que vous cherchez <br/>
               n’est pas disponible
             </p>
-            <Link to="/" className="btn btn-red btn-arrow-right error-button">
+            <Link to="/" className="btn btn-red btn-arrow-left error-button">
               Revenir au site
             </Link>
           </div>
         </div>
-      </div>
-      <div className="btn btn-red btn-download error-button">
-        Télécharger la fiche technique
       </div>
     </div>
   </main>
