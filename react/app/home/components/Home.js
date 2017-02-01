@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {emptyTitlebar} from '../../header/actions';
 import {showPreviewPanel} from '../actions';
+import Graph from './Graph';
 import Preview from './Preview';
 import PreviewBackground from './PreviewBackground';
 
@@ -26,6 +27,7 @@ const Home = React.createClass({
         <PreviewBackground />
         <Preview />
         <button style={{margin: '200px 200px', color : '#FFF'}} onClick={this.preview}>test test</button>
+        <Graph />
       </main>
     )
   }

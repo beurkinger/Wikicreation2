@@ -1,5 +1,20 @@
 import * as actionTypes from './actionTypes';
 
+export function graphDataRequest (id) {
+  return { type: actionTypes.GRAPH_DATA_REQUEST };
+};
+export function graphDataSuccess (data) {
+  return {
+    type: actionTypes.GRAPH_DATA_SUCCESS,
+    data : data
+ };
+};
+export function graphDataFail (msg) {
+  console.warn('Problem while retrieving graph data : "' + msg + '"');
+  return { type: actionTypes.GRAPH_DATA_FAIL };
+};
+
+
 export function showPreviewPanel () {
   return { type: actionTypes.SHOW_PREVIEW_PANEL };
 };
