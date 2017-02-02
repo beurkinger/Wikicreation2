@@ -7,6 +7,7 @@ export function authorSuccess (json) {
   return {
     type: actionTypes.AUTHOR_SUCCESS,
     id : json.id,
+    language : json.language,
     name : json.name,
     title : json.title,
     school : json.school,

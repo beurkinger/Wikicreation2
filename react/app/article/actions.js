@@ -8,6 +8,7 @@ export function articleSuccess (json) {
     type: actionTypes.ARTICLE_SUCCESS,
     id : json.id,
     title : json.title,
+    language : json.language,
     date : json.date,
     keywords : json.keywords,
     body : json.body,

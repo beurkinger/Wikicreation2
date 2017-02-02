@@ -11,7 +11,7 @@ const initMenu = {
   ],
   secondaryLinks : [
     { name :  'committee', path : '/committee' },
-    { name :  'creditsAndContacts', path : '/credits-contacts' },
+    { name :  'creditsAndContacts', path : '/credits-and-contact' },
     { name :  'legalNotice', path : '/legal' },
   ]
 };
@@ -29,7 +29,7 @@ const menuReducer = function(state = initMenu, action) {
 const initNews = {
   isFetching : false,
   isDone : false,
-  articles : []
+  list : []
 };
 const newsReducer = function(state = initNews, action) {
   switch (action.type) {
@@ -39,7 +39,9 @@ const newsReducer = function(state = initNews, action) {
       return Object.assign({}, state, {
         isFetching : false,
         isDone : true,
-        articles : action.articles });
+        language : action.language,
+        list : action.list
+      });
       case actionTypes.NEWS_FAIL :
         return Object.assign({}, state, { isFetching : false, isDone : false });
     default:

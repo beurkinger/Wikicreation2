@@ -3,6 +3,7 @@ import * as actionTypes from './actionTypes';
 const initAuthors = {
   isFetching : false,
   isDone : false,
+  language : '',
   list : []
 };
 const authorsReducer = function(state = initAuthors, action) {
@@ -13,6 +14,7 @@ const authorsReducer = function(state = initAuthors, action) {
       return Object.assign({}, state, {
         isFetching : false,
         isDone : true,
+        language : action.language,
         list : action.list
       });
     case actionTypes.AUTHORS_FAIL :

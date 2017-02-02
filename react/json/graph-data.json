@@ -1,4 +1,7 @@
-{	"name":"création",
+{
+  "language" : "fr",
+  "data" : {
+		"name":"création",
 	"children":[{
 			"name":"cinéma",
 			"children": [{
@@ -107,4 +110,5 @@
 					"name": "imaginaires"
 				}]
 			}]
+		}
 }

@@ -5,6 +5,7 @@ import messages from './messages';
 const initCategories = {
   isFetching : false,
   isDone : false,
+  language : '',
   list : []
 };
 const categoriesReducer = function(state = initCategories, action) {
@@ -15,6 +16,7 @@ const categoriesReducer = function(state = initCategories, action) {
       return Object.assign({}, state, {
         isFetching : false,
         isDone : true,
+        language : action.language,
         list : action.list
       });
     case actionTypes.CATEGORIES_FAIL :

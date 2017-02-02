@@ -11,7 +11,11 @@ export function newsRequest () {
   return { type: actionTypes.NEWS_REQUEST };
 };
 export function newsSuccess (json) {
-  return { type: actionTypes.NEWS_SUCCESS, articles : json };
+  return {
+    type: actionTypes.NEWS_SUCCESS,
+    language : json.language,
+    list : json.list
+  };
 };
 export function newsFail (msg) {
   console.warn('Problem while retrieving news : "' + msg + '"');

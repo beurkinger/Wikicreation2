@@ -14,6 +14,7 @@ const graphDataReducer = function(state = initGraphData, action) {
       return Object.assign({}, state, {
         isFetching : false,
         isDone : true,
+        language : action.language,
         data : action.data
       });
     case actionTypes.GRAPH_DATA_FAIL :
@@ -44,6 +45,7 @@ const initPreview = {
   isFetching : false,
   isDone : false,
   id : -1,
+  language : '',
   title : '',
   date : '',
   desc : '',
@@ -61,6 +63,7 @@ const previewReducer = function(state = initPreview, action) {
         isFetching : false,
         isDone : true,
         id : action.id,
+        language : action.language,
         title : action.title,
         date : action.date,
         desc : action.desc,

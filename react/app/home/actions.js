@@ -3,9 +3,11 @@ import * as actionTypes from './actionTypes';
 export function graphDataRequest (id) {
   return { type: actionTypes.GRAPH_DATA_REQUEST };
 };
-export function graphDataSuccess (data) {
+export function graphDataSuccess (language, data) {
+  console.log(data);
   return {
     type: actionTypes.GRAPH_DATA_SUCCESS,
+    language : language,
     data : data
  };
 };
@@ -32,6 +34,7 @@ export function previewSuccess (json) {
   return {
     type: actionTypes.PREVIEW_SUCCESS,
     id : json.id,
+    language : json.language,
     title : json.title,
     date : json.date,
     desc : json.desc,

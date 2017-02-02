@@ -6,7 +6,8 @@ export function authorsRequest () {
 export function authorsSuccess (json) {
   return {
     type: actionTypes.AUTHORS_SUCCESS,
-    list : json
+    language : json.language,
+    list : json.list
  };
 };
 export function authorsFail (msg) {

@@ -26,7 +26,6 @@ const Home = React.createClass({
       <main id="main-container">
         <PreviewBackground />
         <Preview />
-        <button style={{margin: '200px 200px', color : '#FFF'}} onClick={this.preview}>test test</button>
         <Graph />
       </main>
     )

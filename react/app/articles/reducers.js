@@ -3,6 +3,7 @@ import * as actionTypes from './actionTypes';
 const initArticles = {
   isFetching : false,
   isDone : false,
+  language : '',
   list : []
 };
 const articlesReducer = function(state = initArticles, action) {
@@ -13,6 +14,7 @@ const articlesReducer = function(state = initArticles, action) {
       return Object.assign({}, state, {
         isFetching : false,
         isDone : true,
+        language : action.language,
         list : action.list
       });
     case actionTypes.ARTICLES_FAIL :

@@ -13,9 +13,10 @@ export function getGraphData(id) {
 
   httpRequestHelper('/json/graph-data.json',
     response => {
-      let nodes = flatten(response);
+      let nodes = flatten(response.data);
       let links = setLinks(nodes);
-      store.dispatch(graphDataSuccess({nodes : nodes, links : links}));
+      let parsedData = {nodes : nodes, links : links};
+      store.dispatch(graphDataSuccess(response.language, parsedData));
     },
     error => store.dispatch(graphDataFail(xhr.status + ':' + xhr.response))
   );

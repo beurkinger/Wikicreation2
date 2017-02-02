@@ -6,7 +6,8 @@ export function articlesRequest () {
 export function articlesSuccess (json) {
   return {
     type: actionTypes.ARTICLES_SUCCESS,
-    list : json
+    language : json.language,
+    list : json.list
  };
 };
 export function articlesFail (msg) {

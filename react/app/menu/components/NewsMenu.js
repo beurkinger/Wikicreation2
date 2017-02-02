@@ -48,7 +48,7 @@ const NewsMenu = React.createClass({
 
 const mapStateToProps = (store) => ({
   messages : store.messages.strings.menu.newsMenu,
-  articles : store.news.articles,
+  articles : store.news.list,
   hideMenu: React.PropTypes.func.isRequired
 });
 

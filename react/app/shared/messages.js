@@ -60,6 +60,11 @@ messages[APP_LOCALES.FR] = {
   },
   preview : {
     readArticle : "Lire l'article",
+  },
+  contact : {
+    main : {
+      title : 'Contact'
+    }
   }
 };
 
@@ -121,6 +126,11 @@ messages[APP_LOCALES.EN] = {
   },
   preview : {
     readArticle : "Read the article",
+  },
+  contact : {
+    main : {
+      title : 'Contact'
+    }
   }
 };
 

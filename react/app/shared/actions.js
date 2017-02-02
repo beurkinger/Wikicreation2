@@ -6,7 +6,8 @@ export function categoriesRequest () {
 export function categoriesSuccess (json) {
   return {
     type: actionTypes.CATEGORIES_SUCCESS,
-    list : json
+    language : json.language,
+    list : json.list
  };
 };
 export function categoriesFail (msg) {
