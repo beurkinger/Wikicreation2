@@ -36,8 +36,8 @@ const About = React.createClass({
         </div>
       </aside>
       <div id="main-content">
-        <article id="article-main">
-          <div id="article-body">
+        <article id="about-main">
+          <div id="about-body">
             yolo
           </div>
         </article>
@@ -47,7 +47,7 @@ const About = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
-  title : store.messages.strings.contact.main.title
+  title : store.messages.strings.about.main.title
 });
 
 const mapDispatchToProps = (dispatch) => ({

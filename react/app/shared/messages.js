@@ -28,7 +28,7 @@ messages[APP_LOCALES.FR] = {
   filter : {
     writeToFilter : 'Ecrire pour filtrer',
     filterBy : 'Filtrer par',
-    languages : 'Langages',
+    languages : 'Langues',
     themes : 'Thèmes'
   },
   author : {
@@ -63,7 +63,7 @@ messages[APP_LOCALES.FR] = {
   },
   contact : {
     main : {
-      title : 'Contact'
+      title : 'Crédits et contact'
     }
   }
 };
@@ -129,7 +129,7 @@ messages[APP_LOCALES.EN] = {
   },
   contact : {
     main : {
-      title : 'Contact'
+      title : 'Credits and contact'
     }
   }
 };

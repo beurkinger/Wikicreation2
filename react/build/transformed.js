@@ -24557,7 +24557,7 @@
 	  },
 	  contact: {
 	    main: {
-	      title: 'Contact'
+	      title: 'Crédits et contact'
 	    }
 	  }
 	};
@@ -24623,7 +24623,7 @@
 	  },
 	  contact: {
 	    main: {
-	      title: 'Contact'
+	      title: 'Credits and contact'
 	    }
 	  }
 	};
@@ -28257,10 +28257,10 @@
 	        { id: 'main-content' },
 	        _react2.default.createElement(
 	          'article',
-	          { id: 'article-main' },
+	          { id: 'about-main' },
 	          _react2.default.createElement(
 	            'div',
-	            { id: 'article-body' },
+	            { id: 'about-body' },
 	            'yolo'
 	          )
 	        )
@@ -28271,7 +28271,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
-	    title: store.messages.strings.contact.main.title
+	    title: store.messages.strings.about.main.title
 	  };
 	};
 
@@ -30479,7 +30479,7 @@
 /* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _react = __webpack_require__(1);
 
@@ -30488,14 +30488,56 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Contact = _react2.default.createClass({
-	  displayName: 'Contact',
+	  displayName: "Contact",
 
+	  propTypes: {
+	    title: _react2.default.PropTypes.string.isRequired
+	  },
+	  componentWillMount: function componentWillMount() {
+	    this.updateTitlebar(this.props);
+	  },
+	  componentWillUpdate: function componentWillUpdate(nextProps) {
+	    this.updateTitlebar(nextProps);
+	  },
+	  updateTitlebar: function updateTitlebar(props) {
+	    this.props.setTitlebar(props.title);
+	  },
 	  render: function render() {
-	    return _react2.default.createElement('div', null);
+	    return _react2.default.createElement(
+	      "main",
+	      { id: "main-container" },
+	      _react2.default.createElement(
+	        "div",
+	        { id: "main-content" },
+	        _react2.default.createElement(
+	          "article",
+	          { id: "article-main" },
+	          _react2.default.createElement(
+	            "div",
+	            { id: "article-body" },
+	            "yolo"
+	          )
+	        )
+	      )
+	    );
 	  }
 	});
 
-	module.exports = Contact;
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    title: store.messages.strings.contact.main.title
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    setTitlebar: function setTitlebar(str) {
+	      return dispatch(setStdTitlebar(str));
+	    }
+	  };
+	};
+
+	module.exports = connect(mapStateToProps, mapDispatchToProps)(Contact);
 
 /***/ },
 /* 307 */
@@ -30685,6 +30727,7 @@
 	  return { type: actionTypes.GRAPH_DATA_REQUEST };
 	};
 	function graphDataSuccess(language, data) {
+	  console.log(data);
 	  return {
 	    type: actionTypes.GRAPH_DATA_SUCCESS,
 	    language: language,
@@ -30854,10 +30897,10 @@
 	  _store2.default.dispatch((0, _actions.graphDataRequest)());
 
 	  (0, _httpRequestHelper2.default)('/json/graph-data.json', function (response) {
-	    var nodes = (0, _graphHelpers.flatten)(response);
+	    var nodes = (0, _graphHelpers.flatten)(response.data);
 	    var links = (0, _graphHelpers.setLinks)(nodes);
-	    var data = { nodes: nodes, links: links };
-	    _store2.default.dispatch((0, _actions.graphDataSuccess)(response.language, data));
+	    var parsedData = { nodes: nodes, links: links };
+	    _store2.default.dispatch((0, _actions.graphDataSuccess)(response.language, parsedData));
 	  }, function (error) {
 	    return _store2.default.dispatch((0, _actions.graphDataFail)(xhr.status + ':' + xhr.response));
 	  });

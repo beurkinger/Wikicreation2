@@ -620,14 +620,21 @@ html, body, #root, #app
     background-clip : content-box;
 }
 
+#main-aside .nav-link
+{
+  display: block;
+  margin: 10px 0;
+  font-family: Montserrat; color: #242D5C; font-size: 15px; font-weight: normal;
+  text-transform: uppercase;
+}
+
 /*---Main content---*/
 #main-content
 {
   box-sizing: border-box;
   position: absolute; top: 100px; left: 360px;
   height: 100%; width: 100%;
-  padding-right: 360px;
-  padding-bottom: 200px;
+  padding: 54px 360px 200px 0;
   overflow-y: auto;
 }
 
@@ -639,7 +646,7 @@ html, body, #root, #app
 }
 
 /*---Main article---*/
-#article-main
+#article-main, #about-main, #contact-main
 {
   display: block;
   margin: 0px 150px;
@@ -652,7 +659,7 @@ html, body, #root, #app
   display: inline-block;
   font-family: Muli; color: #484848; font-size: 17px; font-weight: 200;
   padding: 0 0 14px 0;
-  margin-top: 90px;
+  margin-top: 36px;
   border-bottom: 1px solid #484848;
 }
 
@@ -675,7 +682,7 @@ html, body, #root, #app
   margin: 42px 0 46px 0;
 }
 
-#article-body
+#article-body, #about-body, #contact-body
 {}
 
 
@@ -692,8 +699,7 @@ html, body, #root, #app
 /*---Articles--*/
 #articles-main
 {
-  /*margin: 0px 70px 0 150px;*/
-  margin: 30px 70px 0 150px;
+  margin: 0 70px 0 150px;
   font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
   column-count: 2;
   column-gap: 100px;
@@ -703,7 +709,7 @@ html, body, #root, #app
 {
   padding-bottom: 20px;
   border-bottom: 1px solid #FF6666;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #articles-main .theme, #articles-main .theme-articles
@@ -734,7 +740,7 @@ html, body, #root, #app
 
 #articles-main .theme-title
 {
-  margin: 20px 0;
+  margin-bottom: 20px;
   font-family: Montserrat; color: #FF6666; font-size: 18px; font-weight: bold;
 }
 
@@ -764,7 +770,7 @@ html, body, #root, #app
 #authors-main
 {
   /*margin: 44px 0 0 64px;*/
-  margin: 54px 0 0 64px;
+  margin-left : 64px;
   line-height: 0;
   font-size: 0;
 }
@@ -1133,7 +1139,7 @@ html, body, #root, #app
 
 #article-preview-background
 {
-  position: absolute; width: 100%; height: 100%; background: transparent:
+  position: absolute; top:0; left: 0; width: 100%; height: 100%; background: transparent:
 }
 
 /*---Boutons--*/
@@ -1240,13 +1246,54 @@ html, body, #root, #app
   background-image: url('/img/plane-white.png');
 }
 
-
-/*---Other--*/
-.clickable:hover
-{
-  cursor: pointer;
+/*---Contact--*/
+#contact-main .ms-logo {
+  width: 105px; height: 105px;
+  background: url('/img/ms-logo.png');
+  background-size: 105px;
+  float: left;
+  margin: 0 30px 10px 0;
 }
 
+#contact-main .agency {
+  font-family: Montserrat; font-size: 18px; color: #242D5C; font-weight: bold;
+  padding-top: 27px;
+}
+
+#contact-main .website {
+  color: inherit;
+  text-decoration: none;
+}
+
+#contact-main h3 {
+  font-family: Montserrat; font-size: 18px; color: #242D5C; font-weight: bold;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+
+#contact-form
+{
+  margin-top: 64px;
+}
+
+#contact-form input[type=text]
+{
+  display: block;
+  box-sizing: border-box;
+  width: 240px; height: 40px;
+  border: 1px solid #CCC;
+  padding-left : 10px;
+  margin-bottom: 30px;
+  font-family: Muli; font-size: 15px; color: #CCC; font-weight: 200;
+}
+
+#contact-form textarea
+{
+  float: right;
+}
+
+
+/*---Loading--*/
 .page-loading
 {
   z-index: 20;
@@ -1291,4 +1338,15 @@ html, body, #root, #app
 {
   width: 90px; height: 90px;
   box-shadow: 0 3px 0 0 #D5D5D5;
+}
+
+/*---Other--*/
+.clickable:hover
+{
+  cursor: pointer;
+}
+
+.clearfix
+{
+  clear: both;
 }
