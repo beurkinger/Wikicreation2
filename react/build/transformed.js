@@ -24214,7 +24214,7 @@
 	var initMenu = {
 	  isVisible: false,
 	  mainLinks: [{ name: 'home', path: '/', index: true }, { name: 'about', path: '/about' }, { name: 'articles', path: '/articles' }, { name: 'authors', path: '/authors' }, { name: 'contribute', path: '/contribute' }],
-	  secondaryLinks: [{ name: 'committee', path: '/committee' }, { name: 'creditsAndContacts', path: '/credits-and-contact' }, { name: 'legalNotice', path: '/legal' }]
+	  secondaryLinks: [{ name: 'committee', path: '/committee' }, { name: 'creditsAndContacts', path: '/credits-and-contact' }, { name: 'legalNotices', path: '/legal-notices' }]
 	};
 	var menuReducer = function menuReducer() {
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initMenu;
@@ -24522,7 +24522,7 @@
 	  filter: {
 	    writeToFilter: 'Ecrire pour filtrer',
 	    filterBy: 'Filtrer par',
-	    languages: 'Langages',
+	    languages: 'Langues',
 	    themes: 'Thèmes'
 	  },
 	  author: {
@@ -24545,7 +24545,7 @@
 	      contribute: 'Contribuer',
 	      committee: 'Comité',
 	      creditsAndContacts: 'Crédits et contact',
-	      legalNotice: 'Mentions légales'
+	      legalNotices: 'Mentions légales'
 	    },
 	    newsMenu: {
 	      readArticle: "Lire l'article",
@@ -24559,6 +24559,16 @@
 	    main: {
 	      title: 'Crédits et contact'
 	    }
+	  },
+	  legal: {
+	    title: 'Mentions légales'
+	  },
+	  error: {
+	    title: 'Erreur',
+	    number: '404',
+	    sorry: 'Nous sommes désolés',
+	    notFound: 'La page que vous cherchez n’est pas disponible',
+	    goBack: 'Revenir au site'
 	  }
 	};
 
@@ -24611,7 +24621,7 @@
 	      contribute: 'Contribute',
 	      committee: 'Committee',
 	      creditsAndContacts: 'Credits and contact',
-	      legalNotice: 'Legal Notice'
+	      legalNotices: 'Legal Notices'
 	    },
 	    newsMenu: {
 	      readArticle: "Read the article",
@@ -24625,6 +24635,16 @@
 	    main: {
 	      title: 'Credits and contact'
 	    }
+	  },
+	  legal: {
+	    title: 'Legal notices'
+	  },
+	  error: {
+	    title: 'Error',
+	    number: '404',
+	    sorry: 'We are sorry',
+	    notFound: 'The page you are looking for cannot be found',
+	    goBack: 'Go back'
 	  }
 	};
 
@@ -24656,35 +24676,39 @@
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Article = __webpack_require__(272);
+	var _Article = __webpack_require__(273);
 
 	var _Article2 = _interopRequireDefault(_Article);
 
-	var _Articles = __webpack_require__(283);
+	var _Articles = __webpack_require__(284);
 
 	var _Articles2 = _interopRequireDefault(_Articles);
 
-	var _Authors = __webpack_require__(300);
+	var _Authors = __webpack_require__(301);
 
 	var _Authors2 = _interopRequireDefault(_Authors);
 
-	var _Contact = __webpack_require__(306);
+	var _Contact = __webpack_require__(307);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _Contribute = __webpack_require__(307);
+	var _Contribute = __webpack_require__(310);
 
 	var _Contribute2 = _interopRequireDefault(_Contribute);
 
-	var _Error = __webpack_require__(308);
+	var _Error = __webpack_require__(311);
 
 	var _Error2 = _interopRequireDefault(_Error);
 
-	var _Home = __webpack_require__(309);
+	var _Home = __webpack_require__(312);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Main = __webpack_require__(330);
+	var _Legal = __webpack_require__(333);
+
+	var _Legal2 = _interopRequireDefault(_Legal);
+
+	var _Main = __webpack_require__(334);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -24707,6 +24731,7 @@
 	        _react2.default.createElement(_Router2.default, { path: '/authors(/:id)', component: _Authors2.default }),
 	        _react2.default.createElement(_Router2.default, { path: '/contribute', component: _Contribute2.default }),
 	        _react2.default.createElement(_Router2.default, { path: '/credits-and-contact', component: _Contact2.default }),
+	        _react2.default.createElement(_Router2.default, { path: '/legal-notices', component: _Legal2.default }),
 	        _react2.default.createElement(_Router2.default, { path: '*', component: _Error2.default })
 	      )
 	    );
@@ -28200,6 +28225,10 @@
 
 	var _actions = __webpack_require__(271);
 
+	var _AboutAside = __webpack_require__(272);
+
+	var _AboutAside2 = _interopRequireDefault(_AboutAside);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var About = _react2.default.createClass({
@@ -28221,37 +28250,7 @@
 	    return _react2.default.createElement(
 	      'main',
 	      { id: 'main-container' },
-	      _react2.default.createElement(
-	        'aside',
-	        { id: 'main-aside' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'info' },
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'info-title' },
-	            'Pr\xE9sentation de la publication'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'info' },
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'info-title' },
-	            'Un projet \xE9ditorial relationnel'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'info' },
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'info-title' },
-	            'Editeur'
-	          )
-	        )
-	      ),
+	      _react2.default.createElement(_AboutAside2.default, null),
 	      _react2.default.createElement(
 	        'div',
 	        { id: 'main-content' },
@@ -28331,6 +28330,46 @@
 /* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContactAside = _react2.default.createClass({
+	  displayName: "ContactAside",
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "aside",
+	      { id: "main-aside" },
+	      _react2.default.createElement(
+	        "a",
+	        { className: "nav-link", href: "#credits" },
+	        "Pr\xE9sentation de la publication"
+	      ),
+	      _react2.default.createElement(
+	        "a",
+	        { className: "nav-link", href: "#contact-form" },
+	        "Un projet \xE9ditorial relationnel"
+	      ),
+	      _react2.default.createElement(
+	        "a",
+	        { className: "nav-link", href: "#contact-form" },
+	        "Editeur"
+	      )
+	    );
+	  }
+	});
+
+	module.exports = AboutAside;
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var _react = __webpack_require__(1);
@@ -28339,19 +28378,19 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(273);
+	var _async = __webpack_require__(274);
 
 	var _actions = __webpack_require__(271);
 
-	var _ArticleAside = __webpack_require__(277);
+	var _ArticleAside = __webpack_require__(278);
 
 	var _ArticleAside2 = _interopRequireDefault(_ArticleAside);
 
-	var _ArticleContent = __webpack_require__(280);
+	var _ArticleContent = __webpack_require__(281);
 
 	var _ArticleContent2 = _interopRequireDefault(_ArticleContent);
 
-	var _PageLoading = __webpack_require__(282);
+	var _PageLoading = __webpack_require__(283);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
@@ -28392,7 +28431,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Article);
 
 /***/ },
-/* 273 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28402,11 +28441,11 @@
 	});
 	exports.getArticle = getArticle;
 
-	var _actions = __webpack_require__(274);
+	var _actions = __webpack_require__(275);
 
-	var _actions2 = __webpack_require__(275);
+	var _actions2 = __webpack_require__(276);
 
-	var _httpRequestHelper = __webpack_require__(276);
+	var _httpRequestHelper = __webpack_require__(277);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -28431,7 +28470,7 @@
 	};
 
 /***/ },
-/* 274 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28483,7 +28522,7 @@
 	};
 
 /***/ },
-/* 275 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28532,7 +28571,7 @@
 	};
 
 /***/ },
-/* 276 */
+/* 277 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28557,7 +28596,7 @@
 	module.exports = httpRequestHelper;
 
 /***/ },
-/* 277 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28568,11 +28607,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(275);
+	var _actions = __webpack_require__(276);
 
-	var _async = __webpack_require__(278);
+	var _async = __webpack_require__(279);
 
-	var _Keywords = __webpack_require__(279);
+	var _Keywords = __webpack_require__(280);
 
 	var _Keywords2 = _interopRequireDefault(_Keywords);
 
@@ -28708,7 +28747,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleAside);
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28718,9 +28757,9 @@
 	});
 	exports.getAuthor = getAuthor;
 
-	var _actions = __webpack_require__(275);
+	var _actions = __webpack_require__(276);
 
-	var _httpRequestHelper = __webpack_require__(276);
+	var _httpRequestHelper = __webpack_require__(277);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -28745,7 +28784,7 @@
 	};
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28769,7 +28808,7 @@
 	};
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28780,17 +28819,17 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(274);
+	var _actions = __webpack_require__(275);
 
 	var _actions2 = __webpack_require__(271);
 
 	var _constants = __webpack_require__(229);
 
-	var _DateStr = __webpack_require__(281);
+	var _DateStr = __webpack_require__(282);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
-	var _Keywords = __webpack_require__(279);
+	var _Keywords = __webpack_require__(280);
 
 	var _Keywords2 = _interopRequireDefault(_Keywords);
 
@@ -28957,7 +28996,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleContent);
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29039,7 +29078,7 @@
 	module.exports = DateStr;
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29072,7 +29111,7 @@
 	module.exports = PageLoading;
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29085,15 +29124,15 @@
 
 	var _actions = __webpack_require__(271);
 
-	var _async = __webpack_require__(284);
+	var _async = __webpack_require__(285);
 
-	var _async2 = __webpack_require__(287);
+	var _async2 = __webpack_require__(288);
 
-	var _ArticlesAside = __webpack_require__(289);
+	var _ArticlesAside = __webpack_require__(290);
 
 	var _ArticlesAside2 = _interopRequireDefault(_ArticlesAside);
 
-	var _ArticlesContent = __webpack_require__(295);
+	var _ArticlesContent = __webpack_require__(296);
 
 	var _ArticlesContent2 = _interopRequireDefault(_ArticlesContent);
 
@@ -29143,7 +29182,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Articles);
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29153,13 +29192,13 @@
 	});
 	exports.getArticles = getArticles;
 
-	var _actions = __webpack_require__(285);
+	var _actions = __webpack_require__(286);
 
-	var _httpRequestHelper = __webpack_require__(276);
+	var _httpRequestHelper = __webpack_require__(277);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
-	var _QueryHelper = __webpack_require__(286);
+	var _QueryHelper = __webpack_require__(287);
 
 	var _QueryHelper2 = _interopRequireDefault(_QueryHelper);
 
@@ -29192,7 +29231,7 @@
 	};
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29243,7 +29282,7 @@
 	};
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29305,7 +29344,7 @@
 	module.exports = QueryHelper;
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29315,9 +29354,9 @@
 	});
 	exports.getCategories = getCategories;
 
-	var _actions = __webpack_require__(288);
+	var _actions = __webpack_require__(289);
 
-	var _httpRequestHelper = __webpack_require__(276);
+	var _httpRequestHelper = __webpack_require__(277);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -29341,7 +29380,7 @@
 	};
 
 /***/ },
-/* 288 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29380,7 +29419,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29391,23 +29430,23 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(285);
+	var _actions = __webpack_require__(286);
 
-	var _async = __webpack_require__(284);
+	var _async = __webpack_require__(285);
 
-	var _CategoriesFilter = __webpack_require__(290);
+	var _CategoriesFilter = __webpack_require__(291);
 
 	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
 
-	var _LanguagesFilter = __webpack_require__(292);
+	var _LanguagesFilter = __webpack_require__(293);
 
 	var _LanguagesFilter2 = _interopRequireDefault(_LanguagesFilter);
 
-	var _PageLoading = __webpack_require__(282);
+	var _PageLoading = __webpack_require__(283);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
-	var _TextFilter = __webpack_require__(294);
+	var _TextFilter = __webpack_require__(295);
 
 	var _TextFilter2 = _interopRequireDefault(_TextFilter);
 
@@ -29492,7 +29531,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticlesAside);
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29503,7 +29542,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _CheckboxFilter = __webpack_require__(291);
+	var _CheckboxFilter = __webpack_require__(292);
 
 	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
 
@@ -29553,7 +29592,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(CategoriesFilter);
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29588,7 +29627,7 @@
 	module.exports = CheckboxFilter;
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29599,11 +29638,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _CheckboxFilter = __webpack_require__(291);
+	var _CheckboxFilter = __webpack_require__(292);
 
 	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
 
-	var _constants = __webpack_require__(293);
+	var _constants = __webpack_require__(294);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29644,7 +29683,7 @@
 	module.exports = LanguagesFilter;
 
 /***/ },
-/* 293 */
+/* 294 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29664,7 +29703,7 @@
 	}];
 
 /***/ },
-/* 294 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29728,7 +29767,7 @@
 	module.exports = TextFilter;
 
 /***/ },
-/* 295 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29739,11 +29778,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _ArticlesCategory = __webpack_require__(296);
+	var _ArticlesCategory = __webpack_require__(297);
 
 	var _ArticlesCategory2 = _interopRequireDefault(_ArticlesCategory);
 
-	var _PageLoading = __webpack_require__(282);
+	var _PageLoading = __webpack_require__(283);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
@@ -29783,7 +29822,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ArticlesContent);
 
 /***/ },
-/* 296 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29794,7 +29833,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _ArticleCard = __webpack_require__(297);
+	var _ArticleCard = __webpack_require__(298);
 
 	var _ArticleCard2 = _interopRequireDefault(_ArticleCard);
 
@@ -29830,7 +29869,7 @@
 	module.exports = ArticleCategory;
 
 /***/ },
-/* 297 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29839,7 +29878,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(298);
+	var _Link = __webpack_require__(299);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -29865,7 +29904,7 @@
 	module.exports = ArticleCard;
 
 /***/ },
-/* 298 */
+/* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -29882,7 +29921,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _PropTypes = __webpack_require__(299);
+	var _PropTypes = __webpack_require__(300);
 
 	var _ContextUtils = __webpack_require__(248);
 
@@ -30029,7 +30068,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 299 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30062,7 +30101,7 @@
 	});
 
 /***/ },
-/* 300 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30075,21 +30114,21 @@
 
 	var _actions = __webpack_require__(271);
 
-	var _async = __webpack_require__(287);
+	var _async = __webpack_require__(288);
 
-	var _async2 = __webpack_require__(301);
+	var _async2 = __webpack_require__(302);
 
-	var _async3 = __webpack_require__(278);
+	var _async3 = __webpack_require__(279);
 
-	var _AuthorsAside = __webpack_require__(303);
+	var _AuthorsAside = __webpack_require__(304);
 
 	var _AuthorsAside2 = _interopRequireDefault(_AuthorsAside);
 
-	var _AuthorsContent = __webpack_require__(304);
+	var _AuthorsContent = __webpack_require__(305);
 
 	var _AuthorsContent2 = _interopRequireDefault(_AuthorsContent);
 
-	var _actions2 = __webpack_require__(275);
+	var _actions2 = __webpack_require__(276);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30157,7 +30196,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Authors);
 
 /***/ },
-/* 301 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30167,13 +30206,13 @@
 	});
 	exports.getAuthors = getAuthors;
 
-	var _actions = __webpack_require__(302);
+	var _actions = __webpack_require__(303);
 
-	var _QueryHelper = __webpack_require__(286);
+	var _QueryHelper = __webpack_require__(287);
 
 	var _QueryHelper2 = _interopRequireDefault(_QueryHelper);
 
-	var _httpRequestHelper = __webpack_require__(276);
+	var _httpRequestHelper = __webpack_require__(277);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -30204,7 +30243,7 @@
 	};
 
 /***/ },
-/* 302 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30247,7 +30286,7 @@
 	};
 
 /***/ },
-/* 303 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30258,19 +30297,19 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(302);
+	var _actions = __webpack_require__(303);
 
-	var _async = __webpack_require__(301);
+	var _async = __webpack_require__(302);
 
-	var _CategoriesFilter = __webpack_require__(290);
+	var _CategoriesFilter = __webpack_require__(291);
 
 	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
 
-	var _PageLoading = __webpack_require__(282);
+	var _PageLoading = __webpack_require__(283);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
-	var _TextFilter = __webpack_require__(294);
+	var _TextFilter = __webpack_require__(295);
 
 	var _TextFilter2 = _interopRequireDefault(_TextFilter);
 
@@ -30342,7 +30381,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AuthorsAside);
 
 /***/ },
-/* 304 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30353,11 +30392,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _AuthorCard = __webpack_require__(305);
+	var _AuthorCard = __webpack_require__(306);
 
 	var _AuthorCard2 = _interopRequireDefault(_AuthorCard);
 
-	var _PageLoading = __webpack_require__(282);
+	var _PageLoading = __webpack_require__(283);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
@@ -30399,7 +30438,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorsContent);
 
 /***/ },
-/* 305 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30412,9 +30451,9 @@
 
 	var _browserHistory2 = _interopRequireDefault(_browserHistory);
 
-	var _async = __webpack_require__(278);
+	var _async = __webpack_require__(279);
 
-	var _actions = __webpack_require__(275);
+	var _actions = __webpack_require__(276);
 
 	var _reactRedux = __webpack_require__(172);
 
@@ -30476,49 +30515,47 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(AuthorCard);
 
 /***/ },
-/* 306 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
+	var _ContactAside = __webpack_require__(308);
+
+	var _ContactAside2 = _interopRequireDefault(_ContactAside);
+
+	var _ContactContent = __webpack_require__(309);
+
+	var _ContactContent2 = _interopRequireDefault(_ContactContent);
+
+	var _actions = __webpack_require__(271);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Contact = _react2.default.createClass({
-	  displayName: "Contact",
+	  displayName: 'Contact',
 
 	  propTypes: {
 	    title: _react2.default.PropTypes.string.isRequired
 	  },
 	  componentWillMount: function componentWillMount() {
-	    this.updateTitlebar(this.props);
+	    this.props.setTitlebar(this.props.title);
 	  },
 	  componentWillUpdate: function componentWillUpdate(nextProps) {
-	    this.updateTitlebar(nextProps);
-	  },
-	  updateTitlebar: function updateTitlebar(props) {
-	    this.props.setTitlebar(props.title);
+	    this.props.setTitlebar(nextProps.title);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "main",
-	      { id: "main-container" },
-	      _react2.default.createElement(
-	        "div",
-	        { id: "main-content" },
-	        _react2.default.createElement(
-	          "article",
-	          { id: "article-main" },
-	          _react2.default.createElement(
-	            "div",
-	            { id: "article-body" },
-	            "yolo"
-	          )
-	        )
-	      )
+	      'main',
+	      { id: 'main-container' },
+	      _react2.default.createElement(_ContactAside2.default, null),
+	      _react2.default.createElement(_ContactContent2.default, null)
 	    );
 	  }
 	});
@@ -30532,15 +30569,151 @@
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
 	    setTitlebar: function setTitlebar(str) {
-	      return dispatch(setStdTitlebar(str));
+	      return dispatch((0, _actions.setStdTitlebar)(str));
 	    }
 	  };
 	};
 
-	module.exports = connect(mapStateToProps, mapDispatchToProps)(Contact);
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Contact);
 
 /***/ },
-/* 307 */
+/* 308 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContactAside = _react2.default.createClass({
+	  displayName: "ContactAside",
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "aside",
+	      { id: "main-aside" },
+	      _react2.default.createElement(
+	        "a",
+	        { className: "nav-link", href: "#credits" },
+	        "Cr\xE9dits"
+	      ),
+	      _react2.default.createElement(
+	        "a",
+	        { className: "nav-link", href: "#contact-form" },
+	        "Contact"
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ContactAside;
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContactContent = _react2.default.createClass({
+	  displayName: "ContactContent",
+
+	  render: function render() {
+	    return _react2.default.createElement(
+	      "div",
+	      { id: "main-content" },
+	      _react2.default.createElement(
+	        "div",
+	        { id: "contact-main" },
+	        _react2.default.createElement(
+	          "div",
+	          { id: "contact-body" },
+	          _react2.default.createElement("div", { className: "ms-logo", id: "credits" }),
+	          _react2.default.createElement(
+	            "h2",
+	            { className: "agency" },
+	            "Agence Multim\xE9dia Sorbonne"
+	          ),
+	          _react2.default.createElement(
+	            "a",
+	            { href: "http://multimedia-sorbonne.com/", className: "website" },
+	            "multimedia-sorbonne.com"
+	          ),
+	          _react2.default.createElement("div", { className: "clearfix" }),
+	          _react2.default.createElement(
+	            "h3",
+	            null,
+	            "Directeur de projet"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "David Bihanic"
+	          ),
+	          _react2.default.createElement(
+	            "h3",
+	            null,
+	            "Chef de projet"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Alex Mohebbi"
+	          ),
+	          _react2.default.createElement(
+	            "h3",
+	            null,
+	            "Directeurs artistiques / UX designers"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Juanita Arenas ",
+	            _react2.default.createElement("br", null),
+	            "Guillaume Ribault"
+	          ),
+	          _react2.default.createElement(
+	            "h3",
+	            null,
+	            "D\xE9veloppeurs"
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            "Juanita Arenas ",
+	            _react2.default.createElement("br", null),
+	            "Guillaume Ribault"
+	          ),
+	          _react2.default.createElement(
+	            "form",
+	            { id: "contact-form" },
+	            _react2.default.createElement("input", { type: "text", placeholder: "Nom" }),
+	            _react2.default.createElement("input", { type: "text", placeholder: "Mail" }),
+	            _react2.default.createElement("textarea", { defaultValue: "Message" }),
+	            _react2.default.createElement(
+	              "btn",
+	              { className: "btn btn-blue btn-plane" },
+	              "Envoyer"
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = ContactContent;
+
+/***/ },
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30566,7 +30739,7 @@
 	module.exports = Contribute;
 
 /***/ },
-/* 308 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30575,61 +30748,94 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(298);
+	var _reactRedux = __webpack_require__(172);
+
+	var _Link = __webpack_require__(299);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
+	var _actions = __webpack_require__(271);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var error = function error(props) {
-	  return _react2.default.createElement(
-	    'main',
-	    { id: 'main-container' },
-	    _react2.default.createElement(
-	      'div',
-	      { id: 'main-content', className: 'full-size' },
+	var Error = _react2.default.createClass({
+	  displayName: 'Error',
+
+	  propTypes: {
+	    title: _react2.default.PropTypes.string.isRequired
+	  },
+	  componentWillMount: function componentWillMount() {
+	    this.props.setTitlebar(this.props.title);
+	  },
+	  componentWillUpdate: function componentWillUpdate(nextProps) {
+	    this.props.setTitlebar(nextProps.title);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'main',
+	      { id: 'main-container' },
 	      _react2.default.createElement(
 	        'div',
-	        { id: 'error-main' },
+	        { id: 'main-content', className: 'full-size' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'error-container' },
-	          _react2.default.createElement(
-	            'h2',
-	            { className: 'error-404' },
-	            '404'
-	          ),
+	          { id: 'error-main' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'error-right' },
+	            { className: 'error-container' },
 	            _react2.default.createElement(
-	              'h3',
-	              { className: 'error-sorry' },
-	              'Nous sommes d\xE9sol\xE9s'
+	              'h2',
+	              { className: 'error-404' },
+	              this.props.number
 	            ),
 	            _react2.default.createElement(
-	              'p',
-	              { className: 'error-message' },
-	              'La page que vous cherchez ',
-	              _react2.default.createElement('br', null),
-	              'n\u2019est pas disponible'
-	            ),
-	            _react2.default.createElement(
-	              _Link2.default,
-	              { to: '/', className: 'btn btn-red btn-arrow-left error-button' },
-	              'Revenir au site'
+	              'div',
+	              { className: 'error-right' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: 'error-sorry' },
+	                this.props.sorry
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                { className: 'error-message' },
+	                this.props.notFound
+	              ),
+	              _react2.default.createElement(
+	                _Link2.default,
+	                { to: '/', className: 'btn btn-red btn-arrow-left error-button' },
+	                this.props.goBack
+	              )
 	            )
 	          )
 	        )
 	      )
-	    )
-	  );
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    title: store.messages.strings.error.title,
+	    number: store.messages.strings.error.number,
+	    sorry: store.messages.strings.error.sorry,
+	    notFound: store.messages.strings.error.notFound,
+	    goBack: store.messages.strings.error.goBack
+	  };
 	};
 
-	module.exports = error;
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    setTitlebar: function setTitlebar(str) {
+	      return dispatch((0, _actions.setStdTitlebar)(str));
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Error);
 
 /***/ },
-/* 309 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30642,21 +30848,21 @@
 
 	var _actions = __webpack_require__(271);
 
-	var _actions2 = __webpack_require__(310);
+	var _actions2 = __webpack_require__(313);
 
-	var _Graph = __webpack_require__(311);
+	var _Graph = __webpack_require__(314);
 
 	var _Graph2 = _interopRequireDefault(_Graph);
 
-	var _Preview = __webpack_require__(326);
+	var _Preview = __webpack_require__(329);
 
 	var _Preview2 = _interopRequireDefault(_Preview);
 
-	var _PreviewBackground = __webpack_require__(329);
+	var _PreviewBackground = __webpack_require__(332);
 
 	var _PreviewBackground2 = _interopRequireDefault(_PreviewBackground);
 
-	var _async = __webpack_require__(312);
+	var _async = __webpack_require__(315);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30678,9 +30884,14 @@
 	    return _react2.default.createElement(
 	      'main',
 	      { id: 'main-container' },
+	      _react2.default.createElement(
+	        'btn',
+	        { style: { display: 'block', margin: '400px' }, onClick: this.preview },
+	        'yolo'
+	      ),
+	      _react2.default.createElement(_Graph2.default, null),
 	      _react2.default.createElement(_PreviewBackground2.default, null),
-	      _react2.default.createElement(_Preview2.default, null),
-	      _react2.default.createElement(_Graph2.default, null)
+	      _react2.default.createElement(_Preview2.default, null)
 	    );
 	  }
 	});
@@ -30699,7 +30910,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Home);
 
 /***/ },
-/* 310 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30772,7 +30983,7 @@
 	};
 
 /***/ },
-/* 311 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30787,17 +30998,17 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(312);
+	var _async = __webpack_require__(315);
 
-	var _GraphController = __webpack_require__(314);
+	var _GraphController = __webpack_require__(317);
 
 	var _GraphController2 = _interopRequireDefault(_GraphController);
 
-	var _GraphModel = __webpack_require__(316);
+	var _GraphModel = __webpack_require__(319);
 
 	var _GraphModel2 = _interopRequireDefault(_GraphModel);
 
-	var _GraphView = __webpack_require__(318);
+	var _GraphView = __webpack_require__(321);
 
 	var _GraphView2 = _interopRequireDefault(_GraphView);
 
@@ -30864,7 +31075,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Graph);
 
 /***/ },
-/* 312 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30875,13 +31086,13 @@
 	exports.getGraphData = getGraphData;
 	exports.getPreview = getPreview;
 
-	var _httpRequestHelper = __webpack_require__(276);
+	var _httpRequestHelper = __webpack_require__(277);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
-	var _actions = __webpack_require__(310);
+	var _actions = __webpack_require__(313);
 
-	var _graphHelpers = __webpack_require__(313);
+	var _graphHelpers = __webpack_require__(316);
 
 	var _store = __webpack_require__(210);
 
@@ -30921,7 +31132,7 @@
 	};
 
 /***/ },
-/* 313 */
+/* 316 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30991,14 +31202,14 @@
 	}
 
 /***/ },
-/* 314 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _d3Selection = __webpack_require__(315);
+	var _d3Selection = __webpack_require__(318);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -31060,7 +31271,7 @@
 	module.exports = GraphController;
 
 /***/ },
-/* 315 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-selection/ Version 1.0.3. Copyright 2016 Mike Bostock.
@@ -32039,7 +32250,7 @@
 
 
 /***/ },
-/* 316 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32048,7 +32259,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _Event = __webpack_require__(317);
+	var _Event = __webpack_require__(320);
 
 	var _Event2 = _interopRequireDefault(_Event);
 
@@ -32242,7 +32453,7 @@
 	module.exports = GraphModel;
 
 /***/ },
-/* 317 */
+/* 320 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32279,7 +32490,7 @@
 	module.exports = Event;
 
 /***/ },
-/* 318 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32288,15 +32499,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _AnimLink = __webpack_require__(319);
+	var _AnimLink = __webpack_require__(322);
 
 	var _AnimLink2 = _interopRequireDefault(_AnimLink);
 
-	var _AnimNode = __webpack_require__(320);
+	var _AnimNode = __webpack_require__(323);
 
 	var _AnimNode2 = _interopRequireDefault(_AnimNode);
 
-	var _d3Force = __webpack_require__(321);
+	var _d3Force = __webpack_require__(324);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32410,7 +32621,7 @@
 	module.exports = GraphView;
 
 /***/ },
-/* 319 */
+/* 322 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32479,7 +32690,7 @@
 	module.exports = AnimLink;
 
 /***/ },
-/* 320 */
+/* 323 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -32552,12 +32763,12 @@
 	module.exports = AnimNode;
 
 /***/ },
-/* 321 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-force/ Version 1.0.4. Copyright 2016 Mike Bostock.
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(322), __webpack_require__(323), __webpack_require__(324), __webpack_require__(325)) :
+	   true ? factory(exports, __webpack_require__(325), __webpack_require__(326), __webpack_require__(327), __webpack_require__(328)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-quadtree', 'd3-collection', 'd3-dispatch', 'd3-timer'], factory) :
 	  (factory((global.d3 = global.d3 || {}),global.d3,global.d3,global.d3,global.d3));
 	}(this, (function (exports,d3Quadtree,d3Collection,d3Dispatch,d3Timer) { 'use strict';
@@ -33161,7 +33372,7 @@
 
 
 /***/ },
-/* 322 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-quadtree/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -33602,7 +33813,7 @@
 
 
 /***/ },
-/* 323 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-collection/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -33825,7 +34036,7 @@
 
 
 /***/ },
-/* 324 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-dispatch/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -33926,7 +34137,7 @@
 
 
 /***/ },
-/* 325 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-timer/ Version 1.0.4. Copyright 2017 Mike Bostock.
@@ -34081,7 +34292,7 @@
 
 
 /***/ },
-/* 326 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34096,23 +34307,23 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _DateStr = __webpack_require__(281);
+	var _DateStr = __webpack_require__(282);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
-	var _actions = __webpack_require__(310);
+	var _actions = __webpack_require__(313);
 
-	var _async = __webpack_require__(273);
+	var _async = __webpack_require__(274);
 
-	var _LanguageSwitch = __webpack_require__(327);
+	var _LanguageSwitch = __webpack_require__(330);
 
 	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
 
-	var _PageLoading = __webpack_require__(282);
+	var _PageLoading = __webpack_require__(283);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
-	var _actions2 = __webpack_require__(328);
+	var _actions2 = __webpack_require__(331);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34219,7 +34430,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Preview);
 
 /***/ },
-/* 327 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34230,7 +34441,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(288);
+	var _actions = __webpack_require__(289);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -34286,7 +34497,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LanguageSwitch);
 
 /***/ },
-/* 328 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34329,7 +34540,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34340,7 +34551,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(310);
+	var _actions = __webpack_require__(313);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34372,7 +34583,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PreviewBackground);
 
 /***/ },
-/* 330 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34383,19 +34594,348 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _Author = __webpack_require__(331);
+	var _Link = __webpack_require__(299);
+
+	var _Link2 = _interopRequireDefault(_Link);
+
+	var _actions = __webpack_require__(271);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Legal = _react2.default.createClass({
+	  displayName: 'Legal',
+
+	  propTypes: {
+	    title: _react2.default.PropTypes.string.isRequired
+	  },
+	  componentWillMount: function componentWillMount() {
+	    this.props.setTitlebar(this.props.title);
+	  },
+	  componentWillUpdate: function componentWillUpdate(nextProps) {
+	    this.props.setTitlebar(nextProps.title);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'main',
+	      { id: 'main-container' },
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'main-content', className: 'full-size' },
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'legal-main' },
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Presentation'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'This entire site is covered by French and international legislation regarding copyright and intellectual property. All reproduction rights are reserved, including downloadable documents and iconographic and photographic representations.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The WikiCreation website is protected by intellectual property, both regarding its form (choice, layout, \xA0organisation of sections, methods of access to data, data organisation, ergonomics, arborescence, graphic design, structure, architecture, etc.) and regarding each element of its content (texts, images, photos, illustrations, logos, pictograms, maps, plans, etc.). You are not allowed to reproduce the HTML code of the pages on this server for the purpose of public distribution.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Reproduction of all or part of this website through any media whatsoever is strictly prohibited. Any reproduction, representation or distribution, in whole or in part, of the content of this website, by any process or medium whatsoever, is prohibited without the express permission of the Project Director. Failure to comply with this prohibition constitutes an infringement that may result in civil and criminal penalties.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Note: Violation of any copyright is an offense punishable, under Article L.335-2 of the Code of Intellectual Property, 2 years imprisonment and \u20AC150,000 fine.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Wikicreation shall in no event be liable for any damages, direct or indirect, of any nature whatsoever, resulting from the use of information provided on this website.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The implementation of hyperlinks by third parties to pages or documents published on the WikiCreation website is permitted provided that these links are not contrary to the interests of Wikicreation, and that they give the User the possibility to identify the origin and author of the document concerned.\xA0'
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Hosting'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'OVH ',
+	            _react2.default.createElement('br', null),
+	            'CNRS \u2013 Centre national de la recherche scientifique',
+	            _react2.default.createElement('br', null),
+	            '3, rue Michel-Ange',
+	            _react2.default.createElement('br', null),
+	            '75794 Paris cedex 16 \u2013 France',
+	            _react2.default.createElement('br', null),
+	            'Tel : 01 44 96 40 00'
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Copyright'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The presence of any material, whether text or graphics, in the pages of the WikiCreation website does not imply that this material is in the public domain. WikiCreation intends to preserve the moral rights of the authors concerned. Any reproduction for academic or study purposes by educational institutions or students in good faith is subject to an authorisation request. Any use, in whole or in part, and through any media whatsoever, for commercial purposes is strictly prohibited.'
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'General Terms & Conditions regarding the us of WikiCreation RSS feeds'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Any downloading of Wikicreation RSS feeds implies express acceptance of all provisions of these Terms & Conditions.'
+	          ),
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Introduction'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The present General Terms & Conditions govern the provision of Wikicreation RSS feeds, which are offered free for non-commercial use. By downloading, using and viewing a WikiCreation RSS feed, the User expressly acknowledges acceptance of all provisions of these General Terms & Conditions.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'WikiCreation reserves the right to modify these General Terms & Conditions at any time and at its sole discretion. The continued use of the Service following a change of these Terms & Conditions constitutes a tacit acceptance of the new Terms & Conditions.\xA0'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '1 - Definition:'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '\u201CRSS Feed\u2019: regular update of website content including links to the full version of that content. When the User signs up for the RSS feed of a website through a feed reader, a brief overview is sent to the User whenever the content of the website is updated. \u2019Service\u2019: any downloading and/or use of Wikicreation RSS feeds. \u2018User\u2019: any individual who has downloaded and/or used WikiCreation RSS feeds.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '2 - Object:'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'In accordance with these General Terms & Conditions, WikiCreation grants the User the revocable, non-transferable, non-assignable, free and non-exclusive license to display on his/her website (\u2018Website\u2019) or on his/her personal computer, the titles, lead paragraphs and/or active links and other information, including any promotional link, that the User has chosen to receive from WikiCreation through the Service, provided that no data from this Service is modified, corrected, expanded or deleted and that it is not used for commercial purposes. WikiCreation reserves the right, on a discretionary basis, to restrict, suspend or terminate the access of a User to all or part of the Service at any time and without being considered liable as a result. WikiCreation reserves the right to modify the Service at any time without the User being able to oppose this.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '3- Copyright ownership:'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The Service is protected by French laws and international conventions on copyright. All WikiCreation RSS feeds and intellectual property rights relating to the Service remain the property of WikiCreation. In addition, any additional programme or technology provided by WikiCreation in connection with the provision of the Service or other services remains the sole property of WikiCreation and no part thereof shall be regarded as having been transferred or licensed to the User. WikiCreation retains all the rights in relation to the Service that have not been expressly granted to the User under Article 2 of these General Terms and Conditions.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '4 - Obligations of the User:'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The User certifies to be over 18 years of age and to have the legal authority to use the Service in accordance with these General Terms & Conditions. To use the Service, the User must comply with the following rules: - display the Service on his/her personal computer or Website in the exact form downloaded without any modification, correction, deletion or addition of any kind, without the prior written permission of Wikicreation.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- ensure that the content of the Service may not be amended, corrected, expanded or deleted.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- comply with all applicable laws and all limitations and restrictions (if any) imposed by Wikicreation on the use, display or distribution of the Service.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- not to store any part of the Service so users can access it after the withdrawal of the Service from the website ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'http://www.institut-acte.cnrs.fr/' },
+	              'www.institut-acte.cnrs.fr'
+	            ),
+	            '.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- allow at any time the display of the hyperlinks included in the content of the Service and allow for the successful redirection of these links to the corresponding pages on ',
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'http://www.institut-acte.cnrs.fr' },
+	              'www.institut-acte.cnrs.fr'
+	            ),
+	            '.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- clearly mention on his/her Website that the Service is provided by WikiCreation, is protected by copyright and belongs to Wikicreation. Unless otherwise authorized by WikiCreation, the User is not allowed, directly or indirectly, to:'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- modify, expand, translate, reproduce, publish, transmit, distribute or otherwise disseminate all or part of the Service, or delete or fail to display any promotional link included in the Service'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- insert new clickable hyperlinks, whatever their nature, in the content of the Service - sell, lease or transfer the Service and its contents in any way whatsoever - display on his/her Website the name, logo, trademark, or any other identifying information giving visitors the impression that this individual is the publisher, distributor or owner of the Service.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- delete, conceal or obliterate from the Service any mention of rights of property, credit or date, including, without any limitation whatsoever, the size, colour, location or style of the brands owned by WikiCreation.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- use the Service on any Website displaying any false, offensive, defamatory, racist and pornographic content, or content contrary to public order and morality, or on a Website promoting or providing products or services that are illegal or likely to cause damage or harm to third parties.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The User declares and guarantees WikiCreation that his/her brand(s) and/or the content of his/her Website, other than the Service, do not and will not infringe any trade or service marks, copyrights or other intellectual property rights owned by a third party, do not constitute misleading, deceptive or unfair advertising or disparagement under applicable laws, or do not fail to comply with the applicable legislation (including, for example, licensing requirements and administrative or professional rules).'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Violation of these provisions subjects the User and all individuals responsible to the applicable criminal and civil penalties provided for by French law.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '5- Responsibility of the User: The User assumes full responsibility for the selection and use of the Service, as well as the access to its content.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'WikiCreation assumes no liability for the User\u2019s activity in connection with the Service. Any fraudulent, misleading or otherwise illegal activity constitutes a breach of these General Terms & Conditions and grounds for termination of the Service. The User shall not conceal his/her identity, interfere or attempt to interfere with the proper operation of the Service. In case of use of the Service beyond the scope of the license granted in these General Terms & Conditions, attempted tampering, hacking, theft, use of robots or scripts, reproduction, distribution, modification, expanding any portion of the Service or inserting new clickable hyperlinks, WikiCreation may bring any action against the User in order to stop the infringement and obtain compensation for the damage caused. The User agrees to fully indemnify Wikicreation (including attorneys fees), to defend and exonerate WikiCreation of any liability for damage suffered by WikiCreation or by a third party, of any kind whatsoever, due to: - non-compliance by the User to one or more of the provisions in these General Terms & Conditions.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- any fraudulent use of the Service through the User\'s account by a third party, whether it has been authorized by the User or not.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '- the operation and content of the User\u2019s Website.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '6- WikiC\xA0reation disclaimer: Wikicreation strives, through an obligation of means, to ensure the reliability of the Service and the accuracy and updating of the information provided.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'WikiCreation reserves the right to modify at any time and without notice, the content on the www.wikicreation.fr\xA0website. The information provided on the website www.wikicreation.com is general in nature and are not necessarily exhaustive. They are not contractual and do not constitute legal advice. WikiCreation cannot be held responsible for the interpretation of this information, or the consequences of its use. WikiCreation disclaims any responsibility for the availability of the Service.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'WikiCreation does not guarantee uninterrupted operation of the Service. WikiCreation or any of its partners cannot be held responsible for direct or indirect damage that may result from errors, omissions or delays in the transmission of information. WikiCreation disclaims any liability for the fraudulent use of WikiCreation RSS feeds that could be made by third parties.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The User therefore acknowledges using the Service at his/her own risk.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '7- Duration:'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'The acceptance of these General Terms & Conditions by the User takes effect when the User installs WikiCreation RSS feeds. The User may terminate the license granted by destroying or removing from all hard drives, networks, servers and other storage media all copies of the Service.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'WikiCreation reserves the right to restrict and suspend the Service, temporarily or permanently, at any time, without first informing the User and without being held liable in any way whatsoever.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            '8 - Miscellaneous information:'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'These General Terms & Conditions are exclusively subject to French Legislation and Jurisdiction. Any action relating to these General Terms & Conditions will always be brought before the court of the competent jurisdiction of Paris.'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'WikiCreation is not responsible for the financial costs of establishing a connection (by any means whatsoever) to the website www.institut-acte.cnrs.fr, to the Service or another online service, or more generally, to the internet. All Parties mentioned in the General Terms & Conditions are independent contractors, and the provisions of these Terms & Conditions do not constitute a supplier contract, a joint venture, an agency, a franchise, sales representation or an employer/employee relationship between WikiCreation and the User. Nothing in these General Terms & Conditions shall have the effect of limiting or restricting the ability of WikiCreation to form a contract with any other individual providing identical services to those offered by the Website of the User or to provide similar services itself.'
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    title: store.messages.strings.legal.title
+	  };
+	};
+
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    setTitlebar: function setTitlebar(str) {
+	      return dispatch((0, _actions.setStdTitlebar)(str));
+	    }
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Legal);
+
+/***/ },
+/* 334 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _Author = __webpack_require__(335);
 
 	var _Author2 = _interopRequireDefault(_Author);
 
-	var _Header = __webpack_require__(333);
+	var _Header = __webpack_require__(337);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Menu = __webpack_require__(350);
+	var _Menu = __webpack_require__(354);
 
 	var _Menu2 = _interopRequireDefault(_Menu);
 
-	var _MenusBackground = __webpack_require__(355);
+	var _MenusBackground = __webpack_require__(359);
 
 	var _MenusBackground2 = _interopRequireDefault(_MenusBackground);
 
@@ -34429,7 +34969,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Main);
 
 /***/ },
-/* 331 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34440,9 +34980,9 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(275);
+	var _actions = __webpack_require__(276);
 
-	var _AuthorArticle = __webpack_require__(332);
+	var _AuthorArticle = __webpack_require__(336);
 
 	var _AuthorArticle2 = _interopRequireDefault(_AuthorArticle);
 
@@ -34539,7 +35079,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Author);
 
 /***/ },
-/* 332 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34550,11 +35090,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _DateStr = __webpack_require__(281);
+	var _DateStr = __webpack_require__(282);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
-	var _Link = __webpack_require__(298);
+	var _Link = __webpack_require__(299);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -34602,7 +35142,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorArticle);
 
 /***/ },
-/* 333 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34613,15 +35153,15 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _reactRouter = __webpack_require__(334);
+	var _reactRouter = __webpack_require__(338);
 
-	var _actions = __webpack_require__(328);
+	var _actions = __webpack_require__(331);
 
-	var _LanguageSwitch = __webpack_require__(327);
+	var _LanguageSwitch = __webpack_require__(330);
 
 	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
 
-	var _Titlebar = __webpack_require__(347);
+	var _Titlebar = __webpack_require__(351);
 
 	var _Titlebar2 = _interopRequireDefault(_Titlebar);
 
@@ -34653,7 +35193,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Header);
 
 /***/ },
-/* 334 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34670,7 +35210,7 @@
 	  }
 	});
 
-	var _PropTypes = __webpack_require__(299);
+	var _PropTypes = __webpack_require__(300);
 
 	Object.defineProperty(exports, 'locationShape', {
 	  enumerable: true,
@@ -34698,19 +35238,19 @@
 
 	var _Router3 = _interopRequireDefault(_Router2);
 
-	var _Link2 = __webpack_require__(298);
+	var _Link2 = __webpack_require__(299);
 
 	var _Link3 = _interopRequireDefault(_Link2);
 
-	var _IndexLink2 = __webpack_require__(335);
+	var _IndexLink2 = __webpack_require__(339);
 
 	var _IndexLink3 = _interopRequireDefault(_IndexLink2);
 
-	var _withRouter2 = __webpack_require__(336);
+	var _withRouter2 = __webpack_require__(340);
 
 	var _withRouter3 = _interopRequireDefault(_withRouter2);
 
-	var _IndexRedirect2 = __webpack_require__(337);
+	var _IndexRedirect2 = __webpack_require__(341);
 
 	var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
 
@@ -34718,11 +35258,11 @@
 
 	var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
 
-	var _Redirect2 = __webpack_require__(338);
+	var _Redirect2 = __webpack_require__(342);
 
 	var _Redirect3 = _interopRequireDefault(_Redirect2);
 
-	var _Route2 = __webpack_require__(339);
+	var _Route2 = __webpack_require__(343);
 
 	var _Route3 = _interopRequireDefault(_Route2);
 
@@ -34730,7 +35270,7 @@
 
 	var _RouterContext3 = _interopRequireDefault(_RouterContext2);
 
-	var _match2 = __webpack_require__(340);
+	var _match2 = __webpack_require__(344);
 
 	var _match3 = _interopRequireDefault(_match2);
 
@@ -34738,7 +35278,7 @@
 
 	var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
 
-	var _applyRouterMiddleware2 = __webpack_require__(343);
+	var _applyRouterMiddleware2 = __webpack_require__(347);
 
 	var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
 
@@ -34746,11 +35286,11 @@
 
 	var _browserHistory3 = _interopRequireDefault(_browserHistory2);
 
-	var _hashHistory2 = __webpack_require__(344);
+	var _hashHistory2 = __webpack_require__(348);
 
 	var _hashHistory3 = _interopRequireDefault(_hashHistory2);
 
-	var _createMemoryHistory2 = __webpack_require__(341);
+	var _createMemoryHistory2 = __webpack_require__(345);
 
 	var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
 
@@ -34783,7 +35323,7 @@
 	exports.createMemoryHistory = _createMemoryHistory3.default;
 
 /***/ },
-/* 335 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34796,7 +35336,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(298);
+	var _Link = __webpack_require__(299);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -34816,7 +35356,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 336 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -34841,7 +35381,7 @@
 
 	var _ContextUtils = __webpack_require__(248);
 
-	var _PropTypes = __webpack_require__(299);
+	var _PropTypes = __webpack_require__(300);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34894,7 +35434,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 337 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -34913,7 +35453,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _Redirect = __webpack_require__(338);
+	var _Redirect = __webpack_require__(342);
 
 	var _Redirect2 = _interopRequireDefault(_Redirect);
 
@@ -34964,7 +35504,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 338 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35073,7 +35613,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 339 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35137,7 +35677,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 340 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35152,7 +35692,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _createMemoryHistory = __webpack_require__(341);
+	var _createMemoryHistory = __webpack_require__(345);
 
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
@@ -35215,7 +35755,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 341 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35231,7 +35771,7 @@
 
 	var _useBasename2 = _interopRequireDefault(_useBasename);
 
-	var _createMemoryHistory = __webpack_require__(342);
+	var _createMemoryHistory = __webpack_require__(346);
 
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
@@ -35251,7 +35791,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 342 */
+/* 346 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35397,7 +35937,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 343 */
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35460,14 +36000,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 344 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _createHashHistory = __webpack_require__(345);
+	var _createHashHistory = __webpack_require__(349);
 
 	var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 
@@ -35481,7 +36021,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 345 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35502,7 +36042,7 @@
 
 	var _DOMUtils = __webpack_require__(258);
 
-	var _HashProtocol = __webpack_require__(346);
+	var _HashProtocol = __webpack_require__(350);
 
 	var HashProtocol = _interopRequireWildcard(_HashProtocol);
 
@@ -35634,7 +36174,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 346 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35776,7 +36316,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 347 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35789,11 +36329,11 @@
 
 	var _constants = __webpack_require__(221);
 
-	var _ArticleTitle = __webpack_require__(348);
+	var _ArticleTitle = __webpack_require__(352);
 
 	var _ArticleTitle2 = _interopRequireDefault(_ArticleTitle);
 
-	var _StandardTitle = __webpack_require__(349);
+	var _StandardTitle = __webpack_require__(353);
 
 	var _StandardTitle2 = _interopRequireDefault(_StandardTitle);
 
@@ -35831,7 +36371,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Titlebar);
 
 /***/ },
-/* 348 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35842,7 +36382,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _DateStr = __webpack_require__(281);
+	var _DateStr = __webpack_require__(282);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
@@ -35887,7 +36427,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ArticleTitle);
 
 /***/ },
-/* 349 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35913,7 +36453,7 @@
 	module.exports = StandardTitle;
 
 /***/ },
-/* 350 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35922,21 +36462,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(298);
+	var _Link = __webpack_require__(299);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
-	var _IndexLink = __webpack_require__(335);
+	var _IndexLink = __webpack_require__(339);
 
 	var _IndexLink2 = _interopRequireDefault(_IndexLink);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _NavMenu = __webpack_require__(351);
+	var _NavMenu = __webpack_require__(355);
 
 	var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
-	var _NewsMenu = __webpack_require__(353);
+	var _NewsMenu = __webpack_require__(357);
 
 	var _NewsMenu2 = _interopRequireDefault(_NewsMenu);
 
@@ -35962,7 +36502,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Menu);
 
 /***/ },
-/* 351 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35971,19 +36511,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(298);
+	var _Link = __webpack_require__(299);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(328);
+	var _actions = __webpack_require__(331);
 
-	var _LanguageSwitch = __webpack_require__(327);
+	var _LanguageSwitch = __webpack_require__(330);
 
 	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
 
-	var _Search = __webpack_require__(352);
+	var _Search = __webpack_require__(356);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -36047,7 +36587,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NavMenu);
 
 /***/ },
-/* 352 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36062,9 +36602,9 @@
 
 	var _browserHistory2 = _interopRequireDefault(_browserHistory);
 
-	var _actions = __webpack_require__(285);
+	var _actions = __webpack_require__(286);
 
-	var _actions2 = __webpack_require__(328);
+	var _actions2 = __webpack_require__(331);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36117,7 +36657,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Search);
 
 /***/ },
-/* 353 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36126,15 +36666,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(298);
+	var _Link = __webpack_require__(299);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(328);
+	var _actions = __webpack_require__(331);
 
-	var _async = __webpack_require__(354);
+	var _async = __webpack_require__(358);
 
 	var async = _interopRequireWildcard(_async);
 
@@ -36213,7 +36753,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NewsMenu);
 
 /***/ },
-/* 354 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36223,9 +36763,9 @@
 	});
 	exports.getNews = getNews;
 
-	var _actions = __webpack_require__(328);
+	var _actions = __webpack_require__(331);
 
-	var _httpRequestHelper = __webpack_require__(276);
+	var _httpRequestHelper = __webpack_require__(277);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -36249,7 +36789,7 @@
 	};
 
 /***/ },
-/* 355 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36260,9 +36800,9 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(328);
+	var _actions = __webpack_require__(331);
 
-	var _actions2 = __webpack_require__(275);
+	var _actions2 = __webpack_require__(276);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

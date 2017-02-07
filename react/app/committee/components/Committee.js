@@ -1,34 +1,37 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import ContactAside from './ContactAside';
-import ContactContent from './ContactContent';
 import {setStdTitlebar} from '../../header/actions';
+import CommitteeAside from './CommitteeAside';
+import CommitteeContent from './CommitteeContent';
 
-const Contact = React.createClass({
+const Committee = React.createClass({
   propTypes : {
     title : React.PropTypes.string.isRequired
   },
   componentWillMount : function () {
-    this.props.setTitlebar(this.props.title);
+    this.updateTitlebar(this.props);
   },
   componentWillUpdate : function (nextProps) {
-    this.props.setTitlebar(nextProps.title);
+    this.updateTitlebar(nextProps);
+  },
+  updateTitlebar : function (props) {
+    this.props.setTitlebar(props.title);
   },
   render: () => (
     <main id="main-container">
-      <ContactAside />
-      <ContactContent />
+      <CommitteeAside />
+      <CommitteeContent />
     </main>
   )
 });
 
 const mapStateToProps = (store) => ({
-  title : store.messages.strings.contact.main.title
+  title : store.messages.strings.committee.main.title
 });
 
 const mapDispatchToProps = (dispatch) => ({
   setTitlebar: (str) => dispatch(setStdTitlebar(str))
 });
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Contact);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Committee);

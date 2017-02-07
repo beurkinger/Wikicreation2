@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {setStdTitlebar} from '../../header/actions';
+import AboutAside from './AboutAside';
+import AboutContent from './AboutContent';
 
 const About = React.createClass({
   propTypes : {
@@ -18,30 +20,8 @@ const About = React.createClass({
   },
   render: () => (
     <main id="main-container">
-      <aside id="main-aside">
-        <div className="info">
-          <h2 className="info-title">
-            Présentation de la publication
-          </h2>
-        </div>
-        <div className="info">
-          <h2 className="info-title">
-            Un projet éditorial relationnel
-          </h2>
-        </div>
-        <div className="info">
-          <h2 className="info-title">
-            Editeur
-          </h2>
-        </div>
-      </aside>
-      <div id="main-content">
-        <article id="about-main">
-          <div id="about-body">
-            yolo
-          </div>
-        </article>
-      </div>
+      <AboutAside />
+      <AboutContent />
     </main>
   )
 });

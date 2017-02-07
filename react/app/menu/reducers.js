@@ -12,7 +12,7 @@ const initMenu = {
   secondaryLinks : [
     { name :  'committee', path : '/committee' },
     { name :  'creditsAndContacts', path : '/credits-and-contact' },
-    { name :  'legalNotice', path : '/legal' },
+    { name :  'legalNotices', path : '/legal-notices' },
   ]
 };
 const menuReducer = function(state = initMenu, action) {

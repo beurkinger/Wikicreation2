@@ -417,7 +417,7 @@ html, body, #root, #app
 /*---Main Container---*/
 #main-container
 {
-  position: absolute; top: 0; left: 0;
+  position: fixed; top: 0; left: 0;
   width: 100%; height: 100%;
   overflow: hidden;
 }
@@ -428,7 +428,7 @@ html, body, #root, #app
   z-index: 10;
   display: block;
   box-sizing: border-box;
-  position: absolute; top: 0; left: 0;
+  position: fixed; top: 0; left: 0;
   width: 360px; height: 100%;
   padding: 120px 45px 0 70px;
   background-color: #F5F5F5;
@@ -623,16 +623,23 @@ html, body, #root, #app
 #main-aside .nav-link
 {
   display: block;
-  margin: 10px 0;
+  margin: 30px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #242D5C;
   font-family: Montserrat; color: #242D5C; font-size: 15px; font-weight: normal;
-  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#main-aside .nav-link:hover, #main-aside .nav-link:active
+{
+  font-weight: bold;
 }
 
 /*---Main content---*/
 #main-content
 {
   box-sizing: border-box;
-  position: absolute; top: 100px; left: 360px;
+  position: fixed; top: 100px; left: 360px;
   height: 100%; width: 100%;
   padding: 54px 360px 200px 0;
   overflow-y: auto;
@@ -641,17 +648,17 @@ html, body, #root, #app
 #main-content.full-size
 {
   left : 0 !important;
-  padding-right: !important;
+  padding-right: 0 !important;
   /*width: 100% !important;*/
 }
 
 /*---Main article---*/
-#article-main, #about-main, #contact-main
+#article-main, #about-main, #contact-main, #legal-main, #committee-main
 {
   display: block;
   margin: 0px 150px;
-  max-width: 640px;
-  font-family: Muli; color: #484848; font-size: 16px; font-weight: 200;
+  min-width: 340px; max-width: 640px;
+  font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
 }
 
 #article-main .article-infos
@@ -682,18 +689,19 @@ html, body, #root, #app
   margin: 42px 0 46px 0;
 }
 
-#article-body, #about-body, #contact-body
+#article-body
 {}
 
 
-#article-body p, #article-footer p
+#article-main p, #about-main p, #legal-main p, #committee-main p
 {
-  margin: 22px 0;
+  margin-bottom: 22px;
 }
 
-#article-body h3, #article-footer h3
+#article-main h3,  #about-main h3, #legal-main h3
 {
   font-family: Muli; color: #484848; font-size: 18px; font-weight: bold;
+  margin-bottom: 22px;
 }
 
 /*---Articles--*/
@@ -1016,14 +1024,29 @@ html, body, #root, #app
 
 #error-main .error-message
 {
+  width: 220px;
   font-family: Muli; color: #484848; font-size: 16px; font-weight: 200;
-  line-height: 110%;
+  line-height: 120%;
 }
 
 #error-main .error-button
 {
   position: absolute;
   bottom: 0;
+}
+
+/*---Committee---*/
+#committee-main
+{}
+
+#committee-main h3
+{
+  margin-bottom: 42px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #FF6666;
+  font-family: Muli; color: #FF6666; font-size: 15px; font-weight: 200;
+  text-decoration: none;
+  width: 200px;
 }
 
 /*---Graph---*/
@@ -1038,7 +1061,7 @@ html, body, #root, #app
   width: 100%; height: 100%;
 }
 
-/*---Header---*/
+/*---Preview---*/
 #article-preview
 {
   z-index: 90;
@@ -1235,7 +1258,7 @@ html, body, #root, #app
 .btn.btn-plane
 {
   padding-right: 30px;
-  background: transparent url('/img/plane-red.png');
+  background: transparent url('/img/plane-blue.png');
   background-size: 17px auto;
   background-repeat: no-repeat;
   background-position: 126px center;
@@ -1247,6 +1270,7 @@ html, body, #root, #app
 }
 
 /*---Contact--*/
+
 #contact-main .ms-logo {
   width: 105px; height: 105px;
   background: url('/img/ms-logo.png');
@@ -1271,6 +1295,11 @@ html, body, #root, #app
   text-transform: uppercase;
 }
 
+#contact-main p {
+  line-height: 15 0%;
+}
+
+
 #contact-form
 {
   margin-top: 64px;
@@ -1278,20 +1307,46 @@ html, body, #root, #app
 
 #contact-form input[type=text]
 {
-  display: block;
-  box-sizing: border-box;
-  width: 240px; height: 40px;
+  display: block; box-sizing: border-box;
+  float: left;
+  width: 48%; height: 42px;
   border: 1px solid #CCC;
-  padding-left : 10px;
+  padding : 0 15px;
   margin-bottom: 30px;
-  font-family: Muli; font-size: 15px; color: #CCC; font-weight: 200;
+  font-family: Muli; font-size: 15px; color: #AAA; font-weight: 200;
 }
 
-#contact-form textarea
+#contact-form input[type=text] + input[type=text]
+{
+  margin-left: 4%;
+}
+
+#contact-form .btn
 {
   float: right;
 }
 
+#contact-form textarea
+{
+  display: block; box-sizing: border-box;
+  width: 100%; height: 236px;
+  border: 1px solid #CCC;
+  padding: 25px 30px;
+  font-family: Muli; font-size: 15px; color: #BBB; font-weight: 200;
+  margin-bottom: 24px;
+}
+
+/*---Legal notices--*/
+#legal-main
+{
+  margin: 0 auto;
+}
+
+/*---About--*/
+#about-main .btn
+{
+  margin: 50px auto 0 auto;
+}
 
 /*---Loading--*/
 .page-loading

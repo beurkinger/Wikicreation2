@@ -51,7 +51,7 @@ messages[APP_LOCALES.FR] = {
       contribute : 'Contribuer',
       committee : 'Comité',
       creditsAndContacts : 'Crédits et contact',
-      legalNotice : 'Mentions légales',
+      legalNotices : 'Mentions légales',
     },
     newsMenu : {
       readArticle : "Lire l'article",
@@ -65,6 +65,21 @@ messages[APP_LOCALES.FR] = {
     main : {
       title : 'Crédits et contact'
     }
+  },
+  committee : {
+    main : {
+      title : 'Comité'
+    }
+  },
+  legal : {
+    title : 'Mentions légales'
+  },
+  error : {
+    title : 'Erreur',
+    number : '404',
+    sorry : 'Nous sommes désolés',
+    notFound : 'La page que vous cherchez n’est pas disponible',
+    goBack : 'Revenir au site'
   }
 };
 
@@ -117,7 +132,7 @@ messages[APP_LOCALES.EN] = {
       contribute : 'Contribute',
       committee : 'Committee',
       creditsAndContacts : 'Credits and contact',
-      legalNotice : 'Legal Notice',
+      legalNotices : 'Legal Notices',
     },
     newsMenu : {
       readArticle : "Read the article",
@@ -131,6 +146,21 @@ messages[APP_LOCALES.EN] = {
     main : {
       title : 'Credits and contact'
     }
+  },
+  committee : {
+    main : {
+      title : 'Comité'
+    }
+  },
+  legal : {
+    title : 'Legal notices'
+  },
+  error : {
+    title : 'Error',
+    number : '404',
+    sorry : 'We are sorry',
+    notFound : 'The page you are looking for cannot be found',
+    goBack : 'Go back'
   }
 };
 
