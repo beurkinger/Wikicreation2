@@ -698,7 +698,7 @@ html, body, #root, #app
   margin-bottom: 22px;
 }
 
-#article-main h3,  #about-main h3, #legal-main h3
+#article-main h3,  #legal-main h3
 {
   font-family: Muli; color: #484848; font-size: 18px; font-weight: bold;
   margin-bottom: 22px;
@@ -1037,17 +1037,56 @@ html, body, #root, #app
 
 /*---Committee---*/
 #committee-main
-{}
-
-#committee-main h3
 {
-  margin-bottom: 42px;
-  padding-bottom: 8px;
+  margin: 0 0 0 52px;
+  max-width: 960px;
+}
+
+#committee-main h3, #about-main h3, #legal-main h3
+{
+  margin-bottom: 42px; padding-bottom: 8px;
   border-bottom: 1px solid #FF6666;
+  width: 300px;
   font-family: Muli; color: #FF6666; font-size: 15px; font-weight: 200;
   text-decoration: none;
-  width: 200px;
 }
+
+#committee-main .members-full {
+  margin-bottom: 10px;
+}
+
+#committee-main .member-full {
+  display: inline-block;
+  width: 260px; height: 120px;
+  margin: 0 60px 30px 0;
+  overflow: hidden;
+}
+
+#committee-main .members-full.small .member-full  {
+  height: 70px;
+}
+
+#committee-main .member-full .name {
+  font: normal 15px Montserrat; color: #242D5C;
+}
+
+#committee-main .member-full .desc{}
+
+#committee-main .members
+{
+  column-count: 3;
+  column-gap: 100px;
+  list-style: none;
+  margin: 0 52px 52px 0;
+}
+
+#committee-main .members li
+{
+  display: block;
+  font: normal 15px Montserrat; color: #242D5C;
+  line-height: 300%;
+}
+
 
 /*---Graph---*/
 #graph
@@ -1342,10 +1381,20 @@ html, body, #root, #app
   margin: 0 auto;
 }
 
+#legal-main h3
+{
+  margin-bottom: 22px;
+}
+
 /*---About--*/
 #about-main .btn
 {
   margin: 50px auto 0 auto;
+}
+
+#about-main h3
+{
+  margin-bottom: 22px;
 }
 
 /*---Loading--*/

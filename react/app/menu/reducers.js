@@ -10,7 +10,7 @@ const initMenu = {
     { name :  'contribute', path : '/contribute' }
   ],
   secondaryLinks : [
-    { name :  'committee', path : '/committee' },
+    { name :  'committee', path : '/committees' },
     { name :  'creditsAndContacts', path : '/credits-and-contact' },
     { name :  'legalNotices', path : '/legal-notices' },
   ]

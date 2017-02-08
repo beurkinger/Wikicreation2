@@ -1,0 +1,75 @@
+{
+  "language" : "fr",
+  "editorial" : [
+    {
+      "name" : "Richard Conte",
+      "desc" : "Directeur de la publication. Artiste et Professeur des Universités en Arts et Sciences de l’Art à l’Université Paris 1 UMR ACTE 8218."
+    },
+    {
+      "name" : "Bernard Darras",
+      "desc" : "Responsable éditorial et rédacteur en chef. Professeur des Universités en Sémiotique à l’Université Paris 1 UMR ACTE 8218."
+    },
+    {
+      "name" : "Christophe Génin",
+      "desc" : "Professeur de philosophie de l’art et d’études culturelles à Paris 1 Panthéon-Sorbonne."
+    }
+  ],
+  "reading" : [
+    "Elisabeth Amblard",
+    "Jan Baetens",
+    "Dominique Berthet",
+    "Marlène Biton",
+    "Karen Brunel-Lafargue",
+    "Cristina Castellano",
+    "Yichien Cooper",
+    "Agnès Foiret-Collet",
+    "Barbara Formis",
+    "Pierre-Henry Frangne",
+    "Karen O’Rourke",
+    "Hélène Sirven",
+    "Apolline Torregrosa",
+    "Stéphane Vial",
+    "Patricia Villeneuve",
+    "Fernando Zalamea"
+  ],
+  "scientific" : [
+    { "name" : "Imanol Aguirre Arriaga", "desc" : "Universidad Publica de Navarra, España"},
+    { "name" : "Jan Baetens", "desc" : "Université de Leuven, Belgique"},
+    { "name" : "Ana Mae Barbosa", "desc" : "USP, Sao Paulo, Brasil"},
+    { "name" : "Anne Beyaert", "desc" : "Université de Bordeaux 3, France"},
+    { "name" : "Dominique Berthet", "desc" : "Université des Antilles et de Guyanne, France"},
+    { "name" : "Bernhard Bürdek", "desc" : "HfG Offenbach, Deutschland"},
+    { "name" : "Agnès Callu", "desc" : "Conservateur du patrimoine au Musée des arts décoratifs, France"},
+    { "name" : "Dominique Chateau", "desc" : "Université Paris 1 Panthéon-Sorbonne, France"},
+    { "name" : "Solange Coutinho", "desc" : "UFP Recife, Brasil"},
+    { "name" : "Rejane Coutinho", "desc" : "UNESP Sao Paulo, Brasil"},
+    { "name" : "Philippe Dagen", "desc" : "Université Paris 1 Panthéon-Sorbonne, France"},
+    { "name" : "Filippo Fimiani", "desc" : "Università di Salerno, Italia"},
+    { "name" : "Alain Findeli", "desc" : "Université de Nîmes, France"},
+    { "name" : "Geneviève Fraisse", "desc" : "CNRS, France"},
+    { "name" : "Pierre-Henry Frangne", "desc" : "Université de Rennes 2, France"},
+    { "name" : "Nathalie Heinich", "desc" : "EHESS, France"},
+    { "name" : "Norbert Hillaire", "desc" : "Université de Nice, France"},
+    { "name" : "Marc Jimenez", "desc" : "Université Paris 1 Panthéon-Sorbonne, France" },
+    { "name" : "Andrea Kárpáti", "desc" : "Eötvös Loránd University, Hungaria" },
+    { "name" : "Derrick de Kerckhove", "desc" : "Federico II de Naple" },
+    { "name" : "Olga Kisseleva", "desc" : "Université Paris 1 Panthéon-Sorbonne, France" },
+    { "name" : "Anna Kindler", "desc" : "University of British Columbia, Canada" },
+    { "name" : "Jacinto Lageira", "desc" : "Université Paris 1 Panthéon-Sorbonne, France" },
+    { "name" : "Sandra Laugier", "desc" : "Université Paris 1 Panthéon-Sorbonne, France" },
+    { "name" : "Martin Lefebvre", "desc" : "Université Concordia, Canada" },
+    { "name" : "Thierry Lenain", "desc" : "Université Libre de Bruxelles, Belgique" },
+    { "name" : "Rachel Mason", "desc" : "University of Roehampton, London, UK" },
+    { "name" : "Marianne Massin", "desc" : "Université de Lille 3, France" },
+    { "name" : "Stéphane Natkin", "desc" : "CNAM, France" },
+    { "name" : "Françoise Parfait", "desc" : "Université Paris 1 Panthéon-Sorbonne, France" },
+    { "name" : "David Pariser", "desc" : "Université Concordia, Canada" },
+    { "name" : "Michael Parsons", "desc" : "University of Illinois, USA" },
+    { "name" : "Bruno Péquignot", "desc" : "Université Sorbonne Nouvelle, France" },
+    { "name" : "Jean-Marie Schaeffer", "desc" : "Université Paris 1 Panthéon-Sorbonne, France" },
+    { "name" : "Rachida Triki", "desc" : "Université de Tunis, Tunisie" },
+    { "name" : "Patricia Villeneuve", "desc" : "Florida State University, USA" },
+    { "name" : "Stéphane Vial", "desc" : "Université de Nîmes, France" },
+    { "name" : "Christophe Viart", "desc" : "Université de Rennes 2, France" }
+  ]
+}

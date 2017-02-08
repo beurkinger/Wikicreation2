@@ -8,7 +8,7 @@ import About from './about/components/About';
 import Article from './article/components/Article';
 import Articles from './articles/components/Articles';
 import Authors from './authors/components/Authors';
-import Committee from './committee/components/Committee';
+import Committees from './committees/components/Committees';
 import Contact from './contact/components/Contact';
 import Contribute from './contribute/components/Contribute';
 import Error from './error/components/Error';
@@ -26,7 +26,7 @@ const Routing = React.createClass({
         <Route path="/articles/:id" component={Article}/>
         <Route path="/authors(/:id)" component={Authors}/>
         <Route path="/contribute" component={Contribute}/>
-        <Route path="/committee" component={Committee}/>
+        <Route path="/committees" component={Committees}/>
         <Route path="/credits-and-contact" component={Contact}/>
         <Route path="/legal-notices" component={Legal}/>
         <Route path="*" component={Error} />

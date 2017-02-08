@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CommitteeAside = React.createClass({
+const CommitteesAside = React.createClass({
   render: () => (
     <aside id="main-aside">
         <a className="nav-link"  href="#editorial">
@@ -16,4 +16,4 @@ const CommitteeAside = React.createClass({
   )
 });
 
-module.exports = CommitteeAside;
+module.exports = CommitteesAside;

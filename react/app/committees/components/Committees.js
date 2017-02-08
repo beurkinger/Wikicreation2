@@ -1,15 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import {getCommittees} from '../async';
 import {setStdTitlebar} from '../../header/actions';
-import CommitteeAside from './CommitteeAside';
-import CommitteeContent from './CommitteeContent';
+import CommitteesAside from './CommitteesAside';
+import CommitteesContent from './CommitteesContent';
 
-const Committee = React.createClass({
+const Committees = React.createClass({
   propTypes : {
     title : React.PropTypes.string.isRequired
   },
   componentWillMount : function () {
+    getCommittees();
     this.updateTitlebar(this.props);
   },
   componentWillUpdate : function (nextProps) {
@@ -20,8 +22,8 @@ const Committee = React.createClass({
   },
   render: () => (
     <main id="main-container">
-      <CommitteeAside />
-      <CommitteeContent />
+      <CommitteesAside />
+      <CommitteesContent />
     </main>
   )
 });
@@ -34,4 +36,4 @@ const mapDispatchToProps = (dispatch) => ({
   setTitlebar: (str) => dispatch(setStdTitlebar(str))
 });
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Committee);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(Committees);
