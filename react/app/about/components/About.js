@@ -10,13 +10,10 @@ const About = React.createClass({
     title : React.PropTypes.string.isRequired
   },
   componentWillMount : function () {
-    this.updateTitlebar(this.props);
+    this.props.setTitlebar(this.props.title);
   },
   componentWillUpdate : function (nextProps) {
-    this.updateTitlebar(nextProps);
-  },
-  updateTitlebar : function (props) {
-    this.props.setTitlebar(props.title);
+    this.props.setTitlebar(nextProps.title);
   },
   render: () => (
     <main id="main-container">
