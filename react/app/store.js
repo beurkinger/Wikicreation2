@@ -4,7 +4,6 @@ import articleReducers from './article/reducers';
 import articlesReducers from './articles/reducers';
 import authorReducers from './author/reducers';
 import authorsReducers from './authors/reducers';
-import committeesReducers from './committees/reducers';
 import headerReducers from './header/reducers';
 import menusBackgroundReducers from './main/reducers';
 import menuReducers from './menu/reducers';
@@ -27,7 +26,6 @@ const reducers = mergeObjects([
   articlesReducers,
   authorReducers,
   authorsReducers,
-  committeesReducers,
   headerReducers,
   menuReducers,
   menusBackgroundReducers,

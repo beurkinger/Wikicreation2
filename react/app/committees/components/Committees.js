@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getCommittees} from '../async';
 import {setStdTitlebar} from '../../header/actions';
 import CommitteesAside from './CommitteesAside';
 import CommitteesContent from './CommitteesContent';
@@ -11,7 +10,6 @@ const Committees = React.createClass({
     title : React.PropTypes.string.isRequired
   },
   componentWillMount : function () {
-    getCommittees();
     this.updateTitlebar(this.props);
   },
   componentWillUpdate : function (nextProps) {

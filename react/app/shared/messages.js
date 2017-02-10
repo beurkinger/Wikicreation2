@@ -6,6 +6,14 @@ messages[APP_LOCALES.FR] = {
   about : {
     main : {
       title : 'À Propos'
+    },
+    aside : {
+      presentation : 'Présentation de la publication',
+      editorialProject : 'Un projet éditorial relationnel',
+      editor : 'Editeur'
+    },
+    content : {
+      becomeAuthor : 'Devenir auteur'
     }
   },
   article : {
@@ -25,12 +33,6 @@ messages[APP_LOCALES.FR] = {
       title : 'Articles'
     },
   },
-  filter : {
-    writeToFilter : 'Ecrire pour filtrer',
-    filterBy : 'Filtrer par',
-    languages : 'Langues',
-    themes : 'Thèmes'
-  },
   author : {
     main : {
       articles : 'Articles'
@@ -41,6 +43,51 @@ messages[APP_LOCALES.FR] = {
       title : 'Auteurs'
     }
   },
+  contact : {
+    main : {
+      title : 'Crédits et contact'
+    },
+    aside : {
+      credits : 'Crédits',
+      contact : 'Contact'
+    },
+    content : {
+      director : 'Directeur de projet',
+      manager : 'Chef de projet',
+      artistic : 'Directeurs artistiques',
+      ux : 'UX Designers',
+      developers : 'Développeurs'
+    },
+    form : {
+      name : 'Nom',
+      mail : 'Mail',
+      message : 'Message',
+      send : 'Envoyer'
+    }
+  },
+  committee : {
+    main : {
+      title : 'Comités'
+    },
+    aside : {
+      editorial : 'Comité de rédaction',
+      reading : 'Comité de lecture',
+      scientific : 'Comité scientifique'
+    }
+  },
+  error : {
+    title : 'Erreur',
+    number : '404',
+    sorry : 'Nous sommes désolés',
+    notFound : 'La page que vous cherchez n’est pas disponible',
+    goBack : 'Revenir au site'
+  },
+  filter : {
+    writeToFilter : 'Ecrire pour filtrer',
+    filterBy : 'Filtrer par',
+    languages : 'Langues',
+    themes : 'Thèmes'
+  },
   menu : {
     navMenu : {
       search : 'Rechercher',
@@ -49,7 +96,7 @@ messages[APP_LOCALES.FR] = {
       articles : 'Articles',
       authors : 'Auteurs',
       contribute : 'Contribuer',
-      committee : 'Comité',
+      committee : 'Comités',
       creditsAndContacts : 'Crédits et contact',
       legalNotices : 'Mentions légales',
     },
@@ -58,28 +105,11 @@ messages[APP_LOCALES.FR] = {
       newArticles : "Récemment parus"
     }
   },
-  preview : {
-    readArticle : "Lire l'article",
-  },
-  contact : {
-    main : {
-      title : 'Crédits et contact'
-    }
-  },
-  committee : {
-    main : {
-      title : 'Comité'
-    }
-  },
   legal : {
     title : 'Mentions légales'
   },
-  error : {
-    title : 'Erreur',
-    number : '404',
-    sorry : 'Nous sommes désolés',
-    notFound : 'La page que vous cherchez n’est pas disponible',
-    goBack : 'Revenir au site'
+  preview : {
+    readArticle : "Lire l'article",
   }
 };
 
@@ -87,6 +117,14 @@ messages[APP_LOCALES.EN] = {
   about : {
     main : {
       title : 'About'
+    },
+    aside : {
+      presentation : 'Presentation of the publication',
+      editorialProject : 'The editorial relational project',
+      editor : 'Editor'
+    },
+    content : {
+      becomeAuthor : 'Become author'
     }
   },
   article : {
@@ -106,12 +144,6 @@ messages[APP_LOCALES.EN] = {
       title : 'Articles'
     }
   },
-  filter : {
-    writeToFilter : 'Write to filter',
-    filterBy : 'Filter by',
-    languages : 'Languages',
-    themes : 'Themes'
-  },
   author : {
     main : {
       articles : 'Articles'
@@ -122,6 +154,54 @@ messages[APP_LOCALES.EN] = {
       title : 'Authors'
     }
   },
+  committee : {
+    main : {
+      title : 'Committees'
+    },
+    aside : {
+      editorial : 'Editorial Committee',
+      reading : 'Reading Committee',
+      scientific : 'Scientific Committee'
+    }
+  },
+  contact : {
+    main : {
+      title : 'Credits and contact'
+    },
+    aside : {
+      credits : 'Credits',
+      contact : 'Contact'
+    },
+    content : {
+      director : 'Project Director',
+      manager : 'Project Manager',
+      artistic : 'Artistic Directors',
+      ux : 'UX Designers',
+      developers : 'Developers'
+    },
+    form : {
+      name : 'Name',
+      mail : 'Email',
+      message : 'Message',
+      send : 'Send'
+    }
+  },
+  error : {
+    title : 'Error',
+    number : '404',
+    sorry : 'We are sorry',
+    notFound : 'The page you are looking for cannot be found',
+    goBack : 'Go back'
+  },
+  filter : {
+    writeToFilter : 'Write to filter',
+    filterBy : 'Filter by',
+    languages : 'Languages',
+    themes : 'Themes'
+  },
+  legal : {
+    title : 'Legal notices'
+  },
   menu : {
     navMenu : {
       search : 'Search',
@@ -130,7 +210,7 @@ messages[APP_LOCALES.EN] = {
       articles : 'Articles',
       authors : 'Authors',
       contribute : 'Contribute',
-      committee : 'Committee',
+      committee : 'Committees',
       creditsAndContacts : 'Credits and contact',
       legalNotices : 'Legal Notices',
     },
@@ -141,26 +221,6 @@ messages[APP_LOCALES.EN] = {
   },
   preview : {
     readArticle : "Read the article",
-  },
-  contact : {
-    main : {
-      title : 'Credits and contact'
-    }
-  },
-  committee : {
-    main : {
-      title : 'Comité'
-    }
-  },
-  legal : {
-    title : 'Legal notices'
-  },
-  error : {
-    title : 'Error',
-    number : '404',
-    sorry : 'We are sorry',
-    notFound : 'The page you are looking for cannot be found',
-    goBack : 'Go back'
   }
 };
 

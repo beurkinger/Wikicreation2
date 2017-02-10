@@ -21,7 +21,7 @@ const authorReducer = function(state = initAuthor, action) {
         isFetching : false,
         isDone : true,
         id : action.id,
-        language : '',
+        language : action.language,
         name : action.name,
         title : action.title,
         school : action.school,

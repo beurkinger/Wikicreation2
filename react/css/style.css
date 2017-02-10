@@ -655,9 +655,10 @@ html, body, #root, #app
 /*---Main article---*/
 #article-main, #about-main, #contact-main, #legal-main, #committee-main
 {
+  box-sizing: border-box;
   display: block;
-  margin: 0px 150px;
-  min-width: 340px; max-width: 640px;
+  padding: 0px 150px;
+  min-width: 640px; max-width: 960px;
   font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
 }
 
@@ -1038,8 +1039,8 @@ html, body, #root, #app
 /*---Committee---*/
 #committee-main
 {
-  margin: 0 0 0 52px;
-  max-width: 960px;
+  padding: 0 0 0 50px;
+  max-width: 1010px;
 }
 
 #committee-main h3, #about-main h3, #legal-main h3
@@ -1051,33 +1052,46 @@ html, body, #root, #app
   text-decoration: none;
 }
 
-#committee-main .members-full {
+#committee-main .members-full
+{
   margin-bottom: 10px;
 }
 
-#committee-main .member-full {
+#committee-main .member-full
+{
   display: inline-block;
   width: 260px; height: 120px;
   margin: 0 60px 30px 0;
   overflow: hidden;
 }
 
-#committee-main .members-full.small .member-full  {
+#committee-main .members-full.small .member-full
+{
   height: 70px;
 }
 
-#committee-main .member-full .name {
+#committee-main .member-full .name
+{
   font: normal 15px Montserrat; color: #242D5C;
 }
 
-#committee-main .member-full .desc{}
+#committee-main .member-full .desc
+{
+  margin:0;
+}
+
+.committee-desc
+{
+  max-width: 960px;
+  margin-right: 50px;
+}
 
 #committee-main .members
 {
   column-count: 3;
   column-gap: 100px;
   list-style: none;
-  margin: 0 52px 52px 0;
+  margin: 0 50px 50px 0;
 }
 
 #committee-main .members li
@@ -1379,6 +1393,7 @@ html, body, #root, #app
 #legal-main
 {
   margin: 0 auto;
+  padding: 0;
 }
 
 #legal-main h3

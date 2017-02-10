@@ -1,14 +1,22 @@
 import {categoriesRequest, categoriesSuccess, categoriesFail} from './actions';
 import httpRequestHelper from '../shared/helpers/httpRequestHelper';
+import QueryHelper from '../shared/helpers/QueryHelper';
 import store from '../store';
 
 export function getCategories (id) {
+
+  const baseUrl = '/json/categories.json';
+  let locale = store.getState().messages.locale;
   var storeCategories = store.getState().categories;
-  if (storeCategories.isFetching || storeCategories.isDone) return;
+
+  if (storeCategories.language === locale && (storeCategories.isFetching || storeCategories.isDone)) return;
 
   store.dispatch(categoriesRequest());
 
-  httpRequestHelper('/json/categories.json',
+  let queryHelper = new QueryHelper(baseUrl);
+  queryHelper.addString('language', locale);
+
+  httpRequestHelper(queryHelper.getUrl(),
     response => store.dispatch(categoriesSuccess(response)),
     error => store.dispatch(categoriesFail(error))
   );

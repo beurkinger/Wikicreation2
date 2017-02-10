@@ -24563,6 +24563,14 @@
 	  about: {
 	    main: {
 	      title: 'À Propos'
+	    },
+	    aside: {
+	      presentation: 'Présentation de la publication',
+	      editorialProject: 'Un projet éditorial relationnel',
+	      editor: 'Editeur'
+	    },
+	    content: {
+	      becomeAuthor: 'Devenir auteur'
 	    }
 	  },
 	  article: {
@@ -24582,12 +24590,6 @@
 	      title: 'Articles'
 	    }
 	  },
-	  filter: {
-	    writeToFilter: 'Ecrire pour filtrer',
-	    filterBy: 'Filtrer par',
-	    languages: 'Langues',
-	    themes: 'Thèmes'
-	  },
 	  author: {
 	    main: {
 	      articles: 'Articles'
@@ -24598,6 +24600,51 @@
 	      title: 'Auteurs'
 	    }
 	  },
+	  contact: {
+	    main: {
+	      title: 'Crédits et contact'
+	    },
+	    aside: {
+	      credits: 'Crédits',
+	      contact: 'Contact'
+	    },
+	    content: {
+	      director: 'Directeur de projet',
+	      manager: 'Chef de projet',
+	      artistic: 'Directeurs artistiques',
+	      ux: 'UX Designers',
+	      developers: 'Développeurs'
+	    },
+	    form: {
+	      name: 'Nom',
+	      mail: 'Mail',
+	      message: 'Message',
+	      send: 'Envoyer'
+	    }
+	  },
+	  committee: {
+	    main: {
+	      title: 'Comités'
+	    },
+	    aside: {
+	      editorial: 'Comité de rédaction',
+	      reading: 'Comité de lecture',
+	      scientific: 'Comité scientifique'
+	    }
+	  },
+	  error: {
+	    title: 'Erreur',
+	    number: '404',
+	    sorry: 'Nous sommes désolés',
+	    notFound: 'La page que vous cherchez n’est pas disponible',
+	    goBack: 'Revenir au site'
+	  },
+	  filter: {
+	    writeToFilter: 'Ecrire pour filtrer',
+	    filterBy: 'Filtrer par',
+	    languages: 'Langues',
+	    themes: 'Thèmes'
+	  },
 	  menu: {
 	    navMenu: {
 	      search: 'Rechercher',
@@ -24606,7 +24653,7 @@
 	      articles: 'Articles',
 	      authors: 'Auteurs',
 	      contribute: 'Contribuer',
-	      committee: 'Comité',
+	      committee: 'Comités',
 	      creditsAndContacts: 'Crédits et contact',
 	      legalNotices: 'Mentions légales'
 	    },
@@ -24615,28 +24662,11 @@
 	      newArticles: "Récemment parus"
 	    }
 	  },
-	  preview: {
-	    readArticle: "Lire l'article"
-	  },
-	  contact: {
-	    main: {
-	      title: 'Crédits et contact'
-	    }
-	  },
-	  committee: {
-	    main: {
-	      title: 'Comité'
-	    }
-	  },
 	  legal: {
 	    title: 'Mentions légales'
 	  },
-	  error: {
-	    title: 'Erreur',
-	    number: '404',
-	    sorry: 'Nous sommes désolés',
-	    notFound: 'La page que vous cherchez n’est pas disponible',
-	    goBack: 'Revenir au site'
+	  preview: {
+	    readArticle: "Lire l'article"
 	  }
 	};
 
@@ -24644,6 +24674,14 @@
 	  about: {
 	    main: {
 	      title: 'About'
+	    },
+	    aside: {
+	      presentation: 'Presentation of the publication',
+	      editorialProject: 'The editorial relational project',
+	      editor: 'Editor'
+	    },
+	    content: {
+	      becomeAuthor: 'Become author'
 	    }
 	  },
 	  article: {
@@ -24663,12 +24701,6 @@
 	      title: 'Articles'
 	    }
 	  },
-	  filter: {
-	    writeToFilter: 'Write to filter',
-	    filterBy: 'Filter by',
-	    languages: 'Languages',
-	    themes: 'Themes'
-	  },
 	  author: {
 	    main: {
 	      articles: 'Articles'
@@ -24679,6 +24711,54 @@
 	      title: 'Authors'
 	    }
 	  },
+	  committee: {
+	    main: {
+	      title: 'Committees'
+	    },
+	    aside: {
+	      editorial: 'Editorial Committee',
+	      reading: 'Reading Committee',
+	      scientific: 'Scientific Committee'
+	    }
+	  },
+	  contact: {
+	    main: {
+	      title: 'Credits and contact'
+	    },
+	    aside: {
+	      credits: 'Credits',
+	      contact: 'Contact'
+	    },
+	    content: {
+	      director: 'Project Director',
+	      manager: 'Project Manager',
+	      artistic: 'Artistic Directors',
+	      ux: 'UX Designers',
+	      developers: 'Developers'
+	    },
+	    form: {
+	      name: 'Name',
+	      mail: 'Email',
+	      message: 'Message',
+	      send: 'Send'
+	    }
+	  },
+	  error: {
+	    title: 'Error',
+	    number: '404',
+	    sorry: 'We are sorry',
+	    notFound: 'The page you are looking for cannot be found',
+	    goBack: 'Go back'
+	  },
+	  filter: {
+	    writeToFilter: 'Write to filter',
+	    filterBy: 'Filter by',
+	    languages: 'Languages',
+	    themes: 'Themes'
+	  },
+	  legal: {
+	    title: 'Legal notices'
+	  },
 	  menu: {
 	    navMenu: {
 	      search: 'Search',
@@ -24687,7 +24767,7 @@
 	      articles: 'Articles',
 	      authors: 'Authors',
 	      contribute: 'Contribute',
-	      committee: 'Committee',
+	      committee: 'Committees',
 	      creditsAndContacts: 'Credits and contact',
 	      legalNotices: 'Legal Notices'
 	    },
@@ -24698,26 +24778,6 @@
 	  },
 	  preview: {
 	    readArticle: "Read the article"
-	  },
-	  contact: {
-	    main: {
-	      title: 'Credits and contact'
-	    }
-	  },
-	  committee: {
-	    main: {
-	      title: 'Comité'
-	    }
-	  },
-	  legal: {
-	    title: 'Legal notices'
-	  },
-	  error: {
-	    title: 'Error',
-	    number: '404',
-	    sorry: 'We are sorry',
-	    notFound: 'The page you are looking for cannot be found',
-	    goBack: 'Go back'
 	  }
 	};
 
@@ -24749,43 +24809,43 @@
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Article = __webpack_require__(276);
+	var _Article = __webpack_require__(278);
 
 	var _Article2 = _interopRequireDefault(_Article);
 
-	var _Articles = __webpack_require__(287);
+	var _Articles = __webpack_require__(289);
 
 	var _Articles2 = _interopRequireDefault(_Articles);
 
-	var _Authors = __webpack_require__(304);
+	var _Authors = __webpack_require__(306);
 
 	var _Authors2 = _interopRequireDefault(_Authors);
 
-	var _Committees = __webpack_require__(310);
+	var _Committees = __webpack_require__(312);
 
 	var _Committees2 = _interopRequireDefault(_Committees);
 
-	var _Contact = __webpack_require__(315);
+	var _Contact = __webpack_require__(317);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _Contribute = __webpack_require__(318);
+	var _Contribute = __webpack_require__(321);
 
 	var _Contribute2 = _interopRequireDefault(_Contribute);
 
-	var _Error = __webpack_require__(319);
+	var _Error = __webpack_require__(322);
 
 	var _Error2 = _interopRequireDefault(_Error);
 
-	var _Home = __webpack_require__(320);
+	var _Home = __webpack_require__(323);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Legal = __webpack_require__(341);
+	var _Legal = __webpack_require__(344);
 
 	var _Legal2 = _interopRequireDefault(_Legal);
 
-	var _Main = __webpack_require__(342);
+	var _Main = __webpack_require__(347);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
@@ -28400,152 +28460,59 @@
 /* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var AboutAside = _react2.default.createClass({
-	  displayName: "AboutAside",
+	  displayName: 'AboutAside',
 
+	  propTypes: {
+	    presentation: _react2.default.PropTypes.string.isRequired,
+	    editorialProject: _react2.default.PropTypes.string.isRequired,
+	    editor: _react2.default.PropTypes.string.isRequired
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "aside",
-	      { id: "main-aside" },
+	      'aside',
+	      { id: 'main-aside' },
 	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#presentation" },
-	        "Pr\xE9sentation de la publication"
+	        'a',
+	        { className: 'nav-link', href: '#presentation' },
+	        this.props.presentation
 	      ),
 	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#project" },
-	        "Un projet \xE9ditorial relationnel"
+	        'a',
+	        { className: 'nav-link', href: '#project' },
+	        this.props.editorialProject
 	      ),
 	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#editor" },
-	        "Editeur"
+	        'a',
+	        { className: 'nav-link', href: '#editor' },
+	        this.props.editor
 	      )
 	    );
 	  }
 	});
 
-	module.exports = AboutAside;
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    presentation: store.messages.strings.about.aside.presentation,
+	    editorialProject: store.messages.strings.about.aside.editorialProject,
+	    editor: store.messages.strings.about.aside.editor
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AboutAside);
 
 /***/ },
 /* 275 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var AboutContent = _react2.default.createClass({
-	  displayName: "AboutContent",
-
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { id: "main-content" },
-	      _react2.default.createElement(
-	        "div",
-	        { id: "about-main" },
-	        _react2.default.createElement(
-	          "h3",
-	          { id: "presentation" },
-	          "Pr\xE9sentation de la publication"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "WikiCreation est une publication scientifique en ligne nouvelle et novatrice. Son objet d\u2019\xE9tude est la notion et l\u2019acte de cr\xE9ation dans tous leurs \xE9tats, sous tous leurs aspects, selon toutes les approches. WikiCreation est donc ouverte \xE0 toutes les disciplines et a l\u2019ambition de devenir une publication de r\xE9f\xE9rence dans le domaine des \xE9tudes de la cr\xE9ation."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Le comit\xE9 scientifique de WikiCreation est international, comme son comit\xE9 de lecture (peer review), qui s\xE9lectionne les articles qui lui sont soumis \xE0 partir d\u2019une lecture en double aveugle."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Cette publication en ligne est ouverte \xE0 tous les chercheurs, des sp\xE9cialistes reconnus aux doctorants. Les articles en fran\xE7ais sont traduits en anglais et inversement. Les articles dans une autre langue que le fran\xE7ais ont aussi leur version anglaise. Si les articles publi\xE9s respectent les exigences acad\xE9miques (r\xE9f\xE9rences bibliographiques, notes, etc.), ils restent n\xE9anmoins accessibles \xE0 un public \xE9tendu."
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          { id: "project" },
-	          "Un projet \xE9ditorial relationnel"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Le projet \xE9pist\xE9mologique et \xE9ditorial de WikiCreation est de type relationnel. Il est centr\xE9 sur l\u2019\xE9tude de la relation que la cr\xE9ation entretient avec ses environnements. Dans chaque article, le concept de cr\xE9ation est donc heuristiquement articul\xE9 \xE0 une autre notion, \xE0 un autre un concept, \xE0 un autre champ. Ainsi la cr\xE9ation n\u2019est-elle pas d\xE9finie comme un absolu mais dans un r\xE9seau de relations."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Chaque article s\u2019\xE9vertue donc \xE0 montrer comment telle notion judicieusement choisie par affinit\xE9 permet d\u2019explorer, d\u2019\xE9clairer, d\u2019enrichir, de nourrir, d\u2019exemplifier, le concept de cr\xE9ation, et r\xE9ciproquement. L\u2019\xE9tude de la relation entre deux, voire trois notions est donc le pivot de chaque article."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Ces duos ou trios peuvent \xEAtre des notions proches, comme \xAB cr\xE9ativit\xE9 et cr\xE9ation \xBB, ou adverses comme \xAB la cr\xE9ation comme processus et la cr\xE9ation comme r\xE9sultat \xBB, ou contradictoires comme \xAB cr\xE9ation et destruction \xBB, ou diff\xE9rentes comme \xAB s\xE9rendipit\xE9 et cr\xE9ation \xBB ou \xAB sommeil, r\xEAve et cr\xE9ation \xBB, ou encore \xAB crise, changement et cr\xE9ation \xBB, etc."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "WikiCreation permet ainsi \xE0 d\u2019autres chercheurs ou groupes de chercheurs d\u2019apporter des contributions distinctes sur les m\xEAmes combinaisons."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Les articles \xE9tudient l\u2019acte cr\xE9atif, qu\u2019il soit artistique, scientifique, technologique, savant ou ordinaire, dans ses fonctions \xE0 la fois anthropologiques et soci\xE9tales. La cr\xE9ation est donc le fil rouge de l\u2019ensemble de la publication et son d\xE9nominateur commun. Un tel r\xE9seau, constitu\xE9 en regard de notions ou concepts divers, permet ainsi de la circonscrire d\u2019article en article."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "C\u2019est donc une entreprise collective et \xE9ventuellement collaborative qui travaille sur la notion de cr\xE9ation par la multiplication des points de vue et leur mise en tension dans un m\xEAme espace num\xE9rique dot\xE9 de moteurs de recherche et de moteurs s\xE9mantiques."
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          { id: "editor" },
-	          "Editeur"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Le comit\xE9 de r\xE9daction est constitu\xE9 de Richard Conte (Po\xEF\xE9ticien), Bernard Darras (S\xE9mioticien), Christophe Genin (Philosophe)."
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Institut ACTE UMR 8218",
-	          _react2.default.createElement("br", null),
-	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne & CNRS",
-	          _react2.default.createElement("br", null),
-	          "LabEx CAP"
-	        ),
-	        _react2.default.createElement(
-	          "div",
-	          { className: "btn btn-red btn-arrow-right" },
-	          "Devenir auteur"
-	        )
-	      )
-	    );
-	  }
-	});
-
-	module.exports = AboutContent;
-
-/***/ },
-/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28556,19 +28523,265 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(277);
+	var _constants = __webpack_require__(231);
+
+	var _ContentEn = __webpack_require__(276);
+
+	var _ContentEn2 = _interopRequireDefault(_ContentEn);
+
+	var _ContentFr = __webpack_require__(277);
+
+	var _ContentFr2 = _interopRequireDefault(_ContentFr);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var AboutContent = _react2.default.createClass({
+	  displayName: 'AboutContent',
+
+	  propTypes: {
+	    becomeAuthor: _react2.default.PropTypes.string.isRequired,
+	    locale: _react2.default.PropTypes.string.isRequired
+	  },
+	  getLocalizedContent: function getLocalizedContent() {
+	    return this.props.locale === _constants.APP_LOCALES.EN ? _react2.default.createElement(_ContentEn2.default, null) : _react2.default.createElement(_ContentFr2.default, null);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { id: 'main-content' },
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'about-main' },
+	        this.getLocalizedContent(),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn btn-red btn-arrow-right' },
+	          this.props.becomeAuthor
+	        )
+	      )
+	    );
+	  }
+	});
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    becomeAuthor: store.messages.strings.about.content.becomeAuthor,
+	    locale: store.messages.locale
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AboutContent);
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContentEn = function ContentEn() {
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "presentation" },
+	      "Presentation of the publication"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "WikiCreation is a new and innovative online scientific publication.Its purpose is to study the concept and the act of creation in all their states, aspects and approaches. WikiCreation is therefore open to all disciplines and aims at becoming a reference publication in the field of creation studies."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "The Scientific Committee of WikiCreation is international, as is its peer review committee, which selects the submitted articles through double-blind reviewing."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "This online publication is open to all researchers, from recognized specialists to PhD. students. French articles will be translated into English and vice versa. Articles in a language other than French will also be accompanied by an English version. If the articles meet the academic requirements (bibliography, notes, etc.), they nevertheless must be accessible to a wider audience."
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "project" },
+	      "Un projet \xE9ditorial relationnel"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "The WikiCreation epistemological and editorial project is relational. It focuses on the study of the relationship that creation has with its environment. In each article, the concept of creation must therefore be heuristically combined with another idea, concept or field. Creation cannot therefore be defined as an absolute but through a network of relationships."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Each article thus strives to show how a concept carefully chosen by affinity allows one to explore, enlighten, enrich, nourish and exemplify the concept of creation and vice versa. The study of the relationship between two or three concepts is therefore the main focus of each article."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "These concepts may be related (\u2018creativity and creation\u2019), opposed (\u2018creation as a process and creation as a result\u2019), contradictory (\u2018creation and destruction\u2019), or different (\u2018serendipity and creation\u2019, \u2018sleep, dream and creation\u2019 or \u2018crisis, change and creation\u2019), etc. WikiCreation thus allows other researchers or research groups to make separate contributions on the same combinations."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "The articles study the creative act, whether artistic, scientific, technological, scholarly or ordinary, in both its anthropological and societal dimension. Creation is therefore the principal theme of the publication and its common denominator. Such a network, established in relation to various notions or concepts, allows one to define creation from one article to another."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "It is a collective and possibly collaborative enterprise studying the concept of creation through the multiplication of points of view and their juxtaposition on one single digital platform equipped with search engines and semantic engine."
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "editor" },
+	      "Editor"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "The redaction committee consists of Richard Conte (Poietician), Bernard Darras (Semiotician) and Christophe Genin (Philosopher)."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Institut ACTE UMR 8218",
+	      _react2.default.createElement("br", null),
+	      "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne & CNRS",
+	      _react2.default.createElement("br", null),
+	      "LabEx CAP"
+	    )
+	  );
+	};
+
+	module.exports = ContentEn;
+
+/***/ },
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContentFr = function ContentFr() {
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "presentation" },
+	      "Pr\xE9sentation de la publication"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "WikiCreation est une publication scientifique en ligne nouvelle et novatrice. Son objet d\u2019\xE9tude est la notion et l\u2019acte de cr\xE9ation dans tous leurs \xE9tats, sous tous leurs aspects, selon toutes les approches. WikiCreation est donc ouverte \xE0 toutes les disciplines et a l\u2019ambition de devenir une publication de r\xE9f\xE9rence dans le domaine des \xE9tudes de la cr\xE9ation."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Le comit\xE9 scientifique de WikiCreation est international, comme son comit\xE9 de lecture (peer review), qui s\xE9lectionne les articles qui lui sont soumis \xE0 partir d\u2019une lecture en double aveugle."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Cette publication en ligne est ouverte \xE0 tous les chercheurs, des sp\xE9cialistes reconnus aux doctorants. Les articles en fran\xE7ais sont traduits en anglais et inversement. Les articles dans une autre langue que le fran\xE7ais ont aussi leur version anglaise. Si les articles publi\xE9s respectent les exigences acad\xE9miques (r\xE9f\xE9rences bibliographiques, notes, etc.), ils restent n\xE9anmoins accessibles \xE0 un public \xE9tendu."
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "project" },
+	      "Un projet \xE9ditorial relationnel"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Le projet \xE9pist\xE9mologique et \xE9ditorial de WikiCreation est de type relationnel. Il est centr\xE9 sur l\u2019\xE9tude de la relation que la cr\xE9ation entretient avec ses environnements. Dans chaque article, le concept de cr\xE9ation est donc heuristiquement articul\xE9 \xE0 une autre notion, \xE0 un autre un concept, \xE0 un autre champ. Ainsi la cr\xE9ation n\u2019est-elle pas d\xE9finie comme un absolu mais dans un r\xE9seau de relations."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Chaque article s\u2019\xE9vertue donc \xE0 montrer comment telle notion judicieusement choisie par affinit\xE9 permet d\u2019explorer, d\u2019\xE9clairer, d\u2019enrichir, de nourrir, d\u2019exemplifier, le concept de cr\xE9ation, et r\xE9ciproquement. L\u2019\xE9tude de la relation entre deux, voire trois notions est donc le pivot de chaque article."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Ces duos ou trios peuvent \xEAtre des notions proches, comme \xAB cr\xE9ativit\xE9 et cr\xE9ation \xBB, ou adverses comme \xAB la cr\xE9ation comme processus et la cr\xE9ation comme r\xE9sultat \xBB, ou contradictoires comme \xAB cr\xE9ation et destruction \xBB, ou diff\xE9rentes comme \xAB s\xE9rendipit\xE9 et cr\xE9ation \xBB ou \xAB sommeil, r\xEAve et cr\xE9ation \xBB, ou encore \xAB crise, changement et cr\xE9ation \xBB, etc."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "WikiCreation permet ainsi \xE0 d\u2019autres chercheurs ou groupes de chercheurs d\u2019apporter des contributions distinctes sur les m\xEAmes combinaisons."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Les articles \xE9tudient l\u2019acte cr\xE9atif, qu\u2019il soit artistique, scientifique, technologique, savant ou ordinaire, dans ses fonctions \xE0 la fois anthropologiques et soci\xE9tales. La cr\xE9ation est donc le fil rouge de l\u2019ensemble de la publication et son d\xE9nominateur commun. Un tel r\xE9seau, constitu\xE9 en regard de notions ou concepts divers, permet ainsi de la circonscrire d\u2019article en article."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "C\u2019est donc une entreprise collective et \xE9ventuellement collaborative qui travaille sur la notion de cr\xE9ation par la multiplication des points de vue et leur mise en tension dans un m\xEAme espace num\xE9rique dot\xE9 de moteurs de recherche et de moteurs s\xE9mantiques."
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "editor" },
+	      "Editeur"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Le comit\xE9 de r\xE9daction est constitu\xE9 de Richard Conte (Po\xEF\xE9ticien), Bernard Darras (S\xE9mioticien), Christophe Genin (Philosophe)."
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      null,
+	      "Institut ACTE UMR 8218",
+	      _react2.default.createElement("br", null),
+	      "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne & CNRS",
+	      _react2.default.createElement("br", null),
+	      "LabEx CAP"
+	    )
+	  );
+	};
+
+	module.exports = ContentFr;
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _async = __webpack_require__(279);
 
 	var _actions = __webpack_require__(273);
 
-	var _ArticleAside = __webpack_require__(281);
+	var _ArticleAside = __webpack_require__(283);
 
 	var _ArticleAside2 = _interopRequireDefault(_ArticleAside);
 
-	var _ArticleContent = __webpack_require__(284);
+	var _ArticleContent = __webpack_require__(286);
 
 	var _ArticleContent2 = _interopRequireDefault(_ArticleContent);
 
-	var _PageLoading = __webpack_require__(286);
+	var _PageLoading = __webpack_require__(288);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
@@ -28609,7 +28822,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Article);
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28619,11 +28832,11 @@
 	});
 	exports.getArticle = getArticle;
 
-	var _actions = __webpack_require__(278);
+	var _actions = __webpack_require__(280);
 
-	var _actions2 = __webpack_require__(279);
+	var _actions2 = __webpack_require__(281);
 
-	var _httpRequestHelper = __webpack_require__(280);
+	var _httpRequestHelper = __webpack_require__(282);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -28648,7 +28861,7 @@
 	};
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28700,7 +28913,7 @@
 	};
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28749,7 +28962,7 @@
 	};
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28774,7 +28987,7 @@
 	module.exports = httpRequestHelper;
 
 /***/ },
-/* 281 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28785,11 +28998,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(279);
+	var _actions = __webpack_require__(281);
 
-	var _async = __webpack_require__(282);
+	var _async = __webpack_require__(284);
 
-	var _Keywords = __webpack_require__(283);
+	var _Keywords = __webpack_require__(285);
 
 	var _Keywords2 = _interopRequireDefault(_Keywords);
 
@@ -28925,7 +29138,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleAside);
 
 /***/ },
-/* 282 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28935,9 +29148,9 @@
 	});
 	exports.getAuthor = getAuthor;
 
-	var _actions = __webpack_require__(279);
+	var _actions = __webpack_require__(281);
 
-	var _httpRequestHelper = __webpack_require__(280);
+	var _httpRequestHelper = __webpack_require__(282);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -28962,7 +29175,7 @@
 	};
 
 /***/ },
-/* 283 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28986,7 +29199,7 @@
 	};
 
 /***/ },
-/* 284 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28997,17 +29210,17 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(278);
+	var _actions = __webpack_require__(280);
 
 	var _actions2 = __webpack_require__(273);
 
 	var _constants = __webpack_require__(231);
 
-	var _DateStr = __webpack_require__(285);
+	var _DateStr = __webpack_require__(287);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
-	var _Keywords = __webpack_require__(283);
+	var _Keywords = __webpack_require__(285);
 
 	var _Keywords2 = _interopRequireDefault(_Keywords);
 
@@ -29174,7 +29387,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticleContent);
 
 /***/ },
-/* 285 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29256,7 +29469,7 @@
 	module.exports = DateStr;
 
 /***/ },
-/* 286 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29289,7 +29502,7 @@
 	module.exports = PageLoading;
 
 /***/ },
-/* 287 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29302,15 +29515,15 @@
 
 	var _actions = __webpack_require__(273);
 
-	var _async = __webpack_require__(288);
+	var _async = __webpack_require__(290);
 
-	var _async2 = __webpack_require__(291);
+	var _async2 = __webpack_require__(293);
 
-	var _ArticlesAside = __webpack_require__(293);
+	var _ArticlesAside = __webpack_require__(295);
 
 	var _ArticlesAside2 = _interopRequireDefault(_ArticlesAside);
 
-	var _ArticlesContent = __webpack_require__(299);
+	var _ArticlesContent = __webpack_require__(301);
 
 	var _ArticlesContent2 = _interopRequireDefault(_ArticlesContent);
 
@@ -29360,7 +29573,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Articles);
 
 /***/ },
-/* 288 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29370,13 +29583,13 @@
 	});
 	exports.getArticles = getArticles;
 
-	var _actions = __webpack_require__(289);
+	var _actions = __webpack_require__(291);
 
-	var _httpRequestHelper = __webpack_require__(280);
+	var _httpRequestHelper = __webpack_require__(282);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
-	var _QueryHelper = __webpack_require__(290);
+	var _QueryHelper = __webpack_require__(292);
 
 	var _QueryHelper2 = _interopRequireDefault(_QueryHelper);
 
@@ -29388,6 +29601,7 @@
 
 	function getArticles(id) {
 
+	  var locale = _store2.default.getState().messages.locale;
 	  // var storeArticles = store.getState().articles;
 	  // if (storeArticles.isFetching || storeArticles.isDone) return;
 
@@ -29397,6 +29611,7 @@
 	  var filter = _store2.default.getState().articlesFilter;
 
 	  var queryHelper = new _QueryHelper2.default(baseUrl);
+	  queryHelper.addString('locale', locale);
 	  queryHelper.addString('title', filter.title);
 	  queryHelper.addArray('categories', filter.categories);
 	  queryHelper.addArray('languages', filter.languages);
@@ -29409,7 +29624,7 @@
 	};
 
 /***/ },
-/* 289 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29460,7 +29675,7 @@
 	};
 
 /***/ },
-/* 290 */
+/* 292 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29522,7 +29737,7 @@
 	module.exports = QueryHelper;
 
 /***/ },
-/* 291 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29532,9 +29747,9 @@
 	});
 	exports.getCategories = getCategories;
 
-	var _actions = __webpack_require__(292);
+	var _actions = __webpack_require__(294);
 
-	var _httpRequestHelper = __webpack_require__(280);
+	var _httpRequestHelper = __webpack_require__(282);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -29558,7 +29773,7 @@
 	};
 
 /***/ },
-/* 292 */
+/* 294 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29597,7 +29812,7 @@
 	};
 
 /***/ },
-/* 293 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29608,23 +29823,23 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(289);
+	var _actions = __webpack_require__(291);
 
-	var _async = __webpack_require__(288);
+	var _async = __webpack_require__(290);
 
-	var _CategoriesFilter = __webpack_require__(294);
+	var _CategoriesFilter = __webpack_require__(296);
 
 	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
 
-	var _LanguagesFilter = __webpack_require__(296);
+	var _LanguagesFilter = __webpack_require__(298);
 
 	var _LanguagesFilter2 = _interopRequireDefault(_LanguagesFilter);
 
-	var _PageLoading = __webpack_require__(286);
+	var _PageLoading = __webpack_require__(288);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
-	var _TextFilter = __webpack_require__(298);
+	var _TextFilter = __webpack_require__(300);
 
 	var _TextFilter2 = _interopRequireDefault(_TextFilter);
 
@@ -29709,7 +29924,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ArticlesAside);
 
 /***/ },
-/* 294 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29720,7 +29935,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _CheckboxFilter = __webpack_require__(295);
+	var _CheckboxFilter = __webpack_require__(297);
 
 	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
 
@@ -29770,7 +29985,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(CategoriesFilter);
 
 /***/ },
-/* 295 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29805,7 +30020,7 @@
 	module.exports = CheckboxFilter;
 
 /***/ },
-/* 296 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29816,11 +30031,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _CheckboxFilter = __webpack_require__(295);
+	var _CheckboxFilter = __webpack_require__(297);
 
 	var _CheckboxFilter2 = _interopRequireDefault(_CheckboxFilter);
 
-	var _constants = __webpack_require__(297);
+	var _constants = __webpack_require__(299);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29861,7 +30076,7 @@
 	module.exports = LanguagesFilter;
 
 /***/ },
-/* 297 */
+/* 299 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29881,7 +30096,7 @@
 	}];
 
 /***/ },
-/* 298 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29945,7 +30160,7 @@
 	module.exports = TextFilter;
 
 /***/ },
-/* 299 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29956,11 +30171,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _ArticlesCategory = __webpack_require__(300);
+	var _ArticlesCategory = __webpack_require__(302);
 
 	var _ArticlesCategory2 = _interopRequireDefault(_ArticlesCategory);
 
-	var _PageLoading = __webpack_require__(286);
+	var _PageLoading = __webpack_require__(288);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
@@ -30000,7 +30215,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ArticlesContent);
 
 /***/ },
-/* 300 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30011,7 +30226,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _ArticleCard = __webpack_require__(301);
+	var _ArticleCard = __webpack_require__(303);
 
 	var _ArticleCard2 = _interopRequireDefault(_ArticleCard);
 
@@ -30047,7 +30262,7 @@
 	module.exports = ArticleCategory;
 
 /***/ },
-/* 301 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30056,7 +30271,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -30082,7 +30297,7 @@
 	module.exports = ArticleCard;
 
 /***/ },
-/* 302 */
+/* 304 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -30099,7 +30314,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _PropTypes = __webpack_require__(303);
+	var _PropTypes = __webpack_require__(305);
 
 	var _ContextUtils = __webpack_require__(250);
 
@@ -30246,7 +30461,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 303 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30279,7 +30494,7 @@
 	});
 
 /***/ },
-/* 304 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30292,21 +30507,21 @@
 
 	var _actions = __webpack_require__(273);
 
-	var _async = __webpack_require__(291);
+	var _async = __webpack_require__(293);
 
-	var _async2 = __webpack_require__(305);
+	var _async2 = __webpack_require__(307);
 
-	var _async3 = __webpack_require__(282);
+	var _async3 = __webpack_require__(284);
 
-	var _AuthorsAside = __webpack_require__(307);
+	var _AuthorsAside = __webpack_require__(309);
 
 	var _AuthorsAside2 = _interopRequireDefault(_AuthorsAside);
 
-	var _AuthorsContent = __webpack_require__(308);
+	var _AuthorsContent = __webpack_require__(310);
 
 	var _AuthorsContent2 = _interopRequireDefault(_AuthorsContent);
 
-	var _actions2 = __webpack_require__(279);
+	var _actions2 = __webpack_require__(281);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30374,7 +30589,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Authors);
 
 /***/ },
-/* 305 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30384,13 +30599,13 @@
 	});
 	exports.getAuthors = getAuthors;
 
-	var _actions = __webpack_require__(306);
+	var _actions = __webpack_require__(308);
 
-	var _QueryHelper = __webpack_require__(290);
+	var _QueryHelper = __webpack_require__(292);
 
 	var _QueryHelper2 = _interopRequireDefault(_QueryHelper);
 
-	var _httpRequestHelper = __webpack_require__(280);
+	var _httpRequestHelper = __webpack_require__(282);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -30402,14 +30617,16 @@
 
 	function getAuthors(id) {
 
-	  var storeAuthors = _store2.default.getState().authors;
-	  if (storeAuthors.isFetching || storeAuthors.isDone) return;
+	  var locale = _store2.default.getState().messages.locale;
+	  // let storeAuthors = store.getState().authors;
+	  // if (storeAuthors.isFetching || storeAuthors.isDone) return;
 
 	  _store2.default.dispatch((0, _actions.authorsRequest)());
 
 	  var baseUrl = '/json/authors.json';
 	  var filter = _store2.default.getState().authorsFilter;
 	  var queryHelper = new _QueryHelper2.default(baseUrl);
+	  queryHelper.addString('language', locale);
 	  queryHelper.addString('name', filter.name);
 	  queryHelper.addArray('categories', filter.categories);
 
@@ -30421,7 +30638,7 @@
 	};
 
 /***/ },
-/* 306 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30464,7 +30681,7 @@
 	};
 
 /***/ },
-/* 307 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30475,19 +30692,19 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(306);
+	var _actions = __webpack_require__(308);
 
-	var _async = __webpack_require__(305);
+	var _async = __webpack_require__(307);
 
-	var _CategoriesFilter = __webpack_require__(294);
+	var _CategoriesFilter = __webpack_require__(296);
 
 	var _CategoriesFilter2 = _interopRequireDefault(_CategoriesFilter);
 
-	var _PageLoading = __webpack_require__(286);
+	var _PageLoading = __webpack_require__(288);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
-	var _TextFilter = __webpack_require__(298);
+	var _TextFilter = __webpack_require__(300);
 
 	var _TextFilter2 = _interopRequireDefault(_TextFilter);
 
@@ -30559,7 +30776,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AuthorsAside);
 
 /***/ },
-/* 308 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30570,11 +30787,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _AuthorCard = __webpack_require__(309);
+	var _AuthorCard = __webpack_require__(311);
 
 	var _AuthorCard2 = _interopRequireDefault(_AuthorCard);
 
-	var _PageLoading = __webpack_require__(286);
+	var _PageLoading = __webpack_require__(288);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
@@ -30616,7 +30833,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorsContent);
 
 /***/ },
-/* 309 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30629,9 +30846,9 @@
 
 	var _browserHistory2 = _interopRequireDefault(_browserHistory);
 
-	var _async = __webpack_require__(282);
+	var _async = __webpack_require__(284);
 
-	var _actions = __webpack_require__(279);
+	var _actions = __webpack_require__(281);
 
 	var _reactRedux = __webpack_require__(172);
 
@@ -30693,7 +30910,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(AuthorCard);
 
 /***/ },
-/* 310 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30703,8 +30920,6 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRedux = __webpack_require__(172);
-
-	var _async = __webpack_require__(311);
 
 	var _actions = __webpack_require__(273);
 
@@ -30725,7 +30940,6 @@
 	    title: _react2.default.PropTypes.string.isRequired
 	  },
 	  componentWillMount: function componentWillMount() {
-	    (0, _async.getCommittees)();
 	    this.updateTitlebar(this.props);
 	  },
 	  componentWillUpdate: function componentWillUpdate(nextProps) {
@@ -30761,116 +30975,56 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Committees);
 
 /***/ },
-/* 311 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.getCommittees = getCommittees;
-
-	var _actions = __webpack_require__(312);
-
-	var _httpRequestHelper = __webpack_require__(280);
-
-	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
-
-	var _store = __webpack_require__(210);
-
-	var _store2 = _interopRequireDefault(_store);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function getCommittees() {
-	  var storeCommittees = _store2.default.getState().committees;
-	  if (storeCommittees.isDone) return;
-
-	  _store2.default.dispatch((0, _actions.committeesRequest)());
-
-	  (0, _httpRequestHelper2.default)('/json/committees.json', function (response) {
-	    return _store2.default.dispatch((0, _actions.committeesSuccess)(response));
-	  }, function (error) {
-	    return _store2.default.dispatch((0, _actions.committeesFail)(error));
-	  });
-	};
-
-/***/ },
-/* 312 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.committeesRequest = committeesRequest;
-	exports.committeesSuccess = committeesSuccess;
-	exports.committeesFail = committeesFail;
-
-	var _actionTypes = __webpack_require__(220);
-
-	var actionTypes = _interopRequireWildcard(_actionTypes);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function committeesRequest() {
-	  return { type: actionTypes.COMMITTEES_REQUEST };
-	};
-	function committeesSuccess(json) {
-	  return {
-	    type: actionTypes.COMMITTEES_SUCCESS,
-	    language: json.language,
-	    editorial: json.editorial,
-	    reading: json.reading,
-	    scientic: json.scientific
-	  };
-	};
-	function committeesFail(msg) {
-	  console.warn('Problem while retrieving committees : "' + msg + '"');
-	  return { type: actionTypes.COMMITTEES_FAIL };
-	};
-
-/***/ },
 /* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var CommitteesAside = _react2.default.createClass({
-	  displayName: "CommitteesAside",
+	var CommitteesAside = function CommitteesAside(props) {
+	  return _react2.default.createElement(
+	    'aside',
+	    { id: 'main-aside' },
+	    _react2.default.createElement(
+	      'a',
+	      { className: 'nav-link', href: '#editorial' },
+	      props.editorial
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { className: 'nav-link', href: '#reading' },
+	      props.reading
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { className: 'nav-link', href: '#scientific' },
+	      props.scientific
+	    )
+	  );
+	};
 
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "aside",
-	      { id: "main-aside" },
-	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#editorial" },
-	        "Comit\xE9 de r\xE9daction"
-	      ),
-	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#reading" },
-	        "Comit\xE9 de lecture"
-	      ),
-	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#scientific" },
-	        "Comit\xE9 scientifique"
-	      )
-	    );
-	  }
-	});
+	CommitteesAside.propTypes = {
+	  editorial: _react2.default.PropTypes.string.isRequired,
+	  reading: _react2.default.PropTypes.string.isRequired,
+	  scientific: _react2.default.PropTypes.string.isRequired
+	};
 
-	module.exports = CommitteesAside;
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    editorial: store.messages.strings.committee.aside.editorial,
+	    reading: store.messages.strings.committee.aside.reading,
+	    scientific: store.messages.strings.committee.aside.scientific
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(CommitteesAside);
 
 /***/ },
 /* 314 */
@@ -30884,9 +31038,15 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _Member = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Member\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _constants = __webpack_require__(231);
 
-	var _Member2 = _interopRequireDefault(_Member);
+	var _ContentEn = __webpack_require__(315);
+
+	var _ContentEn2 = _interopRequireDefault(_ContentEn);
+
+	var _ContentFr = __webpack_require__(316);
+
+	var _ContentFr2 = _interopRequireDefault(_ContentFr);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30894,12 +31054,10 @@
 	  displayName: 'CommitteesContent',
 
 	  propTypes: {
-	    editorialCommittee: _react2.default.PropTypes.array.isRequired,
-	    readingCommittee: _react2.default.PropTypes.array.isRequired,
-	    scientificCommittee: _react2.default.PropTypes.array.isRequired
+	    locale: _react2.default.PropTypes.string.isRequired
 	  },
-	  getFullMember: function getFullMember(member) {
-	    return _react2.default.createElement(_Member2.default, { member: member });
+	  getLocalizedContent: function getLocalizedContent() {
+	    return this.props.locale === _constants.APP_LOCALES.EN ? _react2.default.createElement(_ContentEn2.default, null) : _react2.default.createElement(_ContentFr2.default, null);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -30908,115 +31066,7 @@
 	      _react2.default.createElement(
 	        'div',
 	        { id: 'committee-main' },
-	        _react2.default.createElement(
-	          'h3',
-	          { id: 'editorial' },
-	          'Comit\xE9 de r\xE9daction'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'members-full' },
-	          this.props.editorialCommittee.map(this.props.getFullMember)
-	        ),
-	        _react2.default.createElement(
-	          'h3',
-	          { id: 'reading' },
-	          'Comit\xE9 de lecture'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Ce Comit\xE9 de lecture internationnal et pluridisciplinaire est charg\xE9 d\u2019\xE9valuer en double aveugle la rigueur scientifique de chaque article et sa conformit\xE9 au projet \xE9ditorial relationniste de WikiCreation.'
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'members' },
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Elisabeth Amblard'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Jan Baetens'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Dominique Berthet'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Marl\xE8ne Biton'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Karen Brunel-Lafargue'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Cristina Castellano'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Yichien Cooper'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Agn\xE8s Foiret-Collet'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Barbara Formis'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Pierre-Henry Frangne'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Karen O\u2019Rourke'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'H\xE9l\xE8ne Sirven'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Apolline Torregrosa'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'St\xE9phane Vial'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Patricia Villeneuve'
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Fernando Zalamea'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'h3',
-	          { id: 'scientific' },
-	          'Comit\xE9 scientifique'
-	        )
+	        this.getLocalizedContent()
 	      )
 	    );
 	  }
@@ -31024,9 +31074,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
-	    editorialCommittee: store.committees.editorial,
-	    readingCommittee: store.committees.reading,
-	    scientificCommittee: store.committees.scientific
+	    locale: store.messages.locale
 	  };
 	};
 
@@ -31034,6 +31082,1420 @@
 
 /***/ },
 /* 315 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContentEn = function ContentEn() {
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "editorial" },
+	      "Editorial Committee"
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "members-full" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Richard Conte"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Directeur de la publication. Artiste et Professeur des Universit\xE9s en Arts et Sciences de l\u2019Art \xE0 l\u2019Universit\xE9 Paris 1 UMR ACTE 8218."
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Bernard Darras"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Responsable \xE9ditorial et r\xE9dacteur en chef. Professeur des Universit\xE9s en S\xE9miotique \xE0 l\u2019Universit\xE9 Paris 1 UMR ACTE 8218."
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Christophe G\xE9nin"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Professeur de philosophie de l\u2019art et d\u2019\xE9tudes culturelles \xE0 Paris 1 Panth\xE9on-Sorbonne."
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "reading" },
+	      "Peer review"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      { className: "committee-desc" },
+	      "Ce Comit\xE9 de lecture internationnal et pluridisciplinaire est charg\xE9 d\u2019\xE9valuer en double aveugle la rigueur scientifique de chaque article et sa conformit\xE9 au projet \xE9ditorial relationniste de WikiCreation."
+	    ),
+	    _react2.default.createElement(
+	      "ul",
+	      { className: "members" },
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Elisabeth Amblard"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Jan Baetens"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Dominique Berthet"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Marl\xE8ne Biton"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Karen Brunel-Lafargue"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Cristina Castellano"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Yichien Cooper"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Agn\xE8s Foiret-Collet"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Barbara Formis"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Pierre-Henry Frangne"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Karen O\u2019Rourke"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "H\xE9l\xE8ne Sirven"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Apolline Torregrosa"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "St\xE9phane Vial"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Patricia Villeneuve"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Fernando Zalamea"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "scientific" },
+	      "Scientific committee"
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "members-full small" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Imanol Aguirre Arriaga"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universidad Publica de Navarra, Espa\xF1a"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Jan Baetens"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Leuven, Belgique"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Ana Mae Barbosa"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "USP, Sao Paulo, Brasil"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Anne Beyaert"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Bordeaux 3, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Dominique Berthet"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 des Antilles et de Guyanne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Bernhard B\xFCrdek"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "HfG Offenbach, Deutschland"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Agn\xE8s Callu"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Conservateur du patrimoine au Mus\xE9e des arts d\xE9coratifs, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Dominique Chateau"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Solange Coutinho"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "UFP Recife, Brasil"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Rejane Coutinho"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "UNESP Sao Paulo, Brasil"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Philippe Dagen"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Filippo Fimiani"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE0 di Salerno, Italia"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Alain Findeli"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de N\xEEmes, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Genevi\xE8ve Fraisse"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "CNRS, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Pierre-Henry Frangne"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Rennes 2, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Nathalie Heinich"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "EHESS, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Norbert Hillaire"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Nice, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Marc Jimenez"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Andrea K\xE1rp\xE1ti"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "E\xF6tv\xF6s Lor\xE1nd University, Hungaria"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Derrick de Kerckhove"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Federico II de Naple"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Olga Kisseleva"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Anna Kindler"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "University of British Columbia, Canada"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Jacinto Lageira"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Sandra Laugier"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Martin Lefebvre"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Concordia, Canada"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Thierry Lenain"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Libre de Bruxelles, Belgique"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Rachel Mason"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "University of Roehampton, London, UK"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Marianne Massin"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Lille 3, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "St\xE9phane Natkin"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "CNAM, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Fran\xE7oise Parfait"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "David Pariser"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Concordia, Canada"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Michael Parsons"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "University of Illinois, USA"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Bruno P\xE9quignot"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Sorbonne Nouvelle, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Jean-Marie Schaeffer"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Rachida Triki"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Tunis, Tunisie"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Patricia Villeneuve"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Florida State University, USA"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "St\xE9phane Vial"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de N\xEEmes, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Christophe Viart"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Rennes 2, France"
+	        )
+	      )
+	    )
+	  );
+	};
+
+	module.exports = ContentEn;
+
+/***/ },
+/* 316 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContentFr = function ContentFr() {
+	  return _react2.default.createElement(
+	    "div",
+	    null,
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "editorial" },
+	      "Comit\xE9 de r\xE9daction"
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "members-full" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Richard Conte"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Directeur de la publication. Artiste et Professeur des Universit\xE9s en Arts et Sciences de l\u2019Art \xE0 l\u2019Universit\xE9 Paris 1 UMR ACTE 8218."
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Bernard Darras"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Responsable \xE9ditorial et r\xE9dacteur en chef. Professeur des Universit\xE9s en S\xE9miotique \xE0 l\u2019Universit\xE9 Paris 1 UMR ACTE 8218."
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Christophe G\xE9nin"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Professeur de philosophie de l\u2019art et d\u2019\xE9tudes culturelles \xE0 Paris 1 Panth\xE9on-Sorbonne."
+	        )
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "reading" },
+	      "Comit\xE9 de lecture"
+	    ),
+	    _react2.default.createElement(
+	      "p",
+	      { className: "committee-desc" },
+	      "Ce Comit\xE9 de lecture internationnal et pluridisciplinaire est charg\xE9 d\u2019\xE9valuer en double aveugle la rigueur scientifique de chaque article et sa conformit\xE9 au projet \xE9ditorial relationniste de WikiCreation."
+	    ),
+	    _react2.default.createElement(
+	      "ul",
+	      { className: "members" },
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Elisabeth Amblard"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Jan Baetens"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Dominique Berthet"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Marl\xE8ne Biton"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Karen Brunel-Lafargue"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Cristina Castellano"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Yichien Cooper"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Agn\xE8s Foiret-Collet"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Barbara Formis"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Pierre-Henry Frangne"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Karen O\u2019Rourke"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "H\xE9l\xE8ne Sirven"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Apolline Torregrosa"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "St\xE9phane Vial"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Patricia Villeneuve"
+	      ),
+	      _react2.default.createElement(
+	        "li",
+	        null,
+	        "Fernando Zalamea"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "h3",
+	      { id: "scientific" },
+	      "Comit\xE9 scientifique"
+	    ),
+	    _react2.default.createElement(
+	      "div",
+	      { className: "members-full small" },
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Imanol Aguirre Arriaga"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universidad Publica de Navarra, Espa\xF1a"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Jan Baetens"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Leuven, Belgique"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Ana Mae Barbosa"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "USP, Sao Paulo, Brasil"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Anne Beyaert"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Bordeaux 3, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Dominique Berthet"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 des Antilles et de Guyanne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Bernhard B\xFCrdek"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "HfG Offenbach, Deutschland"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Agn\xE8s Callu"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Conservateur du patrimoine au Mus\xE9e des arts d\xE9coratifs, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Dominique Chateau"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Solange Coutinho"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "UFP Recife, Brasil"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Rejane Coutinho"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "UNESP Sao Paulo, Brasil"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Philippe Dagen"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Filippo Fimiani"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE0 di Salerno, Italia"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Alain Findeli"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de N\xEEmes, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Genevi\xE8ve Fraisse"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "CNRS, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Pierre-Henry Frangne"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Rennes 2, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Nathalie Heinich"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "EHESS, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Norbert Hillaire"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Nice, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Marc Jimenez"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Andrea K\xE1rp\xE1ti"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "E\xF6tv\xF6s Lor\xE1nd University, Hungaria"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Derrick de Kerckhove"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Federico II de Naple"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Olga Kisseleva"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Anna Kindler"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "University of British Columbia, Canada"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Jacinto Lageira"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Sandra Laugier"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Martin Lefebvre"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Concordia, Canada"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Thierry Lenain"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Libre de Bruxelles, Belgique"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Rachel Mason"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "University of Roehampton, London, UK"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Marianne Massin"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Lille 3, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "St\xE9phane Natkin"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "CNAM, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Fran\xE7oise Parfait"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "David Pariser"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Concordia, Canada"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Michael Parsons"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "University of Illinois, USA"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Bruno P\xE9quignot"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Sorbonne Nouvelle, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Jean-Marie Schaeffer"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 Paris 1 Panth\xE9on-Sorbonne, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Rachida Triki"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Tunis, Tunisie"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Patricia Villeneuve"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Florida State University, USA"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "St\xE9phane Vial"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de N\xEEmes, France"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "member-full" },
+	        _react2.default.createElement(
+	          "h4",
+	          { className: "name" },
+	          "Christophe Viart"
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          { className: "desc" },
+	          "Universit\xE9 de Rennes 2, France"
+	        )
+	      )
+	    )
+	  );
+	};
+
+	module.exports = ContentFr;
+
+/***/ },
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31044,11 +32506,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _ContactAside = __webpack_require__(316);
+	var _ContactAside = __webpack_require__(318);
 
 	var _ContactAside2 = _interopRequireDefault(_ContactAside);
 
-	var _ContactContent = __webpack_require__(317);
+	var _ContactContent = __webpack_require__(319);
 
 	var _ContactContent2 = _interopRequireDefault(_ContactContent);
 
@@ -31095,139 +32557,204 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Contact);
 
 /***/ },
-/* 316 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ContactAside = _react2.default.createClass({
-	  displayName: "ContactAside",
+	var ContactAside = function ContactAside(props) {
+	  return _react2.default.createElement(
+	    'aside',
+	    { id: 'main-aside' },
+	    _react2.default.createElement(
+	      'a',
+	      { className: 'nav-link', href: '#credits' },
+	      props.credits
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { className: 'nav-link', href: '#contact-form' },
+	      props.contact
+	    )
+	  );
+	};
 
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "aside",
-	      { id: "main-aside" },
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    credits: store.messages.strings.contact.aside.credits,
+	    contact: store.messages.strings.contact.aside.contact
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ContactAside);
+
+/***/ },
+/* 319 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRedux = __webpack_require__(172);
+
+	var _ContactForm = __webpack_require__(320);
+
+	var _ContactForm2 = _interopRequireDefault(_ContactForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContactContent = function ContactContent(props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'main-content' },
+	    _react2.default.createElement(
+	      'div',
+	      { id: 'contact-main' },
+	      _react2.default.createElement('div', { className: 'ms-logo', id: 'credits' }),
 	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#credits" },
-	        "Cr\xE9dits"
+	        'h2',
+	        { className: 'agency' },
+	        'Agence Multim\xE9dia Sorbonne'
 	      ),
 	      _react2.default.createElement(
-	        "a",
-	        { className: "nav-link", href: "#contact-form" },
-	        "Contact"
-	      )
-	    );
-	  }
-	});
+	        'a',
+	        { href: 'http://multimedia-sorbonne.com/', className: 'website' },
+	        'multimedia-sorbonne.com'
+	      ),
+	      _react2.default.createElement('div', { className: 'clearfix' }),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        props.director
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'David Bihanic'
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        props.manager
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Alex Mohebbi'
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        props.artistic,
+	        ' / ',
+	        props.ux
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Juanita Arenas ',
+	        _react2.default.createElement('br', null),
+	        'Guillaume Ribault'
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        props.developers
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Juanita Arenas ',
+	        _react2.default.createElement('br', null),
+	        'Guillaume Ribault'
+	      ),
+	      _react2.default.createElement(_ContactForm2.default, null)
+	    )
+	  );
+	};
 
-	module.exports = ContactAside;
+	ContactContent.propTypes = {
+	  director: _react2.default.PropTypes.string.isRequired,
+	  manager: _react2.default.PropTypes.string.isRequired,
+	  artistic: _react2.default.PropTypes.string.isRequired,
+	  ux: _react2.default.PropTypes.string.isRequired,
+	  developers: _react2.default.PropTypes.string.isRequired
+	};
+
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    director: store.messages.strings.contact.content.director,
+	    manager: store.messages.strings.contact.content.manager,
+	    artistic: store.messages.strings.contact.content.artistic,
+	    ux: store.messages.strings.contact.content.ux,
+	    developers: store.messages.strings.contact.content.developers
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ContactContent);
 
 /***/ },
-/* 317 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRedux = __webpack_require__(172);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var ContactContent = _react2.default.createClass({
-	  displayName: "ContactContent",
+	var ContactForm = _react2.default.createClass({
+	  displayName: 'ContactForm',
 
+	  propTypes: {
+	    name: _react2.default.PropTypes.string.isRequired,
+	    mail: _react2.default.PropTypes.string.isRequired,
+	    message: _react2.default.PropTypes.string.isRequired
+	  },
 	  render: function render() {
 	    return _react2.default.createElement(
-	      "div",
-	      { id: "main-content" },
+	      'form',
+	      { id: 'contact-form' },
+	      _react2.default.createElement('input', { type: 'text', placeholder: this.props.name }),
+	      _react2.default.createElement('input', { type: 'text', placeholder: this.props.mail }),
+	      _react2.default.createElement('textarea', { defaultValue: this.props.message }),
 	      _react2.default.createElement(
-	        "div",
-	        { id: "contact-main" },
-	        _react2.default.createElement("div", { className: "ms-logo", id: "credits" }),
-	        _react2.default.createElement(
-	          "h2",
-	          { className: "agency" },
-	          "Agence Multim\xE9dia Sorbonne"
-	        ),
-	        _react2.default.createElement(
-	          "a",
-	          { href: "http://multimedia-sorbonne.com/", className: "website" },
-	          "multimedia-sorbonne.com"
-	        ),
-	        _react2.default.createElement("div", { className: "clearfix" }),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "Directeur de projet"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "David Bihanic"
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "Chef de projet"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Alex Mohebbi"
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "Directeurs artistiques / UX designers"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Juanita Arenas ",
-	          _react2.default.createElement("br", null),
-	          "Guillaume Ribault"
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "D\xE9veloppeurs"
-	        ),
-	        _react2.default.createElement(
-	          "p",
-	          null,
-	          "Juanita Arenas ",
-	          _react2.default.createElement("br", null),
-	          "Guillaume Ribault"
-	        ),
-	        _react2.default.createElement(
-	          "form",
-	          { id: "contact-form" },
-	          _react2.default.createElement("input", { type: "text", placeholder: "Nom" }),
-	          _react2.default.createElement("input", { type: "text", placeholder: "Mail" }),
-	          _react2.default.createElement("textarea", { defaultValue: "Message" }),
-	          _react2.default.createElement(
-	            "btn",
-	            { className: "btn btn-blue btn-plane" },
-	            "Envoyer"
-	          )
-	        )
+	        'btn',
+	        { className: 'btn btn-blue btn-plane' },
+	        this.props.send
 	      )
 	    );
 	  }
 	});
 
-	module.exports = ContactContent;
+	var mapStateToProps = function mapStateToProps(store) {
+	  return {
+	    name: store.messages.strings.contact.form.name,
+	    mail: store.messages.strings.contact.form.mail,
+	    message: store.messages.strings.contact.form.message,
+	    send: store.messages.strings.contact.form.send
+	  };
+	};
+
+	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ContactForm);
 
 /***/ },
-/* 318 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31253,7 +32780,7 @@
 	module.exports = Contribute;
 
 /***/ },
-/* 319 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31264,7 +32791,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -31349,7 +32876,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Error);
 
 /***/ },
-/* 320 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31362,21 +32889,21 @@
 
 	var _actions = __webpack_require__(273);
 
-	var _actions2 = __webpack_require__(321);
+	var _actions2 = __webpack_require__(324);
 
-	var _Graph = __webpack_require__(322);
+	var _Graph = __webpack_require__(325);
 
 	var _Graph2 = _interopRequireDefault(_Graph);
 
-	var _Preview = __webpack_require__(337);
+	var _Preview = __webpack_require__(340);
 
 	var _Preview2 = _interopRequireDefault(_Preview);
 
-	var _PreviewBackground = __webpack_require__(340);
+	var _PreviewBackground = __webpack_require__(343);
 
 	var _PreviewBackground2 = _interopRequireDefault(_PreviewBackground);
 
-	var _async = __webpack_require__(323);
+	var _async = __webpack_require__(326);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31424,7 +32951,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Home);
 
 /***/ },
-/* 321 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31497,7 +33024,7 @@
 	};
 
 /***/ },
-/* 322 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31512,17 +33039,17 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _async = __webpack_require__(323);
+	var _async = __webpack_require__(326);
 
-	var _GraphController = __webpack_require__(325);
+	var _GraphController = __webpack_require__(328);
 
 	var _GraphController2 = _interopRequireDefault(_GraphController);
 
-	var _GraphModel = __webpack_require__(327);
+	var _GraphModel = __webpack_require__(330);
 
 	var _GraphModel2 = _interopRequireDefault(_GraphModel);
 
-	var _GraphView = __webpack_require__(329);
+	var _GraphView = __webpack_require__(332);
 
 	var _GraphView2 = _interopRequireDefault(_GraphView);
 
@@ -31589,7 +33116,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Graph);
 
 /***/ },
-/* 323 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31600,13 +33127,17 @@
 	exports.getGraphData = getGraphData;
 	exports.getPreview = getPreview;
 
-	var _httpRequestHelper = __webpack_require__(280);
+	var _httpRequestHelper = __webpack_require__(282);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
-	var _actions = __webpack_require__(321);
+	var _actions = __webpack_require__(324);
 
-	var _graphHelpers = __webpack_require__(324);
+	var _graphHelpers = __webpack_require__(327);
+
+	var _QueryHelper = __webpack_require__(292);
+
+	var _QueryHelper2 = _interopRequireDefault(_QueryHelper);
 
 	var _store = __webpack_require__(210);
 
@@ -31616,12 +33147,18 @@
 
 	function getGraphData(id) {
 
-	  var storeGraphData = _store2.default.getState().graphData;
-	  if (storeGraphData.isFetching || storeGraphData.isDone) return;
+	  var locale = _store2.default.getState().messages.locale;
+	  var storeData = _store2.default.getState().graphData;
+
+	  if (storeData.language === locale && (storeData.isFetching || storeData.isDone)) return;
 
 	  _store2.default.dispatch((0, _actions.graphDataRequest)());
 
-	  (0, _httpRequestHelper2.default)('/json/graph-data.json', function (response) {
+	  var baseUrl = '/json/graph-data.json';
+	  var queryHelper = new _QueryHelper2.default(baseUrl);
+	  queryHelper.addString('language', locale);
+
+	  (0, _httpRequestHelper2.default)(queryHelper.getUrl(), function (response) {
 	    var nodes = (0, _graphHelpers.flatten)(response.data);
 	    var links = (0, _graphHelpers.setLinks)(nodes);
 	    var parsedData = { nodes: nodes, links: links };
@@ -31646,7 +33183,7 @@
 	};
 
 /***/ },
-/* 324 */
+/* 327 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -31716,14 +33253,14 @@
 	}
 
 /***/ },
-/* 325 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _d3Selection = __webpack_require__(326);
+	var _d3Selection = __webpack_require__(329);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -31785,7 +33322,7 @@
 	module.exports = GraphController;
 
 /***/ },
-/* 326 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-selection/ Version 1.0.3. Copyright 2016 Mike Bostock.
@@ -32764,7 +34301,7 @@
 
 
 /***/ },
-/* 327 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32773,7 +34310,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _Event = __webpack_require__(328);
+	var _Event = __webpack_require__(331);
 
 	var _Event2 = _interopRequireDefault(_Event);
 
@@ -32967,7 +34504,7 @@
 	module.exports = GraphModel;
 
 /***/ },
-/* 328 */
+/* 331 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -33004,7 +34541,7 @@
 	module.exports = Event;
 
 /***/ },
-/* 329 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33013,15 +34550,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _AnimLink = __webpack_require__(330);
+	var _AnimLink = __webpack_require__(333);
 
 	var _AnimLink2 = _interopRequireDefault(_AnimLink);
 
-	var _AnimNode = __webpack_require__(331);
+	var _AnimNode = __webpack_require__(334);
 
 	var _AnimNode2 = _interopRequireDefault(_AnimNode);
 
-	var _d3Force = __webpack_require__(332);
+	var _d3Force = __webpack_require__(335);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -33135,7 +34672,7 @@
 	module.exports = GraphView;
 
 /***/ },
-/* 330 */
+/* 333 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -33204,7 +34741,7 @@
 	module.exports = AnimLink;
 
 /***/ },
-/* 331 */
+/* 334 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -33277,12 +34814,12 @@
 	module.exports = AnimNode;
 
 /***/ },
-/* 332 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-force/ Version 1.0.4. Copyright 2016 Mike Bostock.
 	(function (global, factory) {
-	   true ? factory(exports, __webpack_require__(333), __webpack_require__(334), __webpack_require__(335), __webpack_require__(336)) :
+	   true ? factory(exports, __webpack_require__(336), __webpack_require__(337), __webpack_require__(338), __webpack_require__(339)) :
 	  typeof define === 'function' && define.amd ? define(['exports', 'd3-quadtree', 'd3-collection', 'd3-dispatch', 'd3-timer'], factory) :
 	  (factory((global.d3 = global.d3 || {}),global.d3,global.d3,global.d3,global.d3));
 	}(this, (function (exports,d3Quadtree,d3Collection,d3Dispatch,d3Timer) { 'use strict';
@@ -33886,7 +35423,7 @@
 
 
 /***/ },
-/* 333 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-quadtree/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -34327,7 +35864,7 @@
 
 
 /***/ },
-/* 334 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-collection/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -34550,7 +36087,7 @@
 
 
 /***/ },
-/* 335 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-dispatch/ Version 1.0.2. Copyright 2016 Mike Bostock.
@@ -34651,7 +36188,7 @@
 
 
 /***/ },
-/* 336 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// https://d3js.org/d3-timer/ Version 1.0.4. Copyright 2017 Mike Bostock.
@@ -34806,7 +36343,7 @@
 
 
 /***/ },
-/* 337 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34821,23 +36358,23 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _DateStr = __webpack_require__(285);
+	var _DateStr = __webpack_require__(287);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
-	var _actions = __webpack_require__(321);
+	var _actions = __webpack_require__(324);
 
-	var _async = __webpack_require__(277);
+	var _async = __webpack_require__(279);
 
-	var _LanguageSwitch = __webpack_require__(338);
+	var _LanguageSwitch = __webpack_require__(341);
 
 	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
 
-	var _PageLoading = __webpack_require__(286);
+	var _PageLoading = __webpack_require__(288);
 
 	var _PageLoading2 = _interopRequireDefault(_PageLoading);
 
-	var _actions2 = __webpack_require__(339);
+	var _actions2 = __webpack_require__(342);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34944,7 +36481,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Preview);
 
 /***/ },
-/* 338 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34955,7 +36492,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(292);
+	var _actions = __webpack_require__(294);
 
 	var actions = _interopRequireWildcard(_actions);
 
@@ -35011,7 +36548,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(LanguageSwitch);
 
 /***/ },
-/* 339 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35054,7 +36591,7 @@
 	};
 
 /***/ },
-/* 340 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35065,7 +36602,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(321);
+	var _actions = __webpack_require__(324);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35097,7 +36634,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PreviewBackground);
 
 /***/ },
-/* 341 */
+/* 344 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35108,11 +36645,21 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
+	var _constants = __webpack_require__(231);
+
 	var _actions = __webpack_require__(273);
+
+	var _ContentEn = __webpack_require__(345);
+
+	var _ContentEn2 = _interopRequireDefault(_ContentEn);
+
+	var _ContentFr = __webpack_require__(346);
+
+	var _ContentFr2 = _interopRequireDefault(_ContentFr);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35120,6 +36667,7 @@
 	  displayName: 'Legal',
 
 	  propTypes: {
+	    locale: _react2.default.PropTypes.string.isRequired,
 	    title: _react2.default.PropTypes.string.isRequired
 	  },
 	  componentWillMount: function componentWillMount() {
@@ -35127,6 +36675,9 @@
 	  },
 	  componentWillUpdate: function componentWillUpdate(nextProps) {
 	    this.props.setTitlebar(nextProps.title);
+	  },
+	  getLocalizedContent: function getLocalizedContent() {
+	    return this.props.locale === _constants.APP_LOCALES.EN ? _react2.default.createElement(_ContentEn2.default, null) : _react2.default.createElement(_ContentFr2.default, null);
 	  },
 	  render: function render() {
 	    return _react2.default.createElement(
@@ -35138,271 +36689,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'legal-main' },
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Presentation'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'This entire site is covered by French and international legislation regarding copyright and intellectual property. All reproduction rights are reserved, including downloadable documents and iconographic and photographic representations.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The WikiCreation website is protected by intellectual property, both regarding its form (choice, layout, \xA0organisation of sections, methods of access to data, data organisation, ergonomics, arborescence, graphic design, structure, architecture, etc.) and regarding each element of its content (texts, images, photos, illustrations, logos, pictograms, maps, plans, etc.). You are not allowed to reproduce the HTML code of the pages on this server for the purpose of public distribution.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Reproduction of all or part of this website through any media whatsoever is strictly prohibited. Any reproduction, representation or distribution, in whole or in part, of the content of this website, by any process or medium whatsoever, is prohibited without the express permission of the Project Director. Failure to comply with this prohibition constitutes an infringement that may result in civil and criminal penalties.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Note: Violation of any copyright is an offense punishable, under Article L.335-2 of the Code of Intellectual Property, 2 years imprisonment and \u20AC150,000 fine.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Wikicreation shall in no event be liable for any damages, direct or indirect, of any nature whatsoever, resulting from the use of information provided on this website.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The implementation of hyperlinks by third parties to pages or documents published on the WikiCreation website is permitted provided that these links are not contrary to the interests of Wikicreation, and that they give the User the possibility to identify the origin and author of the document concerned.\xA0'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Hosting'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'OVH ',
-	            _react2.default.createElement('br', null),
-	            'CNRS \u2013 Centre national de la recherche scientifique',
-	            _react2.default.createElement('br', null),
-	            '3, rue Michel-Ange',
-	            _react2.default.createElement('br', null),
-	            '75794 Paris cedex 16 \u2013 France',
-	            _react2.default.createElement('br', null),
-	            'Tel : 01 44 96 40 00'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Copyright'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The presence of any material, whether text or graphics, in the pages of the WikiCreation website does not imply that this material is in the public domain. WikiCreation intends to preserve the moral rights of the authors concerned. Any reproduction for academic or study purposes by educational institutions or students in good faith is subject to an authorisation request. Any use, in whole or in part, and through any media whatsoever, for commercial purposes is strictly prohibited.'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'General Terms & Conditions regarding the us of WikiCreation RSS feeds'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Any downloading of Wikicreation RSS feeds implies express acceptance of all provisions of these Terms & Conditions.'
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Introduction'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The present General Terms & Conditions govern the provision of Wikicreation RSS feeds, which are offered free for non-commercial use. By downloading, using and viewing a WikiCreation RSS feed, the User expressly acknowledges acceptance of all provisions of these General Terms & Conditions.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'WikiCreation reserves the right to modify these General Terms & Conditions at any time and at its sole discretion. The continued use of the Service following a change of these Terms & Conditions constitutes a tacit acceptance of the new Terms & Conditions.\xA0'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '1 - Definition:'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '\u201CRSS Feed\u2019: regular update of website content including links to the full version of that content. When the User signs up for the RSS feed of a website through a feed reader, a brief overview is sent to the User whenever the content of the website is updated. \u2019Service\u2019: any downloading and/or use of Wikicreation RSS feeds. \u2018User\u2019: any individual who has downloaded and/or used WikiCreation RSS feeds.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '2 - Object:'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'In accordance with these General Terms & Conditions, WikiCreation grants the User the revocable, non-transferable, non-assignable, free and non-exclusive license to display on his/her website (\u2018Website\u2019) or on his/her personal computer, the titles, lead paragraphs and/or active links and other information, including any promotional link, that the User has chosen to receive from WikiCreation through the Service, provided that no data from this Service is modified, corrected, expanded or deleted and that it is not used for commercial purposes. WikiCreation reserves the right, on a discretionary basis, to restrict, suspend or terminate the access of a User to all or part of the Service at any time and without being considered liable as a result. WikiCreation reserves the right to modify the Service at any time without the User being able to oppose this.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '3- Copyright ownership:'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The Service is protected by French laws and international conventions on copyright. All WikiCreation RSS feeds and intellectual property rights relating to the Service remain the property of WikiCreation. In addition, any additional programme or technology provided by WikiCreation in connection with the provision of the Service or other services remains the sole property of WikiCreation and no part thereof shall be regarded as having been transferred or licensed to the User. WikiCreation retains all the rights in relation to the Service that have not been expressly granted to the User under Article 2 of these General Terms and Conditions.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '4 - Obligations of the User:'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The User certifies to be over 18 years of age and to have the legal authority to use the Service in accordance with these General Terms & Conditions. To use the Service, the User must comply with the following rules: - display the Service on his/her personal computer or Website in the exact form downloaded without any modification, correction, deletion or addition of any kind, without the prior written permission of Wikicreation.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- ensure that the content of the Service may not be amended, corrected, expanded or deleted.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- comply with all applicable laws and all limitations and restrictions (if any) imposed by Wikicreation on the use, display or distribution of the Service.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- not to store any part of the Service so users can access it after the withdrawal of the Service from the website ',
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'http://www.institut-acte.cnrs.fr/' },
-	              'www.institut-acte.cnrs.fr'
-	            ),
-	            '.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- allow at any time the display of the hyperlinks included in the content of the Service and allow for the successful redirection of these links to the corresponding pages on ',
-	            _react2.default.createElement(
-	              'a',
-	              { href: 'http://www.institut-acte.cnrs.fr' },
-	              'www.institut-acte.cnrs.fr'
-	            ),
-	            '.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- clearly mention on his/her Website that the Service is provided by WikiCreation, is protected by copyright and belongs to Wikicreation. Unless otherwise authorized by WikiCreation, the User is not allowed, directly or indirectly, to:'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- modify, expand, translate, reproduce, publish, transmit, distribute or otherwise disseminate all or part of the Service, or delete or fail to display any promotional link included in the Service'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- insert new clickable hyperlinks, whatever their nature, in the content of the Service - sell, lease or transfer the Service and its contents in any way whatsoever - display on his/her Website the name, logo, trademark, or any other identifying information giving visitors the impression that this individual is the publisher, distributor or owner of the Service.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- delete, conceal or obliterate from the Service any mention of rights of property, credit or date, including, without any limitation whatsoever, the size, colour, location or style of the brands owned by WikiCreation.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- use the Service on any Website displaying any false, offensive, defamatory, racist and pornographic content, or content contrary to public order and morality, or on a Website promoting or providing products or services that are illegal or likely to cause damage or harm to third parties.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The User declares and guarantees WikiCreation that his/her brand(s) and/or the content of his/her Website, other than the Service, do not and will not infringe any trade or service marks, copyrights or other intellectual property rights owned by a third party, do not constitute misleading, deceptive or unfair advertising or disparagement under applicable laws, or do not fail to comply with the applicable legislation (including, for example, licensing requirements and administrative or professional rules).'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'Violation of these provisions subjects the User and all individuals responsible to the applicable criminal and civil penalties provided for by French law.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '5- Responsibility of the User: The User assumes full responsibility for the selection and use of the Service, as well as the access to its content.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'WikiCreation assumes no liability for the User\u2019s activity in connection with the Service. Any fraudulent, misleading or otherwise illegal activity constitutes a breach of these General Terms & Conditions and grounds for termination of the Service. The User shall not conceal his/her identity, interfere or attempt to interfere with the proper operation of the Service. In case of use of the Service beyond the scope of the license granted in these General Terms & Conditions, attempted tampering, hacking, theft, use of robots or scripts, reproduction, distribution, modification, expanding any portion of the Service or inserting new clickable hyperlinks, WikiCreation may bring any action against the User in order to stop the infringement and obtain compensation for the damage caused. The User agrees to fully indemnify Wikicreation (including attorneys fees), to defend and exonerate WikiCreation of any liability for damage suffered by WikiCreation or by a third party, of any kind whatsoever, due to: - non-compliance by the User to one or more of the provisions in these General Terms & Conditions.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- any fraudulent use of the Service through the User\'s account by a third party, whether it has been authorized by the User or not.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '- the operation and content of the User\u2019s Website.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '6- WikiC\xA0reation disclaimer: Wikicreation strives, through an obligation of means, to ensure the reliability of the Service and the accuracy and updating of the information provided.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'WikiCreation reserves the right to modify at any time and without notice, the content on the www.wikicreation.fr\xA0website. The information provided on the website www.wikicreation.com is general in nature and are not necessarily exhaustive. They are not contractual and do not constitute legal advice. WikiCreation cannot be held responsible for the interpretation of this information, or the consequences of its use. WikiCreation disclaims any responsibility for the availability of the Service.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'WikiCreation does not guarantee uninterrupted operation of the Service. WikiCreation or any of its partners cannot be held responsible for direct or indirect damage that may result from errors, omissions or delays in the transmission of information. WikiCreation disclaims any liability for the fraudulent use of WikiCreation RSS feeds that could be made by third parties.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The User therefore acknowledges using the Service at his/her own risk.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '7- Duration:'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'The acceptance of these General Terms & Conditions by the User takes effect when the User installs WikiCreation RSS feeds. The User may terminate the license granted by destroying or removing from all hard drives, networks, servers and other storage media all copies of the Service.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'WikiCreation reserves the right to restrict and suspend the Service, temporarily or permanently, at any time, without first informing the User and without being held liable in any way whatsoever.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            '8 - Miscellaneous information:'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'These General Terms & Conditions are exclusively subject to French Legislation and Jurisdiction. Any action relating to these General Terms & Conditions will always be brought before the court of the competent jurisdiction of Paris.'
-	          ),
-	          _react2.default.createElement(
-	            'p',
-	            null,
-	            'WikiCreation is not responsible for the financial costs of establishing a connection (by any means whatsoever) to the website www.institut-acte.cnrs.fr, to the Service or another online service, or more generally, to the internet. All Parties mentioned in the General Terms & Conditions are independent contractors, and the provisions of these Terms & Conditions do not constitute a supplier contract, a joint venture, an agency, a franchise, sales representation or an employer/employee relationship between WikiCreation and the User. Nothing in these General Terms & Conditions shall have the effect of limiting or restricting the ability of WikiCreation to form a contract with any other individual providing identical services to those offered by the Website of the User or to provide similar services itself.'
-	          )
+	          this.getLocalizedContent()
 	        )
 	      )
 	    );
@@ -35411,6 +36698,7 @@
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
+	    locale: store.messages.locale,
 	    title: store.messages.strings.legal.title
 	  };
 	};
@@ -35426,7 +36714,175 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Legal);
 
 /***/ },
-/* 342 */
+/* 345 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContentEn = function ContentEn() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Presentation'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'This entire site is covered by French and international legislation regarding copyright and intellectual property. All reproduction rights are reserved, including downloadable documents and iconographic and photographic representations.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'The WikiCreation website is protected by intellectual property, both regarding its form (choice, layout, \xA0organisation of sections, methods of access to data, data organisation, ergonomics, arborescence, graphic design, structure, architecture, etc.) and regarding each element of its content (texts, images, photos, illustrations, logos, pictograms, maps, plans, etc.). You are not allowed to reproduce the HTML code of the pages on this server for the purpose of public distribution.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Reproduction of all or part of this website through any media whatsoever is strictly prohibited. Any reproduction, representation or distribution, in whole or in part, of the content of this website, by any process or medium whatsoever, is prohibited without the express permission of the Project Director. Failure to comply with this prohibition constitutes an infringement that may result in civil and criminal penalties.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Note: Violation of any copyright is an offense punishable, under Article L.335-2 of the Code of Intellectual Property, 2 years imprisonment and \u20AC150,000 fine.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Wikicreation shall in no event be liable for any damages, direct or indirect, of any nature whatsoever, resulting from the use of information provided on this website.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'The implementation of hyperlinks by third parties to pages or documents published on the WikiCreation website is permitted provided that these links are not contrary to the interests of Wikicreation, and that they give the User the possibility to identify the origin and author of the document concerned.\xA0'
+	    ),
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Hosting'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'OVH ',
+	      _react2.default.createElement('br', null),
+	      'CNRS \u2013 Centre national de la recherche scientifique',
+	      _react2.default.createElement('br', null),
+	      '3, rue Michel-Ange',
+	      _react2.default.createElement('br', null),
+	      '75794 Paris cedex 16 \u2013 France',
+	      _react2.default.createElement('br', null),
+	      'Tel : 01 44 96 40 00'
+	    ),
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Copyright'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'The presence of any material, whether text or graphics, in the pages of the WikiCreation website does not imply that this material is in the public domain. WikiCreation intends to preserve the moral rights of the authors concerned. Any reproduction for academic or study purposes by educational institutions or students in good faith is subject to an authorisation request. Any use, in whole or in part, and through any media whatsoever, for commercial purposes is strictly prohibited.'
+	    )
+	  );
+	};
+
+	module.exports = ContentEn;
+
+/***/ },
+/* 346 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContentFr = function ContentFr() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Pr\xE9sentation'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'L\u2019ensemble de ce site rel\xE8ve de la l\xE9gislation fran\xE7aise et internationale sur le droit d\u2019auteur et la propri\xE9t\xE9 intellectuelle. Tous les droits de reproduction sont r\xE9serv\xE9s, y compris pour les documents t\xE9l\xE9chargeables, les repr\xE9sentations iconographiques et photographiques.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Le site Wikicr\xE9ation est prot\xE9g\xE9 par la propri\xE9t\xE9 intellectuelle, aussi bien en ce qui concerne sa forme (choix, plan, disposition des mati\xE8res, moyens d\u2019acc\xE8s aux donn\xE9es, organisation des donn\xE9es, ergonomie, arborescence, conception graphique, structure, architecture\u2026) qu\u2019en ce qui concerne chacun des \xE9l\xE9ments de son contenu (textes, images, photos, illustrations, logos, pictogrammes, cartes, plans\u2026). Vous n\u2019\xEAtes donc pas autoris\xE9 \xE0 reproduire le code HTML des pages de ce serveur dans un but de diffusion publique.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'La reproduction de tout ou partie de ce site sur un support quel qu\u2019il soit, est formellement interdite. Toute reproduction, repr\xE9sentation ou diffusion, en tout ou partie, du contenu de ce site, par tout proc\xE9d\xE9 ou sur quelque support que ce soit est interdite sauf autorisation expresse du directeur de la publication. Le non respect de cette interdiction constitue une contrefa\xE7on susceptible d\u2019engager la responsabilit\xE9 civile et p\xE9nale du contrefacteur.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Note : La violation de l\u2019un des droits d\u2019auteur de l\u2019\u0153uvre est un d\xE9lit de contrefa\xE7on passible, aux termes de l\u2019article L.335-2 du Code de la Propri\xE9t\xE9 Intellectuelle, de 2 ans d\u2019emprisonnement et de 150 000 Euros d\u2019amende.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Wikicr\xE9ation ne sera en aucun cas responsable d\u2019un quelconque dommage, direct ou indirect, de quelque nature que ce soit, r\xE9sultant de l\u2019utilisation des informations mises \xE0 disposition sur le pr\xE9sent site.'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'La mise en place de liens hypertextes par des tiers vers des pages ou des documents diffus\xE9s sur le site de Wikicr\xE9ation, est autoris\xE9e sous r\xE9serve que les liens ne contreviennent pas aux int\xE9r\xEAts de Wikicr\xE9ation, et, qu\u2019ils garantissent la possibilit\xE9 pour l\u2019utilisateur d\u2019identifier l\u2019origine et l\u2019auteur du document.'
+	    ),
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'H\xE9bergement'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'OVH ',
+	      _react2.default.createElement('br', null),
+	      'CNRS \u2013 Centre national de la recherche scientifique',
+	      _react2.default.createElement('br', null),
+	      '3, rue Michel-Ange',
+	      _react2.default.createElement('br', null),
+	      '75794 Paris cedex 16 \u2013 France',
+	      _react2.default.createElement('br', null),
+	      'Tel : 01 44 96 40 00'
+	    ),
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Droits de reproduction'
+	    ),
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'La pr\xE9sence de mat\xE9riel, textuel ou graphique, dans les pages du site de Wikicr\xE9ation, n\u2019implique pas que ce mat\xE9riel soit du domaine public.Wikicr\xE9ation entend pr\xE9server le droit moral des auteurs concern\xE9s. Toute reproduction \xE0 des fins acad\xE9miques ou d\u2019\xE9tude, par des \xE9tablissements \xE9ducatifs ou des \xE9tudiants de bonne foi, est soumise \xE0 demande d\u2019autorisation. Tout usage, en tout ou en partie et sur quelque support que ce soit, \xE0 des fins lucratives est formellement interdit.'
+	    )
+	  );
+	};
+
+	module.exports = ContentFr;
+
+/***/ },
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35437,19 +36893,19 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _Author = __webpack_require__(343);
+	var _Author = __webpack_require__(348);
 
 	var _Author2 = _interopRequireDefault(_Author);
 
-	var _Header = __webpack_require__(345);
+	var _Header = __webpack_require__(350);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Menu = __webpack_require__(362);
+	var _Menu = __webpack_require__(367);
 
 	var _Menu2 = _interopRequireDefault(_Menu);
 
-	var _MenusBackground = __webpack_require__(367);
+	var _MenusBackground = __webpack_require__(372);
 
 	var _MenusBackground2 = _interopRequireDefault(_MenusBackground);
 
@@ -35483,7 +36939,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Main);
 
 /***/ },
-/* 343 */
+/* 348 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35494,9 +36950,9 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(279);
+	var _actions = __webpack_require__(281);
 
-	var _AuthorArticle = __webpack_require__(344);
+	var _AuthorArticle = __webpack_require__(349);
 
 	var _AuthorArticle2 = _interopRequireDefault(_AuthorArticle);
 
@@ -35593,7 +37049,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Author);
 
 /***/ },
-/* 344 */
+/* 349 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35604,11 +37060,11 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _DateStr = __webpack_require__(285);
+	var _DateStr = __webpack_require__(287);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -35656,7 +37112,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(AuthorArticle);
 
 /***/ },
-/* 345 */
+/* 350 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35667,15 +37123,15 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _reactRouter = __webpack_require__(346);
+	var _reactRouter = __webpack_require__(351);
 
-	var _actions = __webpack_require__(339);
+	var _actions = __webpack_require__(342);
 
-	var _LanguageSwitch = __webpack_require__(338);
+	var _LanguageSwitch = __webpack_require__(341);
 
 	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
 
-	var _Titlebar = __webpack_require__(359);
+	var _Titlebar = __webpack_require__(364);
 
 	var _Titlebar2 = _interopRequireDefault(_Titlebar);
 
@@ -35707,7 +37163,7 @@
 	module.exports = (0, _reactRedux.connect)(null, mapDispatchToProps)(Header);
 
 /***/ },
-/* 346 */
+/* 351 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35724,7 +37180,7 @@
 	  }
 	});
 
-	var _PropTypes = __webpack_require__(303);
+	var _PropTypes = __webpack_require__(305);
 
 	Object.defineProperty(exports, 'locationShape', {
 	  enumerable: true,
@@ -35752,19 +37208,19 @@
 
 	var _Router3 = _interopRequireDefault(_Router2);
 
-	var _Link2 = __webpack_require__(302);
+	var _Link2 = __webpack_require__(304);
 
 	var _Link3 = _interopRequireDefault(_Link2);
 
-	var _IndexLink2 = __webpack_require__(347);
+	var _IndexLink2 = __webpack_require__(352);
 
 	var _IndexLink3 = _interopRequireDefault(_IndexLink2);
 
-	var _withRouter2 = __webpack_require__(348);
+	var _withRouter2 = __webpack_require__(353);
 
 	var _withRouter3 = _interopRequireDefault(_withRouter2);
 
-	var _IndexRedirect2 = __webpack_require__(349);
+	var _IndexRedirect2 = __webpack_require__(354);
 
 	var _IndexRedirect3 = _interopRequireDefault(_IndexRedirect2);
 
@@ -35772,11 +37228,11 @@
 
 	var _IndexRoute3 = _interopRequireDefault(_IndexRoute2);
 
-	var _Redirect2 = __webpack_require__(350);
+	var _Redirect2 = __webpack_require__(355);
 
 	var _Redirect3 = _interopRequireDefault(_Redirect2);
 
-	var _Route2 = __webpack_require__(351);
+	var _Route2 = __webpack_require__(356);
 
 	var _Route3 = _interopRequireDefault(_Route2);
 
@@ -35784,7 +37240,7 @@
 
 	var _RouterContext3 = _interopRequireDefault(_RouterContext2);
 
-	var _match2 = __webpack_require__(352);
+	var _match2 = __webpack_require__(357);
 
 	var _match3 = _interopRequireDefault(_match2);
 
@@ -35792,7 +37248,7 @@
 
 	var _useRouterHistory3 = _interopRequireDefault(_useRouterHistory2);
 
-	var _applyRouterMiddleware2 = __webpack_require__(355);
+	var _applyRouterMiddleware2 = __webpack_require__(360);
 
 	var _applyRouterMiddleware3 = _interopRequireDefault(_applyRouterMiddleware2);
 
@@ -35800,11 +37256,11 @@
 
 	var _browserHistory3 = _interopRequireDefault(_browserHistory2);
 
-	var _hashHistory2 = __webpack_require__(356);
+	var _hashHistory2 = __webpack_require__(361);
 
 	var _hashHistory3 = _interopRequireDefault(_hashHistory2);
 
-	var _createMemoryHistory2 = __webpack_require__(353);
+	var _createMemoryHistory2 = __webpack_require__(358);
 
 	var _createMemoryHistory3 = _interopRequireDefault(_createMemoryHistory2);
 
@@ -35837,7 +37293,7 @@
 	exports.createMemoryHistory = _createMemoryHistory3.default;
 
 /***/ },
-/* 347 */
+/* 352 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35850,7 +37306,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
@@ -35870,7 +37326,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 348 */
+/* 353 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35895,7 +37351,7 @@
 
 	var _ContextUtils = __webpack_require__(250);
 
-	var _PropTypes = __webpack_require__(303);
+	var _PropTypes = __webpack_require__(305);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35948,7 +37404,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 349 */
+/* 354 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35967,7 +37423,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _Redirect = __webpack_require__(350);
+	var _Redirect = __webpack_require__(355);
 
 	var _Redirect2 = _interopRequireDefault(_Redirect);
 
@@ -36018,7 +37474,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 350 */
+/* 355 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36127,7 +37583,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 351 */
+/* 356 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36191,7 +37647,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 352 */
+/* 357 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36206,7 +37662,7 @@
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
-	var _createMemoryHistory = __webpack_require__(353);
+	var _createMemoryHistory = __webpack_require__(358);
 
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
@@ -36269,7 +37725,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 353 */
+/* 358 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36285,7 +37741,7 @@
 
 	var _useBasename2 = _interopRequireDefault(_useBasename);
 
-	var _createMemoryHistory = __webpack_require__(354);
+	var _createMemoryHistory = __webpack_require__(359);
 
 	var _createMemoryHistory2 = _interopRequireDefault(_createMemoryHistory);
 
@@ -36305,7 +37761,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 354 */
+/* 359 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36451,7 +37907,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 355 */
+/* 360 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36514,14 +37970,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 356 */
+/* 361 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _createHashHistory = __webpack_require__(357);
+	var _createHashHistory = __webpack_require__(362);
 
 	var _createHashHistory2 = _interopRequireDefault(_createHashHistory);
 
@@ -36535,7 +37991,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 357 */
+/* 362 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36556,7 +38012,7 @@
 
 	var _DOMUtils = __webpack_require__(260);
 
-	var _HashProtocol = __webpack_require__(358);
+	var _HashProtocol = __webpack_require__(363);
 
 	var HashProtocol = _interopRequireWildcard(_HashProtocol);
 
@@ -36688,7 +38144,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 358 */
+/* 363 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -36830,7 +38286,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 359 */
+/* 364 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36843,11 +38299,11 @@
 
 	var _constants = __webpack_require__(223);
 
-	var _ArticleTitle = __webpack_require__(360);
+	var _ArticleTitle = __webpack_require__(365);
 
 	var _ArticleTitle2 = _interopRequireDefault(_ArticleTitle);
 
-	var _StandardTitle = __webpack_require__(361);
+	var _StandardTitle = __webpack_require__(366);
 
 	var _StandardTitle2 = _interopRequireDefault(_StandardTitle);
 
@@ -36885,7 +38341,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Titlebar);
 
 /***/ },
-/* 360 */
+/* 365 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36896,7 +38352,7 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _DateStr = __webpack_require__(285);
+	var _DateStr = __webpack_require__(287);
 
 	var _DateStr2 = _interopRequireDefault(_DateStr);
 
@@ -36941,7 +38397,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(ArticleTitle);
 
 /***/ },
-/* 361 */
+/* 366 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -36967,7 +38423,7 @@
 	module.exports = StandardTitle;
 
 /***/ },
-/* 362 */
+/* 367 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36976,21 +38432,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
-	var _IndexLink = __webpack_require__(347);
+	var _IndexLink = __webpack_require__(352);
 
 	var _IndexLink2 = _interopRequireDefault(_IndexLink);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _NavMenu = __webpack_require__(363);
+	var _NavMenu = __webpack_require__(368);
 
 	var _NavMenu2 = _interopRequireDefault(_NavMenu);
 
-	var _NewsMenu = __webpack_require__(365);
+	var _NewsMenu = __webpack_require__(370);
 
 	var _NewsMenu2 = _interopRequireDefault(_NewsMenu);
 
@@ -37016,7 +38472,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps)(Menu);
 
 /***/ },
-/* 363 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37025,19 +38481,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(339);
+	var _actions = __webpack_require__(342);
 
-	var _LanguageSwitch = __webpack_require__(338);
+	var _LanguageSwitch = __webpack_require__(341);
 
 	var _LanguageSwitch2 = _interopRequireDefault(_LanguageSwitch);
 
-	var _Search = __webpack_require__(364);
+	var _Search = __webpack_require__(369);
 
 	var _Search2 = _interopRequireDefault(_Search);
 
@@ -37101,7 +38557,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NavMenu);
 
 /***/ },
-/* 364 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37116,9 +38572,9 @@
 
 	var _browserHistory2 = _interopRequireDefault(_browserHistory);
 
-	var _actions = __webpack_require__(289);
+	var _actions = __webpack_require__(291);
 
-	var _actions2 = __webpack_require__(339);
+	var _actions2 = __webpack_require__(342);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37171,7 +38627,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Search);
 
 /***/ },
-/* 365 */
+/* 370 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37180,15 +38636,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Link = __webpack_require__(302);
+	var _Link = __webpack_require__(304);
 
 	var _Link2 = _interopRequireDefault(_Link);
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(339);
+	var _actions = __webpack_require__(342);
 
-	var _async = __webpack_require__(366);
+	var _async = __webpack_require__(371);
 
 	var async = _interopRequireWildcard(_async);
 
@@ -37267,7 +38723,7 @@
 	module.exports = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NewsMenu);
 
 /***/ },
-/* 366 */
+/* 371 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37277,9 +38733,9 @@
 	});
 	exports.getNews = getNews;
 
-	var _actions = __webpack_require__(339);
+	var _actions = __webpack_require__(342);
 
-	var _httpRequestHelper = __webpack_require__(280);
+	var _httpRequestHelper = __webpack_require__(282);
 
 	var _httpRequestHelper2 = _interopRequireDefault(_httpRequestHelper);
 
@@ -37303,7 +38759,7 @@
 	};
 
 /***/ },
-/* 367 */
+/* 372 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37314,9 +38770,9 @@
 
 	var _reactRedux = __webpack_require__(172);
 
-	var _actions = __webpack_require__(339);
+	var _actions = __webpack_require__(342);
 
-	var _actions2 = __webpack_require__(279);
+	var _actions2 = __webpack_require__(281);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

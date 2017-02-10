@@ -25,7 +25,6 @@ const Home = React.createClass({
     return (
       <main id="main-container">
         <btn style={{display : 'block', margin : '400px'}} onClick={this.preview} >yolo</btn>
-        <Graph />
         <PreviewBackground />
         <Preview />
       </main>

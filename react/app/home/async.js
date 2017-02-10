@@ -2,16 +2,23 @@ import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import {graphDataRequest, graphDataSuccess, graphDataFail} from './actions';
 import {previewRequest, previewSuccess, previewFail} from './actions';
 import {flatten, setLinks, getNodeByName} from './d3/graphHelpers';
+import QueryHelper from '../shared/helpers/QueryHelper';
 import store from '../store';
 
 export function getGraphData(id) {
 
-  var storeGraphData = store.getState().graphData;
-  if (storeGraphData.isFetching || storeGraphData.isDone ) return;
+  const baseUrl = '/json/graph-data.json';
+  let locale = store.getState().messages.locale;
+  let storeData = store.getState().graphData;
+
+  if (storeData.language === locale && (storeData.isFetching || storeData.isDone)) return;
 
   store.dispatch(graphDataRequest());
 
-  httpRequestHelper('/json/graph-data.json',
+  let queryHelper = new QueryHelper(baseUrl);
+  queryHelper.addString('language', locale);
+
+  httpRequestHelper(queryHelper.getUrl(),
     response => {
       let nodes = flatten(response.data);
       let links = setLinks(nodes);
@@ -24,12 +31,19 @@ export function getGraphData(id) {
 
 export function getPreview (id) {
 
+  const baseUrl = '/json/preview.json';
+  let locale = store.getState().messages.locale;
   var storePreview = store.getState().preview;
-  if (storePreview.id === parseInt(id) && (storePreview.isFetching || storePreview.isDone) ) return;
+
+  if (storePreview.language === locale && storePreview.id === parseInt(id)
+  && (storePreview.isFetching || storePreview.isDone) ) return;
 
   store.dispatch(previewRequest(parseInt(id)));
 
-  httpRequestHelper('/json/preview.json',
+  let queryHelper = new QueryHelper(baseUrl);
+  queryHelper.addString('language', locale);
+
+  httpRequestHelper(queryHelper.getUrl(),
     response => store.dispatch(previewSuccess(response)),
     error => store.dispatch(previewFail(xhr.status + ':' + xhr.response))
   );

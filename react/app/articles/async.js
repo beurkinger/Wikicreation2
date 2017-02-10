@@ -5,6 +5,7 @@ import store from '../store';
 
 export function getArticles (id) {
 
+  let locale = store.getState().messages.locale;
   // var storeArticles = store.getState().articles;
   // if (storeArticles.isFetching || storeArticles.isDone) return;
 
@@ -14,6 +15,7 @@ export function getArticles (id) {
   let filter = store.getState().articlesFilter;
 
   let queryHelper = new QueryHelper(baseUrl);
+  queryHelper.addString('locale', locale);
   queryHelper.addString('title', filter.title);
   queryHelper.addArray('categories', filter.categories);
   queryHelper.addArray('languages', filter.languages);

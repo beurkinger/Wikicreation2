@@ -1,19 +1,33 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 const AboutAside = React.createClass({
-  render: () => (
-    <aside id="main-aside">
-        <a className="nav-link"  href="#presentation">
-          Présentation de la publication
-        </a>
-        <a className="nav-link" href="#project">
-          Un projet éditorial relationnel
-        </a>
-        <a className="nav-link" href="#editor">
-          Editeur
-        </a>
-    </aside>
-  )
+  propTypes : {
+    presentation : React.PropTypes.string.isRequired,
+    editorialProject : React.PropTypes.string.isRequired,
+    editor : React.PropTypes.string.isRequired
+  },
+  render: function () {
+    return (
+      <aside id="main-aside">
+          <a className="nav-link"  href="#presentation">
+            {this.props.presentation}
+          </a>
+          <a className="nav-link" href="#project">
+            {this.props.editorialProject}
+          </a>
+          <a className="nav-link" href="#editor">
+            {this.props.editor}
+          </a>
+      </aside>
+    )
+  }
 });
 
-module.exports = AboutAside;
+const mapStateToProps = (store) => ({
+  presentation : store.messages.strings.about.aside.presentation,
+  editorialProject : store.messages.strings.about.aside.editorialProject,
+  editor : store.messages.strings.about.aside.editor
+});
+
+module.exports = connect(mapStateToProps)(AboutAside);
