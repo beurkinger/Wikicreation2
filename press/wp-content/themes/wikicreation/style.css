@@ -1,0 +1,19 @@
+/*
+Theme Name: Wikicréation
+Theme URI: http://www.wikicreation.fr
+Author: Elias + Thibault
+Author URI: http://www.wikicreation.fr
+Description: This is a test theme for wikicreation's graph
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: Wikicréation
+Text Domain: custom
+*/
+html,body{
+	margin:0;
+	background-color: #242d5c;
+}
+#nodesCanvas{
+	position:absolute;
+}
