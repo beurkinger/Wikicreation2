@@ -1121,7 +1121,7 @@ html, body, #root, #app
 {
   z-index: 80;
   box-sizing: border-box;
-  position: fixed; top: 0; right: 0;
+  position: absolute; top: 0; right: 0;
   width: 500px; height: 100%;
   background : #FFF;
   /*background-clip: content-box;*/
