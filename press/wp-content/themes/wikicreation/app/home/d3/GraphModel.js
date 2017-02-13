@@ -1,24 +1,26 @@
 import Event from './Event';
 
 class GraphModel{
-	constructor(modelData) {
+	constructor(modelData){
 		this.nodes = modelData.nodes;
 		this.links = modelData.links;
 
 		this.nodesAdded = new Event(this);
 		this.linksAdded = new Event(this);
 
-		this.permanentNodes = this.nodes.filter( d => d.depth<=2 );
-		this.selectedNodes = [];
-		this.newNodes=[];
+		this.defaultNodes = this.nodes.filter( d => d.depth<=2 );
+		this.selectedNodes = this.defaultNodes;
+		this.exploredNode; //Ajout d'une exploredNode
+		this.newNodes = [];
+
+		this.enabledNodes=[];
 
 		this.selectedLinks = [];
-		this.newLinks=[];
-
+		this.newLinks = [];
 	}
 
 	setByDepth(depth, value1, value2, value3){
-		switch(depth){
+		switch(depth) {
 			case 1:
 				return value1;
 				break;
@@ -31,86 +33,93 @@ class GraphModel{
 		}
 	}
 
-	showLink(subject){
-		this.newLinks = this.links.filter( d => d.target.id == subject.id );
+	//selectRelations et hoverRelations gèrent respectivement nodes et liens liées aux interactions de selections(clique) et hover
+	selectRelations(subject, clickHandler){
+		switch(subject.depth) {
+			case 2:
+				this.selectedNodes = this.newNodes;
+				this.selectedLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
+				this.enabledNodes = this.nodes.filter(d => this.selectedLinks.indexOf(d.id)!=-1 );
+				break;
+			case 3:
+				this.selectNodes(subject);
+				this.selectedLinks = this.recurseLinks(subject);
+				if (clickHandler && typeof clickHandler === 'function') clickHandler(subject.wpId);
+				break;
+		}
+
 		this.linksAdded.notify();
+		this.nodesAdded.notify();
 	}
 
-	selectLinks(subject){
-		this.selectedLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
-		this.linksAdded.notify()
+	hoverRelations(subject) {
+		this.newNodes = [];
+		switch(subject.depth) {
+			case 2:
+				this.newLinks = this.recurseLinks(subject);
+				this.showNodes(subject);
+				this.exploredNode = subject;
+				break;
+			case 3:
+				if(this.enabledNodes.indexOf(subject)!= -1) {
+					this.selectedLinks = this.recurseLinks(subject);
+					this.selectLinkedNodes();
+				}
+				break;
+		}
+		this.linksAdded.notify();
+		this.nodesAdded.notify();
+	}
+
+	selectLinkedNodes(){
+		this.selectedNodes = [];
+		this.selectedLinks.forEach( (d, index) => {
+			this.selectedNodes[index]=d.target;
+			if(d.target.depth==2) this.showNodes(d.target);
+		});
 	}
 
 	showNodes(subject){
-		this.newNodes = [];
-
-		let theseLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
-
+		var theseLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
 		theseLinks.forEach( c => {
 			this.newNodes.push(this.nodes.filter( d => c.source.id==d.id )[0]);
 			this.newNodes.push(this.nodes.filter( d => c.target.id==d.id )[0]);
 		});
-
-		this.nodesAdded.notify();
 	}
 
-	selectNodes(subject){
+	selectNodes(subject) {
 		this.selectedNodes = [];
-
-		let theseLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
-
+		var theseLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
 		theseLinks.forEach( c => {
 			this.selectedNodes.push(this.nodes.filter( d => c.source.id==d.id )[0]);
 			this.selectedNodes.push(this.nodes.filter( d => c.target.id==d.id )[0]);
 		});
-
-		this.nodesAdded.notify();
 	}
 
-	addRelatedLinks(subject){
-		this.selectedLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
-		this.currentLinks = this.selectedLinks;
-		/*this.currentLinks = this.currentLinks.concat(this.newLinks);
-		this.currentLinks.sort( (a,b) => a.index-b.index ); // trie le tableau en fonction des index de nodes.
-		this.currentLinks = this.currentLinks.filter((d, i, self) => !i || d!=self[i - 1] );*/
+	recurseLinks(subject) {
+		var recursedLinks=[];
+		var self = this;
+
+		function recurse(subject){
+			var parentLinks = self.links.filter( d=>{ return d.target.id == subject.id } );
+			parentLinks.forEach( (d) =>{
+				recurse(d.source);
+				recursedLinks.push(d);
+			});
+		}
+		recurse(subject);
+		return recursedLinks;
+	}
+
+	restoreDefault() {
+		this.selectedNodes = this.defaultNodes;
+		this.newNodes = [];
+
+		this.selectedLinks = [];
+		this.newLinks = [];
 
 		this.linksAdded.notify();
-	}
-
-	addRelatedNodes(subject){
-		this.currentNodes = this.permanentNodes.concat(this.selectedNodes);
-
-		let newNodes = [];
-
-
-		theseLinks.forEach( c => {
-			newNodes.push(this.nodes.filter( d => c.source.id==d.id )[0]);
-			newNodes.push(this.nodes.filter( d => c.target.id==d.id )[0]);
-		});
-		// console.log(this.currentLinks);
-		this.currentNodes = this.currentNodes.concat(newNodes);
-		this.currentNodes.sort( (a,b) => a.index-b.index );
-		this.currentNodes = this.currentNodes.filter((d, i, self) => !i || d!=self[i - 1]);
-
 		this.nodesAdded.notify();
-	}
-
-	recurseLinksUp(subject){
-		let newLinks = links.filter(function(d){ return d.target.id == subject.id });
-		upLinks = upLinks.concat(newLinks);
-		newLinks.forEach(function(d){
-			if(typeof d.source !== 'object' ) return;
-			else if(d.source.depth > 1) recurseLinksUp(d.source)
-		});
-	}
-
-	recurseLinksDown(subject){
-		let newLinks = links.filter(function(d){ return d.source.id == subject.id });
-		downLinks = downLinks.concat(newLinks);
-		newLinks.forEach(function(d){
-			if(typeof d.target !== 'object') return;
-			else if(d.target.depth < 3) recurseLinksDown(d.target)
-		});
 	}
 }
 

@@ -26,6 +26,10 @@ class GraphView {
 
 	}
 
+	stop () {
+		this.simulation.stop();
+	}
+
 	start(){
 		var ratio = window.devicePixelRatio || 1;
 
@@ -38,11 +42,11 @@ class GraphView {
 		this.context.translate(this.width / 2, this.height / 2);
 
 		this.simulation = forceSimulation(this._model.nodes)
-			.force("charge", forceManyBody().strength(-800))
-			.force("link", forceLink(this._model.links).distance( d => this._model.setByDepth( d.source.depth, 200, 50)).strength(0.5))
+			.force("charge", forceManyBody().strength( d => this._model.setByDepth( d.depth, -300, -300, -300)))
+			.force("link", forceLink(this._model.links).distance( d => this._model.setByDepth( d.source.depth, 50, 50)).strength(0.5))
 			.force("x", forceX())
 			.force("y", forceY())
-			.force("collision", forceCollide(30) )
+			.force("collision", forceCollide(d => this._model.setByDepth( d.depth, 60, 60, 60)) )
 			.alphaDecay(0.06)
 			.on("tick", this.updateView.bind(this));
 
@@ -52,13 +56,8 @@ class GraphView {
 		for (var i = 0; i < 10; ++i) this.simulation.tick();
 	}
 
-	stop () {
-		this.simulation.stop();
-	}
-
 	reheat(){
-		if (this.interactionIsClick)	this.simulation.alpha( 0.3 ).restart();
-			else this.simulation.alpha(0.1).restart();
+		this.simulation.alpha( 0.05 ).restart();//ALPHA EST PASSE A 0.05
 
 		this._model.links.forEach( d => {
 			if( this._model.selectedLinks.filter( n => d == n ).length == 0) d.animLink.amount = 0 ;
@@ -71,12 +70,17 @@ class GraphView {
 			this.drawNodes();
 	}
 
-	drawNodes(){
+	drawNodes(){ //DRAWNODES A ETE MODIFIE
+		this._model.nodes.forEach( d => d.animNode.drawNode(true));
+		this._model.defaultNodes.forEach( d => d.animNode.drawNode(false));
+		this._model.selectedNodes.forEach( d =>  { d.animNode.drawNode(false); d.animNode.drawText();});
+		this._model.newNodes.forEach( d => d.animNode.drawNode(false));
 
-		this._model.permanentNodes.forEach( d => { d.animNode.drawNode(); if(!this.interactionIsClick) d.animNode.drawText();});
-		this._model.selectedNodes.forEach( d =>  { d.animNode.drawNode(); d.animNode.drawText();});
-		this._model.newNodes.forEach( d => d.animNode.drawNode());
-		if(typeof this.interactionHover == "object") this.interactionHover.animNode.drawText();
+		if( this._model.exploredNode != null){
+
+			this._model.exploredNode.animNode.drawNode(false);
+			this._model.exploredNode.animNode.drawText();
+		}
 	}
 
 	drawLinks(){

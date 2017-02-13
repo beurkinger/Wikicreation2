@@ -1,5 +1,7 @@
-class AnimLink{
-	constructor(link, view){
+import Event from './Event';
+
+class AnimLink {
+	constructor (link, view) {
 		this.link = link;
 		this._view = view;
 		this.context = view.context;
@@ -12,7 +14,6 @@ class AnimLink{
 		var self = this;
 
 		this.linkAnimated = new Event(this);
-
 	}
 
 	drawLink(){
@@ -21,7 +22,6 @@ class AnimLink{
 		this.endX = this.link.target.x,
 		this.endY = this.link.target.y;
 
-		//this.clearLink();
 		this.amount += 0.1;
 		if (this.amount >= 1){
 			this.amount = 1;
@@ -39,17 +39,7 @@ class AnimLink{
 		this.gradient.addColorStop(0, "#242d5c");
 		this.context.strokeStyle = this.gradient;
 		this.context.stroke();
-
 	}
-
-	/*clearLink(){
-		this.context.beginPath();
-		this.context.moveTo(this.startX, this.startY);
-		this.context.lineTo(this.endX, this.endY);
-		this.context.lineWidth = 4;
-		this.context.strokeStyle = "#242d5c";
-		this.context.stroke();
-	}*/
 }
 
 module.exports = AnimLink;
