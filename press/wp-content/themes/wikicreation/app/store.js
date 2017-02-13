@@ -5,9 +5,10 @@ import articlesReducers from './articles/reducers';
 import authorReducers from './author/reducers';
 import authorsReducers from './authors/reducers';
 import headerReducers from './header/reducers';
+import homeReducers from './home/reducers';
 import menusBackgroundReducers from './main/reducers';
 import menuReducers from './menu/reducers';
-import previewReducers from './home/reducers';
+import previewReducers from './preview/reducers';
 import sharedReducers from './shared/reducers';
 
 const mergeObjects = (objects) => {
@@ -27,6 +28,7 @@ const reducers = mergeObjects([
   authorReducers,
   authorsReducers,
   headerReducers,
+  homeReducers,
   menuReducers,
   menusBackgroundReducers,
   previewReducers,

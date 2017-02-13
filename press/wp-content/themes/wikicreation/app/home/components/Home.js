@@ -2,12 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {emptyTitlebar} from '../../header/actions';
-import {showPreviewPanel} from '../actions';
+import {showPreviewPanel} from '../../preview/actions';
+import {getPreview} from '../../preview/async';
 import Graph from './Graph';
-import Preview from './Preview';
-import PreviewBackground from './PreviewBackground';
-
-import {getPreview} from '../async';
 
 const Home = React.createClass({
   propTypes : {
@@ -25,8 +22,6 @@ const Home = React.createClass({
     return (
       <main id="main-container">
         <btn style={{display : 'block', margin : '400px'}} onClick={this.preview} >yolo</btn>
-        <PreviewBackground />
-        <Preview />
       </main>
     )
   }

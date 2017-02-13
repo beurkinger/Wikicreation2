@@ -4,6 +4,8 @@ import Author from '../../author/components/Author';
 import Header from '../../header/components/Header';
 import Menu from '../../menu/components/Menu';
 import MenusBackground from './MenusBackground';
+import Preview from '../../preview/components/Preview';
+import PreviewBackground from '../../preview/components/PreviewBackground';
 import store from '../../store';
 
 const Main = React.createClass({
@@ -14,6 +16,8 @@ const Main = React.createClass({
     return (
       <div id="app" className={this.getCategory()}>
         <Header />
+        <PreviewBackground />
+        <Preview />
         <MenusBackground />
         <Menu />
         <Author />

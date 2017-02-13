@@ -2,10 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import ArticleCard from './ArticleCard';
+import {getPreview} from '../../preview/async';
+import {showPreviewPanel} from '../../preview/actions';
 
 const ArticleCategory = props => {
+  const handleArticleClick = (id) => {
+    getPreview(id);
+    props.showPreviewPanel();
+  };
   const getArticle = (article) => (
-    <ArticleCard id ={article.id} title={article.title} key={article.id} />
+    <ArticleCard  id ={article.id}
+                  title={article.title}
+                  handleClick={handleArticleClick}
+                  key={article.id} />
   );
 
   return (
@@ -27,4 +36,8 @@ ArticleCategory.propTypes =
   articles : React.PropTypes.array.isRequired
 };
 
-module.exports = ArticleCategory;
+const mapDispatchToProps = (dispatch) => ({
+  showPreviewPanel: () => dispatch(showPreviewPanel())
+});
+
+module.exports = connect(null, mapDispatchToProps)(ArticleCategory);

@@ -60,7 +60,7 @@ html, body, #root, #app
 /*---Header---*/
 #main-header
 {
-  z-index: 70;
+  z-index: 60;
   position: absolute; top: 0; left: 0;
   width: 100%; height: 100px;
 }
@@ -200,7 +200,7 @@ html, body, #root, #app
 /*---Background affiché lorsqu'un menu est visible---*/
 #menus-background
 {
-  z-index: 80;
+  z-index: 90;
   position: absolute; top: 0; right: 0;
   width: 100%; height: 100%;
   background: transparent;
@@ -1117,11 +1117,12 @@ html, body, #root, #app
 /*---Preview---*/
 #article-preview
 {
-  z-index: 90;
+  z-index: 80;
   box-sizing: border-box;
-  position: absolute; top: 0; right: 0;
+  position: fixed; top: 0; right: 0;
   width: 500px; height: 100%;
   background : #FFF;
+  box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.33);
   /*background-clip: content-box;*/
 }
 
@@ -1136,6 +1137,13 @@ html, body, #root, #app
   width: 100%;
   padding-left: 360px;
   transition: 500ms;
+}
+
+#article-preview.extend.hide
+{
+  width: 500px;
+  right: -795px;
+  transition: 0ms;
 }
 
 #article-preview.extend #article-preview-content
@@ -1215,7 +1223,9 @@ html, body, #root, #app
 
 #article-preview-background
 {
-  position: absolute; top:0; left: 0; width: 100%; height: 100%; background: transparent:
+  z-index:70;
+  position: fixed; top:0; left: 0;
+  width: 100%; height: 100%; background: transparent;
 }
 
 /*---Boutons--*/

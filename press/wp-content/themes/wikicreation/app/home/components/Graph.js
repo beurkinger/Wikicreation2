@@ -18,28 +18,49 @@ const Graph = React.createClass({
   },
   componentWillMount : function () {
     getGraphData();
-    this.model = new GraphModel(this.props.data);
+    this.setModel(this.props.data);
   },
-  componentDidMount : function () { this.setView() },
+  componentDidMount : function () {
+    this.startD3();
+    window.addEventListener("resize", this.resize);
+  },
   shouldComponentUpdate : function (nextProps)
   {
     if (!this.props.isDone && nextProps.isDone) return true;
     return false;
   },
   componentWillUpdate : function (nextProps) {
-    this.model = new GraphModel(nextProps.data);
+    this.stopD3();
+    this.setModel(nextProps.data);
   },
-  componentDidUpdate : function () { this.setView() },
+  componentDidUpdate : function () {
+    this.startD3()
+  },
   componentWillUnmount : function () {
-    this.view = null;
-    this.model = null;
-    this.controller = null;
+    this.stopD3();
+    window.removeEventListener("resize", this.resize);
   },
-  setView : function () {
+  setModel : function (data)
+  {
+    this.model = new GraphModel(data);
+  },
+  startD3 : function () {
     let elt = ReactDom.findDOMNode(this);
     this.view = new GraphView(this.model, elt);
     this.controller = new GraphController(this.model, this.view);
     this.view.start();
+  },
+  stopD3 : function () {
+    if (this.view) this.view.stop();
+    if (this.controller) this.controller.stop();
+    this.view = null;
+    this.model = null;
+    this.controller = null;
+  },
+  resize : function () {
+    this.stopD3();
+    this.setModel(this.props.data);
+    this.startD3();
   },
   render : function () {
     return <div id="graph"><canvas></canvas></div>

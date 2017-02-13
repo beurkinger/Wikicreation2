@@ -5,12 +5,13 @@ import ArticlesCategory from './ArticlesCategory';
 import PageLoading from '../../shared/components/PageLoading';
 
 const ArticlesContent = (props) => {
-  const getCategory = (category) => (
+  const getCategory = (category) => {
+    return (
     <ArticlesCategory id={category.categoryId}
                       name={category.categoryName}
                       articles={category.articles}
                       key={category.categoryId} />
-  );
+  )};
   return (
     <div id="main-content">
       <PageLoading switches={[props.isArticlesDone]} />

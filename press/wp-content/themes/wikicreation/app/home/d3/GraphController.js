@@ -11,6 +11,11 @@ class GraphController{
 		.on("mousemove", this.mousemove.bind(this));
 	}
 
+	stop() {
+		select(this._view.canvas)
+		.on("click", null)
+		.on("mousemove", null);
+	}
 
 	mousemove(){
 		if ( this.getSubject() != this.hoverSubject && ( this._model.permanentNodes.indexOf(this.getSubject())!=-1 || this._model.selectedNodes.indexOf(this.getSubject())!=-1 )){

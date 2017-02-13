@@ -13,7 +13,7 @@ const Article = React.createClass({
     this.props.setTitlebar();
   },
   componentWillUpdate : function () {
-    console.log('yo');
+    this.props.setTitlebar();
   },
   render: function () {
     return (

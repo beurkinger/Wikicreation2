@@ -52,7 +52,9 @@ class GraphView {
 		for (var i = 0; i < 10; ++i) this.simulation.tick();
 	}
 
-
+	stop () {
+		this.simulation.stop();
+	}
 
 	reheat(){
 		if (this.interactionIsClick)	this.simulation.alpha( 0.3 ).restart();

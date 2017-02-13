@@ -3,7 +3,7 @@ import browserHistory from 'react-router/lib/browserHistory'
 import { connect } from 'react-redux';
 
 import DateStr from '../../shared/components/DateStr';
-import {hidePreviewPanel, extendPreviewPanel} from '../actions';
+import {hidePreviewPanel, extendPreviewPanel, hideExtendedPreviewPanel} from '../actions';
 import {getArticle} from '../../article/async';
 import LanguageSwitch from '../../shared/components/LanguageSwitch';
 import PageLoading from '../../shared/components/PageLoading';
@@ -15,7 +15,7 @@ const Preview = (props) => {
     props.extendPreviewPanel();
     setTimeout(() => {
       browserHistory.push('/articles/1');
-      props.hidePreviewPanel();
+      props.hideExtendedPreviewPanel();
     }, 500);
   };
   return (
@@ -76,6 +76,7 @@ const mapStateToProps = (store) => ({
 const mapDispatchToProps = (dispatch) => ({
     extendPreviewPanel : () => dispatch(extendPreviewPanel()),
     hidePreviewPanel : () => dispatch(hidePreviewPanel()),
+    hideExtendedPreviewPanel : () => dispatch(hideExtendedPreviewPanel()),
     showMenu: () => dispatch(showMenu())
 });
 

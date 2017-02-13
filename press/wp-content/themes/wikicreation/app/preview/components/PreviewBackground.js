@@ -19,7 +19,7 @@ const PreviewBackground = React.createClass({
 const mapStateToProps = (store) => ({ isPreviewVisible : store.previewPanel.isVisible });
 
 const mapDispatchToProps = (dispatch) => ({
-  hidePreviewPanel: () => dispatch(hidePreviewPanel()),
+  hidePreviewPanel: () => dispatch(hidePreviewPanel())
 });
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(PreviewBackground);
