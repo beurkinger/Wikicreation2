@@ -26,6 +26,9 @@ messages[APP_LOCALES.FR] = {
       keywords : "Mots-clés : ",
       toQuote : "Pour citer cet article : ",
       publishedOn : "publié le"
+    },
+    keywords : {
+      empty : "Aucun mot-clé n'a été défini pour cet article."
     }
   },
   articles : {
@@ -137,6 +140,9 @@ messages[APP_LOCALES.EN] = {
       keywords : "Keywords : ",
       howtoQuote : "To quote this article : ",
       publishedOn : "published on the"
+    },
+    keywords : {
+      empty : "This article does not have any keyword."
     }
   },
   articles : {

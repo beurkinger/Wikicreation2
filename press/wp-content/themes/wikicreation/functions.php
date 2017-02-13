@@ -90,7 +90,8 @@ function get_article( $data ){
 			'name' => $author->post_title,
 			'title' => get_post_meta($author->ID, 'titre')[0],
 			'school' => get_post_meta($author->ID, 'universite')[0],
-			'desc' => $author->post_content
+			'desc' => $author->post_content,
+			'pic' => get_post(get_post_meta($author->ID, "photo")[0])->guid
 		)
 	);
 }

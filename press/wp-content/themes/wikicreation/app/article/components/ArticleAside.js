@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ArticleDownloads from './ArticleDownloads';
+import Downloads from './Downloads';
 import {showAuthorPanel} from '../../author/actions';
 import {getAuthor} from '../../author/async';
 import Keywords from './Keywords';
@@ -47,7 +47,7 @@ const ArticleAside = (props) => {
         <h2 className="info-title">
           {props.messages.download}
         </h2>
-        <ArticleDownloads pdfFr={props.pdfFr} pdfEn={props.pdfEn}/>
+        <Downloads pdfFr={props.pdfFr} pdfEn={props.pdfEn} />
       </div>
     </aside>
   );
