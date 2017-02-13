@@ -7,7 +7,7 @@ import Link from 'react-router/lib/Link'
 const AuthorArticle = (props) => (
   <li>
     <h3 className = "article-title">
-      <Link onClick={props.handleClick} to={"articles/" + props.id}>
+      <Link onClick={props.handleClick} to={"/articles/" + props.id}>
         { props.title }
       </Link>
     </h3>

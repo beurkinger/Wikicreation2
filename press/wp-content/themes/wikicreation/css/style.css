@@ -179,6 +179,7 @@ html, body, #root, #app
 #author-profile-exit,
 #article-preview .menu-ham
 {
+  z-index: 30;
   display: block;
   position: absolute;
   height: 16px;

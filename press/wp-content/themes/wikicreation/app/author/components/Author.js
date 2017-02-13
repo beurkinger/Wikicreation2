@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {hideAuthorPanel} from '../actions';
 import AuthorArticle from './AuthorArticle';
+import PageLoading from '../../shared/components/PageLoading';
 
 const Author = (props) => {
   const getAuthorPicStyle = (picUrl) => ({
@@ -21,7 +22,7 @@ const Author = (props) => {
   );
   return (
     <div id="author-profile" className={ props.isVisible ? 'show' : 'hide' }>
-
+      <PageLoading switches={[props.isDone]} />
       <div id="author-profile-exit" className="clickable" onClick={props.hideAuthorPanel}></div>
       <div className="author-pic" style={getAuthorPicStyle(props.pic)} ></div>
       <h2 className="author-name">
@@ -58,15 +59,16 @@ Author.propTypes = {
 };
 
 const mapStateToProps = (store) => ({
-   isVisible : store.authorPanel.isVisible,
-   messages : store.messages.strings.author.main,
-   id: store.author.id,
-   name : store.author.name,
-   title : store.author.title,
-   school : store.author.school,
-   desc : store.author.desc,
-   pic : store.author.pic,
-   articles: store.author.articles
+  isDone : store.author.isDone,
+  isVisible : store.authorPanel.isVisible,
+  messages : store.messages.strings.author.main,
+  id: store.author.id,
+  name : store.author.name,
+  title : store.author.title,
+  school : store.author.school,
+  desc : store.author.desc,
+  pic : store.author.pic,
+  articles: store.author.articles
  });
 
 const mapDispatchToProps = (dispatch) => ({
