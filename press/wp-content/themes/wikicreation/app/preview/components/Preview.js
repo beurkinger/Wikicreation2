@@ -70,7 +70,7 @@ const mapStateToProps = (store) => ({
   date: store.preview.date,
   desc: store.preview.desc,
   categoryName : store.preview.categoryName,
-  authorName : store.author.name,
+  authorName : store.preview.authorName
 });
 
 const mapDispatchToProps = (dispatch) => ({

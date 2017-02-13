@@ -4,7 +4,6 @@ export function graphDataRequest (id) {
   return { type: actionTypes.GRAPH_DATA_REQUEST };
 };
 export function graphDataSuccess (language, data) {
-  console.log(data);
   return {
     type: actionTypes.GRAPH_DATA_SUCCESS,
     language : language,
