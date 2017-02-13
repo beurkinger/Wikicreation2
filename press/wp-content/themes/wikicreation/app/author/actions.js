@@ -13,7 +13,7 @@ export function authorSuccess (json) {
     title : json.title,
     school : json.school,
     desc : json.desc,
-    pic : json.picURL,
+    pic : json.pic,
     articles : json.articles
  };
 };

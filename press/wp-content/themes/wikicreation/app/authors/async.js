@@ -16,7 +16,7 @@ export function getAuthors (id) {
 
   let filter = store.getState().authorsFilter;
   let queryHelper = new QueryHelper(baseUrl);
-  queryHelper.addString('language', locale);
+  queryHelper.addString('lang', locale);
   queryHelper.addString('name', filter.name);
   queryHelper.addArray('categories', filter.categories);
 

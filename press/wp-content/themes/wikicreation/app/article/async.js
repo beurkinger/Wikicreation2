@@ -17,7 +17,7 @@ export function getArticle (id) {
   store.dispatch(articleRequest(parseInt(id)));
 
   let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
-  queryHelper.addString('language', locale);
+  queryHelper.addString('lang', locale);
 
   httpRequestHelper(queryHelper.getUrl(),
     response => store.dispatch(articleSuccess(response)),

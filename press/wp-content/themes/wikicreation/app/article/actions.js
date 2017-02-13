@@ -13,15 +13,15 @@ export function articleSuccess (json) {
     date : json.date,
     keywords : json.keywords,
     body : json.body,
-    pdfFr : json.pdfFr ? json.pdfFrUrl : '',
-    pdfEn : json.pdfEn ? json.pdfEnUrl : '',
+    pdfFr : json.pdfFr ? json.pdfFr : '',
+    pdfEn : json.pdfEn ? json.pdfEn : '',
     categoryId : json.category[0].id,
     categoryName : json.category[0].name,
     authorId : json.author.id,
     authorName : json.author.name,
     authorTitle : json.author.title,
     authorSchool : json.author.school,
-    authorPic : json.author.picURL,
+    authorPic : json.author.pic,
  };
 };
 export function articleFail (msg) {

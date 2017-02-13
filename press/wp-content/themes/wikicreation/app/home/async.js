@@ -16,7 +16,7 @@ export function getGraphData(id) {
   store.dispatch(graphDataRequest());
 
   let queryHelper = new QueryHelper(baseUrl);
-  queryHelper.addString('language', locale);
+  queryHelper.addString('lang', locale);
 
   httpRequestHelper(queryHelper.getUrl(),
     response => {

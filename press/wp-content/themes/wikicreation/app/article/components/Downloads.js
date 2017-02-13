@@ -3,14 +3,14 @@ import React from 'react';
 const Downloads = (props) => {
   const getPdfFr = function () {
     if (props.pdfFr !== '') return (
-      <a href={props.pdfFr} target="_blank">
+      <a href={'/' + props.pdfFr} target="_blank">
         <div className="download fr"></div>
       </a>
     )
   };
   const getPdfEn = function () {
     if (props.pdfEn !== '') return (
-      <a href={props.pdfEn} target="_blank">
+      <a href={'/' + props.pdfEn} target="_blank">
         <div className="download en"></div>
       </a>
     )

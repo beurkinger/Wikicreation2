@@ -15,7 +15,7 @@ export function getNews () {
   store.dispatch(newsRequest());
 
   let queryHelper = new QueryHelper(baseUrl);
-  queryHelper.addString('language', locale);
+  queryHelper.addString('lang', locale);
 
   httpRequestHelper(queryHelper.getUrl(),
     response => store.dispatch(newsSuccess(response)),

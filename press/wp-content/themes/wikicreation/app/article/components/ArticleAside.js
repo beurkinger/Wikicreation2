@@ -8,10 +8,11 @@ import Keywords from './Keywords';
 
 const ArticleAside = (props) => {
   const getAuthorPicStyle = (picUrl) => ({
-    backgroundImage : 'url(' + picUrl + ')',
+    backgroundImage : 'url(/' + picUrl + ')',
     backgroundSize : 'cover'
    });
   const handleAuthorClick = () => {
+    console.log(props.authorId);
     getAuthor(props.authorId);
     props.showAuthorPanel();
   };
@@ -72,7 +73,7 @@ const mapStateToProps = (store) => ({
   keywords: store.article.keywords,
   pdfFr : store.article.pdfFr,
   pdfEn : store.article.pdfEn,
-  authorId : store.author.id,
+  authorId : store.article.authorId,
   authorName : store.article.authorName,
   authorTitle : store.article.authorTitle,
   authorSchool : store.article.authorSchool,

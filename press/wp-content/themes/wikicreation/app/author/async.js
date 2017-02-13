@@ -16,7 +16,7 @@ export function getAuthor (id) {
   store.dispatch(authorRequest(parseInt(id)));
 
   let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
-  queryHelper.addString('language', locale);
+  queryHelper.addString('lang', locale);
 
   httpRequestHelper(queryHelper.getUrl(),
     response => {

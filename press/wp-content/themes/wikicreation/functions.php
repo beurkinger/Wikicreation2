@@ -22,7 +22,7 @@ function format_category($category){
 	$cat = get_category($category);
 	return array(
 		'id' => $cat->cat_ID,
-		'name' => $cat->name
+		'name' => __($cat->name)
 	);
 }
 
@@ -44,7 +44,7 @@ function get_articles(){
 
 		$postsFiltered = in_array($cat['id'], wp_get_post_categories(11, array('fields'=>'ids')));
 		$cats[$i] = array(
-			'categoryName' => $cat['name'],
+			'categoryName' => __($cat['name']),
 			'categoryId' => $cat['id'],
 			'articles' => $postIds
 		);
@@ -72,14 +72,20 @@ function get_article( $data ){
 	foreach ($keywords as $tag) {
 		array_push($tagNames, $tag->name);
 	};
-	$picURL = get_post(get_post_meta($author->ID, "photo")[0])->guid;
-	$pic = explode('/',$picURL);
+	$pic = get_post(get_post_meta($author->ID, "photo")[0])->guid;
+	$pic = explode('/',$pic);
+	$picURL = array_slice($pic, -5, 5, true);
+	$picURL = implode('/', $picURL);
 
 	$pdfFr = get_fields($post->ID)["pdf_fr"]["url"];
 	$pdfFr = explode('/',$pdfFr);
+	$pdfFrURL =	array_slice($pdfFr, -5, 5, true);
+	$pdfFrURL = implode('/', $pdfFrURL);
 
 	$pdfEn = get_fields($post->ID)["pdf_en"]["url"];
 	$pdfEn = explode('/',$pdfEn);
+	$pdfEnURL =	array_slice($pdfEn, -5, 5, true);
+	$pdfEnURL = implode('/', $pdfEnURL);
 
 	return array(
 		'id' => $post->ID,
@@ -88,10 +94,8 @@ function get_article( $data ){
 		'date' => $post->post_date,
 		'keywords' => $tagNames,
 		'body' => __($post->post_content),
-		'pdfFr' =>  end($pdfFr),
-		'pdfFrUrl' =>  wp_make_link_relative( get_fields($post->ID)["pdf_fr"]["url"] ),
-		'pdfEn' => 	end($pdfEn),
-		'pdfEnUrl' => wp_make_link_relative( get_fields($post->ID)["pdf_en"]["url"] ),
+		'pdfFr' =>  $pdfFrURL,
+		'pdfEn' => 	$pdfEnURL,
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->ID,
@@ -99,8 +103,7 @@ function get_article( $data ){
 			'title' => get_post_meta($author->ID, 'titre')[0],
 			'school' => get_post_meta($author->ID, 'universite')[0],
 			'desc' => $author->post_content,
-			'pic' => end($pic),
-			'picURL' => wp_make_link_relative( $picURL )
+			'pic' => $picURL
 		)
 	);
 }
@@ -156,15 +159,16 @@ function get_authors(){
 
 	foreach ($posts as $post) {
 		$picURL = get_post(get_post_meta($post->ID, "photo")[0])->guid;
-		$pic = explode('/', $picURL);
+		$picURL = explode('/', $picURL);
+		$pic = array_slice($picURL, -5, 5, true);
+		$pic = implode('/', $pic);
 
 		$posts[$i] = array(
 			'id' => $post->ID,
 			'name' => $post->post_title,
 			'title' => __(get_post_meta($post->ID, 'titre')[0]),
 			'school' => __(get_post_meta($post->ID, 'universite')[0]),
-			'pic' => end($pic),
-			'picUrl' => wp_make_link_relative( $picURL )
+			'pic' => $pic
 		);
 		$i++;
 	}
@@ -186,7 +190,7 @@ function get_author( $data ){
 		foreach ($categories as $category) {
 			array_push($categoriesFiltered, array(
 				'id' => $category->term_id,
-				'name' => $category->name
+				'name' => __($category->name)
 			));
 		}
 
@@ -199,14 +203,17 @@ function get_author( $data ){
 			));
 	}
 	$picURL = get_post(get_post_meta($post->ID, "photo")[0])->guid;
+	$picURL = explode('/',$picURL);
+	$pic = array_slice($picURL, -5, 5, true);
+	$pic = implode('/', $pic);
 	return array(
 		'id' => $post->ID,
 		'language' => $currentLang = qtrans_getLanguage(),
 		'name' => $post->post_title,
 		'title' => __(get_post_meta($post->ID, 'titre')[0]),
 		'school' => __(get_post_meta($post->ID, 'universite')[0]),
-		'desc' => __($post->post_content),
-		'pic' => wp_make_link_relative( $picURL ),
+		'desc' => $post->post_content,
+		'pic' => $pic,
 		'articles' => $articlesByAuthor
 	);
 }
@@ -217,7 +224,7 @@ function get_all_categories(){
 	foreach ($cats as $cat) {
 		$cats[$i] = array(
 			'id' => $cat->term_id,
-			'name' => $cat->name
+			'name' => __($cat->name)
 		);
 		$i++;
 	}
@@ -240,7 +247,7 @@ function get_graph_data(){
 			if($cat['name'] == $postCats[0])
 				array_push($postIds, array(
 					'id' => $post->ID,
-					'name' => $post->post_title,
+					'name' => __($post->post_title),
 					'wpId' => $post->ID,
 					'altParents' => array_slice($postCats, 1)
 				));

@@ -11,9 +11,21 @@ const Article = React.createClass({
   componentWillMount : function () {
     getArticle(this.props.params.id);
     this.props.setTitlebar();
+    console.log('yar');
   },
-  componentWillUpdate : function () {
-    this.props.setTitlebar();
+  // shouldComponentUpdate : function () {
+  // },
+  componentWillUpdate : function (nextProps) {
+    // console.log(this.props.params.id);
+    // console.log(nextProps.id);
+    // console.log(this.props.language);
+    // console.log(nextProps.locale);
+    // if ((parseInt(this.props.params.id) !== parseInt(nextProps.id))
+    // && this.props.language !== nextProps.locale) {
+      console.log('yo');
+      this.props.setTitlebar();
+      getArticle(this.props.params.id);
+    // }
   },
   render: function () {
     return (
@@ -27,7 +39,10 @@ const Article = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
-  isDone : store.article.isDone
+  isDone : store.article.isDone,
+  id : store.article.id,
+  language : store.article.language,
+  locale : store.messages.locale
 });
 
 const mapDispatchToProps = (dispatch) => ({

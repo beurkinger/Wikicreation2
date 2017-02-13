@@ -16,7 +16,7 @@ export function getArticles (id) {
   let filter = store.getState().articlesFilter;
 
   let queryHelper = new QueryHelper(baseUrl);
-  queryHelper.addString('locale', locale);
+  queryHelper.addString('lang', locale);
   queryHelper.addString('title', filter.title);
   queryHelper.addArray('categories', filter.categories);
   queryHelper.addArray('languages', filter.languages);
