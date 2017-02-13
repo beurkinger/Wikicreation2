@@ -74,16 +74,24 @@ function get_article( $data ){
 	foreach ($keywords as $tag) {
 		array_push($tagNames, $tag->name);
 	};
+	$picURL = get_post(get_post_meta($author->ID, "photo")[0])->guid;
+	$picURL = explode('/',$picURL);
+
+	$pdfFr = get_fields($post->ID)["pdf_fr"]["url"];
+	$pdfFr = explode('/',$pdfFr);
+
+	$pdfEn = get_fields($post->ID)["pdf_en"]["url"];
+	$pdfEn = explode('/',$pdfEn);
 
 	return array(
 		'id' => $post->ID,
 		'language' => $currentLang = qtrans_getLanguage(),
-		'title' => $post->post_title,
+		'title' => __($post->post_title),
 		'date' => $post->post_date,
 		'keywords' => $tagNames,
-		'body' => $post->post_content,
-		'pdfFr' =>  get_fields($post->ID)["pdf_fr"]["url"],
-		'pdfEn' => 	get_fields($post->ID)["pdf_en"]["url"],
+		'body' => __($post->post_content),
+		'pdfFr' =>  end($pdfFr),
+		'pdfEn' => 	end($pdfEn),
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->ID,
@@ -91,7 +99,7 @@ function get_article( $data ){
 			'title' => get_post_meta($author->ID, 'titre')[0],
 			'school' => get_post_meta($author->ID, 'universite')[0],
 			'desc' => $author->post_content,
-			'pic' => get_post(get_post_meta($author->ID, "photo")[0])->guid
+			'pic' => end($picURL)
 		)
 	);
 }
@@ -102,15 +110,15 @@ function get_news(){
 	for ($i = 0; $i < 5; $i++) {
 		$authorId = get_post_meta($posts[$i]->ID, 'auteur')[0];
    	$news[$i] =array(
-			id => $posts[$i]->ID,
-			title => $posts[$i]->post_title,
-			author => get_post($authorId)->post_title,
-			desc => $posts[$i]->post_content
+			'id' => $posts[$i]->ID,
+			'title' => $posts[$i]->post_title,
+			'author' => get_post($authorId)->post_title,
+			'desc' => $posts[$i]->post_content
 		);
 	}
 	return array(
-			'language' => qtrans_getLanguage(),
-			'list' => $news);
+		'language' => qtrans_getLanguage(),
+		'list' => $news);
 }
 
 function get_preview($data){
@@ -130,7 +138,7 @@ function get_preview($data){
 		'language' => $currentLang = qtrans_getLanguage(),
 		'title' => $post->post_title,
 		'date' => $post->post_date,
-		'body' => $post->post_content,
+		'desc' => substr($post->post_content, 0, 300),
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->ID,

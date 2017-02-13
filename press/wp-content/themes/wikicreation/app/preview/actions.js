@@ -24,8 +24,8 @@ export function previewSuccess (json) {
     title : json.title,
     date : json.date,
     desc : json.desc,
-    categoryId : json.category.id,
-    categoryName : json.category.name,
+    categoryId : json.category[0].id,
+    categoryName : json.category[0].name,
     authorId : json.author.id,
     authorName : json.author.name
  };
