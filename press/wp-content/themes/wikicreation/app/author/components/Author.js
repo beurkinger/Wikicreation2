@@ -14,8 +14,8 @@ const Author = (props) => {
                     id={article.id}
                     title={article.title}
                     date={article.date}
-                    categoryId={article.category.id}
-                    categoryName={article.category.name}
+                    categoryId={article.category[0].id}
+                    categoryName={article.category[0].name}
                     handleClick={props.hideAuthorPanel}
                     />
   );

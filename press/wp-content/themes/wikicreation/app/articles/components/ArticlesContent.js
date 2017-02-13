@@ -12,6 +12,7 @@ const ArticlesContent = (props) => {
                       articles={category.articles}
                       key={category.categoryId} />
   )};
+  console.log(props.articles);
   return (
     <div id="main-content">
       <PageLoading switches={[props.isArticlesDone]} />
