@@ -8,9 +8,15 @@ const TextFilter = React.createClass({
     delay : React.PropTypes.number
   },
   getDefaultProps: () => ({ delay : 500 }),
-  getInitialState : function () { return { value : this.props.value } },
-  componentWillMount : function () { this.timeout = null },
-  componentWillUnmount : function () { if (this.timeout) clearTimeout(this.timeout) },
+  getInitialState : function () {
+    return { value : this.props.value }
+  },
+  componentWillMount : function () {
+    this.timeout = null
+  },
+  componentWillUnmount : function () {
+    if (this.timeout) clearTimeout(this.timeout)
+  },
   componentWillReceiveProps : function (nextProps) {
     this.setState ({ value : nextProps.value})
   },

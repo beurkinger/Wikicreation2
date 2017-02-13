@@ -60,7 +60,6 @@ const Graph = React.createClass({
     this.controller = null;
   },
   resize : function () {
-    return;
     this.stopD3();
     this.setModel(this.props.data);
     this.startD3();

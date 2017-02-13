@@ -8,7 +8,7 @@ import Keywords from './Keywords';
 
 const ArticleAside = (props) => {
   const getAuthorPicStyle = (picUrl) => ({
-    backgroundImage : "url(/img/" + picUrl + ')',
+    backgroundImage : 'url(' + picUrl + ')',
     backgroundSize : 'cover'
    });
   const handleAuthorClick = () => {

@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 
 const AuthorCard = props => {
   const getAuthorPicStyle = (picUrl) => ({
-    backgroundImage : "url(/img/" + picUrl + ')',
+    backgroundImage : 'url(' + picUrl + ')',
     backgroundSize : 'cover'
    });
   const handleAuthorClick = () => {
@@ -17,7 +17,7 @@ const AuthorCard = props => {
   };
   return (
     <div className="author" onClick={handleAuthorClick} >
-      <div className="author-pic" style={getAuthorPicStyle(props.pic)}></div>
+      <div className="author-pic" style={getAuthorPicStyle(props.picURL)}></div>
       <div className="author-infos">
         <h3 className="author-name">
           {props.name}

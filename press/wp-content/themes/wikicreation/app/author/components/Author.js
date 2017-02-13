@@ -6,7 +6,7 @@ import AuthorArticle from './AuthorArticle';
 
 const Author = (props) => {
   const getAuthorPicStyle = (picUrl) => ({
-    backgroundImage : "url(/img/" + picUrl + ')',
+    backgroundImage : 'url(' + picUrl + ')',
     backgroundSize : 'cover'
    });
   const getArticles = (article) => (

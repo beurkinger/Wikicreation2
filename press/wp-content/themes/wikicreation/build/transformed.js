@@ -29077,7 +29077,6 @@
 	  return { type: actionTypes.ARTICLE_REQUEST, id: id };
 	};
 	function articleSuccess(json) {
-	  console.log(json);
 	  return {
 	    type: actionTypes.ARTICLE_SUCCESS,
 	    id: json.id,
@@ -30886,8 +30885,8 @@
 	    title: json.title,
 	    date: json.date,
 	    desc: json.desc,
-	    categoryId: json.category.id,
-	    categoryName: json.category.name,
+	    categoryId: json.category[0].id,
+	    categoryName: json.category[0].name,
 	    authorId: json.author.id,
 	    authorName: json.author.name
 	  };
@@ -30938,26 +30937,29 @@
 	    showAuthorPanel: _react2.default.PropTypes.func.isRequired
 	  },
 	  componentWillMount: function componentWillMount() {
-	    var _this = this;
-
 	    (0, _async2.getAuthors)();
 	    (0, _async.getCategories)();
 	    this.updateTitlebar(this.props);
+	    this.timeout = null;
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var _this = this;
+
 	    if (this.props.params && this.props.params.id) {
 	      (function () {
 	        (0, _async3.getAuthor)(parseInt(_this.props.params.id));
 	        var props = _this.props;
-	        setTimeout(function () {
+	        _this.timeout = setTimeout(function () {
 	          props.showAuthorPanel();
 	        }, 500);
 	      })();
 	    }
 	  },
-	  componentDidMount: function componentDidMount() {
-	    if (this.props.params && this.props.params.id) {}
-	  },
 	  componentWillUpdate: function componentWillUpdate(nextProps) {
 	    this.updateTitlebar(nextProps);
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    if (this.timeout) clearTimeout(this.timeout);
 	  },
 	  updateTitlebar: function updateTitlebar(props) {
 	    this.props.setTitlebar(props.title);
@@ -33438,7 +33440,6 @@
 	    this.controller = null;
 	  },
 	  resize: function resize() {
-	    return;
 	    this.stopD3();
 	    this.setModel(this.props.data);
 	    this.startD3();
@@ -33550,7 +33551,6 @@
 	  return { type: actionTypes.GRAPH_DATA_REQUEST };
 	};
 	function graphDataSuccess(language, data) {
-	  console.log(data);
 	  return {
 	    type: actionTypes.GRAPH_DATA_SUCCESS,
 	    language: language,
@@ -37062,8 +37062,8 @@
 	      id: article.id,
 	      title: article.title,
 	      date: article.date,
-	      categoryId: article.category.id,
-	      categoryName: article.category.name,
+	      categoryId: article.category[0].id,
+	      categoryName: article.category[0].name,
 	      handleClick: props.hideAuthorPanel
 	    });
 	  };
@@ -39059,75 +39059,81 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Preview = function Preview(props) {
-	  var handleClick = function handleClick() {
+	var Preview = _react2.default.createClass({
+	  displayName: 'Preview',
+
+	  propTypes: {
+	    isVisible: _react2.default.PropTypes.bool.isRequired,
+	    isExtended: _react2.default.PropTypes.bool.isRequired,
+	    locale: _react2.default.PropTypes.string.isRequired,
+	    messages: _react2.default.PropTypes.object.isRequired,
+	    id: _react2.default.PropTypes.number.isRequired,
+	    isDone: _react2.default.PropTypes.bool.isRequired,
+	    title: _react2.default.PropTypes.string.isRequired,
+	    date: _react2.default.PropTypes.string.isRequired,
+	    categoryName: _react2.default.PropTypes.string.isRequired,
+	    desc: _react2.default.PropTypes.string.isRequired,
+	    authorName: _react2.default.PropTypes.string.isRequired
+	  },
+	  componentWillMount: function componentWillMount() {
+	    this.timeout = null;
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    if (this.timeout) clearTimeout(this.timeout);
+	  },
+	  handleClick: function handleClick() {
+	    var _this = this;
+
 	    (0, _async.getArticle)(1);
-	    props.extendPreviewPanel();
-	    setTimeout(function () {
+	    this.props.extendPreviewPanel();
+	    this.timeout = setTimeout(function () {
 	      _browserHistory2.default.push('/articles/1');
-	      props.hideExtendedPreviewPanel();
+	      _this.props.hideExtendedPreviewPanel();
 	    }, 500);
-	  };
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'article-preview', className: (props.isVisible ? 'show' : 'hide') + ' ' + (props.isExtended ? 'extend' : '') },
-	    _react2.default.createElement(_PageLoading2.default, { switches: [props.isDone] }),
-	    _react2.default.createElement(
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
 	      'div',
-	      { id: 'article-preview-content' },
-	      _react2.default.createElement('div', { className: 'preview-exit clickable', onClick: props.hidePreviewPanel }),
-	      _react2.default.createElement('div', { className: 'menu-ham clickable', onClick: props.showMenu }),
-	      _react2.default.createElement(_LanguageSwitch2.default, null),
-	      _react2.default.createElement(
-	        'h5',
-	        { className: 'article-infos' },
-	        props.categoryName,
-	        ' \u2022 ',
-	        _react2.default.createElement(_DateStr2.default, { date: props.date, format: 'month-year', locale: props.locale })
-	      ),
-	      _react2.default.createElement(
-	        'h3',
-	        { className: 'article-title' },
-	        props.title
-	      ),
-	      _react2.default.createElement(
-	        'h4',
-	        { className: 'article-author' },
-	        props.authorName
-	      ),
-	      _react2.default.createElement('div', { className: 'separator' }),
-	      _react2.default.createElement(
-	        'p',
-	        { className: 'article-desc' },
-	        props.desc
-	      ),
+	      { id: 'article-preview', className: (this.props.isVisible ? 'show' : 'hide') + ' ' + (this.props.isExtended ? 'extend' : '') },
+	      _react2.default.createElement(_PageLoading2.default, { switches: [this.props.isDone] }),
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'btn article-link', onClick: handleClick },
-	        props.messages.readArticle
+	        { id: 'article-preview-content' },
+	        _react2.default.createElement('div', { className: 'preview-exit clickable', onClick: this.props.hidePreviewPanel }),
+	        _react2.default.createElement('div', { className: 'menu-ham clickable', onClick: this.props.showMenu }),
+	        _react2.default.createElement(_LanguageSwitch2.default, null),
+	        _react2.default.createElement(
+	          'h5',
+	          { className: 'article-infos' },
+	          this.props.categoryName,
+	          ' \u2022 ',
+	          _react2.default.createElement(_DateStr2.default, { date: this.props.date, format: 'month-year', locale: this.props.locale })
+	        ),
+	        _react2.default.createElement(
+	          'h3',
+	          { className: 'article-title' },
+	          this.props.title
+	        ),
+	        _react2.default.createElement(
+	          'h4',
+	          { className: 'article-author' },
+	          this.props.authorName
+	        ),
+	        _react2.default.createElement('div', { className: 'separator' }),
+	        _react2.default.createElement(
+	          'p',
+	          { className: 'article-desc' },
+	          this.props.desc
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'btn article-link', onClick: this.handleClick },
+	          this.props.messages.readArticle
+	        )
 	      )
-	    )
-	  );
-	};
-
-	// <Link className="article-link"
-	//       to={"/articles/" + props.id} >
-	//   {props.messages.readArticle}
-	// </Link>
-
-	Preview.propTypes = {
-	  isVisible: _react2.default.PropTypes.bool.isRequired,
-	  isExtended: _react2.default.PropTypes.bool.isRequired,
-	  locale: _react2.default.PropTypes.string.isRequired,
-	  messages: _react2.default.PropTypes.object.isRequired,
-	  id: _react2.default.PropTypes.number.isRequired,
-	  isDone: _react2.default.PropTypes.bool.isRequired,
-	  title: _react2.default.PropTypes.string.isRequired,
-	  date: _react2.default.PropTypes.string.isRequired,
-	  categoryName: _react2.default.PropTypes.string.isRequired,
-	  desc: _react2.default.PropTypes.string.isRequired,
-	  authorName: _react2.default.PropTypes.string.isRequired
-	};
+	    );
+	  }
+	});
 
 	var mapStateToProps = function mapStateToProps(store) {
 	  return {
@@ -39141,7 +39147,7 @@
 	    date: store.preview.date,
 	    desc: store.preview.desc,
 	    categoryName: store.preview.categoryName,
-	    authorName: store.author.name
+	    authorName: store.preview.authorName
 	  };
 	};
 

@@ -19,21 +19,22 @@ const Authors = React.createClass({
     getAuthors();
     getCategories();
     this.updateTitlebar(this.props);
+    this.timeout = null;
+  },
+  componentDidMount : function () {
     if (this.props.params && this.props.params.id) {
       getAuthor(parseInt(this.props.params.id));
       let props = this.props;
-      setTimeout(function() {
+      this.timeout = setTimeout(function() {
         props.showAuthorPanel();
       }, 500);
     }
   },
-  componentDidMount : function () {
-    if (this.props.params && this.props.params.id) {
-
-    }
-  },
   componentWillUpdate : function (nextProps) {
     this.updateTitlebar(nextProps);
+  },
+  componentWillUnmount : function () {
+    if (this.timeout) clearTimeout(this.timeout);
   },
   updateTitlebar : function (props) {
     this.props.setTitlebar(props.title);

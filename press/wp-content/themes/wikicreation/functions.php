@@ -1,8 +1,6 @@
 <?php
 // ------------------- CUSTOM REST ROUTES
 
-
-
 function my_awesome_func( $data ) {
 	$posts = get_posts( array(
 		'author' => $data['id'],
@@ -13,8 +11,8 @@ function my_awesome_func( $data ) {
 	$filteredPosts = array();
 	foreach ($posts as $post){
 		array_push($filteredPosts, array(
-			ID => $post->ID,
-			post_title => $post->post_title
+			'ID' => $post->ID,
+			'post_title' => __($post->post_title)
 		));
 	}
 	return $filteredPosts;
@@ -23,8 +21,8 @@ function my_awesome_func( $data ) {
 function format_category($category){
 	$cat = get_category($category);
 	return array(
-		id => $cat->cat_ID,
-		name => $cat->name
+		'id' => $cat->cat_ID,
+		'name' => $cat->name
 	);
 }
 
@@ -40,14 +38,14 @@ function get_articles(){
 			if(in_array($cat['id'], wp_get_post_categories($post->ID, array('fields'=>'ids'))))
 				array_push($postIds, array(
 					'id' => $post->ID,
-					'title' => $post->post_title
+					'title' => __($post->post_title)
 				));
 		};
 
 		$postsFiltered = in_array($cat['id'], wp_get_post_categories(11, array('fields'=>'ids')));
 		$cats[$i] = array(
-			'id' => $cat['id'],
-			'name' => $cat['name'],
+			'categoryName' => $cat['name'],
+			'categoryId' => $cat['id'],
 			'articles' => $postIds
 		);
 		$i++;
@@ -75,7 +73,7 @@ function get_article( $data ){
 		array_push($tagNames, $tag->name);
 	};
 	$picURL = get_post(get_post_meta($author->ID, "photo")[0])->guid;
-	$picURL = explode('/',$picURL);
+	$pic = explode('/',$picURL);
 
 	$pdfFr = get_fields($post->ID)["pdf_fr"]["url"];
 	$pdfFr = explode('/',$pdfFr);
@@ -91,7 +89,9 @@ function get_article( $data ){
 		'keywords' => $tagNames,
 		'body' => __($post->post_content),
 		'pdfFr' =>  end($pdfFr),
+		'pdfFrUrl' =>  wp_make_link_relative( get_fields($post->ID)["pdf_fr"]["url"] ),
 		'pdfEn' => 	end($pdfEn),
+		'pdfEnUrl' => wp_make_link_relative( get_fields($post->ID)["pdf_en"]["url"] ),
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->ID,
@@ -99,7 +99,8 @@ function get_article( $data ){
 			'title' => get_post_meta($author->ID, 'titre')[0],
 			'school' => get_post_meta($author->ID, 'universite')[0],
 			'desc' => $author->post_content,
-			'pic' => end($picURL)
+			'pic' => end($pic),
+			'picURL' => wp_make_link_relative( $picURL )
 		)
 	);
 }
@@ -113,7 +114,7 @@ function get_news(){
 			'id' => $posts[$i]->ID,
 			'title' => $posts[$i]->post_title,
 			'author' => get_post($authorId)->post_title,
-			'desc' => $posts[$i]->post_content
+			'desc' => substr(strip_tags(__($posts[$i]->post_content)), 0, 420)."...",
 		);
 	}
 	return array(
@@ -136,9 +137,9 @@ function get_preview($data){
 	return array(
 		'id' => $post->ID,
 		'language' => $currentLang = qtrans_getLanguage(),
-		'title' => $post->post_title,
+		'title' => __($post->post_title),
 		'date' => $post->post_date,
-		'desc' => substr($post->post_content, 0, 300),
+		'desc' => substr(strip_tags(__($post->post_content)), 0, 420)."...",
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->ID,
@@ -154,13 +155,16 @@ function get_authors(){
 	$i=0;
 
 	foreach ($posts as $post) {
-		$picURL = get_post(get_post_meta($post->ID, "photo")[0]);
+		$picURL = get_post(get_post_meta($post->ID, "photo")[0])->guid;
+		$pic = explode('/', $picURL);
+
 		$posts[$i] = array(
 			'id' => $post->ID,
 			'name' => $post->post_title,
-			'title' => get_post_meta($post->ID, 'titre')[0],
-			'school' => get_post_meta($post->ID, 'universite')[0],
-			'pic' => $picURL->guid
+			'title' => __(get_post_meta($post->ID, 'titre')[0]),
+			'school' => __(get_post_meta($post->ID, 'universite')[0]),
+			'pic' => end($pic),
+			'picUrl' => wp_make_link_relative( $picURL )
 		);
 		$i++;
 	}
@@ -189,20 +193,20 @@ function get_author( $data ){
 		if(get_post_meta($article->ID, 'auteur')[0] == $post->ID)
 			array_push($articlesByAuthor, array(
 				'id' => $article -> ID,
-				'title' => $article -> post_title,
+				'title' => __($article -> post_title),
 				'date' => $article -> post_date,
 				'category' => $categoriesFiltered
 			));
 	}
-	$picURL = get_post(get_post_meta($post->ID, "photo")[0]);
+	$picURL = get_post(get_post_meta($post->ID, "photo")[0])->guid;
 	return array(
 		'id' => $post->ID,
 		'language' => $currentLang = qtrans_getLanguage(),
 		'name' => $post->post_title,
-		'title' => get_post_meta($post->ID, 'titre')[0],
-		'school' => get_post_meta($post->ID, 'universite')[0],
-		'desc' => $post->post_content,
-		'pic' => $picURL->guid,
+		'title' => __(get_post_meta($post->ID, 'titre')[0]),
+		'school' => __(get_post_meta($post->ID, 'universite')[0]),
+		'desc' => __($post->post_content),
+		'pic' => wp_make_link_relative( $picURL ),
 		'articles' => $articlesByAuthor
 	);
 }
@@ -355,8 +359,6 @@ function acf_load_auteurs_choices( $field ) {
 }
 
 add_filter('acf/load_field/name=auteur', 'acf_load_auteurs_choices');
-
-
 
 
 

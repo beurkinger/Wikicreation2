@@ -9,55 +9,57 @@ import LanguageSwitch from '../../shared/components/LanguageSwitch';
 import PageLoading from '../../shared/components/PageLoading';
 import {showMenu} from '../../menu/actions';
 
-const Preview = (props) => {
-  const handleClick = () => {
+const Preview = React.createClass({
+  propTypes : {
+    isVisible: React.PropTypes.bool.isRequired,
+    isExtended: React.PropTypes.bool.isRequired,
+    locale : React.PropTypes.string.isRequired,
+    messages : React.PropTypes.object.isRequired,
+    id : React.PropTypes.number.isRequired,
+    isDone : React.PropTypes.bool.isRequired,
+    title: React.PropTypes.string.isRequired,
+    date: React.PropTypes.string.isRequired,
+    categoryName: React.PropTypes.string.isRequired,
+    desc: React.PropTypes.string.isRequired,
+    authorName : React.PropTypes.string.isRequired,
+  },
+  componentWillMount : function () {
+    this.timeout = null;
+  },
+  componentWillUnmount : function () {
+    if (this.timeout) clearTimeout(this.timeout);
+  },
+  handleClick : function () {
     getArticle(1);
-    props.extendPreviewPanel();
-    setTimeout(() => {
+    this.props.extendPreviewPanel();
+    this.timeout = setTimeout(() => {
       browserHistory.push('/articles/1');
-      props.hideExtendedPreviewPanel();
-    }, 500);
-  };
-  return (
-    <div id="article-preview" className={ (props.isVisible ? 'show' : 'hide') + ' ' + (props.isExtended ? 'extend' : '') }>
-      <PageLoading switches={[props.isDone]} />
-      <div id="article-preview-content">
-        <div className="preview-exit clickable" onClick={props.hidePreviewPanel}></div>
-        <div className="menu-ham clickable" onClick={props.showMenu}></div>
-        <LanguageSwitch />
-        <h5 className="article-infos">
-          { props.categoryName } • <DateStr date={props.date} format="month-year" locale={props.locale} />
-        </h5>
-        <h3 className="article-title">{ props.title }</h3>
-        <h4 className="article-author">{ props.authorName }</h4>
-        <div className="separator"></div>
-        <p className="article-desc">{ props.desc }</p>
-        <div className="btn article-link" onClick={handleClick} >
-          {props.messages.readArticle}
+      this.props.hideExtendedPreviewPanel();
+    }, 750);
+  },
+  render : function () {
+    return (
+      <div id="article-preview" className={ (this.props.isVisible ? 'show' : 'hide') + ' ' + (this.props.isExtended ? 'extend' : '') }>
+        <PageLoading switches={[this.props.isDone]} />
+        <div id="article-preview-content">
+          <div className="preview-exit clickable" onClick={this.props.hidePreviewPanel}></div>
+          <div className="menu-ham clickable" onClick={this.props.showMenu}></div>
+          <LanguageSwitch />
+          <h5 className="article-infos">
+            { this.props.categoryName } • <DateStr date={this.props.date} format="month-year" locale={this.props.locale} />
+          </h5>
+          <h3 className="article-title">{ this.props.title }</h3>
+          <h4 className="article-author">{ this.props.authorName }</h4>
+          <div className="separator"></div>
+          <p className="article-desc">{ this.props.desc }</p>
+          <div className="btn article-link" onClick={this.handleClick} >
+            {this.props.messages.readArticle}
+          </div>
         </div>
       </div>
-    </div>
-  )
-};
-
-// <Link className="article-link"
-//       to={"/articles/" + props.id} >
-//   {props.messages.readArticle}
-// </Link>
-
-Preview.propTypes = {
-  isVisible: React.PropTypes.bool.isRequired,
-  isExtended: React.PropTypes.bool.isRequired,
-  locale : React.PropTypes.string.isRequired,
-  messages : React.PropTypes.object.isRequired,
-  id : React.PropTypes.number.isRequired,
-  isDone : React.PropTypes.bool.isRequired,
-  title: React.PropTypes.string.isRequired,
-  date: React.PropTypes.string.isRequired,
-  categoryName: React.PropTypes.string.isRequired,
-  desc: React.PropTypes.string.isRequired,
-  authorName : React.PropTypes.string.isRequired,
-};
+    )
+  }
+});
 
 const mapStateToProps = (store) => ({
   isVisible : store.previewPanel.isVisible,

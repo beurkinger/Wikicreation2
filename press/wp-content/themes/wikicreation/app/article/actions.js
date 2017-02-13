@@ -4,6 +4,7 @@ export function articleRequest (id) {
   return { type: actionTypes.ARTICLE_REQUEST, id : id };
 };
 export function articleSuccess (json) {
+  console.log(json);
   return {
     type: actionTypes.ARTICLE_SUCCESS,
     id : json.id,
@@ -12,15 +13,15 @@ export function articleSuccess (json) {
     date : json.date,
     keywords : json.keywords,
     body : json.body,
-    pdfFr : json.pdfFr ? json.pdfFr : '',
-    pdfEn : json.pdfEn ? json.pdfEn : '',
+    pdfFr : json.pdfFr ? json.pdfFrUrl : '',
+    pdfEn : json.pdfEn ? json.pdfEnUrl : '',
     categoryId : json.category[0].id,
     categoryName : json.category[0].name,
     authorId : json.author.id,
     authorName : json.author.name,
     authorTitle : json.author.title,
     authorSchool : json.author.school,
-    authorPic : json.author.pic,
+    authorPic : json.author.picURL,
  };
 };
 export function articleFail (msg) {
