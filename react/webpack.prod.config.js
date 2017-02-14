@@ -20,7 +20,7 @@ module.exports = {
   },
   output: {
     filename: '/transformed-mini.js',
-    path: __dirname + '/build'
+    path: __dirname + '/../press/wp-content/themes/wikicreation/build'
   },
   // resolve: {
 	// 	extensions: ['', '.js', '.jsx'],
