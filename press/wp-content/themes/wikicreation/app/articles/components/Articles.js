@@ -9,6 +9,7 @@ import ArticlesContent from './ArticlesContent';
 
 const Articles = React.createClass({
   propTypes : {
+    locale : React.PropTypes.string.isRequired,
     title : React.PropTypes.string.isRequired
   },
   componentWillMount : function () {
@@ -18,6 +19,10 @@ const Articles = React.createClass({
   },
   componentWillUpdate : function (nextProps) {
     this.updateTitlebar(nextProps);
+    if (this.props.locale !== nextProps.locale) {
+      getArticles();
+      console.log('nu art');
+    }
   },
   updateTitlebar : function (props) {
     this.props.setTitlebar(props.title);
@@ -33,6 +38,7 @@ const Articles = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
+  locale : store.messages.locale,
   title : store.messages.strings.articles.main.title,
 });
 

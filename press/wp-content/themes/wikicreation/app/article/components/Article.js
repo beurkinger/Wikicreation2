@@ -11,21 +11,13 @@ const Article = React.createClass({
   componentWillMount : function () {
     getArticle(this.props.params.id);
     this.props.setTitlebar();
-    console.log('yar');
   },
-  // shouldComponentUpdate : function () {
-  // },
   componentWillUpdate : function (nextProps) {
-    // console.log(this.props.params.id);
-    // console.log(nextProps.id);
-    // console.log(this.props.language);
-    // console.log(nextProps.locale);
-    // if ((parseInt(this.props.params.id) !== parseInt(nextProps.id))
-    // && this.props.language !== nextProps.locale) {
-      console.log('yo');
-      this.props.setTitlebar();
-      getArticle(this.props.params.id);
-    // }
+    this.props.setTitlebar();
+    if (parseInt(this.props.params.id) !== parseInt(nextProps.params.id)
+    || this.props.locale !== nextProps.locale) {
+      getArticle(nextProps.params.id);
+    }
   },
   render: function () {
     return (

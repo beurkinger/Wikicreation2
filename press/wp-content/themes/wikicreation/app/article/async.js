@@ -14,7 +14,7 @@ export function getArticle (id) {
   if (storeArticle.id === parseInt(id) && storeArticle.language === locale
   && (storeArticle.isDone || storeArticle.isFetching) ) return;
 
-  store.dispatch(articleRequest(parseInt(id)));
+  store.dispatch(articleRequest(parseInt(id), locale));
 
   let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
   queryHelper.addString('lang', locale);

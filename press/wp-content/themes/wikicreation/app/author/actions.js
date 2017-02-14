@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 
-export function authorRequest (id) {
-  return { type: actionTypes.AUTHOR_REQUEST, id : id };
+export function authorRequest (id, language) {
+  return { type: actionTypes.AUTHOR_REQUEST, id : id, language : language };
 };
 export function authorSuccess (json) {
   console.log(json);

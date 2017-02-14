@@ -7,7 +7,7 @@ const initMenu = {
     { name :  'about', path : '/about' },
     { name :  'articles', path : '/articles' },
     { name :  'authors', path : '/authors' },
-    { name :  'contribute', path : '/contribute' }
+    // { name :  'contribute', path : '/contribute' }
   ],
   secondaryLinks : [
     { name :  'committee', path : '/committees' },
@@ -34,7 +34,7 @@ const initNews = {
 const newsReducer = function(state = initNews, action) {
   switch (action.type) {
     case actionTypes.NEWS_REQUEST :
-      return Object.assign({}, state, { isFetching : true, isDone : false });
+      return Object.assign({}, state, { isFetching : true, isDone : false, language : action.language });
     case actionTypes.NEWS_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,

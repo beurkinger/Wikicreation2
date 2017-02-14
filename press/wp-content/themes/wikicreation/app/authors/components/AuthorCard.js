@@ -13,7 +13,7 @@ const AuthorCard = props => {
   const handleAuthorClick = () => {
     getAuthor(props.id);
     props.showAuthorPanel();
-    browserHistory.push('/authors/' + props.id);
+    browserHistory.push('/' + props.locale + '/authors/' + props.id);
   };
   return (
     <div className="author" onClick={handleAuthorClick} >
@@ -33,6 +33,7 @@ const AuthorCard = props => {
 
 AuthorCard.propTypes =
 {
+  locale : React.PropTypes.string.isRequired,
   id : React.PropTypes.number.isRequired,
   name : React.PropTypes.string.isRequired,
   title : React.PropTypes.string.isRequired,
@@ -41,10 +42,15 @@ AuthorCard.propTypes =
   showAuthorPanel : React.PropTypes.func.isRequired
 };
 
+const mapStateToProps = (store) => ({
+  locale : store.messages.locale
+});
+
+
 const mapDispatchToProps = function(dispatch) {
   return {
     showAuthorPanel: () => dispatch(showAuthorPanel())
   }
 };
 
-module.exports = connect(null, mapDispatchToProps)(AuthorCard);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(AuthorCard);

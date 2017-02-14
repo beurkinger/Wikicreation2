@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import DateStr from '../../shared/components/DateStr';
 import {hidePreviewPanel, extendPreviewPanel, hideExtendedPreviewPanel} from '../actions';
 import {getArticle} from '../../article/async';
+import {getPreview} from '../async';
 import LanguageSwitch from '../../shared/components/LanguageSwitch';
 import PageLoading from '../../shared/components/PageLoading';
 import {showMenu} from '../../menu/actions';
@@ -26,14 +27,19 @@ const Preview = React.createClass({
   componentWillMount : function () {
     this.timeout = null;
   },
+  componentWillUpdate : function (nextProps) {
+    if (this.props.locale !== nextProps.locale) {
+      getPreview(nextProps.id);
+    }
+  },
   componentWillUnmount : function () {
     if (this.timeout) clearTimeout(this.timeout);
   },
   handleClick : function () {
-    getArticle(1);
+    getArticle(this.props.id);
     this.props.extendPreviewPanel();
     this.timeout = setTimeout(() => {
-      browserHistory.push('/articles/1');
+      browserHistory.push('/' + this.props.locale + '/articles/1');
       this.props.hideExtendedPreviewPanel();
     }, 750);
   },

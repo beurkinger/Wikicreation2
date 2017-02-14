@@ -13,8 +13,8 @@ export function hideExtendedPreviewPanel () {
   return { type: actionTypes.HIDE_EXTENDED_PREVIEW_PANEL };
 };
 
-export function previewRequest (id) {
-  return { type: actionTypes.PREVIEW_REQUEST, id : id };
+export function previewRequest (id, language) {
+  return { type: actionTypes.PREVIEW_REQUEST, id : id, language : language };
 };
 export function previewSuccess (json) {
   return {

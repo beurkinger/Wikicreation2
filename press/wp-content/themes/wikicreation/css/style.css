@@ -1437,6 +1437,10 @@ html, body, #root, #app
   background: #FFF;
 }
 
+.graph-container .page-loading {
+  background : #242D5C;
+}
+
 #main-content .page-loading
 {
   top: -100px;
@@ -1464,6 +1468,10 @@ html, body, #root, #app
   border-radius: 100%;
   box-shadow: 0 6px 0 0 #F5F5F5;
   animation: spinner-anim 1s linear infinite;
+}
+
+.graph-container .page-loading .spinner {
+  box-shadow: 0 6px 0 0 #FFF;
 }
 
 #main-aside .page-loading .spinner

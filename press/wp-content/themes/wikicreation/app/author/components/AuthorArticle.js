@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
 
 import DateStr from '../../shared/components/DateStr';
 import Link from 'react-router/lib/Link'
@@ -7,7 +6,7 @@ import Link from 'react-router/lib/Link'
 const AuthorArticle = (props) => (
   <li>
     <h3 className = "article-title">
-      <Link onClick={props.handleClick} to={"/articles/" + props.id}>
+      <Link onClick={props.handleClick} to={"/" + props.locale + "/articles/" + props.id}>
         { props.title }
       </Link>
     </h3>
@@ -27,8 +26,4 @@ AuthorArticle.propTypes = {
   handleClick : React.PropTypes.func.isRequired
 };
 
-const mapStateToProps = (store) => ({
-  locale : store.messages.locale
-});
-
-module.exports = connect(mapStateToProps)(AuthorArticle);
+module.exports = AuthorArticle;

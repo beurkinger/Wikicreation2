@@ -19,7 +19,7 @@ module.exports = {
     }]
   },
   output: {
-    filename: '/transformed.js',
+    filename: '/transformed-mini.js',
     path: __dirname + '/build'
   },
   // resolve: {

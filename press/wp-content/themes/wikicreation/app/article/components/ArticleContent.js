@@ -90,7 +90,7 @@ const ArticleContent = React.createClass({
             </h3>
             <p>
               {this.props.authorName}, {this.props.title}, {this.props.messages.publishedOn} <DateStr date={this.props.date} format="D MMMM YYYY" locale="fr" /> <br />
-            URL : {WEBSITE_URL}/articles/{this.props.id}
+            URL : {WEBSITE_URL}/{this.props.locale}/articles/{this.props.id}
             </p>
           </footer>
         </article>

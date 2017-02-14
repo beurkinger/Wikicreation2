@@ -35,7 +35,7 @@ const initPreview = {
 const previewReducer = function(state = initPreview, action) {
   switch (action.type) {
     case actionTypes.PREVIEW_REQUEST :
-      return Object.assign({}, initPreview, { isFetching : true, isDone : false, id : action.id });
+      return Object.assign({}, initPreview, { isFetching : true, isDone : false, id : action.id, language : action.language });
     case actionTypes.PREVIEW_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,

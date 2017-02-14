@@ -22,7 +22,7 @@ const initArticle = {
 const articleReducer = function(state = initArticle, action) {
   switch (action.type) {
     case actionTypes.ARTICLE_REQUEST :
-      return Object.assign({}, initArticle, { isFetching : true, isDone : false, id : action.id });
+      return Object.assign({}, initArticle, { isFetching : true, isDone : false, id : action.id, language : action.language });
     case actionTypes.ARTICLE_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,

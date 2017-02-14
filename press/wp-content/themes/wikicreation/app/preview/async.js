@@ -13,7 +13,7 @@ export function getPreview (id) {
   if (storePreview.language === locale && storePreview.id === parseInt(id)
   && (storePreview.isFetching || storePreview.isDone) ) return;
 
-  store.dispatch(previewRequest(parseInt(id)));
+  store.dispatch(previewRequest(parseInt(id), locale));
 
   let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
   queryHelper.addString('lang', locale);

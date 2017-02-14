@@ -11,7 +11,7 @@ const NavMenu = (props) => {
     let isIndex = link.index ? true : false;
     return (
       <li key={link.name}>
-        <Link to={link.path} onClick={props.hideMenu} activeClassName="active" onlyActiveOnIndex={isIndex}>
+        <Link to={"/" + props.locale + link.path} onClick={props.hideMenu} activeClassName="active" onlyActiveOnIndex={isIndex}>
           {props.messages[link.name]}
         </Link>
       </li>
@@ -33,6 +33,7 @@ const NavMenu = (props) => {
 };
 
 NavMenu.propTypes = {
+  locale : React.PropTypes.string.isRequired,
   messages : React.PropTypes.object.isRequired,
   hideMenu: React.PropTypes.func.isRequired,
   mainLinks: React.PropTypes.array.isRequired,
@@ -40,6 +41,7 @@ NavMenu.propTypes = {
 };
 
 const mapStateToProps = (store) => ({
+  locale : store.messages.locale,
   messages : store.messages.strings.menu.navMenu,
   mainLinks : store.menu.mainLinks,
   secondaryLinks : store.menu.secondaryLinks

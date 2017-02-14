@@ -15,7 +15,7 @@ const initAuthor = {
 const authorReducer = function(state = initAuthor, action) {
   switch (action.type) {
     case actionTypes.AUTHOR_REQUEST :
-      return Object.assign({}, initAuthor, { isFetching : true, isDone : false, id : action.id });
+      return Object.assign({}, initAuthor, { isFetching : true, isDone : false, id : action.id, language : action.language });
     case actionTypes.AUTHOR_SUCCESS :
       return Object.assign({}, state, {
         isFetching : false,

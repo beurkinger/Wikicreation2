@@ -8,6 +8,7 @@ import {hideMenu} from '../../menu/actions';
 
 const Search = React.createClass({
   propTypes : {
+    locale : React.PropTypes.string,
     label : React.PropTypes.string,
     search : React.PropTypes.func.isRequired
   },
@@ -20,7 +21,7 @@ const Search = React.createClass({
   handleSubmit : function (e) {
     e.preventDefault();
     this.props.search(this.state.searchStr);
-    browserHistory.push('/articles');
+    browserHistory.push('/' + this.props.locale + '/articles');
   },
   render : function () {
     return (
@@ -36,7 +37,10 @@ const Search = React.createClass({
 });
 
 
-const mapStateToProps = (store) => ({});
+const mapStateToProps = (store) => ({
+    locale : store.messages.locale
+});
+
 const mapDispatchToProps = (dispatch) => ({
   search : (str) => {
     dispatch(emptyArticlesFilter());

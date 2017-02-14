@@ -7,8 +7,8 @@ export function hideMenu () {
   return { type: actionTypes.HIDE_MENU };
 };
 
-export function newsRequest () {
-  return { type: actionTypes.NEWS_REQUEST };
+export function newsRequest (language) {
+  return { type: actionTypes.NEWS_REQUEST, language : language };
 };
 export function newsSuccess (json) {
   return {

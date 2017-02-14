@@ -19,16 +19,16 @@ import Main from './main/components/Main';
 const Routing = React.createClass({
   render: () => (
     <Router history={browserHistory}>
-      <Route path="/" component={Main}>
+      <Route path="/(:locale/)" component={Main}>
         <IndexRoute component={Home}/>
-        <Route path="/about" component={About}/>
-        <Route path="/articles" component={Articles}/>
-        <Route path="/articles/:id" component={Article}/>
-        <Route path="/authors(/:id)" component={Authors}/>
-        <Route path="/contribute" component={Contribute}/>
-        <Route path="/committees" component={Committees}/>
-        <Route path="/credits-and-contact" component={Contact}/>
-        <Route path="/legal-notices" component={Legal}/>
+        <Route path="/(:locale/)about" component={About}/>
+        <Route path="/(:locale/)articles" component={Articles}/>
+        <Route path="/(:locale/)articles/:id" component={Article}/>
+        <Route path="/(:locale/)authors(/:id)" component={Authors}/>
+        <Route path="/(:locale/)contribute" component={Contribute}/>
+        <Route path="/(:locale/)committees" component={Committees}/>
+        <Route path="/(:locale/)credits-and-contact" component={Contact}/>
+        <Route path="/(:locale/)legal-notices" component={Legal}/>
         <Route path="*" component={Error} />
       </Route>
     </Router>

@@ -18,6 +18,7 @@ const Author = (props) => {
                     categoryId={article.category[0].id}
                     categoryName={article.category[0].name}
                     handleClick={props.hideAuthorPanel}
+                    locale={props.locale}
                     />
   );
   return (
@@ -46,6 +47,7 @@ const Author = (props) => {
 };
 
 Author.propTypes = {
+  locale : React.PropTypes.string.isRequired,
   isVisible : React.PropTypes.bool.isRequired,
   messages : React.PropTypes.object.isRequired,
   id : React.PropTypes.number.isRequired,
@@ -59,6 +61,7 @@ Author.propTypes = {
 };
 
 const mapStateToProps = (store) => ({
+  locale : store.messages.locale,
   isDone : store.author.isDone,
   isVisible : store.authorPanel.isVisible,
   messages : store.messages.strings.author.main,

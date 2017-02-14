@@ -13,7 +13,7 @@ export function getAuthor (id) {
   if (storeAuthor.id === parseInt(id) && storeAuthor.language === locale
   && (storeAuthor.isDone || storeAuthor.isFetching) ) return;
 
-  store.dispatch(authorRequest(parseInt(id)));
+  store.dispatch(authorRequest(parseInt(id), locale));
 
   let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
   queryHelper.addString('lang', locale);

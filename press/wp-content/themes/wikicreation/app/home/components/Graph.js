@@ -12,7 +12,7 @@ import {showPreviewPanel} from '../../preview/actions';
 
 const Graph = React.createClass({
   propTypes : {
-    isDone : React.PropTypes.bool.isRequired,
+    locale : React.PropTypes.string.isRequired,
     data : React.PropTypes.shape({
       nodes : React.PropTypes.array.isRequired,
       links : React.PropTypes.array.isRequired
@@ -26,14 +26,12 @@ const Graph = React.createClass({
     this.startD3();
     window.addEventListener("resize", this.resize);
   },
-  shouldComponentUpdate : function (nextProps)
-  {
-    if (!this.props.isDone && nextProps.isDone) return true;
-    return false;
-  },
   componentWillUpdate : function (nextProps) {
     this.stopD3();
     this.setModel(nextProps.data);
+    if (this.props.locale !== nextProps.locale) {
+      getGraphData();
+    }
   },
   componentDidUpdate : function () {
     this.startD3()
@@ -69,12 +67,16 @@ const Graph = React.createClass({
     this.props.showPreviewPanel();
   },
   render : function () {
-    return <div id="graph"><canvas></canvas></div>
+    return (
+      <div id="graph">
+        <canvas></canvas>
+      </div>
+    )
   }
 });
 
 const mapStateToProps = (store) => ({
-  isDone : store.graphData.isDone,
+  locale : store.messages.locale,
   data : store.graphData.data
 });
 

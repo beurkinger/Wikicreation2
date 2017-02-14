@@ -69,8 +69,10 @@ function get_article( $data ){
 
 	$keywords = get_the_tags($post->ID);
 	$tagNames = array();
-	foreach ($keywords as $tag) {
-		array_push($tagNames, $tag->name);
+	if(is_array($keywords)) {
+		foreach ($keywords as $tag) {
+			array_push($tagNames, $tag->name);
+		};
 	};
 	$pic = get_post(get_post_meta($author->ID, "photo")[0])->guid;
 	$pic = explode('/',$pic);
@@ -212,7 +214,7 @@ function get_author( $data ){
 		'name' => $post->post_title,
 		'title' => __(get_post_meta($post->ID, 'titre')[0]),
 		'school' => __(get_post_meta($post->ID, 'universite')[0]),
-		'desc' => $post->post_content,
+		'desc' => __(get_post_meta($post->ID, 'biographie')[0]),
 		'pic' => $pic,
 		'articles' => $articlesByAuthor
 	);

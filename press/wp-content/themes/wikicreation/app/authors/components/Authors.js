@@ -11,6 +11,7 @@ import {showAuthorPanel} from '../../author/actions';
 
 const Authors = React.createClass({
   propTypes : {
+    locale : React.PropTypes.string.isRequired,
     title : React.PropTypes.string.isRequired,
     isCategoriesDone : React.PropTypes.bool.isRequired,
     showAuthorPanel : React.PropTypes.func.isRequired
@@ -32,6 +33,9 @@ const Authors = React.createClass({
   },
   componentWillUpdate : function (nextProps) {
     this.updateTitlebar(nextProps);
+    if (this.props.locale !== nextProps.locale) {
+      getAuthors();
+    }
   },
   componentWillUnmount : function () {
     if (this.timeout) clearTimeout(this.timeout);
@@ -50,6 +54,7 @@ const Authors = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
+  locale : store.messages.locale,
   title : store.messages.strings.authors.main.title,
   isCategoriesDone : store.categories.isDone
 });

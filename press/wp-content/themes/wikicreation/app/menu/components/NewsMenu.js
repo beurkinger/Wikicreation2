@@ -3,15 +3,21 @@ import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
 
 import {hideMenu} from '../actions';
-import * as async from '../async';
+import {getNews} from '../async';
 
 const NewsMenu = React.createClass({
   propTypes: {
+    locale : React.PropTypes.string.isRequired,
     messages : React.PropTypes.object.isRequired,
     articles: React.PropTypes.array.isRequired
   },
   componentDidMount: () => {
-    async.getNews();
+    getNews();
+  },
+  componentWillUpdate: function (nextProps) {
+    if (this.props.locale !== nextProps.locale) {
+      getNews();
+    }
   },
   createArticle: function(article) {
       return (
@@ -26,7 +32,7 @@ const NewsMenu = React.createClass({
             {article.desc}
           </p>
           <Link className="btn link"
-                to={"/articles/" + article.id}
+                to={"/" + this.props.locale + "/articles/" + article.id}
                 onClick={this.props.hideMenu} >
             {this.props.messages.readArticle}
           </Link>
@@ -47,6 +53,7 @@ const NewsMenu = React.createClass({
 });
 
 const mapStateToProps = (store) => ({
+  locale : store.messages.locale,
   messages : store.messages.strings.menu.newsMenu,
   articles : store.news.list,
   hideMenu: React.PropTypes.func.isRequired

@@ -12,7 +12,7 @@ export function getNews () {
 
   if (storeNews.language === locale && (storeNews.isFetching || storeNews.isDone)) return;
 
-  store.dispatch(newsRequest());
+  store.dispatch(newsRequest(locale));
 
   let queryHelper = new QueryHelper(baseUrl);
   queryHelper.addString('lang', locale);
