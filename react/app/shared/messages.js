@@ -68,6 +68,9 @@ messages[APP_LOCALES.FR] = {
       send : 'Envoyer'
     }
   },
+  contribute : {
+    title : 'Contribuer'
+  },
   committee : {
     main : {
       title : 'Comités'
@@ -191,6 +194,9 @@ messages[APP_LOCALES.EN] = {
       message : 'Message',
       send : 'Send'
     }
+  },
+  contribute : {
+    title : 'Contribute'
   },
   error : {
     title : 'Error',

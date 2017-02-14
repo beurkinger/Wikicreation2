@@ -10,10 +10,3 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: Wikicréation
 Text Domain: custom
 */
-html,body{
-	margin:0;
-	background-color: #242d5c;
-}
-#nodesCanvas{
-	position:absolute;
-}
