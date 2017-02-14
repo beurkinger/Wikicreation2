@@ -5,7 +5,7 @@ class AnimNode {
 		this.context = view.context;
 		this.text = node.name;
 		this.txtHeight = 14;
-		this.context.font = this.txtHeight +"px Verdana";
+		this.context.font = this.txtHeight +"px Muli";
 
 		switch (this.node.depth) {
 			case 1:
