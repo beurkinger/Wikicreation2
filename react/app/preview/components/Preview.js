@@ -28,7 +28,7 @@ const Preview = React.createClass({
     this.timeout = null;
   },
   componentWillUpdate : function (nextProps) {
-    if (this.props.locale !== nextProps.locale) {
+    if (this.props.locale !== nextProps.locale && this.props.id !== parseInt(-1)) {
       getPreview(nextProps.id);
     }
   },

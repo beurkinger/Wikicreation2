@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/javascript" src="<?php echo THEME_DIR  ?>/build/transformed-mini.js"></script>
-    <!-- <script type="text/javascript" src="http://localhost:8080/transformed.js"></script> -->
+    <!-- <script type="text/javascript" src="<?php echo THEME_DIR  ?>/build/transformed-mini.js"></script> -->
+    <script type="text/javascript" src="http://localhost:8080/transformed.js"></script>
   </body>
 </html>
