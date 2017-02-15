@@ -1,6 +1,14 @@
 <?php
 // ------------------- CUSTOM REST ROUTES
 
+function format_category($category){
+	$cat = get_category($category);
+	return array(
+		'id' => $cat->cat_ID,
+		'name' => __($cat->name)
+	);
+}
+
 function get_articles($data){
 
 	$catsParams = $data->get_query_params()["categories"];
@@ -137,13 +145,32 @@ function get_authors($data){
 	$nameParam= $data->get_query_params()["name"];
 
 	GLOBAL $wpdb;
-	$sql = "SELECT DISTINCT au.id, au.post_title FROM wp_posts AS au LEFT JOIN (wp_posts AS po, wp_postmeta as me, wp_terms AS ca, wp_term_relationships AS reca) ON (po.id = me.post_id AND au.id = me.meta_value AND po.id = reca.object_id AND ca.term_id = reca.term_taxonomy_id) WHERE au.post_type='auteur' AND au.post_status='publish' ";
-	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN (1,2,200) ";
+	$sql = "	SELECT DISTINCT au.id, au.post_title FROM wp_posts AS au LEFT JOIN (wp_posts AS po, wp_postmeta as me, wp_terms AS ca, wp_term_relationships AS reca) ON (po.id = me.post_id AND au.id = me.meta_value AND po.id = reca.object_id AND ca.term_id = reca.term_taxonomy_id) WHERE au.post_type='auteur' AND au.post_status='publish' ";
+	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN ($catsParams) ";
 	if (isset($nameParam) && $nameParam != '') $sql .= "AND au.post_title LIKE '%$nameParam%' ";
 	$sql .= "ORDER BY au.post_title ASC";
 	$results = $wpdb->get_results($sql);
 
-	var_dump($results);
+	$authors=array();
+
+	foreach ($results as $result) {
+		$picURL = get_post(get_post_meta($result->id, "photo")[0])->guid;
+		$picURL = explode('/', $picURL);
+		$pic = array_slice($picURL, -5, 5, true);
+		$pic = implode('/', $pic);
+
+		$authors[]= [
+			'id' => $result->id,
+			'name' => $result->post_title,
+			'title' => __(get_post_meta($result->id, 'titre')[0]),
+			'school' => __(get_post_meta($result->id, 'universite')[0]),
+			'pic' => $pic
+		];
+	}
+	return array(
+			'language' => qtrans_getLanguage(),
+			'list' => $authors );
+
 }
 
 function get_author( $data ){
