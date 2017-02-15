@@ -11,7 +11,7 @@ const ArticleCategory = props => {
     props.showPreviewPanel();
   };
   const getArticle = (article) => (
-    <ArticleCard  id ={article.id}
+    <ArticleCard  id ={parseInt(article.id)}
                   title={article.title}
                   handleClick={handleArticleClick}
                   key={article.id} />

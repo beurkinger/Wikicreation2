@@ -1,58 +1,36 @@
 <?php
 // ------------------- CUSTOM REST ROUTES
 
-function my_awesome_func( $data ) {
-	$posts = get_posts( array(
-		'author' => $data['id'],
-	) );
-	if ( empty( $posts ) ) {
-		return new WP_Error( 'awesome_no_author', 'Invalid author', array( 'status' => 404 ) );
+function get_articles($data){
+
+	$catsParams = $data->get_query_params()["categories"];
+ 	$titleParam= $data->get_query_params()["title"];
+
+	GLOBAL $wpdb;
+	$sql = "SELECT po.id, po.post_title, ca.term_id, ca.name FROM wp_posts AS po JOIN (wp_terms AS ca, wp_term_relationships AS re) ON (po.id = re.object_id AND ca.term_id = re.term_taxonomy_id) WHERE po.post_type='post' AND po.post_status='publish' ";
+	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN ($catsParams) ";
+	if (isset($titleParam) && $titleParam != '') $sql .= "AND po.post_title LIKE '%$titleParam%' ";
+	$sql .= "ORDER BY ca.term_id ASC";
+	$results = $wpdb->get_results($sql);
+
+	$cats = [];
+	foreach ($results as $result) {
+		if (sizeof($cats) == 0 || $result->term_id != end($cats)['categoryId']) {
+			$article = ['id' => $result->id,'title' => __($result->post_title)];
+			array_push($cats, array(
+				'categoryName' => __($result->name),
+				'categoryId' => $result->term_id,
+				'articles' => [$article]
+			));
+		}
+		elseif ($result->term_id == end($cats)['categoryId']) {
+			$article = ['id' => $result->id,'title' => __($result->post_title)];
+			array_push($cats[count($cats)-1]['articles'], $article);
+		}
 	}
-	$filteredPosts = array();
-	foreach ($posts as $post){
-		array_push($filteredPosts, array(
-			'ID' => $post->ID,
-			'post_title' => __($post->post_title)
-		));
-	}
-	return $filteredPosts;
-}
-
-function format_category($category){
-	$cat = get_category($category);
 	return array(
-		'id' => $cat->cat_ID,
-		'name' => __($cat->name)
-	);
-}
-
-function get_articles(){
-	$cats = get_all_categories();
-	$cats= $cats['list'];
-	$posts = get_posts(array( "posts_per_page" => -1));
-
-	$i=0;
-	foreach ($cats as $cat) {
-		$postIds = array();
-		foreach ($posts as $post) {
-			if(in_array($cat['id'], wp_get_post_categories($post->ID, array('fields'=>'ids'))))
-				array_push($postIds, array(
-					'id' => $post->ID,
-					'title' => __($post->post_title)
-				));
-		};
-
-		$postsFiltered = in_array($cat['id'], wp_get_post_categories(11, array('fields'=>'ids')));
-		$cats[$i] = array(
-			'categoryName' => __($cat['name']),
-			'categoryId' => $cat['id'],
-			'articles' => $postIds
-		);
-		$i++;
-	};
-	return array(
-		'language' => qtrans_getLanguage(),
-		'list' => $cats );
+			'language' => qtrans_getLanguage(),
+			'list' => $cats );
 }
 
 function get_article( $data ){
@@ -111,16 +89,17 @@ function get_article( $data ){
 }
 
 function get_news(){
-	$posts = get_posts();
+	$posts = get_posts(array("posts_per_page" => 5, 'orderby' => 'date', 'order' => 'desc'));
 	$news = array();
-	for ($i = 0; $i < 5; $i++) {
-		$authorId = get_post_meta($posts[$i]->ID, 'auteur')[0];
-   	$news[$i] =array(
-			'id' => $posts[$i]->ID,
-			'title' => $posts[$i]->post_title,
+	foreach ($posts as $post) {
+		$authorId = get_post_meta($post->ID, 'auteur')[0];
+		$post = [
+			'id' => $post->ID,
+			'title' => $post->post_title,
 			'author' => get_post($authorId)->post_title,
-			'desc' => substr(strip_tags(__($posts[$i]->post_content)), 0, 420)."...",
-		);
+			'desc' => substr(strip_tags(__($post->post_content)), 0, 420)."..."
+		];
+   	$news[] = $post;
 	}
 	return array(
 		'language' => qtrans_getLanguage(),
@@ -153,30 +132,18 @@ function get_preview($data){
 	);
 }
 
-function get_authors(){
-	$posts = get_posts( array(
-		'post_type' => 'auteur'
-	));
-	$i=0;
+function get_authors($data){
+	$catsParams = $data->get_query_params()["categories"];
+	$nameParam= $data->get_query_params()["name"];
 
-	foreach ($posts as $post) {
-		$picURL = get_post(get_post_meta($post->ID, "photo")[0])->guid;
-		$picURL = explode('/', $picURL);
-		$pic = array_slice($picURL, -5, 5, true);
-		$pic = implode('/', $pic);
+	GLOBAL $wpdb;
+	$sql = "SELECT DISTINCT au.id, au.post_title FROM wp_posts AS au LEFT JOIN (wp_posts AS po, wp_postmeta as me, wp_terms AS ca, wp_term_relationships AS reca) ON (po.id = me.post_id AND au.id = me.meta_value AND po.id = reca.object_id AND ca.term_id = reca.term_taxonomy_id) WHERE au.post_type='auteur' AND au.post_status='publish' ";
+	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN (1,2,200) ";
+	if (isset($nameParam) && $nameParam != '') $sql .= "AND au.post_title LIKE '%$nameParam%' ";
+	$sql .= "ORDER BY au.post_title ASC";
+	$results = $wpdb->get_results($sql);
 
-		$posts[$i] = array(
-			'id' => $post->ID,
-			'name' => $post->post_title,
-			'title' => __(get_post_meta($post->ID, 'titre')[0]),
-			'school' => __(get_post_meta($post->ID, 'universite')[0]),
-			'pic' => $pic
-		);
-		$i++;
-	}
-	return array(
-			'language' => qtrans_getLanguage(),
-			'list' => $posts );
+	var_dump($results);
 }
 
 function get_author( $data ){
@@ -334,37 +301,14 @@ function wpfstop_change_default_title( $title ){
 add_filter( 'enter_title_here', 'wpfstop_change_default_title' );
 
 
-function my_relationship_query( $args, $field, $post ) {
-	$args['meta_value'] = $post->ID;
-	return $args;
-}
-
-add_filter('acf/fields/relationship/query/name=articles', 'my_relationship_query', 10, 3);
-add_filter('acf/load_value/name=articles', "set_value", 10, 3);
-//add_filter('acf/fields/relationship/result/name=articles', 'my_relationship_result', 10, 3);
-
-
 
 function acf_load_auteurs_choices( $field ) {
-
-    // reset choices
-    $field['choices'] = array();
-	 $choices = array();
-
-	 $query = new WP_Query(array('post_type' => 'auteur'));
-
-	if( $query -> have_posts() ):
-		while( $query -> have_posts() ) : $query->the_post();
-			$choices[get_the_ID()] = get_the_title();
-		endwhile;
-	endif;
-
-    // loop through array and add to field 'choices'
-    if( is_array($choices) ){
-			  $field['choices'] = $choices;
-    }
-    return $field;
-
+	$field['choices'] = [];
+	$auteurs = get_posts(['posts_per_page' => -1,'post_type' => 'auteur']);
+	foreach ($auteurs as $auteur) {
+		$field['choices'][$auteur->ID] = $auteur->post_title;
+	}
+	return $field;
 }
 
 add_filter('acf/load_field/name=auteur', 'acf_load_auteurs_choices');

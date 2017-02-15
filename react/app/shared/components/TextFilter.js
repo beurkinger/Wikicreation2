@@ -5,9 +5,10 @@ const TextFilter = React.createClass({
     label : React.PropTypes.string,
     value : React.PropTypes.string.isRequired,
     handleChange : React.PropTypes.func.isRequired,
-    delay : React.PropTypes.number
+    delay : React.PropTypes.number,
+    minChar : React.PropTypes.number
   },
-  getDefaultProps: () => ({ delay : 500 }),
+  getDefaultProps: () => ({ delay : 500, minChar : 4 }),
   getInitialState : function () {
     return { value : this.props.value }
   },
@@ -23,6 +24,7 @@ const TextFilter = React.createClass({
   handleTextChange : function (e) {
     let value = e.target.value;
     this.setState({ value : value });
+    if (value.length !== 0 && value.length < this.props.minChar) return;
     this.delayedPropsUpdate(value);
   },
   delayedPropsUpdate : function (value) {

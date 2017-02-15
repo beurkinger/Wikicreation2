@@ -7,7 +7,7 @@ import PageLoading from '../../shared/components/PageLoading';
 const ArticlesContent = (props) => {
   const getCategory = (category) => {
     return (
-    <ArticlesCategory id={category.categoryId}
+    <ArticlesCategory id={parseInt(category.categoryId)}
                       name={category.categoryName}
                       articles={category.articles}
                       key={category.categoryId} />
