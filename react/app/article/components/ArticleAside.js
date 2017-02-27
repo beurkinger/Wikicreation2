@@ -12,7 +12,6 @@ const ArticleAside = (props) => {
     backgroundSize : 'cover'
    });
   const handleAuthorClick = () => {
-    console.log(props.authorId);
     getAuthor(props.authorId);
     props.showAuthorPanel();
   };

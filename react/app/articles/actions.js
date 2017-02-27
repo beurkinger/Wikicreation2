@@ -22,9 +22,9 @@ export function filterArticlesTitle (title) {
 export function filterArticlesCategory (categories) {
   return { type: actionTypes.FILTER_ARTICLES_CATEGORY, categories : categories };
 };
-export function filterArticlesLanguage (languages) {
-  return { type: actionTypes.FILTER_ARTICLES_LANGUAGE, languages : languages };
-};
+// export function filterArticlesLanguage (languages) {
+//   return { type: actionTypes.FILTER_ARTICLES_LANGUAGE, languages : languages };
+// };
 export function emptyArticlesFilter () {
   return { type: actionTypes.EMPTY_ARTICLES_FILTER };
 };

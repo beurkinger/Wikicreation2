@@ -6,7 +6,7 @@ import PageLoading from '../../shared/components/PageLoading';
 
 const AuthorsContent = (props) => {
   const getAuthor = (author) => (
-    <AuthorCard id={author.id}
+    <AuthorCard id={parseInt(author.id)}
                 name={author.name}
                 title={author.title}
                 school={author.school}

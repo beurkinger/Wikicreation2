@@ -39,7 +39,7 @@ const Preview = React.createClass({
     getArticle(this.props.id);
     this.props.extendPreviewPanel();
     this.timeout = setTimeout(() => {
-      browserHistory.push('/' + this.props.locale + '/articles/1');
+      browserHistory.push('/' + this.props.locale + '/articles/' + this.props.id);
       this.props.hideExtendedPreviewPanel();
     }, 750);
   },

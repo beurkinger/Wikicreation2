@@ -4,7 +4,6 @@ export function articleRequest (id, language) {
   return { type: actionTypes.ARTICLE_REQUEST, id : id, language : language };
 };
 export function articleSuccess (json) {
-  console.log(json);
   return {
     type: actionTypes.ARTICLE_SUCCESS,
     id : json.id,

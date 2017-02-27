@@ -1,13 +1,12 @@
 import httpRequestHelper from '../shared/helpers/httpRequestHelper';
 import {previewRequest, previewSuccess, previewFail} from './actions';
-import {REST_PATHS} from '../config';
-import QueryHelper from '../shared/helpers/QueryHelper';
+import {REST_MAIN_PATH, REST_PATHS} from '../config';
 import store from '../store';
 
 export function getPreview (id) {
 
-  const baseUrl = REST_PATHS.preview;
   let locale = store.getState().messages.locale;
+  const baseUrl = '/' + locale + REST_MAIN_PATH + REST_PATHS.preview;
   var storePreview = store.getState().preview;
 
   if (storePreview.language === locale && storePreview.id === parseInt(id)
@@ -15,10 +14,7 @@ export function getPreview (id) {
 
   store.dispatch(previewRequest(parseInt(id), locale));
 
-  let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
-  queryHelper.addString('lang', locale);
-
-  httpRequestHelper(queryHelper.getUrl(),
+  httpRequestHelper(baseUrl + '/' + parseInt(id),
     response => store.dispatch(previewSuccess(response)),
     error => store.dispatch(previewFail(xhr.status + ':' + xhr.response))
   );

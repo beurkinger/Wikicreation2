@@ -4,7 +4,6 @@ export function authorRequest (id, language) {
   return { type: actionTypes.AUTHOR_REQUEST, id : id, language : language };
 };
 export function authorSuccess (json) {
-  console.log(json);
   return {
     type: actionTypes.AUTHOR_SUCCESS,
     id : json.id,

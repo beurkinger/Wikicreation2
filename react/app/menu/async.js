@@ -1,23 +1,19 @@
 import {newsRequest, newsSuccess, newsFail} from './actions';
 import httpRequestHelper from '../shared/helpers/httpRequestHelper';
-import {REST_PATHS} from '../config';
-import QueryHelper from '../shared/helpers/QueryHelper';
+import {REST_MAIN_PATH, REST_PATHS} from '../config';
 import store from '../store';
 
 export function getNews () {
 
-  const baseUrl = REST_PATHS.news;
   let locale = store.getState().messages.locale;
+  const baseUrl = '/' + locale + REST_MAIN_PATH + REST_PATHS.news;
   let storeNews = store.getState().news;
 
   if (storeNews.language === locale && (storeNews.isFetching || storeNews.isDone)) return;
 
   store.dispatch(newsRequest(locale));
 
-  let queryHelper = new QueryHelper(baseUrl);
-  queryHelper.addString('lang', locale);
-
-  httpRequestHelper(queryHelper.getUrl(),
+  httpRequestHelper(baseUrl,
     response => store.dispatch(newsSuccess(response)),
     error => store.dispatch(newsFail(error))
   );

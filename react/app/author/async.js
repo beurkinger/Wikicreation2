@@ -1,24 +1,16 @@
 import {authorRequest, authorSuccess, authorFail, authorAuthorsSuccess} from './actions';
 import httpRequestHelper from '../shared/helpers/httpRequestHelper';
-import {REST_PATHS} from '../config';
-import QueryHelper from '../shared/helpers/QueryHelper';
+import {REST_MAIN_PATH, REST_PATHS} from '../config';
 import store from '../store';
 
 export function getAuthor (id) {
-
-  const baseUrl = REST_PATHS.authors;
   let locale = store.getState().messages.locale;
+  const baseUrl = '/' + locale + REST_MAIN_PATH + REST_PATHS.authors;
   let storeAuthor = store.getState().author;
-
-  if (storeAuthor.id === parseInt(id) && storeAuthor.language === locale
+  if ((parseInt(storeAuthor.id) === parseInt(id)) && (storeAuthor.language === locale)
   && (storeAuthor.isDone || storeAuthor.isFetching) ) return;
-
   store.dispatch(authorRequest(parseInt(id), locale));
-
-  let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
-  queryHelper.addString('lang', locale);
-
-  httpRequestHelper(queryHelper.getUrl(),
+  httpRequestHelper(baseUrl + '/' + parseInt(id),
     response => {
       store.dispatch(authorSuccess(response));
     },

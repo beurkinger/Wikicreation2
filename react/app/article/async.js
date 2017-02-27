@@ -1,14 +1,12 @@
 import {articleRequest, articleSuccess, articleFail} from './actions';
 import {authorSuccess} from '../author/actions';
 import httpRequestHelper from '../shared/helpers/httpRequestHelper';
-import {REST_PATHS} from '../config';
-import QueryHelper from '../shared/helpers/QueryHelper';
+import {REST_MAIN_PATH, REST_PATHS} from '../config';
 import store from '../store';
 
 export function getArticle (id) {
-
-  const baseUrl = REST_PATHS.articles;
   let locale = store.getState().messages.locale;
+  const baseUrl = '/' + locale + REST_MAIN_PATH + REST_PATHS.articles;
   let storeArticle = store.getState().article;
 
   if (storeArticle.id === parseInt(id) && storeArticle.language === locale
@@ -16,10 +14,7 @@ export function getArticle (id) {
 
   store.dispatch(articleRequest(parseInt(id), locale));
 
-  let queryHelper = new QueryHelper(baseUrl + '/' + parseInt(id));
-  queryHelper.addString('lang', locale);
-
-  httpRequestHelper(queryHelper.getUrl(),
+  httpRequestHelper(baseUrl + '/' + parseInt(id),
     response => store.dispatch(articleSuccess(response)),
     error => store.dispatch(articleFail(error))
   );

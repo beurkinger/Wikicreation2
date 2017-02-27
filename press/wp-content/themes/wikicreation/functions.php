@@ -214,50 +214,49 @@ function get_author( $data ){
 	);
 }
 
-function get_all_categories(){
+function get_all_categories() {
 	$cats = get_categories();
-	$i=0;
+
+	$catsArray = [];
 	foreach ($cats as $cat) {
-		$cats[$i] = array(
+		$catsArray[] = [
 			'id' => $cat->term_id,
 			'name' => __($cat->name)
-		);
-		$i++;
+		];
 	}
 	return array(
 		'language' => qtrans_getLanguage(),
-		'list' => $cats );
+		'list' => $catsArray );
 }
 
 function get_graph_data(){
-	$cats = get_all_categories();
-	$cats = $cats['list'];
+	$cats = get_categories();
+	$graphCats = [];
 	$posts = get_posts(array( "posts_per_page" => -1));
-
 	$i=0;
 	foreach ($cats as $cat) {
-		$postIds = array();
+		$catPosts = array();
 		foreach ($posts as $post) {
 			$postCats = wp_get_post_categories($post->ID, array('fields'=>'names'));
 
-			if($cat['name'] == $postCats[0])
-				array_push($postIds, array(
+			if($cat->name == $postCats[0]) {
+				array_push($catPosts, array(
 					'id' => $post->ID,
 					'name' => __($post->post_title),
 					'wpId' => $post->ID,
 					'altParents' => array_slice($postCats, 1)
 				));
+			}
 		}
 
-		$postsFiltered = in_array($cat['id'], wp_get_post_categories(11, array('fields'=>'ids')));
-		$cats[$i] = array(
-			'id' => $cat['id'],
-			'name' => $cat['name'],
-			'children' => $postIds
+		$graphCats[$i] = array(
+			'id' => $cat->term_id,
+			'name' => $cat->name,
+			'children' => $catPosts
 		);
 		$i++;
 	}
-	$data = array(name => "crÈation",	children => $cats);
+	$data = array(name => "Creation",	children => $graphCats);
 	return array(
 		'language' => qtrans_getLanguage(),
 		'data' => $data );

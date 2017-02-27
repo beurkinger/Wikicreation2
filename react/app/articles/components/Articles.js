@@ -21,7 +21,6 @@ const Articles = React.createClass({
     this.updateTitlebar(nextProps);
     if (this.props.locale !== nextProps.locale) {
       getArticles();
-      console.log('nu art');
     }
   },
   updateTitlebar : function (props) {

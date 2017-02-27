@@ -32,10 +32,6 @@ const ArticlesAside = (props) => {
           {props.messages.filterBy}
         </h2>
         <h3 className="filter-name">
-          {props.messages.languages}
-        </h3>
-        <LanguagesFilter filter={props.languages} handleChange={handleLanguagesFilter} />
-        <h3 className="filter-name">
           {props.messages.themes}
         </h3>
         <CategoriesFilter filter={props.categories} handleChange={handleCategoriesFilter} />

@@ -17,7 +17,7 @@ const AuthorCard = props => {
   };
   return (
     <div className="author" onClick={handleAuthorClick} >
-      <div className="author-pic" style={getAuthorPicStyle(props.pic)}></div>
+      <div className="author-pic" style={getAuthorPicStyle('/' + props.pic)}></div>
       <div className="author-infos">
         <h3 className="author-name">
           {props.name}
