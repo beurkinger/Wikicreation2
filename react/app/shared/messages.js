@@ -20,7 +20,10 @@ messages[APP_LOCALES.FR] = {
     aside : {
       progress : "Navigation sur l'article",
       keywords : "Mots clefs de l'article",
-      download : "Téléchargement",
+      downloads : {
+        title : "Téléchargements",
+        empty : "Aucun téléchargement n'est disponible pour cet article."
+      },
     },
     content : {
       keywords : "Mots-clés : ",
@@ -137,7 +140,10 @@ messages[APP_LOCALES.EN] = {
     aside : {
       progress : "Reading progress",
       keywords : "Article's keywords",
-      download : "Download",
+      downloads : {
+        title : "Downloads",
+        empty : "There is no download available for this article."
+      },
     },
     content : {
       keywords : "Keywords : ",
