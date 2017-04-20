@@ -68,9 +68,10 @@ html, body, #root, #app
 #main-logo
 {
   display: block;
-  position: relative; top: 30px; left: 65px;
-  width: 215px; height: 38px;
+  position: relative; top: 38px; left: 65px;
+  width: 200px; height: 30px;
   background-image: url('../img/main-logo-white.svg');
+  background-repeat: no-repeat;
   border: 0;
   text-decoration: none;
 }
