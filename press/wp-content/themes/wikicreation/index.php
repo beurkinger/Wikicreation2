@@ -14,7 +14,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>Wiki-Création</title>
+    <title>Wikicreation</title>
     <link rel="stylesheet" type="text/css" href="<?php echo $cssPath ?>">
   </head>
   <body>
