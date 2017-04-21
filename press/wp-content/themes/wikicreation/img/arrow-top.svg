@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.5 21.44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #f66;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>arrow-up</title>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1">
+      <g>
+        <line class="cls-1" x1="9.65" y1="21.44" x2="9.65" y2="0.67"/>
+        <line class="cls-1" x1="10.01" y1="0.35" x2="0.35" y2="10.01"/>
+        <line class="cls-1" x1="19.15" y1="9.9" x2="9.33" y2="0.4"/>
+      </g>
+    </g>
+  </g>
+</svg>

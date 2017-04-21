@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {APP_LOCALES} from '../../config';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
+import BackToTop from '../../shared/components/BackToTop';
 
 const AboutContent = React.createClass({
   propTypes : {
@@ -22,6 +23,7 @@ const AboutContent = React.createClass({
             {this.props.becomeAuthor}
           </div>
         </div>
+        <BackToTop target="#about-main"></BackToTop>
       </div>
     )
   }

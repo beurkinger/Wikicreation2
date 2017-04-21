@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import ContactForm from './ContactForm';
+import BackToTop from '../../shared/components/BackToTop';
 
 const ContactContent = (props)  => (
   <div id="main-content">
@@ -42,6 +43,7 @@ const ContactContent = (props)  => (
       </p>
       <ContactForm />
     </div>
+    <BackToTop target="#contact-main"></BackToTop>
   </div>
 );
 

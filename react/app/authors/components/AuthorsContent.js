@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import AuthorCard from './AuthorCard';
 import PageLoading from '../../shared/components/PageLoading';
+import BackToTop from '../../shared/components/BackToTop';
 
 const AuthorsContent = (props) => {
   const getAuthor = (author) => (
@@ -19,6 +20,7 @@ const AuthorsContent = (props) => {
       <div id="authors-main">
         { props.authors.map(getAuthor) }
       </div>
+      <BackToTop target="#authors-main"></BackToTop>
     </div>
   )
 };

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import ArticlesCategory from './ArticlesCategory';
 import PageLoading from '../../shared/components/PageLoading';
+import BackToTop from '../../shared/components/BackToTop';
 
 const ArticlesContent = (props) => {
   const getCategory = (category) => {
@@ -18,6 +19,7 @@ const ArticlesContent = (props) => {
       <div id="articles-main">
         {props.articles.map(getCategory)}
       </div>
+      <BackToTop target="#articles-main"></BackToTop>
     </div>
   )
 };

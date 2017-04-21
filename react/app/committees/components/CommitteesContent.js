@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {APP_LOCALES} from '../../config';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
+import BackToTop from '../../shared/components/BackToTop';
 
 const CommitteesContent = React.createClass({
   propTypes : {
@@ -18,6 +19,7 @@ const CommitteesContent = React.createClass({
         <div id="committee-main">
           {this.getLocalizedContent()}
         </div>
+        <BackToTop target="#committee-main"></BackToTop>
       </div>
     )
   }

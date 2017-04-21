@@ -6,6 +6,7 @@ import {APP_LOCALES} from '../../config';
 import {setStdTitlebar} from '../../header/actions';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
+import BackToTop from '../../shared/components/BackToTop';
 
 const Legal = React.createClass({
   propTypes : {
@@ -28,6 +29,7 @@ const Legal = React.createClass({
           <div id="legal-main">
             {this.getLocalizedContent()}
           </div>
+          <BackToTop target="#legal-main"></BackToTop>
         </div>
       </main>
     )

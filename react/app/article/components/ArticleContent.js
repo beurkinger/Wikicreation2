@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import {setPercentRead} from '../actions';
 import {hideTitlebar, showTitlebar} from '../../header/actions';
 import {WEBSITE_URL} from '../../config';
+import BackToTop from '../../shared/components/BackToTop';
 import DateStr from '../../shared/components/DateStr';
 import Keywords from './Keywords';
 
@@ -94,6 +95,7 @@ const ArticleContent = React.createClass({
             </p>
           </footer>
         </article>
+        <BackToTop target="#article-main"/>
       </div>
     );
   }
