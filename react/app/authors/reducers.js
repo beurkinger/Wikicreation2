@@ -31,6 +31,8 @@ const authorsFilterReducer = function(state = initAuthorsFilter, action) {
       return Object.assign({}, state, { name : action.name });
     case actionTypes.FILTER_AUTHORS_CATEGORY :
       return Object.assign({}, state, { categories : action.categories });
+    case actionTypes.EMPTY_AUTHORS_FILTER :
+      return Object.assign({}, state, initAuthorsFilter);
     default:
       return state;
   }

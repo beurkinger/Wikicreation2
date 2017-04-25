@@ -633,6 +633,19 @@ html, body, #root, #app
     background-clip : content-box;
 }
 
+#main-aside .filter-reset {
+  color: #242D5C;
+  font-weight: bold;
+  border-top: 1px solid #484848;
+  padding-top: 10px;
+  margin-top: 10px;
+  /*text-decoration: underline;*/
+}
+
+#main-aside .filter-reset:hover {
+  cursor: pointer;
+}
+
 #main-aside .nav-link
 {
   display: block;
@@ -1154,15 +1167,13 @@ html, body, #root, #app
   width: 100%;
   padding-left: 360px;
   transition: 500ms;
-  box-shadow: 0 0 75px 0 rgba(0, 0, 0, 0.33);
 }
 
 #article-preview.extend.hide
 {
   width: 500px;
-  right: -795px;
+  right: -500px;
   transition: 0ms;
-  box-shadow: none;
 }
 
 #article-preview.extend #article-preview-content

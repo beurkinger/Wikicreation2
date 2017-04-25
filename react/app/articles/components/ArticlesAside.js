@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {filterArticlesTitle, filterArticlesCategory, filterArticlesLanguage} from '../actions';
+import {emptyArticlesFilter, filterArticlesTitle, filterArticlesCategory, filterArticlesLanguage} from '../actions';
 import {getArticles} from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
-import LanguagesFilter from './LanguagesFilter';
+import FilterReset from '../../shared/components/FilterReset';
 import PageLoading from '../../shared/components/PageLoading';
 import TextFilter from '../../shared/components/TextFilter';
 
@@ -17,8 +17,12 @@ const ArticlesAside = (props) => {
     props.filterCategory(categoriesArray);
     getArticles();
   };
-  const handleLanguagesFilter = (languagesArray) => {
-    props.filterLanguage(languagesArray);
+  // const handleLanguagesFilter = (languagesArray) => {
+  //   props.filterLanguage(languagesArray);
+  //   getArticles();
+  // };
+  const resetFilter = () => {
+    props.emptyFilter();
     getArticles();
   };
   return (
@@ -35,6 +39,7 @@ const ArticlesAside = (props) => {
           {props.messages.themes}
         </h3>
         <CategoriesFilter filter={props.categories} handleChange={handleCategoriesFilter} />
+        <FilterReset message={props.messages.resetFilter} handleClick={resetFilter}/>
       </div>
     </aside>
   )
@@ -60,6 +65,7 @@ const mapDispatchToProps = (dispatch) => ({
     filterTitle : (str) => dispatch(filterArticlesTitle(str)),
     filterCategory : (cat) => dispatch(filterArticlesCategory(cat)),
     filterLanguage : (lan) => dispatch(filterArticlesLanguage(lan)),
+    emptyFilter : () => dispatch(emptyArticlesFilter())
 });
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(ArticlesAside);

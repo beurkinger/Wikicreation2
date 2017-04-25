@@ -4,7 +4,7 @@ import {REST_MAIN_PATH, REST_PATHS} from '../config';
 import QueryHelper from '../shared/helpers/QueryHelper';
 import store from '../store';
 
-export function getAuthors (id) {
+export function getAuthors (id, success, fail) {
 
   let locale = store.getState().messages.locale;
   const baseUrl = '/' + locale + REST_MAIN_PATH + REST_PATHS.authors;
@@ -20,11 +20,13 @@ export function getAuthors (id) {
   queryHelper.addArray('categories', filter.categories);
 
   httpRequestHelper(queryHelper.getUrl(),
-    (response) => {
+    response => {
       store.dispatch(authorsSuccess(response));
+      if (success && typeof success === 'function') success();
     },
-    (error) => {
+    error => {
       store.dispatch(authorsFail(error));
+      if (fail && typeof fail === 'function') fail();
     }
   );
 };

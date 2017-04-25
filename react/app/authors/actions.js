@@ -21,3 +21,6 @@ export function filterAuthorsName (name) {
 export function filterAuthorsCategory (categories) {
   return { type: actionTypes.FILTER_AUTHORS_CATEGORY, categories : categories };
 };
+export function emptyAuthorsFilter () {
+  return { type: actionTypes.EMPTY_AUTHORS_FILTER};
+};

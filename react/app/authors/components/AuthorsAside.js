@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {filterAuthorsName, filterAuthorsCategory} from '../actions';
+import {emptyAuthorsFilter, filterAuthorsName, filterAuthorsCategory} from '../actions';
 import {getAuthors} from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
+import FilterReset from '../../shared/components/FilterReset';
 import PageLoading from '../../shared/components/PageLoading';
 import TextFilter from '../../shared/components/TextFilter';
 
@@ -14,6 +15,10 @@ const AuthorsAside =(props) => {
   };
   const handleCategoriesFilter = (categoriesArray) => {
     props.filterCategory(categoriesArray);
+    getAuthors();
+  };
+  const resetFilter = () => {
+    props.emptyFilter();
     getAuthors();
   };
   return (
@@ -30,6 +35,7 @@ const AuthorsAside =(props) => {
           {props.messages.themes}
         </h3>
         <CategoriesFilter filter={props.categories} handleChange={handleCategoriesFilter} />
+        <FilterReset message={props.messages.resetFilter} handleClick={resetFilter}/>
       </div>
     </aside>
   )
@@ -53,7 +59,8 @@ const mapStateToProps = (store) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   filterName : (str) => dispatch(filterAuthorsName(str)),
-  filterCategory : (cat) => dispatch(filterAuthorsCategory(cat))
+  filterCategory : (cat) => dispatch(filterAuthorsCategory(cat)),
+  emptyFilter : () => dispatch(emptyAuthorsFilter())
 });
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(AuthorsAside);

@@ -92,10 +92,11 @@ messages[APP_LOCALES.FR] = {
     goBack : 'Revenir au site'
   },
   filter : {
-    writeToFilter : 'Ecrire pour filtrer',
+    writeToFilter : 'Filter par nom',
     filterBy : 'Filtrer par',
     languages : 'Langues',
-    themes : 'Thèmes'
+    themes : 'Thèmes',
+    resetFilter : 'Vider les fitres'
   },
   menu : {
     navMenu : {
@@ -212,10 +213,11 @@ messages[APP_LOCALES.EN] = {
     goBack : 'Go back'
   },
   filter : {
-    writeToFilter : 'Write to filter',
+    writeToFilter : 'Filter by name',
     filterBy : 'Filter by',
     languages : 'Languages',
-    themes : 'Themes'
+    themes : 'Themes',
+    resetFilter : 'Empty the filters'
   },
   legal : {
     title : 'Legal notices'

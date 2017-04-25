@@ -24,11 +24,11 @@ const Authors = React.createClass({
   },
   componentDidMount : function () {
     if (this.props.params && this.props.params.id) {
-      getAuthor(parseInt(this.props.params.id));
-      let props = this.props;
-      this.timeout = setTimeout(function() {
-        props.showAuthorPanel();
-      }, 500);
+      getAuthor(parseInt(this.props.params.id), this.props.showAuthorPanel);
+      // let props = this.props;
+      // this.timeout = setTimeout(function() {
+      //   props.showAuthorPanel();
+      // }, 500);
     }
   },
   componentWillUpdate : function (nextProps) {

@@ -8,7 +8,7 @@ const TextFilter = React.createClass({
     delay : React.PropTypes.number,
     minChar : React.PropTypes.number
   },
-  getDefaultProps: () => ({ delay : 500, minChar : 4 }),
+  getDefaultProps: () => ({ delay : 750, minChar : 4 }),
   getInitialState : function () {
     return { value : this.props.value }
   },

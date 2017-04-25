@@ -11,8 +11,7 @@ const AuthorCard = props => {
     backgroundSize : 'cover'
    });
   const handleAuthorClick = () => {
-    getAuthor(props.id);
-    props.showAuthorPanel();
+    getAuthor(props.id, props.showAuthorPanel);
     browserHistory.push('/' + props.locale + '/authors/' + props.id);
   };
   return (
