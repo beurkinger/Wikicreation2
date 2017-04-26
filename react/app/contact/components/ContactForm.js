@@ -12,7 +12,7 @@ const ContactForm = React.createClass({
       <form id="contact-form">
         <input type="text" placeholder={this.props.name} />
         <input type="text" placeholder={this.props.mail} />
-        <textarea defaultValue={this.props.message}></textarea>
+        <textarea placeholder={this.props.message}></textarea>
         <btn className="btn btn-blue btn-plane">{this.props.send}</btn>
       </form>
     )

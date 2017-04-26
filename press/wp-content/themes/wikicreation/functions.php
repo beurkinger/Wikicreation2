@@ -131,7 +131,7 @@ function get_preview($data){
 		'language' => $currentLang = qtrans_getLanguage(),
 		'title' => __($post->post_title),
 		'date' => $post->post_date,
-		'desc' => substr(strip_tags(__($post->post_content)), 0, 420)."...",
+		'desc' => substr(strip_tags(__($post->post_content)), 0, 620)."...",
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->ID,
@@ -173,36 +173,38 @@ function get_authors($data){
 
 }
 
-function get_author( $data ){
-	$post = get_posts( array(
-		'ID' => $data['id'],
-		'post_type' => 'auteur'
-	))[0];
-	$articles = get_posts();
-	$articlesByAuthor = array();
-	foreach ($articles as $article) {
-		$categories = wp_get_post_categories($article->ID, array('fields'=>'all'));
-		$categoriesFiltered = array();
-		foreach ($categories as $category) {
-			array_push($categoriesFiltered, array(
-				'id' => $category->term_id,
-				'name' => __($category->name)
-			));
-		}
+function get_author( $data ) {
+	$post = get_post($data['id']);
 
-		if(get_post_meta($article->ID, 'auteur')[0] == $post->ID)
-			array_push($articlesByAuthor, array(
-				'id' => $article -> ID,
-				'title' => __($article -> post_title),
-				'date' => $article -> post_date,
-				'category' => $categoriesFiltered
-			));
+	GLOBAL $wpdb;
+	$sql = "SELECT DISTINCT ar.id, ar.post_title, ar.post_date " .
+	"FROM wp_posts AS ar " .
+	"JOIN (wp_postmeta as me) ON (ar.id = me.post_id) " .
+	"JOIN (wp_posts as au) ON (au.id = me.meta_value) " .
+	"WHERE ar.post_type='post' AND ar.post_status='publish' " .
+	"AND au.id=$post->ID AND me.meta_key='auteur' " .
+	"ORDER BY ar.post_title ASC ";
+	$articles = $wpdb->get_results($sql);
+
+	foreach ($articles as $key => $article) {
+		$categories = wp_get_post_categories($article->id, ['fields'=>'all']);
+		foreach ($categories as $catKey => $category) {
+			$categories[$catKey] = ['id' => $category->term_id, 'name' => __($category->name)];
+		}
+		$articles[$key] = [
+			'id' => (int) $article->id,
+			'title' => __($article->post_title),
+			'date' => $article->post_date,
+			'category' => $categories
+		];
 	}
+
 	$picURL = get_post(get_post_meta($post->ID, "photo")[0])->guid;
 	$picURL = explode('/',$picURL);
 	$pic = array_slice($picURL, -5, 5, true);
 	$pic = implode('/', $pic);
-	return array(
+
+	return [
 		'id' => $post->ID,
 		'language' => $currentLang = qtrans_getLanguage(),
 		'name' => $post->post_title,
@@ -210,8 +212,8 @@ function get_author( $data ){
 		'school' => __(get_post_meta($post->ID, 'universite')[0]),
 		'desc' => __(get_post_meta($post->ID, 'biographie')[0]),
 		'pic' => $pic,
-		'articles' => $articlesByAuthor
-	);
+		'articles' => $articles
+	];
 }
 
 function get_all_categories() {
@@ -262,6 +264,23 @@ function get_graph_data(){
 		'data' => $data );
 }
 
+function post_contact ($data) {
+	$params = $data->get_params();
+
+	$name = $params['name'];
+	$university = $params['university'];
+	$authorTitle = $params['title'];
+	$bio = $params['bio'];
+	$title = $params['tite'];
+	$categories = $params['categories'];
+	$keywords = $params['keywords'];
+	$abstract = $params['abstract'];
+	$email = $params ['email'];
+
+	
+	return $university;
+}
+
 remove_action( 'rest_api_init', 'create_initial_rest_routes', 0 );
 add_action( 'rest_api_init', function () {
 	register_rest_route( 'wp/v2', '/articles', array(
@@ -295,6 +314,10 @@ add_action( 'rest_api_init', function () {
 	register_rest_route( 'wp/v2', '/graph-data', array(
 		'methods' => 'GET',
 		'callback' => 'get_graph_data'
+	));
+	register_rest_route( 'wp/v2', '/contact', array(
+		'methods' => 'POST',
+		'callback' => 'post_contact'
 	));
 });
 
@@ -339,41 +362,11 @@ function acf_load_auteurs_choices( $field ) {
 
 add_filter('acf/load_field/name=auteur', 'acf_load_auteurs_choices');
 
+add_filter( 'rest_cache_skip', function($skip, $request_uri ) {
+	if ( ! $skip && false !== stripos($request_uri, 'wp-json/wp/v2/contact') ) {
+		return true;
+	}
+	return $skip;
+}, 10, 2 );
 
-
-function setGraph(){
-
-	wp_enqueue_script( 'd3',
-	get_template_directory_uri() . '/wikiGraph/d3.v4.min.js',
-	array() );
-
-	wp_enqueue_script( 'eventDispatcher',
-	get_template_directory_uri() . '/wikiGraph/eventDispatcher.js',
-	array() );
-
-	wp_enqueue_script( 'parser',
-	get_template_directory_uri() . '/wikiGraph/parser.js',
-	array() );
-
-	wp_enqueue_script( 'model',
-	get_template_directory_uri() . '/wikiGraph/model.js',
-	array() );
-
-	wp_enqueue_script( 'animView',
-	get_template_directory_uri() . '/wikiGraph/animView.js',
-	array() );
-
-	wp_enqueue_script( 'view',
-	get_template_directory_uri() . '/wikiGraph/view.js',
-	array() );
-
-	wp_enqueue_script( 'controler',
-	get_template_directory_uri() . '/wikiGraph/controler.js',
-	array() );
-
-}
-
-add_action( 'wp_enqueue_scripts', 'setGraph' );
-add_action( 'wp_ajax_import_developer', 'import_graph_data' );
-add_action( 'wp_ajax_nopriv_import_developer', 'import_graph_data' );
 ?>

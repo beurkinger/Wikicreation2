@@ -33,9 +33,11 @@ const Author = (props) => {
         {props.title}, <br/>
         {props.school}
       </p>
-      <p className="author-desc">
-        {props.desc}
-      </p>
+      <div className="author-desc">
+        <div>
+          <span>{props.desc}</span>
+        </div>
+      </div>
       <h2 className="articles">
         {props.messages.articles}
       </h2>

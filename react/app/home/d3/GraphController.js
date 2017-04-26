@@ -26,12 +26,13 @@ class GraphController {
 		else if(this.getSubject() == null){
 			this.hoverSubject = "none";
 			this._model.exploredNode = null;
+			document.getElementsByTagName("canvas")[0].style.cursor="default";
 			// this._model.restoreDefault();
 		}
 	}
 
 	click () {
-		if(this.clickSubject == this.getSubject()){
+		if(this.clickSubject == this.getSubject() || this.getSubject() == null){
 			this.clickSubject = [];
 			this._model.restoreDefault();
 		}
@@ -42,7 +43,7 @@ class GraphController {
 	}
 
 	getSubject () {
-		return this._view.simulation.find(mouse(this._view.canvas)[0] - this._view.width/2, mouse(this._view.canvas)[1]- this._view.height/2, 30);
+		return this._view.simulation.find(mouse(this._view.canvas)[0] - this._view.width/2 - this._view.transform.x, mouse(this._view.canvas)[1]- this._view.height/2 - this._view.transform.y, 60);
 	}
 }
 

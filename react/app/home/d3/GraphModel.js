@@ -13,8 +13,6 @@ class GraphModel{
 		this.exploredNode; //Ajout d'une exploredNode
 		this.newNodes = [];
 
-		this.enabledNodes=[];
-
 		this.selectedLinks = [];
 		this.newLinks = [];
 	}
@@ -36,18 +34,20 @@ class GraphModel{
 	//selectRelations et hoverRelations gèrent respectivement nodes et liens liées aux interactions de selections(clique) et hover
 	selectRelations(subject, clickHandler){
 		switch(subject.depth) {
+			case 1:
+				//this.newLinks = this.recurseLinks(subject);
+				break;
 			case 2:
 				this.selectedNodes = this.newNodes;
 				this.selectedLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
-				this.enabledNodes = this.nodes.filter(d => this.selectedLinks.indexOf(d.id)!=-1 );
 				break;
 			case 3:
+				this.selectedNodes = [];
 				this.selectNodes(subject);
 				this.selectedLinks = this.recurseLinks(subject);
 				if (clickHandler && typeof clickHandler === 'function') clickHandler(subject.wpId);
 				break;
 		}
-
 		this.linksAdded.notify();
 		this.nodesAdded.notify();
 	}
@@ -55,15 +55,25 @@ class GraphModel{
 	hoverRelations(subject) {
 		this.newNodes = [];
 		switch(subject.depth) {
+			case 1:
+				this.selectedLinks = [];
+				this.selectedNodes = this.defaultNodes;
+				this.newLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
+				break;
 			case 2:
 				this.newLinks = this.recurseLinks(subject);
 				this.showNodes(subject);
+				document.getElementsByTagName("canvas")[0].style.cursor="pointer";
 				this.exploredNode = subject;
 				break;
 			case 3:
-				if(this.enabledNodes.indexOf(subject)!= -1) {
-					this.selectedLinks = this.recurseLinks(subject);
-					this.selectLinkedNodes();
+				if(this.selectedNodes.indexOf(subject)!= -1) {
+					document.getElementsByTagName("canvas")[0].style.cursor="pointer";
+					this.selectNodes(subject);
+					this.newLinks = this.recurseLinks(subject);
+				}
+				else{
+					document.getElementsByTagName("canvas")[0].style.cursor="default";
 				}
 				break;
 		}
@@ -88,7 +98,6 @@ class GraphModel{
 	}
 
 	selectNodes(subject) {
-		this.selectedNodes = [];
 		var theseLinks = this.links.filter( d => d.target.id == subject.id || d.source.id == subject.id);
 		theseLinks.forEach( c => {
 			this.selectedNodes.push(this.nodes.filter( d => c.source.id==d.id )[0]);

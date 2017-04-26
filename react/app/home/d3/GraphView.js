@@ -1,6 +1,9 @@
 import AnimLink from './AnimLink';
 import AnimNode from './AnimNode';
 import {forceManyBody, forceSimulation, forceX, forceY, forceLink, forceCollide} from 'd3-force';
+import {select, mouse, event} from 'd3-selection';
+import {drag} from 'd3-drag';
+import {zoom, transform, zoomIdentity} from 'd3-zoom';
 
 window.requestAnimationFrame = window.requestAnimationFrame ||
 window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
@@ -24,6 +27,7 @@ class GraphView {
 		this.interactionIsClick = false;
 		this.interactionHover;
 
+		this.transform = zoomIdentity;
 	}
 
 	stop () {
@@ -31,6 +35,8 @@ class GraphView {
 	}
 
 	start(){
+
+
 		var ratio = window.devicePixelRatio || 1;
 
 		this.canvas.style.width = this.width+'px',
@@ -54,20 +60,32 @@ class GraphView {
 		this._model.links.forEach(d => d.animLink = new AnimLink(d, this));
 
 		for (var i = 0; i < 10; ++i) this.simulation.tick();
+
+		select("canvas")
+			.call(zoom().scaleExtent([1,1]).on("zoom", this.zoomed.bind(this)))
+			.call(this.updateView.bind(this));
+	}
+	zoomed() {
+		this.transform = event.transform;
+		this.updateView();
 	}
 
 	reheat(){
 		this.simulation.alpha( 0.05 ).restart();//ALPHA EST PASSE A 0.05
-
 		this._model.links.forEach( d => {
 			if( this._model.selectedLinks.filter( n => d == n ).length == 0) d.animLink.amount = 0 ;
 		});
 	}
 
 	updateView(){
+			this.context.save();
 			this.clearCanvas();
+			this.context.beginPath();
+			this.context.translate(this.transform.x, this.transform.y);
+			this.context.scale(this.transform.k, this.transform.k);
 			this.drawLinks();
 			this.drawNodes();
+			this.context.restore();
 	}
 
 	drawNodes(){ //DRAWNODES A ETE MODIFIE
