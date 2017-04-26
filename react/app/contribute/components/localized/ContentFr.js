@@ -48,9 +48,119 @@ const ContentFr = () => (
     <p>
       WikiCreation, n’est donc pas a priori un lieu de publication de nouvelles recherches, mais un lieu de synthèse, d’articulation et de valorisation de recherches déjà accomplies. Toutefois, les articles publiés dans WikiCreation doivent être originaux.
     </p>
-    <h3 id="">
-      
-    </h3>
+	 <h3 id="formes">
+	 	Les formes discursives
+	 </h3>
+	 <p>
+	  WikiCreation ne pose pas d’exclusive a priori. Toutes les méthodes scientifiques sont reconnues. Après une phase d’exposé posant la relation entre la création et la seconde notion, l’article pose un problème appréciable par tout esprit logique, et entreprend une étude pertinente et conséquente.
+	 </p>
+	 <p>
+	  Les articles peuvent se proposer des objectifs divers :
+	 </p>
+	 <p><li>
+	  Un <strong>but inductif</strong> : utiliser des méthodes d’investigation par observation, enquête ou expérimentation, etc., afin de traiter d’une question ou de résoudre une problématique.
+	 </li></p>
+	 <p><li>
+	  Un <strong>but programmatique</strong> : identifier, aux plans tant spéculatif que pratique, des conditions intellectuelles ou matérielles à changer pour résoudre des difficultés effectives et récurrentes ;
+	 </li></p>
+	 <p><li>
+	  Un <strong>but didactique et encyclopédique</strong> : faire le bilan de la recherche passée ou présente sur les concepts étudiés d’un point de vue généraliste, universaliste, non immédiatement situé ; etc.
+	 </li></p>
+	 <p><li>
+	  Un <strong>but heuristique</strong> : poser un enjeu conjoncturel avec une énonciation personnelle repérable, pour peu qu’elle soit rationnellement réeffectuable.
+	 </li></p>
+	 <h3 id="consignes">
+	 	Les consignes formelles
+	 </h3>
+	 <p>
+	  Chaque article comprend:
+	 </p>
+	 <p><li>
+	  Un <strong>titre</strong> (éventuellement un sous-titre)<br /><i>Les titres des articles doivent respecter la formule suivante : « Notion et Création »</i>
+	 </li></p>
+	 <p><li>
+	  Le <strong>nom de l’auteur</strong> (ou des auteurs) et son attachement institutionnel.
+	 </li></p>
+	 <p><li>
+	  Un <strong>résumé</strong> d’environ 600 signes* ou 100 mots
+	 </li></p>
+	 <p><li>
+	  Une <strong>liste de 5 mots-clefs</strong>
+	 </li></p>
+	 <p><li>
+	  Un <strong>texte d'environ 20 000 signes</strong>* 3200 mots
+	 </li></p>
+	 <p><li>
+	  Une <strong>bibliographie</strong>.
+	 </li></p>
+	 <p>
+	  * Espaces comprises
+	 </p>
+	 <p>
+	  Les références doivent respecter <strong>la norme APA</strong> (6e édition) qui est internationalement répandue :<br /><strong>http://guides.bib.umontreal.ca/disciplines/20-Citer-selon-les-normes-de-l-APA?tab=107</strong>
+	 </p>
+	 <p>
+	  En conséquence, tout <strong>renvoi</strong> à une référence doit s'inscrire dans le flux du texte sous la forme <strong>(Auteur, date)</strong>. Le détail de la référence est présenté dans la partie « Bibliographie » située en fin d'article.
+	 </p>
+	 <p>
+	  L’acquisition des droits de reproduction et de diffusion des images accompagnant les articles relève de la responsabilité des auteurs des articles qui veilleront à les avoir négociés avec les auteurs et ayants droit.
+	 </p><br />
+	 <div className="btn btn-red btn-download">
+	 	Téléchargez la fiche technique
+	 </div><br />
+	 <div className="btn btn-red btn-download">
+	 	Télechargez un exemple (.doc)
+	 </div>
+	 <h3 id="envoi">
+	 	Envoi des articles
+	 </h3>
+	 <p>
+	 	Les articles sont à envoyer au format <strong>.doc</strong> ou <strong>.docx</strong> ou <strong>.rtf</strong>
+	 </p>
+	 <form id="form">
+	 <div className="left-row">
+	 	Auteur
+	 </div>
+	 <div className="right-row">
+	 	<input type="text" name="name" placeholder="Nom"/>
+		<input type="text" name="university" placeholder="Université"/>
+		<input type="text" name="job" placeholder="Titre"/>
+		<textarea name="bio" rows="5" placeholder="Biographie"/>
+	 </div>
+	 <br/>
+	 <div className="left-row">
+	 	Article
+	 </div>
+	 <div className="right-row">
+		 <input type="text" name="title" placeholder="Titre de l'article"/>
+		 <input type="text" name="categories" placeholder="Catégories"/>
+		 <input type="text" name="tags" placeholder="Mots-clefs"/>
+		 <textarea name="abstract" rows="5" placeholder="Résumé"/>
+	 </div>
+	 <br/>
+	 <div className="left-row">
+	 	Contact
+	 </div>
+	 <div className="right-row">
+		 <input type="text" name="mail" placeholder="Adresse mail"/>
+	 </div>
+	 <br/>
+	 <div className="left-row">
+	 	Fichier (.pdf)
+	 </div>
+	 <div className="right-row">
+		 <input type="file" id="myFile"/>
+	 </div>
+
+	 <br/>
+	 <div className="btn-submit">
+		 <button type="submit" form="form" value="Submit" >
+			 <div className="btn btn-red btn-plane">
+				Envoyer
+			 </div>
+		 </button>
+	 </div>
+	 </form>
   </div>
 );
 

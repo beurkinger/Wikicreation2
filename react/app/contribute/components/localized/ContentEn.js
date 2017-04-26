@@ -6,19 +6,30 @@ const ContentEn = () => (
       Presentation of the publication
     </h3>
     <p>
-      WikiCreation is a new and innovative online scientific publication.Its purpose is to study the concept and the act of creation in all their states, aspects and approaches. WikiCreation is therefore open to all disciplines and aims at becoming a reference publication in the field of creation studies.
+      <strong>WikiCreation is a new and innovative online scientific publication.</strong> Its purpose is to study the concept and the act of creation in all their states, aspects and approaches. WikiCreation is therefore open to all disciplines and aims at becoming a reference publication in the field of creation studies.
     </p>
     <p>
-      The Scientific Committee of WikiCreation is international, as is its peer review committee, which selects the submitted articles through double-blind reviewing.
+      <strong>The Scientific Committee of WikiCreation is international, as is its peer review committee, which selects the submitted articles through double-blind reviewing.</strong>
     </p>
     <p>
       This online publication is open to all researchers, from recognized specialists to PhD. students. French articles will be translated into English and vice versa. Articles in a language other than French will also be accompanied by an English version. If the articles meet the academic requirements (bibliography, notes, etc.), they nevertheless must be accessible to a wider audience.
     </p>
+	 <h3 id="editor">
+	 	Publisher
+	 </h3>
+	 <p>
+	 	The redaction committee consists of <strong>Richard Conte</strong> (Poietician), <strong>Bernard Darras</strong> (Semiotician) and <strong>Christophe Genin</strong> (Philosopher).
+	 </p>
+	 <p>
+	 	<strong>Institut ACTE UMR 8218<br/>
+	 	Université Paris 1 Panthéon-Sorbonne & CNRS<br/>
+	 	LabEx CAP</strong>
+	 </p>
     <h3 id="project">
       The editorial relational project
     </h3>
     <p>
-      The WikiCreation epistemological and editorial project is relational. It focuses on the study of the relationship that creation has with its environment. In each article, the concept of creation must therefore be heuristically combined with another idea, concept or field. Creation cannot therefore be defined as an absolute but through a network of relationships.
+      The WikiCreation epistemological and editorial project is relational. It focuses on <strong>the study of the relationship that creation has with its environment.</strong> In each article, the concept of creation must therefore be heuristically combined with another idea, concept or field. Creation cannot therefore be defined as an absolute but through a network of relationships.
     </p>
     <p>
       Each article thus strives to show how a concept carefully chosen by affinity allows one to explore, enlighten, enrich, nourish and exemplify the concept of creation and vice versa. The study of the relationship between two or three concepts is therefore the main focus of each article.
@@ -27,22 +38,86 @@ const ContentEn = () => (
       These concepts may be related (‘creativity and creation’), opposed (‘creation as a process and creation as a result’), contradictory (‘creation and destruction’), or different (‘serendipity and creation’, ‘sleep, dream and creation’ or ‘crisis, change and creation’), etc. WikiCreation thus allows other researchers or research groups to make separate contributions on the same combinations.
     </p>
     <p>
-      The articles study the creative act, whether artistic, scientific, technological, scholarly or ordinary, in both its anthropological and societal dimension. Creation is therefore the principal theme of the publication and its common denominator. Such a network, established in relation to various notions or concepts, allows one to define creation from one article to another.
+      The articles study the creative act, whether artistic, scientific, technological, scholarly or ordinary, in both its anthropological and societal dimension. <strong>Creation is therefore the principal theme of the publication and its common denominator. Such a network, established in relation to various notions or concepts, allows one to define creation from one article to another.</strong>
     </p>
     <p>
       It is a collective and possibly collaborative enterprise studying the concept of creation through the multiplication of points of view and their juxtaposition on one single digital platform equipped with search engines and semantic engine.
     </p>
-    <h3 id="editor">
-      Editor
-    </h3>
-    <p>
-      The redaction committee consists of Richard Conte (Poietician), Bernard Darras (Semiotician) and Christophe Genin (Philosopher).
-    </p>
-    <p>
-      Institut ACTE UMR 8218<br/>
-      Université Paris 1 Panthéon-Sorbonne & CNRS<br/>
-      LabEx CAP
-    </p>
+	 <h3 id="formes">
+	 	Discursive forms
+	 </h3>
+	 <p>
+	 	WikiCreation does not in principle apply exclusive requirements. All scientific methods are recognized.
+	 </p>
+	 <p>
+	 	After a presentation showing the relationship between creation and the second (or third) concept, the article must discuss an issue that can be assessed by any logical mind and offer a relevant and substantial study.
+	 </p>
+	 <p>
+	 	<li>
+			An <strong>inductive goal</strong>: using methods of investigation by observation, study or experimentation, etc. to address an issue or solve a problem.
+		</li>
+	 </p>
+	 <p>
+	 	<li>
+			A <strong>programmatic goal</strong>: identifying, both on the speculative and practical level, the intellectual or physical conditions to change in order to solve actual and recurrent issues.
+		</li>
+	 </p>
+	 <p>
+	 	<li>
+			An <strong>educational and encyclopaedic goal</strong>: taking stock of past and present research on the concepts studied in a general, universalist or not immediately identifiable perspective, etc.
+		</li>
+	 </p>
+	 <p>
+	 	<li>
+			A <strong>heuristic goal</strong>: putting forward a situational issue through an identifiable personal enunciation, as long as it can be rationally undertaken again.
+		</li>
+	 </p>
+	 <h3 id="consignes">
+	 	Formal instructions
+	 </h3>
+	 <p>
+	 	Each article must include:
+	 </p>
+	 <p>
+	 	<li>
+			A <strong>title</strong> (and possibly a subtitle)
+		</li>
+	 </p>
+	 <p>
+		<li>
+			The <strong>name of the author(s)</strong> and their institutional affiliation
+		</li>
+	 </p>
+	 <p>
+		<li>
+			An <strong>abstract</strong> of approximately 600 characters* or 100 words
+		</li>
+	 </p>
+	 <p>
+		<li>
+			A <strong>list of five key words</strong>, presented on the website of the publication as a word cloud
+		</li>
+	 </p>
+	 <p>
+		<li>
+			A <strong>text of about 20,000 characters*</strong> or 3,200 words
+		</li>
+	 </p>
+	 <p>
+		<li>
+			A <strong>bibliography</strong>
+		</li>
+	 </p>
+	 <p>
+	 	References should follow the <strong>APA standard</strong> (6th edition) which is internationally used. Accordingly, any reference must be part of the flow of the text, i.e. (Author, date). The detail of the reference must be presented in the ‘Bibliography’ section located at the end of article.
+	 </p>
+	 <h3 id="envoie">
+	 	Sending articles
+	 </h3>
+	 <p>
+	 	Articles should be sent in <strong>.doc</strong>, <strong>.docx</strong> or <strong>.rtf</strong> format to: bernard.darras@univ-paris1.fr
+	 </p>
+
   </div>
 );
 

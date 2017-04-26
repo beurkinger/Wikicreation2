@@ -277,7 +277,7 @@ function post_contact ($data) {
 	$abstract = $params['abstract'];
 	$email = $params ['email'];
 
-	
+
 	return $university;
 }
 
