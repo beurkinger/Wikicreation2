@@ -2,12 +2,13 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Link from 'react-router/lib/Link';
 
-import {APP_LOCALES} from '../../config';
 import {setStdTitlebar} from '../../header/actions';
+import ContributeAside from './ContributeAside';
+import ContributeContent from './ContributeContent';
+
 
 const Contribute = React.createClass({
   propTypes : {
-    locale : React.PropTypes.string.isRequired,
     title : React.PropTypes.string.isRequired
   },
   componentWillMount : function () {
@@ -19,19 +20,15 @@ const Contribute = React.createClass({
   render : function () {
     return (
       <main id="main-container">
-        <div id="main-content" className="full-size">
-          <div id="legal-main">
-            <h3>Page bientôt disponible.</h3>
-          </div>
-        </div>
+        <ContributeAside />
+        <ContributeContent />
       </main>
     )
   }
 });
 
 const mapStateToProps = (store) => ({
-  locale : store.messages.locale,
-  title : store.messages.strings.contribute.title
+  title : store.messages.strings.contribute.main.title
 });
 
 const mapDispatchToProps = (dispatch) => ({

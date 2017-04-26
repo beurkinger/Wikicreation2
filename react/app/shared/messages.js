@@ -72,7 +72,14 @@ messages[APP_LOCALES.FR] = {
     }
   },
   contribute : {
-    title : 'Contribuer'
+    main : {
+      title : 'Contribuer',
+    },
+    aside : {
+      discursiveForms : 'Les formes discursives',
+      formalInstructions : 'Les consignes formelles',
+      sendArticle : 'Envoi des articles'
+    }
   },
   committee : {
     main : {
@@ -203,7 +210,14 @@ messages[APP_LOCALES.EN] = {
     }
   },
   contribute : {
-    title : 'Contribute'
+    main : {
+      title : 'Contribute',
+    },
+    aside : {
+      discursiveForms : 'Discursive Forms',
+      formalInstructions : 'Formal Instructions',
+      sendArticle : 'Sending Articles'
+    }
   },
   error : {
     title : 'Error',
