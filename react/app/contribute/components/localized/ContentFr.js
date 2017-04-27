@@ -48,7 +48,7 @@ const ContentFr = () => (
     <p>
       WikiCreation, n’est donc pas a priori un lieu de publication de nouvelles recherches, mais un lieu de synthèse, d’articulation et de valorisation de recherches déjà accomplies. Toutefois, les articles publiés dans WikiCreation doivent être originaux.
     </p>
-	 <h3 id="formes">
+	 <h3 id="discursiveForms">
 	 	Les formes discursives
 	 </h3>
 	 <p>
@@ -69,7 +69,7 @@ const ContentFr = () => (
 	 <p><li>
 	  Un <strong>but heuristique</strong> : poser un enjeu conjoncturel avec une énonciation personnelle repérable, pour peu qu’elle soit rationnellement réeffectuable.
 	 </li></p>
-	 <h3 id="consignes">
+	 <h3 id="formalInstructions">
 	 	Les consignes formelles
 	 </h3>
 	 <p>
@@ -111,56 +111,9 @@ const ContentFr = () => (
 	 <div className="btn btn-red btn-download">
 	 	Télechargez un exemple (.doc)
 	 </div>
-	 <h3 id="envoi">
+	 <h3 id="sendArticle">
 	 	Envoi des articles
 	 </h3>
-	 <p>
-	 	Les articles sont à envoyer au format <strong>.doc</strong> ou <strong>.docx</strong> ou <strong>.rtf</strong>
-	 </p>
-	 <form id="form">
-	 <div className="left-row">
-	 	Auteur
-	 </div>
-	 <div className="right-row">
-	 	<input type="text" name="name" placeholder="Nom"/>
-		<input type="text" name="university" placeholder="Université"/>
-		<input type="text" name="job" placeholder="Titre"/>
-		<textarea name="bio" rows="5" placeholder="Biographie"/>
-	 </div>
-	 <br/>
-	 <div className="left-row">
-	 	Article
-	 </div>
-	 <div className="right-row">
-		 <input type="text" name="title" placeholder="Titre de l'article"/>
-		 <input type="text" name="categories" placeholder="Catégories"/>
-		 <input type="text" name="tags" placeholder="Mots-clefs"/>
-		 <textarea name="abstract" rows="5" placeholder="Résumé"/>
-	 </div>
-	 <br/>
-	 <div className="left-row">
-	 	Contact
-	 </div>
-	 <div className="right-row">
-		 <input type="text" name="mail" placeholder="Adresse mail"/>
-	 </div>
-	 <br/>
-	 <div className="left-row">
-	 	Fichier (.pdf)
-	 </div>
-	 <div className="right-row">
-		 <input type="file" id="myFile"/>
-	 </div>
-
-	 <br/>
-	 <div className="btn-submit">
-		 <button type="submit" form="form" value="Submit" >
-			 <div className="btn btn-red btn-plane">
-				Envoyer
-			 </div>
-		 </button>
-	 </div>
-	 </form>
   </div>
 );
 

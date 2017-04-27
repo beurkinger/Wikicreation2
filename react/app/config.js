@@ -11,6 +11,8 @@ export const REST_PATHS = {
   graphData : '/graph-data',
   news : '/news',
   preview : '/preview',
+  contact : '/contact',
+  contribute : '/contribute'
 };
 
 export const APP_LOCALES = { FR : 'fr', EN : 'en' };

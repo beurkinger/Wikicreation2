@@ -1,6 +1,9 @@
 <?php
 // ------------------- CUSTOM REST ROUTES
 
+define(MAX_FILE_SIZE, 5242880);
+define(EMAIL_TO, 'togehringer@gmail.com');
+
 function format_category($category){
 	$cat = get_category($category);
 	return array(
@@ -291,17 +294,80 @@ function post_contact ($data) {
 	$params = $data->get_params();
 
 	$name = $params['name'];
+	$email = $params['email'];
+	$message = $params['message'];
+
+	if ($name === null || $email === null || $message === null) {
+		return new WP_Error('field_error', "Présence d'un champ non-rempli.", ['status' => 404 ]);
+	}
+
+	$subject = "Wikicreation : nouveau message de " . $name;
+
+	$mailOk = wp_mail(EMAIL_TO, $subject, $message, $headers = '', null);
+	if (!$mailOk) {
+		return new WP_Error('mail_error', "Erreur lors de l'envoi du mail.", ['status' => 404 ]);
+	} else {
+		return ['success' => 'Mail envoyé.'];
+	};
+}
+
+function post_contribute ($data) {
+	$params = $data->get_params();
+
+	$name = $params['name'];
 	$university = $params['university'];
-	$authorTitle = $params['title'];
+	$authorTitle = $params['authorTitle'];
 	$bio = $params['bio'];
-	$title = $params['tite'];
+	$title = $params['title'];
 	$categories = $params['categories'];
 	$keywords = $params['keywords'];
 	$abstract = $params['abstract'];
-	$email = $params ['email'];
+	$email = $params['email'];
 
+	if ($name === null || $university === null || $authorTitle === null ||
+		$bio === null || $title === null || $categories === null ||
+		$keywords === null || $abstract === null || $email === null) {
+		return new WP_Error('field_error', "Présence d'un champ non-rempli.", ['status' => 404 ]);
+	}
 
-	return $university;
+	$doc = $data->get_file_params()['doc'];
+
+	if (!$doc) {
+		return new WP_Error('no_doc_error', "Aucun document joint.", ['status' => 404 ]);
+	}
+
+	$tmpDoc = $doc['tmp_name'];
+	$docName = $doc['name'];
+	$docSize = $doc['size'];
+	$newDoc = $tmpDoc . $docName;
+
+	if ($docSize > MAX_FILE_SIZE) {
+		return new WP_Error('doc_too_large_error', "Document trop volumineux.", ['status' => 404 ]);
+	}
+
+	if (!move_uploaded_file($tmpDoc, $newDoc)) {
+	    return new WP_Error('doc_move_error', "Erreur lors du renommage du fichier.", ['status' => 404 ]);
+	}
+
+	$subject = "Wikicreation : nouvelle proposition d'article par " . $name;
+	$message = "Nom de l'auteur : $name \n" .
+		"Email de contact : $email \n" .
+		"Université : $university \n" .
+		"Titre de l'auteur : $authorTitle \n" .
+		"Biographie : $bio \n" .
+		"Titre de l'article : $title \n" .
+		"Catégories : $categories \n" .
+		"Mots-clés : $keywords \n" .
+		"Abstract : $abstract \n";
+	$attachments = [$newDoc];
+
+	$mailOk = wp_mail(EMAIL_TO, $subject, $message, $headers = '', $attachments);
+	if (!$mailOk) {
+		return new WP_Error('mail_error', "Erreur lors de l'envoi du mail.", ['status' => 404 ]);
+	} else {
+		unlink($newDoc);
+		return ['success' => 'Mail envoyé.'];
+	};
 }
 
 remove_action( 'rest_api_init', 'create_initial_rest_routes', 0 );
@@ -341,6 +407,10 @@ add_action( 'rest_api_init', function () {
 	register_rest_route( 'wp/v2', '/contact', array(
 		'methods' => 'POST',
 		'callback' => 'post_contact'
+	));
+	register_rest_route( 'wp/v2', '/contribute', array(
+		'methods' => 'POST',
+		'callback' => 'post_contribute'
 	));
 });
 

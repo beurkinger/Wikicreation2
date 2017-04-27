@@ -43,7 +43,7 @@ const ContentEn = () => (
     <p>
       It is a collective and possibly collaborative enterprise studying the concept of creation through the multiplication of points of view and their juxtaposition on one single digital platform equipped with search engines and semantic engine.
     </p>
-	 <h3 id="formes">
+	 <h3 id="discursiveForms">
 	 	Discursive forms
 	 </h3>
 	 <p>
@@ -72,7 +72,7 @@ const ContentEn = () => (
 			A <strong>heuristic goal</strong>: putting forward a situational issue through an identifiable personal enunciation, as long as it can be rationally undertaken again.
 		</li>
 	 </p>
-	 <h3 id="consignes">
+	 <h3 id="formalInstructions">
 	 	Formal instructions
 	 </h3>
 	 <p>
@@ -111,13 +111,9 @@ const ContentEn = () => (
 	 <p>
 	 	References should follow the <strong>APA standard</strong> (6th edition) which is internationally used. Accordingly, any reference must be part of the flow of the text, i.e. (Author, date). The detail of the reference must be presented in the ‘Bibliography’ section located at the end of article.
 	 </p>
-	 <h3 id="envoie">
+	 <h3 id="sendArticle">
 	 	Sending articles
 	 </h3>
-	 <p>
-	 	Articles should be sent in <strong>.doc</strong>, <strong>.docx</strong> or <strong>.rtf</strong> format to: bernard.darras@univ-paris1.fr
-	 </p>
-
   </div>
 );
 

@@ -79,6 +79,27 @@ messages[APP_LOCALES.FR] = {
       discursiveForms : 'Les formes discursives',
       formalInstructions : 'Les consignes formelles',
       sendArticle : 'Envoi des articles'
+    },
+    form : {
+      author: 'Auteur',
+      article : 'Article',
+      contact : 'Contact',
+      name : 'Nom',
+      university : 'Université',
+      authorTitle : 'Titre',
+      bio : 'Biographie',
+      title : 'Titre',
+      categories : 'Catégorie(s)',
+      keywords : 'Mots-Clés',
+      abstract : 'Abstract',
+      email : 'Email',
+      doc : 'Document',
+      errorMissing : "Présence d'un champs non-rempli.",
+      errorEmail : 'Merci de vérifier votre adresse email.',
+      errorServer : "Erreur lors de l'envoi. Merci de réessayer.",
+      send : "Envoyer",
+      sending : 'Envoi...',
+      sent : 'Votre contribution a bien été envoyée. Merci.'
     }
   },
   committee : {
@@ -217,6 +238,27 @@ messages[APP_LOCALES.EN] = {
       discursiveForms : 'Discursive Forms',
       formalInstructions : 'Formal Instructions',
       sendArticle : 'Sending Articles'
+    },
+    form : {
+      author: 'Author',
+      article : 'Article',
+      contact : 'Contact',
+      name : 'Name',
+      university : 'University',
+      authorTitle : 'Title',
+      bio : 'Biography',
+      title : 'Title',
+      categories : 'Categorie(s)',
+      keywords : 'Keywords',
+      abstract : 'Abstract',
+      email : 'Email',
+      doc : 'Document',
+      errorMissing : "Error : empty field.",
+      errorEmail : 'Please verify your email address.',
+      errorServer : "There was an error sending your message. Please try again.",
+      send : "Send",
+      sending : 'Sending...',
+      sent : 'Your message has been sent. Thanks.'
     }
   },
   error : {

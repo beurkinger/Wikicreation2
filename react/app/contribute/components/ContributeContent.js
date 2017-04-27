@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {APP_LOCALES} from '../../config';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
+import ContributeForm from './ContributeForm';
 import BackToTop from '../../shared/components/BackToTop';
 
 const ContributeContent = React.createClass({
@@ -18,6 +19,7 @@ const ContributeContent = React.createClass({
       <div id="main-content">
         <div id="contribute-main">
           {this.getLocalizedContent()}
+          <ContributeForm/>
         </div>
         <BackToTop target="#contribute-main"></BackToTop>
       </div>
