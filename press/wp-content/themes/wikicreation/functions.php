@@ -23,7 +23,7 @@ function get_articles($data){
 	"JOIN (wp_term_taxonomy AS ta) " .
 	"ON (ta.term_id = re.term_taxonomy_id) " .
 	"WHERE po.post_type='post' AND po.post_status='publish' AND ta.taxonomy='category' ";
-	
+
 	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN ($catsParams) ";
 	if (isset($titleParam) && $titleParam != '') $sql .= "AND po.post_title LIKE '%$titleParam%' ";
 	$sql .= "ORDER BY ca.term_id ASC";
@@ -105,13 +105,17 @@ function get_article( $data ){
 }
 
 function get_news(){
-	$posts = get_posts(array("posts_per_page" => 5, 'orderby' => 'date', 'order' => 'desc'));
+	GLOBAL $wpdb;
+	$sql = "SELECT po.id, po.post_title, po.post_content FROM wp_posts AS po " .
+	"WHERE po.post_type='post' AND po.post_status='publish' ORDER BY po.post_date DESC LIMIT 5";
+	$posts = $wpdb->get_results($sql);
+	// $posts = get_posts(array("posts_per_page" => 5, 'orderby' => 'date', 'order' => 'desc'));
 	$news = array();
 	foreach ($posts as $post) {
-		$authorId = get_post_meta($post->ID, 'auteur')[0];
+		$authorId = get_post_meta($post->id, 'auteur')[0];
 		$post = [
-			'id' => $post->ID,
-			'title' => $post->post_title,
+			'id' => $post->id,
+			'title' => __($post->post_title),
 			'author' => get_post($authorId)->post_title,
 			'desc' => substr(strip_tags(__($post->post_content)), 0, 420)."..."
 		];
@@ -123,26 +127,32 @@ function get_news(){
 }
 
 function get_preview($data){
-	$post = get_post( $data['id']);
-	$categories = wp_get_post_categories($post->ID);
+
+	GLOBAL $wpdb;
+	$sql = "SELECT DISTINCT po.id, po.post_title, po.post_date, po.post_content " .
+	"FROM wp_posts AS po " .
+	"WHERE po.post_type='post' AND po.post_status='publish' AND po.id=" . $data['id'] . " ";
+	$post = $wpdb->get_row($sql);
+	// $post = get_post( $data['id']);
+	$categories = wp_get_post_categories($post->id);
 	$i=0;
 	foreach ($categories as $category){
 		$categories[$i]= format_category($category);
 		$i++;
 	}
 
-	$authorId = get_post_meta($post->ID)['auteur'][0];
+	$authorId = get_post_meta($post->id)['auteur'][0];
 	$author = get_post($authorId);
 
 	return array(
-		'id' => $post->ID,
+		'id' => (int) $post->id,
 		'language' => $currentLang = qtrans_getLanguage(),
 		'title' => __($post->post_title),
 		'date' => $post->post_date,
 		'desc' => substr(strip_tags(__($post->post_content)), 0, 620)."...",
 		'category' => $categories,
 		'author' => array(
-			'id' => $author->ID,
+			'id' => $author->id,
 			'name' => $author->post_title
 		)
 	);
@@ -242,18 +252,23 @@ function get_all_categories() {
 function get_graph_data(){
 	$cats = get_categories();
 	$graphCats = [];
-	$posts = get_posts(array( "posts_per_page" => -1));
+	GLOBAL $wpdb;
+	$sql = "SELECT DISTINCT po.id, po.post_title " .
+	"FROM wp_posts AS po " .
+	"WHERE po.post_type='post' AND po.post_status='publish'";
+	$posts = $wpdb->get_results($sql);
+
 	$i=0;
 	foreach ($cats as $cat) {
 		$catPosts = array();
 		foreach ($posts as $post) {
-			$postCats = wp_get_post_categories($post->ID, array('fields'=>'names'));
+			$postCats = wp_get_post_categories($post->id, array('fields'=>'names'));
 
 			if($cat->name == $postCats[0]) {
 				array_push($catPosts, array(
-					'id' => $post->ID,
+					'id' => $post->id,
 					'name' => __($post->post_title),
-					'wpId' => $post->ID,
+					'wpId' => $post->id,
 					'altParents' => array_slice($postCats, 1)
 				));
 			}
