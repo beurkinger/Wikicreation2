@@ -15,7 +15,15 @@ function get_articles($data){
  	$titleParam= $data->get_query_params()["title"];
 
 	GLOBAL $wpdb;
-	$sql = "SELECT po.id, po.post_title, ca.term_id, ca.name FROM wp_posts AS po JOIN (wp_terms AS ca, wp_term_relationships AS re) ON (po.id = re.object_id AND ca.term_id = re.term_taxonomy_id) WHERE po.post_type='post' AND po.post_status='publish' ";
+	$sql = "SELECT po.id, po.post_title, ca.term_id, ca.name FROM wp_posts AS po " .
+	"JOIN (wp_term_relationships AS re) " .
+	"ON (po.id = re.object_id) " .
+	"JOIN (wp_terms AS ca) " .
+	"ON (ca.term_id = re.term_taxonomy_id) " .
+	"JOIN (wp_term_taxonomy AS ta) " .
+	"ON (ta.term_id = re.term_taxonomy_id) " .
+	"WHERE po.post_type='post' AND po.post_status='publish' AND ta.taxonomy='category' ";
+	
 	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN ($catsParams) ";
 	if (isset($titleParam) && $titleParam != '') $sql .= "AND po.post_title LIKE '%$titleParam%' ";
 	$sql .= "ORDER BY ca.term_id ASC";
