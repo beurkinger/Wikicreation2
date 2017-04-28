@@ -1,1 +1,1 @@
-{ presets: ['react', 'latest'] }
+{ presets: ['react', 'env'] }

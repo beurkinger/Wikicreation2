@@ -52,67 +52,51 @@ const ContentEn = () => (
 	 <p>
 	 	After a presentation showing the relationship between creation and the second (or third) concept, the article must discuss an issue that can be assessed by any logical mind and offer a relevant and substantial study.
 	 </p>
-	 <p>
+	 <ul>
 	 	<li>
 			An <strong>inductive goal</strong>: using methods of investigation by observation, study or experimentation, etc. to address an issue or solve a problem.
 		</li>
-	 </p>
-	 <p>
 	 	<li>
 			A <strong>programmatic goal</strong>: identifying, both on the speculative and practical level, the intellectual or physical conditions to change in order to solve actual and recurrent issues.
 		</li>
-	 </p>
-	 <p>
 	 	<li>
 			An <strong>educational and encyclopaedic goal</strong>: taking stock of past and present research on the concepts studied in a general, universalist or not immediately identifiable perspective, etc.
 		</li>
-	 </p>
-	 <p>
 	 	<li>
 			A <strong>heuristic goal</strong>: putting forward a situational issue through an identifiable personal enunciation, as long as it can be rationally undertaken again.
 		</li>
-	 </p>
+  </ul>
 	 <h3 id="formalInstructions">
 	 	Formal instructions
 	 </h3>
 	 <p>
 	 	Each article must include:
 	 </p>
-	 <p>
+	 <ul>
 	 	<li>
 			A <strong>title</strong> (and possibly a subtitle)
 		</li>
-	 </p>
-	 <p>
 		<li>
 			The <strong>name of the author(s)</strong> and their institutional affiliation
 		</li>
-	 </p>
-	 <p>
 		<li>
 			An <strong>abstract</strong> of approximately 600 characters* or 100 words
 		</li>
-	 </p>
-	 <p>
 		<li>
 			A <strong>list of five key words</strong>, presented on the website of the publication as a word cloud
 		</li>
-	 </p>
-	 <p>
 		<li>
 			A <strong>text of about 20,000 characters*</strong> or 3,200 words
 		</li>
-	 </p>
-	 <p>
 		<li>
 			A <strong>bibliography</strong>
 		</li>
-	 </p>
+  </ul>
 	 <p>
 	 	References should follow the <strong>APA standard</strong> (6th edition) which is internationally used. Accordingly, any reference must be part of the flow of the text, i.e. (Author, date). The detail of the reference must be presented in the ‘Bibliography’ section located at the end of article.
 	 </p>
 	 <h3 id="sendArticle">
-	 	Sending articles
+	 	Send an article
 	 </h3>
   </div>
 );

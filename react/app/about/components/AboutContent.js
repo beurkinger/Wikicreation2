@@ -19,9 +19,9 @@ const AboutContent = React.createClass({
       <div id="main-content">
         <div id="about-main">
           {this.getLocalizedContent()}
-          <div className="btn btn-red btn-arrow-right">
+          <a href="./contribute" className="btn btn-red btn-arrow-right">
             {this.props.becomeAuthor}
-          </div>
+          </a>
         </div>
         <BackToTop target="#about-main"></BackToTop>
       </div>

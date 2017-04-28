@@ -2,7 +2,7 @@
 // ------------------- CUSTOM REST ROUTES
 
 define(MAX_FILE_SIZE, 5242880);
-define(EMAIL_TO, 'togehringer@gmail.com');
+define(EMAIL_TO, 'tgoehringer@gmail.com');
 
 function format_category($category){
 	$cat = get_category($category);
@@ -456,7 +456,8 @@ function acf_load_auteurs_choices( $field ) {
 add_filter('acf/load_field/name=auteur', 'acf_load_auteurs_choices');
 
 add_filter( 'rest_cache_skip', function($skip, $request_uri ) {
-	if ( ! $skip && false !== stripos($request_uri, 'wp-json/wp/v2/contact') ) {
+	if ( ! $skip && ( false !== stripos($request_uri, 'wp-json/wp/v2/contact') 
+	|| false !== stripos($request_uri, 'wp-json/wp/v2/contribute') ) ) {
 		return true;
 	}
 	return $skip;

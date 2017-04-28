@@ -53,46 +53,50 @@ const ContentFr = () => (
 	 </h3>
 	 <p>
 	  WikiCreation ne pose pas d’exclusive a priori. Toutes les méthodes scientifiques sont reconnues. Après une phase d’exposé posant la relation entre la création et la seconde notion, l’article pose un problème appréciable par tout esprit logique, et entreprend une étude pertinente et conséquente.
-	 </p>
-	 <p>
-	  Les articles peuvent se proposer des objectifs divers :
-	 </p>
-	 <p><li>
-	  Un <strong>but inductif</strong> : utiliser des méthodes d’investigation par observation, enquête ou expérimentation, etc., afin de traiter d’une question ou de résoudre une problématique.
-	 </li></p>
-	 <p><li>
-	  Un <strong>but programmatique</strong> : identifier, aux plans tant spéculatif que pratique, des conditions intellectuelles ou matérielles à changer pour résoudre des difficultés effectives et récurrentes ;
-	 </li></p>
-	 <p><li>
-	  Un <strong>but didactique et encyclopédique</strong> : faire le bilan de la recherche passée ou présente sur les concepts étudiés d’un point de vue généraliste, universaliste, non immédiatement situé ; etc.
-	 </li></p>
-	 <p><li>
-	  Un <strong>but heuristique</strong> : poser un enjeu conjoncturel avec une énonciation personnelle repérable, pour peu qu’elle soit rationnellement réeffectuable.
-	 </li></p>
-	 <h3 id="formalInstructions">
-	 	Les consignes formelles
-	 </h3>
-	 <p>
-	  Chaque article comprend:
-	 </p>
-	 <p><li>
-	  Un <strong>titre</strong> (éventuellement un sous-titre)<br /><i>Les titres des articles doivent respecter la formule suivante : « Notion et Création »</i>
-	 </li></p>
-	 <p><li>
-	  Le <strong>nom de l’auteur</strong> (ou des auteurs) et son attachement institutionnel.
-	 </li></p>
-	 <p><li>
-	  Un <strong>résumé</strong> d’environ 600 signes* ou 100 mots
-	 </li></p>
-	 <p><li>
-	  Une <strong>liste de 5 mots-clefs</strong>
-	 </li></p>
-	 <p><li>
-	  Un <strong>texte d'environ 20 000 signes</strong>* 3200 mots
-	 </li></p>
-	 <p><li>
-	  Une <strong>bibliographie</strong>.
-	 </li></p>
+  </p>
+  <p>
+    Les articles peuvent se proposer des objectifs divers :
+  </p>
+  <ul>
+    <li>
+      Un <strong>but inductif</strong> : utiliser des méthodes d’investigation par observation, enquête ou expérimentation, etc., afin de traiter d’une question ou de résoudre une problématique.
+    </li>
+    <li>
+      Un <strong>but programmatique</strong> : identifier, aux plans tant spéculatif que pratique, des conditions intellectuelles ou matérielles à changer pour résoudre des difficultés effectives et récurrentes ;
+    </li>
+    <li>
+      Un <strong>but didactique et encyclopédique</strong> : faire le bilan de la recherche passée ou présente sur les concepts étudiés d’un point de vue généraliste, universaliste, non immédiatement situé ; etc.
+    </li>
+    <li>
+    Un <strong>but heuristique</strong> : poser un enjeu conjoncturel avec une énonciation personnelle repérable, pour peu qu’elle soit rationnellement réeffectuable.
+    </li>
+  </ul>
+  <h3 id="formalInstructions">
+    Les consignes formelles
+  </h3>
+  <p>
+    Chaque article comprend:
+  </p>
+  <ul>
+    <li>
+      Un <strong>titre</strong> (éventuellement un sous-titre)<br /><i>Les titres des articles doivent respecter la formule suivante : « Notion et Création »</i>
+    </li>
+    <li>
+      Le <strong>nom de l’auteur</strong> (ou des auteurs) et son attachement institutionnel.
+    </li>
+    <li>
+      Un <strong>résumé</strong> d’environ 600 signes* ou 100 mots
+    </li>
+    <li>
+      Une <strong>liste de 5 mots-clefs</strong>
+    </li>
+    <li>
+      Un <strong>texte d'environ 20 000 signes</strong>* 3200 mots
+    </li>
+    <li>
+      Une <strong>bibliographie</strong>.
+    </li>
+  </ul>
 	 <p>
 	  * Espaces comprises
 	 </p>
@@ -112,7 +116,7 @@ const ContentFr = () => (
 	 	Télechargez un exemple (.doc)
 	 </div>
 	 <h3 id="sendArticle">
-	 	Envoi des articles
+	 	Envoyer un article
 	 </h3>
   </div>
 );

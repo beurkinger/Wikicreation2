@@ -73,7 +73,7 @@ const ContributeForm = React.createClass({
      	 	{this.props.contact}
      	 </div>
      	 <div className="right-row">
-     		 <input type="text" value={this.state.email} onInput={(e) => this.setState({ email : e.target.value})} placeholder={this.props.email} required />
+     		 <input type="email" value={this.state.email} onInput={(e) => this.setState({ email : e.target.value})} placeholder={this.props.email} required />
      	 </div>
      	 <br/>
      	 <div className="left-row">
@@ -87,7 +87,7 @@ const ContributeForm = React.createClass({
      	 </div>
      	 <br/>
        { this.getError() }
-       <button className="btn btn-red btn-plane">
+       <button type="submit" className="btn btn-red btn-plane">
         {this.state.isSending ? this.props.sending : this.props.send }
        </button>
    	 </form>

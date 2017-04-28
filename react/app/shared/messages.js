@@ -66,7 +66,7 @@ messages[APP_LOCALES.FR] = {
     },
     form : {
       name : 'Nom',
-      mail : 'Mail',
+      email : 'Email',
       message : 'Message',
       send : 'Envoyer'
     }
@@ -78,7 +78,7 @@ messages[APP_LOCALES.FR] = {
     aside : {
       discursiveForms : 'Les formes discursives',
       formalInstructions : 'Les consignes formelles',
-      sendArticle : 'Envoi des articles'
+      sendArticle : "Envoi d'un article"
     },
     form : {
       author: 'Auteur',
@@ -99,7 +99,7 @@ messages[APP_LOCALES.FR] = {
       errorServer : "Erreur lors de l'envoi. Merci de réessayer.",
       send : "Envoyer",
       sending : 'Envoi...',
-      sent : 'Votre contribution a bien été envoyée. Merci.'
+      sent : 'Votre message a bien été envoyé. Merci.'
     }
   },
   committee : {
@@ -225,7 +225,7 @@ messages[APP_LOCALES.EN] = {
     },
     form : {
       name : 'Name',
-      mail : 'Email',
+      email : 'Email',
       message : 'Message',
       send : 'Send'
     }
@@ -237,7 +237,7 @@ messages[APP_LOCALES.EN] = {
     aside : {
       discursiveForms : 'Discursive Forms',
       formalInstructions : 'Formal Instructions',
-      sendArticle : 'Sending Articles'
+      sendArticle : 'Send an Article'
     },
     form : {
       author: 'Author',

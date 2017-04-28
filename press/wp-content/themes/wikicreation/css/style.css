@@ -62,7 +62,7 @@ html, body, #root, #app
 {
   z-index: 60;
   position: absolute; top: 0; right: 0;
-  width: 100%; height: 0;
+  width: 100%; height: 100px;
 }
 
 #main-logo
@@ -679,6 +679,7 @@ html, body, #root, #app
 }
 
 /*---Main article---*/
+
 #article-main, #about-main, #contact-main, #legal-main, #committee-main, #contribute-main
 {
   box-sizing: border-box;
@@ -719,10 +720,24 @@ html, body, #root, #app
 #article-body
 {}
 
+#article-body h1, #article-body h2, #article-body h3, #article-body h4, #article-body h5
+{
+  margin: 35px 0;
+}
 
 #article-main p, #about-main p, #legal-main p, #committee-main p, #contribute-main p
 {
-  margin-bottom: 22px;
+  margin: 22px 0;
+}
+
+#article-main ul, #about-main ul, #legal-main ul, #committee-main ul, #contribute-main ul
+{
+  margin: 22px;
+}
+
+#article-main li, #about-main li, #legal-main li, #committee-main li, #contribute-main li {
+  margin-left: 0px;
+  margin-bottom: 10px;
 }
 
 #article-main h3,  #legal-main h3
@@ -1494,7 +1509,7 @@ html, body, #root, #app
   margin-top: 64px;
 }
 
-#contact-form input[type=text]
+#contact-form input
 {
   display: block; box-sizing: border-box;
   float: left;
@@ -1502,10 +1517,10 @@ html, body, #root, #app
   border: 1px solid #CCC;
   padding : 0 15px;
   margin-bottom: 30px;
-  font-family: Muli; font-size: 15px; color: #AAA; font-weight: 200;
+  font-family: Muli; font-size: 15px; font-weight: 200;
 }
 
-#contact-form input[type=text] + input[type=text]
+#contact-form input + input
 {
   margin-left: 4%;
 }
@@ -1521,8 +1536,17 @@ html, body, #root, #app
   width: 100%; height: 236px;
   border: 1px solid #CCC;
   padding: 25px 30px;
-  font-family: Muli; font-size: 15px; color: #BBB; font-weight: 200;
+  font-family: Muli; font-size: 15px; font-weight: 200;
   margin-bottom: 24px;
+}
+
+#contact-form .error {
+  color: #FF6666;
+  font-weight: bold;
+}
+
+#contact-main .success {
+  margin-top: 150px;
 }
 
 /*---Legal notices--*/
