@@ -92,7 +92,7 @@ function get_article( $data ){
 		'title' => __($post->post_title),
 		'date' => $post->post_date,
 		'keywords' => $tagNames,
-		'body' => __($post->post_content),
+		'body' => wpautop(__($post->post_content)),
 		'pdfFr' =>  $pdfFrURL,
 		'pdfEn' => 	$pdfEnURL,
 		'category' => $categories,
@@ -456,7 +456,7 @@ function acf_load_auteurs_choices( $field ) {
 add_filter('acf/load_field/name=auteur', 'acf_load_auteurs_choices');
 
 add_filter( 'rest_cache_skip', function($skip, $request_uri ) {
-	if ( ! $skip && ( false !== stripos($request_uri, 'wp-json/wp/v2/contact') 
+	if ( ! $skip && ( false !== stripos($request_uri, 'wp-json/wp/v2/contact')
 	|| false !== stripos($request_uri, 'wp-json/wp/v2/contribute') ) ) {
 		return true;
 	}
