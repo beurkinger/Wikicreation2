@@ -465,12 +465,12 @@ html, body, #root, #app
   width: 90px; height: 90px;
   border-radius: 100%;
   /*margin-right: 11px;*/
-  border: 1px solid transparent;
+  /*border: 1px solid transparent;*/
   background-clip: padding-box;
 }
 
 #main-aside .author:hover .author-pic {
-  border: 2px solid #FF6666;
+  box-shadow: 0 0 0 2px #FF6666;
 }
 
 #main-aside .author-infos
@@ -689,7 +689,7 @@ html, body, #root, #app
 {
   display: block;
   padding: 0px 15%;
-  max-width: 860px;
+  max-width: 800px;
   font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
 }
 
@@ -732,6 +732,7 @@ html, body, #root, #app
 #article-main p, #about-main p, #legal-main p, #committee-main p, #contribute-main p
 {
   margin: 22px 0;
+  line-height: 160%;
 }
 
 #article-main ul, #about-main ul, #legal-main ul, #committee-main ul, #contribute-main ul
@@ -909,7 +910,7 @@ html, body, #root, #app
 
 #authors-main .author:hover .author-pic
 {
-  border: 2px solid #FF6666;
+  box-shadow: 0 0 0 2px #FF6666;
 }
 
 #authors-main .author-infos
@@ -1601,11 +1602,7 @@ html, body, #root, #app
 
 /*---Legal notices--*/
 #legal-main
-{
-  box-sizing: border-box;
-  padding: 0px 150px;
-  width: 960px;  margin: 0 auto;
-}
+{}
 
 /*---About--*/
 #about-main .btn

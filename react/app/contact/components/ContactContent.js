@@ -38,8 +38,8 @@ const ContactContent = (props)  => (
         {props.developers}
       </h3>
       <p>
-        Juanita Arenas <br/>
-        Guillaume Ribault
+        Thibault Goehringer <br/>
+        Elias Ousghir
       </p>
       <ContactForm />
     </div>

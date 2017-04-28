@@ -25,7 +25,7 @@ const Legal = React.createClass({
   render : function () {
     return (
       <main id="main-container">
-        <div id="main-content" className="full-size">
+        <div id="main-content">
           <div id="legal-main">
             {this.getLocalizedContent()}
           </div>

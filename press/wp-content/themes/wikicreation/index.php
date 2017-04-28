@@ -21,6 +21,7 @@
     <link rel="manifest" href="<?php echo THEME_DIR ?>/icons/manifest.json">
     <link rel="mask-icon" href="<?php echo THEME_DIR ?>/icons/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Muli:300,400,700" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" href="<?php echo $cssPath ?>">
   </head>
   <body>
