@@ -12,6 +12,7 @@ export function articleSuccess (json) {
     date : json.date,
     keywords : json.keywords,
     body : json.body,
+    footnotes : json.footnotes,
     pdfFr : json.pdfFr ? json.pdfFr : '',
     pdfEn : json.pdfEn ? json.pdfEn : '',
     categoryId : json.category[0].id,

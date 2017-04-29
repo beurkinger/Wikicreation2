@@ -449,7 +449,7 @@ html, body, #root, #app
 
 #main-aside .author
 {
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
   text-align: center;
 }
 
@@ -467,6 +467,7 @@ html, body, #root, #app
   /*margin-right: 11px;*/
   /*border: 1px solid transparent;*/
   background-clip: padding-box;
+  background-color: #EEE;
 }
 
 #main-aside .author:hover .author-pic {
@@ -478,7 +479,7 @@ html, body, #root, #app
   /*height: 90px;
   display:table-cell;
   vertical-align:middle;*/
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 #main-aside .author-name
@@ -506,7 +507,7 @@ html, body, #root, #app
 
 #main-aside .info
 {
-  width: 220px;
+  /*width: 220px;*/
   margin: 36px 0;
   overflow-y: auto;
   overflow-x: hidden;
@@ -577,7 +578,7 @@ html, body, #root, #app
 {
   display: block;
   float: left;
-  width: 147px; height: 16px;
+  width: 167px; height: 16px;
   border-width: 1px 0 1px 1px;
   padding: 9px 14px 13px 14px;
 }
@@ -689,7 +690,7 @@ html, body, #root, #app
 {
   display: block;
   padding: 0px 15%;
-  max-width: 800px;
+  max-width: 680px;
   font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
 }
 
@@ -745,6 +746,16 @@ html, body, #root, #app
   margin-bottom: 10px;
 }
 
+#article-main a, #about-main a, #legal-main a, #committee-main a, #contribute-main a {
+  text-decoration: none;
+  color : #FF6666;
+}
+
+#article-main a:hover, #about-main a:hover, #legal-main a:hover, #committee-main a:hover, #contribute-main a:hover {
+  font-weight: bold;
+}
+
+
 #article-main h3,  #legal-main h3
 {
   font-family: Muli; color: #484848; font-size: 18px; font-weight: bold;
@@ -755,6 +766,42 @@ html, body, #root, #app
 {
   width: 100%;
 }
+
+#article-footer {}
+
+#footnotes {
+  display: table;
+}
+
+#footnotes .footnote {
+  display: table-row;
+}
+
+#footnotes .left-cell
+{
+	width:42px;
+	display: table-cell;
+}
+
+#footnotes .left-cell a::after
+{
+	display: inline-block;
+  overflow: none;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 5px 8px 5px;
+  border-color: transparent transparent #ff6666 transparent;
+  margin-left: 4px;
+}
+
+#footnotes .right-cell
+{
+	display: table-cell;
+  padding-bottom: 20px;
+}
+
 
 /*---Articles--*/
 #articles-main
@@ -868,8 +915,8 @@ html, body, #root, #app
 {
   #authors-main .author
   {
-    width: 45%;
-    margin-right: 5%;
+    width: 43%;
+    margin-right: 7%;
   }
 }
 
@@ -948,7 +995,7 @@ html, body, #root, #app
   position: absolute; top:0;
   box-sizing: border-box;
   height: 100%; width: 500px;
-  padding: 70px;
+  padding: 70px 60px;
   background-color: #FFF;
   overflow-y: auto;
 }
@@ -1098,7 +1145,6 @@ html, body, #root, #app
 {
 	width: 100%;
 	display: table-cell;
-
 }
 
 #contribute-form input{
@@ -1204,7 +1250,9 @@ html, body, #root, #app
 
 /*---Committee---*/
 #committee-main
-{}
+{
+  max-width: 1000px;
+}
 
 #committee-main h3,
 #about-main h3,
@@ -1422,6 +1470,7 @@ html, body, #root, #app
   background: #FFF;
   font-family: Muli; font-size: 15px; color: #484848; font-weight: normal;
   text-align: center; text-decoration: none;
+  margin: 14px 0;
 }
 
 .btn:hover

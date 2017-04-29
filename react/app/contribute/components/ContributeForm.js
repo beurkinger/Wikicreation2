@@ -49,47 +49,56 @@ const ContributeForm = React.createClass({
   getForm : function () {
     return (
       <form id="contribute-form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
-   	    <div className="left-row">
-       	  {this.props.author}
+        <div>
+     	   <div className="left-row">
+         	  {this.props.author}
+       	 </div>
+       	 <div className="right-row">
+       	 	<input type="text" value={this.state.name} onInput={(e) => this.setState({ name : e.target.value})} placeholder={this.props.name} required />
+       		<input type="text" value={this.state.university} onInput={(e) => this.setState({ university : e.target.value})} placeholder={this.props.university} required />
+       		<input type="text" value={this.state.authorTitle} onInput={(e) => this.setState({ authorTitle : e.target.value})} placeholder={this.props.authorTitle} required />
+       		<textarea value={this.state.bio} onInput={(e) => this.setState({ bio : e.target.value})} placeholder={this.props.bio} required />
+       	 </div>
+       </div>
+       <div>
+       	 <div className="left-row">
+       	 	{this.props.article}
+       	 </div>
+       	 <div className="right-row">
+       		 <input type="text" value={this.state.title} onInput={(e) => this.setState({ title : e.target.value})} placeholder={this.props.title} required />
+       		 <input type="text" value={this.state.categories} onInput={(e) => this.setState({ categories : e.target.value})} placeholder={this.props.categories} required />
+       		 <input type="text" value={this.state.keywords} onInput={(e) => this.setState({ keywords : e.target.value})} placeholder={this.props.keywords} required />
+       		 <textarea value={this.state.abstract} onInput={(e) => this.setState({ abstract : e.target.value})} placeholder={this.props.abstract} required />
+       	 </div>
      	 </div>
-     	 <div className="right-row">
-     	 	<input type="text" value={this.state.name} onInput={(e) => this.setState({ name : e.target.value})} placeholder={this.props.name} required />
-     		<input type="text" value={this.state.university} onInput={(e) => this.setState({ university : e.target.value})} placeholder={this.props.university} required />
-     		<input type="text" value={this.state.authorTitle} onInput={(e) => this.setState({ authorTitle : e.target.value})} placeholder={this.props.authorTitle} required />
-     		<textarea value={this.state.bio} onInput={(e) => this.setState({ bio : e.target.value})} placeholder={this.props.bio} required />
+       <div>
+       	 <div className="left-row">
+       	 	{this.props.contact}
+       	 </div>
+       	 <div className="right-row">
+       		 <input type="email" value={this.state.email} onInput={(e) => this.setState({ email : e.target.value})} placeholder={this.props.email} required />
+       	 </div>
+       </div>
+       <div>
+       	 <div className="left-row">
+       	 	{this.props.name}
+       	 </div>
+       	 <div className="right-row">
+       		 <input type="file" onChange={this.handleFile} className="file" required />
+           <div>
+            Les articles sont à envoyer au format <strong>.doc</strong> ou <strong>.docx</strong>, <strong>.pdf</strong> ou <strong>.rtf</strong>
+        </div>
+       	 </div>
      	 </div>
-       	 <br/>
-     	 <div className="left-row">
-     	 	{this.props.article}
-     	 </div>
-     	 <div className="right-row">
-     		 <input type="text" value={this.state.title} onInput={(e) => this.setState({ title : e.target.value})} placeholder={this.props.title} required />
-     		 <input type="text" value={this.state.categories} onInput={(e) => this.setState({ categories : e.target.value})} placeholder={this.props.categories} required />
-     		 <input type="text" value={this.state.keywords} onInput={(e) => this.setState({ keywords : e.target.value})} placeholder={this.props.keywords} required />
-     		 <textarea value={this.state.abstract} onInput={(e) => this.setState({ abstract : e.target.value})} placeholder={this.props.abstract} required />
-     	 </div>
-     	 <br/>
-     	 <div className="left-row">
-     	 	{this.props.contact}
-     	 </div>
-     	 <div className="right-row">
-     		 <input type="email" value={this.state.email} onInput={(e) => this.setState({ email : e.target.value})} placeholder={this.props.email} required />
-     	 </div>
-     	 <br/>
-     	 <div className="left-row">
-     	 	{this.props.name}
-     	 </div>
-     	 <div className="right-row">
-     		 <input type="file" onChange={this.handleFile} className="file" required />
-         <p>
-          Les articles sont à envoyer au format <strong>.doc</strong> ou <strong>.docx</strong>, <strong>.pdf</strong> ou <strong>.rtf</strong>
-         </p>
-     	 </div>
-     	 <br/>
-       { this.getError() }
-       <button type="submit" className="btn btn-red btn-plane">
-        {this.state.isSending ? this.props.sending : this.props.send }
-       </button>
+       <div>
+         <div className="left-row"></div>
+         <div className="right-row">
+           { this.getError() }
+           <button type="submit" className="btn btn-red btn-plane">
+            {this.state.isSending ? this.props.sending : this.props.send }
+           </button>
+         </div>
+       </div>
    	 </form>
     )
   },

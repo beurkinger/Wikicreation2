@@ -53,6 +53,8 @@ function get_articles($data){
 }
 
 function get_article( $data ){
+	require_once( __DIR__ . '/includes/footnotes.php');
+
 	$post = get_post( $data['id']);
 	$categories = wp_get_post_categories($post->ID);
 	$i=0;
@@ -86,13 +88,16 @@ function get_article( $data ){
 	$pdfEnURL =	array_slice($pdfEn, -5, 5, true);
 	$pdfEnURL = implode('/', $pdfEnURL);
 
+	$content = set_footnotes(wpautop(__($post->post_content)));
+
 	return array(
 		'id' => $post->ID,
 		'language' => $currentLang = qtrans_getLanguage(),
 		'title' => __($post->post_title),
 		'date' => $post->post_date,
 		'keywords' => $tagNames,
-		'body' => wpautop(__($post->post_content)),
+		'body' => $content['body'],
+		'footnotes' => $content['footnotes'],
 		'pdfFr' =>  $pdfFrURL,
 		'pdfEn' => 	$pdfEnURL,
 		'category' => $categories,
@@ -130,6 +135,7 @@ function get_news(){
 }
 
 function get_preview($data){
+	require_once( __DIR__ . '/includes/footnotes.php');
 
 	GLOBAL $wpdb;
 	$sql = "SELECT DISTINCT po.id, po.post_title, po.post_date, po.post_content " .
@@ -152,7 +158,7 @@ function get_preview($data){
 		'language' => $currentLang = qtrans_getLanguage(),
 		'title' => __($post->post_title),
 		'date' => $post->post_date,
-		'desc' => substr(strip_tags(__($post->post_content)), 0, 620)."...",
+		'desc' => substr(strip_tags(filter_footnotes(__($post->post_content))), 0, 620)."...",
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->id,

@@ -22,8 +22,7 @@ const AuthorCard = props => {
           {props.name}
         </h3>
         <p className="author-desc">
-          {props.title}, <br/>
-          {props.school}
+          {props.title}, {props.school}
         </p>
       </div>
     </div>

@@ -6,6 +6,7 @@ import {hideTitlebar, showTitlebar} from '../../header/actions';
 import {WEBSITE_URL} from '../../config';
 import BackToTop from '../../shared/components/BackToTop';
 import DateStr from '../../shared/components/DateStr';
+import Footnotes from './Footnotes';
 import Keywords from './Keywords';
 
 const ArticleContent = React.createClass({
@@ -86,6 +87,7 @@ const ArticleContent = React.createClass({
           </h4>
           <div id="article-body" dangerouslySetInnerHTML={{__html: this.props.body}} ref={(elt) => { this.body = elt }}></div>
           <footer id="article-footer">
+            <Footnotes title={this.props.messages.footnotes} footnotes={this.props.footnotes} />
             <h3>
               {this.props.messages.toQuote}
             </h3>
@@ -110,6 +112,7 @@ const mapStateToProps = function (store) {
      date: store.article.date,
      keywords: store.article.keywords,
      body: store.article.body,
+     footnotes : store.article.footnotes,
      categoryId : store.article.categoryId,
      categoryName : store.article.categoryName,
      authorName : store.article.authorName,

@@ -27,6 +27,7 @@ messages[APP_LOCALES.FR] = {
     },
     content : {
       keywords : "Mots-clés : ",
+      footnotes : "Notes de bas de page : ",
       toQuote : "Pour citer cet article : ",
       publishedOn : "publié le"
     },
@@ -176,7 +177,8 @@ messages[APP_LOCALES.EN] = {
     },
     content : {
       keywords : "Keywords : ",
-      howtoQuote : "To quote this article : ",
+      footnotes : "Footnotes : ",
+      toQuote : "To quote this article : ",
       publishedOn : "published on the"
     },
     keywords : {

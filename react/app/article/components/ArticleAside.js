@@ -24,8 +24,7 @@ const ArticleAside = (props) => {
             {props.authorName}
           </h3>
           <p className="author-desc">
-            {props.authorTitle}, <br/>
-            {props.authorSchool}
+            {props.authorTitle}, {props.authorSchool}
           </p>
         </div>
       </div>
