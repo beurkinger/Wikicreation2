@@ -8,6 +8,7 @@ import BackToTop from '../../shared/components/BackToTop';
 import DateStr from '../../shared/components/DateStr';
 import Footnotes from './Footnotes';
 import Keywords from './Keywords';
+import Summary from './Summary';
 
 const ArticleContent = React.createClass({
   propTypes: {
@@ -19,6 +20,7 @@ const ArticleContent = React.createClass({
     categoryName: React.PropTypes.string.isRequired,
     categoryId: React.PropTypes.number.isRequired,
     keywords: React.PropTypes.array.isRequired,
+    summary: React.PropTypes.string.isRequired,
     body: React.PropTypes.string.isRequired,
     authorName : React.PropTypes.string.isRequired,
     isTitlebarVisible : React.PropTypes.bool.isRequired
@@ -85,6 +87,7 @@ const ArticleContent = React.createClass({
           <h4 className="article-keywords">
             {this.props.messages.keywords} <Keywords array={this.props.keywords} />
           </h4>
+          <Summary summary={this.props.summary} />
           <div id="article-body" dangerouslySetInnerHTML={{__html: this.props.body}} ref={(elt) => { this.body = elt }}></div>
           <footer id="article-footer">
             <Footnotes title={this.props.messages.footnotes} footnotes={this.props.footnotes} />
@@ -111,6 +114,7 @@ const mapStateToProps = function (store) {
      title: store.article.title,
      date: store.article.date,
      keywords: store.article.keywords,
+     summary: store.article.summary,
      body: store.article.body,
      footnotes : store.article.footnotes,
      categoryId : store.article.categoryId,

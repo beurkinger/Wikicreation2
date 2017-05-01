@@ -12,11 +12,13 @@ class GraphController {
 		.on("mousemove", this.mousemove.bind(this));
 	}
 
-	stop () {
-		select(this._view.canvas)
-		.on("click", null)
-		.on("mousemove", null);
+	stop() {
+		// select(this._view.canvas)
+		// .on("click", null)
+		// .on("mousemove", null);
 	}
+
+
 
 	mousemove () {
 		if ( this.getSubject() != this.hoverSubject && typeof this.getSubject()=="object" ){
@@ -32,6 +34,7 @@ class GraphController {
 	}
 
 	click () {
+		if (event.defaultPrevented) return;
 		if(this.clickSubject == this.getSubject() || this.getSubject() == null){
 			this.clickSubject = [];
 			this._model.restoreDefault();

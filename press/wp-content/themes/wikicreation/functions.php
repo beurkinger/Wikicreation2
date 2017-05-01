@@ -54,6 +54,8 @@ function get_articles($data){
 
 function get_article( $data ){
 	require_once( __DIR__ . '/includes/footnotes.php');
+	require_once( __DIR__ . '/includes/summary.php');
+
 
 	$post = get_post( $data['id']);
 	$categories = wp_get_post_categories($post->ID);
@@ -88,7 +90,9 @@ function get_article( $data ){
 	$pdfEnURL =	array_slice($pdfEn, -5, 5, true);
 	$pdfEnURL = implode('/', $pdfEnURL);
 
-	$content = set_footnotes(wpautop(__($post->post_content)));
+	$body = wpautop(__($post->post_content));
+	$footnotes = set_footnotes($body);
+	$summary = set_summary($body);
 
 	return array(
 		'id' => $post->ID,
@@ -96,8 +100,9 @@ function get_article( $data ){
 		'title' => __($post->post_title),
 		'date' => $post->post_date,
 		'keywords' => $tagNames,
-		'body' => $content['body'],
-		'footnotes' => $content['footnotes'],
+		'summary' => $summary,
+		'body' => $body,
+		'footnotes' => $footnotes,
 		'pdfFr' =>  $pdfFrURL,
 		'pdfEn' => 	$pdfEnURL,
 		'category' => $categories,
@@ -421,6 +426,10 @@ add_action( 'rest_api_init', function () {
 });
 
 
+//Réécrit toutes les routes afin d'éviter les erreurs 404
+add_action('init', function () {
+  add_rewrite_rule('.*', 'index.php', 'top' );
+});
 
 // ------------------- CUSTOM ADMIN INTERFACE
 add_action( 'init', 'create_post_type' );
@@ -468,5 +477,6 @@ add_filter( 'rest_cache_skip', function($skip, $request_uri ) {
 	}
 	return $skip;
 }, 10, 2 );
+
 
 ?>

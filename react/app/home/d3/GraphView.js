@@ -71,7 +71,7 @@ class GraphView {
 	}
 
 	reheat(){
-		this.simulation.alpha( 0.05 ).restart();//ALPHA EST PASSE A 0.05
+		this.simulation.alpha( 0.01 ).restart();//ALPHA EST PASSE A 0.01
 		this._model.links.forEach( d => {
 			if( this._model.selectedLinks.filter( n => d == n ).length == 0) d.animLink.amount = 0 ;
 		});

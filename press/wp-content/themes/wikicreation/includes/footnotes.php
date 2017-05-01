@@ -1,6 +1,6 @@
 <?php
 
-function set_footnotes ($str) {
+function set_footnotes (&$str) {
 	define(FOOTNOTE_ID, 'footnote-');
 	define(FOOTNOTE_TARGET_ID, 'footnote-target-');
 
@@ -33,7 +33,7 @@ function set_footnotes ($str) {
 			$footnotes .= '</div>';
 		}
 	}
-	return ['body' => $str, 'footnotes' => $footnotes];
+	return $footnotes;
 }
 
 function filter_footnotes ($str) {

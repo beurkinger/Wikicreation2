@@ -63,6 +63,11 @@ html, body, #root, #app
   z-index: 60;
   position: absolute; top: 0; right: 0;
   width: 100%; height: 100px;
+  pointer-events: none;
+}
+
+#main-header > * {
+  pointer-events: all;
 }
 
 #main-logo
@@ -707,19 +712,19 @@ html, body, #root, #app
 {
   font-family: Montserrat; color: #000; font-size: 30px; font-weight: bold;
   text-transform: uppercase;
-  margin: 42px 0 24px 0;
+  margin: 32px 0 24px 0;
 }
 
 #article-main .article-author
 {
   font-family: Montserrat; color: #484848; font-size: 24px; font-weight: normal;
-  margin: 24px 0 42px 0;
+  margin: 24px 0 32px 0;
 }
 
 #article-main .article-keywords
 {
-  font-family: Muli; color: #484848; font-size: 16px; font-weight: bold;
-  margin: 42px 0 46px 0;
+  font-family: Muli; color: #484848; font-size: 16px; font-weight: normal;
+  margin: 32px 0 46px 0;
 }
 
 #article-body
@@ -765,6 +770,24 @@ html, body, #root, #app
 #article-main img
 {
   width: 100%;
+}
+
+#summary {
+  margin: 82px 0 42px 0;
+  list-style: upper-roman;
+  list-style-position: inside;
+}
+
+#summary a .entry {
+  margin-bottom : 12px;
+  font-family: Muli; color: #484848; font-size: 18px; font-weight: bold;
+}
+
+#summary {
+}
+
+#summary a:hover:hover .entry {
+  color : #FF6666;
 }
 
 #article-footer {}
@@ -1148,18 +1171,20 @@ html, body, #root, #app
 }
 
 #contribute-form input{
+  box-sizing: border-box;
 	display: block;
+  margin: 10px 0;
+  border: 1px solid #CCC;
+  padding : 9px 15px;
   width: 100%;
-	border: 1px solid #FF6666;
-	padding: 10px;
-	margin: 10px 0;
-	font-family: Muli; font-size: 15px; font-weight: 200;
+  font-family: Muli; font-size: 15px; font-weight: 200;
 }
 
 #contribute-form textarea{
+  box-sizing: border-box;
 	width: 100%; height: 150px;
-	border: 1px solid #FF6666;
-	padding: 10px;
+  border: 1px solid #CCC;
+  padding : 9px 15px;
 	resize: none;
 	font-family: Muli; font-size: 15px; font-weight: 200;
 }
@@ -1246,6 +1271,7 @@ html, body, #root, #app
 {
   position: absolute;
   bottom: 0;
+  margin: 0;
 }
 
 /*---Committee---*/
@@ -1613,9 +1639,9 @@ html, body, #root, #app
 {
   display: block; box-sizing: border-box;
   float: left;
-  width: 48%; height: 42px;
+  width: 48%;
   border: 1px solid #CCC;
-  padding : 0 15px;
+  padding : 9px 15px;
   margin-bottom: 30px;
   font-family: Muli; font-size: 15px; font-weight: 200;
 }
@@ -1635,7 +1661,7 @@ html, body, #root, #app
   display: block; box-sizing: border-box;
   width: 100%; height: 236px;
   border: 1px solid #CCC;
-  padding: 25px 30px;
+  padding : 9px 15px;
   font-family: Muli; font-size: 15px; font-weight: 200;
   margin-bottom: 24px;
 }
