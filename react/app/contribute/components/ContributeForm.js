@@ -1,35 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import httpPostHelper from '../../shared/helpers/httpPostHelper';
 import {REST_MAIN_PATH, REST_PATHS} from '../../config';
 
 const MAX_FILE_SIZE = 5242880;
 
-const ContributeForm = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired,
-    author: React.PropTypes.string.isRequired,
-    article : React.PropTypes.string.isRequired,
-    contact : React.PropTypes.string.isRequired,
-    name : React.PropTypes.string.isRequired,
-    university : React.PropTypes.string.isRequired,
-    authorTitle : React.PropTypes.string.isRequired,
-    bio : React.PropTypes.string.isRequired,
-    title : React.PropTypes.string.isRequired,
-    categories : React.PropTypes.string.isRequired,
-    keywords : React.PropTypes.string.isRequired,
-    abstract : React.PropTypes.string.isRequired,
-    email : React.PropTypes.string.isRequired,
-    doc : React.PropTypes.string.isRequired,
-    errorMissing : React.PropTypes.string.isRequired,
-    errorEmail : React.PropTypes.string.isRequired,
-    errorServer : React.PropTypes.string.isRequired,
-    send : React.PropTypes.string.isRequired,
-    sending : React.PropTypes.string.isRequired,
-    sent : React.PropTypes.string.isRequired
-  },
-  getInitialState: function() {
-    return {
+class ContributeForm extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
       name : '',
       university : '',
       authorTitle : '',
@@ -45,8 +25,10 @@ const ContributeForm = React.createClass({
       errorMessage : '',
       sent : false
     };
-  },
-  getForm : function () {
+    this.handleFile = this.handleFile.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  getForm () {
     return (
       <form id="contribute-form" encType="multipart/form-data" onSubmit={this.handleSubmit}>
         <div>
@@ -101,17 +83,17 @@ const ContributeForm = React.createClass({
        </div>
    	 </form>
     )
-  },
-  getThanks : function () {
+  }
+  getThanks () {
     return <p><strong>{this.props.sent}</strong></p>;
-  },
-  getError : function () {
+  }
+  getError () {
     if (this.state.error) return <p className='error'>{this.state.errorMessage}</p>;
-  },
-  handleFile : function (e) {
+  }
+  handleFile (e) {
     this.setState({ doc : e.target.files[0] });
-  },
-  handleSubmit : function (e) {
+  }
+  handleSubmit (e) {
     e.preventDefault();
     let state = this.state;
     if (state.isSending) return false;
@@ -132,8 +114,8 @@ const ContributeForm = React.createClass({
       this.sendData(state);
       return false;
     }
-  },
-  sendData : function (state) {
+  }
+  sendData (state) {
     let url = '/' + this.props.locale + REST_MAIN_PATH + REST_PATHS.contribute;
     httpPostHelper(url, state, () => {
       this.setState({error : false, isSending : false, sent : true});
@@ -141,11 +123,34 @@ const ContributeForm = React.createClass({
     () => {
       this.setState({error : true, errorMessage : this.props.errorServer, isSending : false, sent : false});
     });
-  },
-  render : function () {
+  }
+  render () {
     return this.state.sent ? this.getThanks() : this.getForm();
   }
-});
+}
+
+ContributeForm.propTypes = {
+  locale : PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  article : PropTypes.string.isRequired,
+  contact : PropTypes.string.isRequired,
+  name : PropTypes.string.isRequired,
+  university : PropTypes.string.isRequired,
+  authorTitle : PropTypes.string.isRequired,
+  bio : PropTypes.string.isRequired,
+  title : PropTypes.string.isRequired,
+  categories : PropTypes.string.isRequired,
+  keywords : PropTypes.string.isRequired,
+  abstract : PropTypes.string.isRequired,
+  email : PropTypes.string.isRequired,
+  doc : PropTypes.string.isRequired,
+  errorMissing : PropTypes.string.isRequired,
+  errorEmail : PropTypes.string.isRequired,
+  errorServer : PropTypes.string.isRequired,
+  send : PropTypes.string.isRequired,
+  sending : PropTypes.string.isRequired,
+  sent : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale,

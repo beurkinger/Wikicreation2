@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Downloads = (props) => {
   const getPdfFr = () => {
@@ -31,13 +31,9 @@ const Downloads = (props) => {
 };
 
 Downloads.propTypes = {
-  pdfFr : React.PropTypes.string.isRequired,
-  pdfEn : React.PropTypes.string.isRequired,
-  empty : React.PropTypes.string.isRequired
+  pdfFr : PropTypes.string.isRequired,
+  pdfEn : PropTypes.string.isRequired,
+  empty : PropTypes.string.isRequired
 }
 
-const mapStateToProps = (store) => ({
-  empty : store.messages.strings.article.aside.downloads.empty,
-});
-
-module.exports = connect(mapStateToProps)(Downloads);
+module.exports = Downloads;

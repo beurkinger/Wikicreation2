@@ -1,16 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-const ContributeAside = React.createClass({
-  propTypes : {
-    presentation : React.PropTypes.string.isRequired,
-    editorialProject : React.PropTypes.string.isRequired,
-    editor : React.PropTypes.string.isRequired,
-    discursiveForms : React.PropTypes.string.isRequired,
-    formalInstructions : React.PropTypes.string.isRequired,
-    sendArticle : React.PropTypes.string.isRequired
-  },
-  render: function () {
+class ContributeAside extends React.Component {
+  render () {
     return (
       <aside id="main-aside">
           <a className="nav-link"  href="#presentation">
@@ -34,7 +27,16 @@ const ContributeAside = React.createClass({
       </aside>
     )
   }
-});
+}
+
+ContributeAside.propTypes = {
+  presentation : PropTypes.string.isRequired,
+  editorialProject : PropTypes.string.isRequired,
+  editor : PropTypes.string.isRequired,
+  discursiveForms : PropTypes.string.isRequired,
+  formalInstructions : PropTypes.string.isRequired,
+  sendArticle : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   presentation : store.messages.strings.about.aside.presentation,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Link from 'react-router/lib/Link';
 
@@ -8,21 +9,17 @@ import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
 import BackToTop from '../../shared/components/BackToTop';
 
-const Legal = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired,
-    title : React.PropTypes.string.isRequired
-  },
-  componentWillMount : function () {
+class Legal extends React.Component {
+  componentWillMount () {
     this.props.setTitlebar(this.props.title);
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     this.props.setTitlebar(nextProps.title);
-  },
-  getLocalizedContent : function () {
+  }
+  getLocalizedContent () {
     return this.props.locale === APP_LOCALES.EN ? <ContentEn /> : <ContentFr />;
-  },
-  render : function () {
+  }
+  render () {
     return (
       <main id="main-container">
         <div id="main-content">
@@ -34,7 +31,12 @@ const Legal = React.createClass({
       </main>
     )
   }
-});
+}
+
+Legal.propTypes = {
+  locale : PropTypes.string.isRequired,
+  title : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale,

@@ -11,7 +11,7 @@ import LanguageSwitch from '../../shared/components/LanguageSwitch';
 import PageLoading from '../../shared/components/PageLoading';
 import {showMenu} from '../../menu/actions';
 
-class Preview extends React.Component {
+class PreviewContent extends React.Component {
   constructor (props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -104,4 +104,4 @@ const mapDispatchToProps = (dispatch) => ({
     showMenu: () => dispatch(showMenu())
 });
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(Preview);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(PreviewContent);

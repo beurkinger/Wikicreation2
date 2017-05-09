@@ -1,65 +1,83 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {hideAuthorPanel} from '../actions';
 import AuthorArticle from './AuthorArticle';
 import PageLoading from '../../shared/components/PageLoading';
 
-const Author = (props) => {
-  const getAuthorPicStyle = (picUrl) => ({
-    backgroundImage : 'url(/' + picUrl + ')',
-    backgroundSize : 'cover'
-   });
-  const getArticles = (article) => (
-    <AuthorArticle key={article.id}
-                    id={article.id}
-                    title={article.title}
-                    date={article.date}
-                    categoryId={article.category[0].id}
-                    categoryName={article.category[0].name}
-                    handleClick={props.hideAuthorPanel}
-                    locale={props.locale}
-                    />
-  );
-  return (
-    <div id="author-profile" className={ props.isVisible ? 'show' : 'hide' }>
-      <PageLoading switches={[props.isDone]} />
-      <div id="author-profile-exit" className="clickable" onClick={props.hideAuthorPanel}></div>
-      <div className="author-pic" style={getAuthorPicStyle(props.pic)} ></div>
-      <h2 className="author-name">
-        {props.name}
-      </h2>
-      <p className="author-infos">
-        {props.title}, <br/>
-        {props.school}
-      </p>
-      <div className="author-desc">
-        <div>
-          <span>{props.desc}</span>
+class Author extends React.Component {
+  constructor (props) {
+    super(props);
+    this.getAuthorPicStyle = this.getAuthorPicStyle.bind(this);
+    this.getArticles = this.getArticles.bind(this);
+  }
+  shouldComponentUpdate (nextProps) {
+    if (nextProps.isVisible !== this.props.isVisible) {
+      return true;
+    }
+    return false;
+  }
+  getAuthorPicStyle (picUrl) {
+    return {
+      backgroundImage : 'url(/' + picUrl + ')',
+      backgroundSize : 'cover'
+     }
+   }
+  getArticles (article) {
+    return (
+      <AuthorArticle key={article.id}
+                      id={article.id}
+                      title={article.title}
+                      date={article.date}
+                      categoryId={article.category[0].id}
+                      categoryName={article.category[0].name}
+                      handleClick={this.props.hideAuthorPanel}
+                      locale={this.props.locale}
+                      />
+    )
+  }
+  render () {
+    return (
+      <div id="author-profile" className={ this.props.isVisible ? 'show' : 'hide' }>
+        <PageLoading switches={[this.props.isDone]} />
+        <div id="author-profile-exit" className="clickable" onClick={this.props.hideAuthorPanel}></div>
+        <div className="author-pic" style={this.getAuthorPicStyle(this.props.pic)} ></div>
+        <h2 className="author-name">
+          {this.props.name}
+        </h2>
+        <p className="author-infos">
+          {this.props.title}, <br/>
+          {this.props.school}
+        </p>
+        <div className="author-desc">
+          <div>
+            <span>{this.props.desc}</span>
+          </div>
         </div>
+        <h2 className="articles">
+          {this.props.messages.articles}
+        </h2>
+        <ul className="articles-list">
+          {this.props.articles.map(this.getArticles)}
+        </ul>
       </div>
-      <h2 className="articles">
-        {props.messages.articles}
-      </h2>
-      <ul className="articles-list">
-        {props.articles.map(getArticles)}
-      </ul>
-    </div>
-  )
-};
+    )
+  }
+}
 
 Author.propTypes = {
-  locale : React.PropTypes.string.isRequired,
-  isVisible : React.PropTypes.bool.isRequired,
-  messages : React.PropTypes.object.isRequired,
-  id : React.PropTypes.number.isRequired,
-  name : React.PropTypes.string.isRequired,
-  title : React.PropTypes.string.isRequired,
-  school : React.PropTypes.string.isRequired,
-  desc : React.PropTypes.string.isRequired,
-  pic : React.PropTypes.string.isRequired,
-  articles : React.PropTypes.array.isRequired,
-  hideAuthorPanel: React.PropTypes.func.isRequired
+  locale : PropTypes.string.isRequired,
+  isVisible : PropTypes.bool.isRequired,
+  messages : PropTypes.object.isRequired,
+  id : PropTypes.number.isRequired,
+  name : PropTypes.string.isRequired,
+  title : PropTypes.string.isRequired,
+  school : PropTypes.string.isRequired,
+  desc : PropTypes.string.isRequired,
+  pic : PropTypes.string.isRequired,
+  articles : PropTypes.array.isRequired,
+  hideAuthorPanel: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (store) => ({

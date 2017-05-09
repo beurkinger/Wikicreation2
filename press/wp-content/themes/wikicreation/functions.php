@@ -2,7 +2,7 @@
 // ------------------- CUSTOM REST ROUTES
 
 define(MAX_FILE_SIZE, 5242880);
-define(EMAIL_TO, 'tgoehringer@gmail.com');
+define(EMAIL_TO, 'wikicreation.wiki@gmail.com');
 
 function format_category($category){
 	$cat = get_category($category);
@@ -58,6 +58,7 @@ function get_article( $data ){
 
 
 	$post = get_post( $data['id']);
+
 	$categories = wp_get_post_categories($post->ID);
 	$i=0;
 	foreach ($categories as $category){
@@ -90,6 +91,7 @@ function get_article( $data ){
 	$pdfEnURL =	array_slice($pdfEn, -5, 5, true);
 	$pdfEnURL = implode('/', $pdfEnURL);
 
+	$abstract = wpautop(__(get_post_meta($post->ID, 'abstract')[0]));
 	$body = wpautop(__($post->post_content));
 	$footnotes = set_footnotes($body);
 	$summary = set_summary($body);
@@ -101,6 +103,7 @@ function get_article( $data ){
 		'date' => $post->post_date,
 		'keywords' => $tagNames,
 		'summary' => $summary,
+		'abstract' => $abstract,
 		'body' => $body,
 		'footnotes' => $footnotes,
 		'pdfFr' =>  $pdfFrURL,
@@ -119,18 +122,19 @@ function get_article( $data ){
 
 function get_news(){
 	GLOBAL $wpdb;
-	$sql = "SELECT po.id, po.post_title, po.post_content FROM wp_posts AS po " .
+	$sql = "SELECT po.id, po.post_title FROM wp_posts AS po " .
 	"WHERE po.post_type='post' AND po.post_status='publish' ORDER BY po.post_date DESC LIMIT 5";
 	$posts = $wpdb->get_results($sql);
 	// $posts = get_posts(array("posts_per_page" => 5, 'orderby' => 'date', 'order' => 'desc'));
 	$news = array();
 	foreach ($posts as $post) {
 		$authorId = get_post_meta($post->id, 'auteur')[0];
+		$abstract = __(get_post_meta($post->id, 'abstract')[0]);
 		$post = [
 			'id' => $post->id,
 			'title' => __($post->post_title),
 			'author' => get_post($authorId)->post_title,
-			'desc' => substr(strip_tags(__($post->post_content)), 0, 420)."..."
+			'desc' => substr($abstract, 0, 420)."..."
 		];
    	$news[] = $post;
 	}
@@ -140,10 +144,8 @@ function get_news(){
 }
 
 function get_preview($data){
-	require_once( __DIR__ . '/includes/footnotes.php');
-
 	GLOBAL $wpdb;
-	$sql = "SELECT DISTINCT po.id, po.post_title, po.post_date, po.post_content " .
+	$sql = "SELECT DISTINCT po.id, po.post_title, po.post_date " .
 	"FROM wp_posts AS po " .
 	"WHERE po.post_type='post' AND po.post_status='publish' AND po.id=" . $data['id'] . " ";
 	$post = $wpdb->get_row($sql);
@@ -158,12 +160,14 @@ function get_preview($data){
 	$authorId = get_post_meta($post->id)['auteur'][0];
 	$author = get_post($authorId);
 
+	$abstract = __(get_post_meta($post->id, 'abstract')[0]);
+
 	return array(
 		'id' => (int) $post->id,
 		'language' => $currentLang = qtrans_getLanguage(),
 		'title' => __($post->post_title),
 		'date' => $post->post_date,
-		'desc' => substr(strip_tags(filter_footnotes(__($post->post_content))), 0, 620)."...",
+		'desc' => substr($abstract, 0, 620) . "...",
 		'category' => $categories,
 		'author' => array(
 			'id' => $author->id,

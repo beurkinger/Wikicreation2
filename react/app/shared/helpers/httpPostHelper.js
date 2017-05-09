@@ -1,8 +1,7 @@
 const httpPostHelper = (url, data, success, fail) => {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", url, true);
-  // xhr.setRequestHeader("Content-type", "application/form-data");
-  
+
   let formData = new FormData();
   for (var key in data) {
     formData.append(key, data[key]);
@@ -10,8 +9,12 @@ const httpPostHelper = (url, data, success, fail) => {
 
   xhr.onload = function() {
     if (xhr.status === 200 && xhr.readyState === 4 && xhr.getResponseHeader('content-type') !== 'text/html') {
-      let response = JSON.parse(xhr.responseText);
-      if (success && typeof success === 'function') success(response);
+      try {
+       let response = JSON.parse(xhr.responseText);
+       if (success && typeof success === 'function') success(response);
+      } catch(e) {
+        if (fail && typeof fail === 'function') fail('Error parsing response.');
+      }
       xhr = null;
     }
     else {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 const CommitteesAside = (props) => {
@@ -18,9 +19,9 @@ const CommitteesAside = (props) => {
 };
 
 CommitteesAside.propTypes = {
-  editorial : React.PropTypes.string.isRequired,
-  reading : React.PropTypes.string.isRequired,
-  scientific : React.PropTypes.string.isRequired,
+  editorial : PropTypes.string.isRequired,
+  reading : PropTypes.string.isRequired,
+  scientific : PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (store) => ({

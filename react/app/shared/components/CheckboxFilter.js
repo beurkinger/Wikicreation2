@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CheckboxFilter = (props) => {
   const handleCheckboxChange = () => props.handleChange(props.value);
@@ -13,13 +14,13 @@ const CheckboxFilter = (props) => {
 };
 
 CheckboxFilter.propTypes = {
-  label : React.PropTypes.string.isRequired,
-  value : React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
+  label : PropTypes.string.isRequired,
+  value : PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
   ]).isRequired,
-  isChecked : React.PropTypes.bool.isRequired,
-  handleChange : React.PropTypes.func.isRequired
+  isChecked : PropTypes.bool.isRequired,
+  handleChange : PropTypes.func.isRequired
 };
 
 module.exports = CheckboxFilter;

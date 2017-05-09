@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PageLoading = props => {
   const testSwitches = () => {
@@ -16,7 +17,7 @@ const PageLoading = props => {
 };
 
 PageLoading.propTypes = {
-  switches : React.PropTypes.array.isRequired
+  switches : PropTypes.array.isRequired
 }
 
 module.exports = PageLoading;

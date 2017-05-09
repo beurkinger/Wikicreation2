@@ -128,7 +128,7 @@ html, body, #root, #app
   position: absolute;
   font-family: Montserrat; font-size: 16px; font-weight: bold;
   line-height: 100%;
-  top: 50px; right: 215px;
+  top: 50px; right: 220px;
   letter-spacing: 1px;
 }
 
@@ -699,7 +699,7 @@ html, body, #root, #app
   font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
 }
 
-#article-main .article-infos
+#article-header .article-infos
 {
   display: inline-block;
   font-family: Muli; color: #484848; font-size: 17px; font-weight: 200;
@@ -708,23 +708,66 @@ html, body, #root, #app
   border-bottom: 1px solid #484848;
 }
 
-#article-main .article-title
+#article-header .article-title
 {
   font-family: Montserrat; color: #000; font-size: 30px; font-weight: bold;
   text-transform: uppercase;
   margin: 32px 0 24px 0;
 }
 
-#article-main .article-author
+#article-header .article-author
 {
-  font-family: Montserrat; color: #484848; font-size: 24px; font-weight: normal;
-  margin: 24px 0 32px 0;
+  font-family: Montserrat; color: #FF6666; font-size: 24px; font-weight: normal;
+  margin: 24px 0 8px 0;
 }
 
-#article-main .article-keywords
+#article-header .article-author-details
+{
+  font-family: Muli; color: #484848; font-size: 14px; font-weight: 200;
+  margin: 8px 0 32px 0;
+}
+
+/*#article-header .article-keywords
 {
   font-family: Muli; color: #484848; font-size: 16px; font-weight: normal;
   margin: 32px 0 46px 0;
+}*/
+
+#article-header hr {
+  display: block; width: 100%; height: 0;
+  border-bottom: 1px solid #484848;
+  margin: 28px 0 42px 0;
+}
+
+#article-header .detail-title {
+  font-family: Muli; color: #FF6666; font-size: 15px; font-weight: normal;
+  letter-spacing: 0.5px;
+  line-height: 100%;
+  margin: 34px 0 22px 0;
+  text-transform: uppercase;
+  /*margin: 14px 0;*/
+}
+
+#article-header p.detail {
+  /*margin: 14px 0 26px 0;*/
+}
+
+#article-header p.detail::first-letter {
+  text-transform: capitalize;
+}
+
+#summary {
+  list-style: upper-roman;
+  list-style-position: inside;
+}
+
+#summary a .entry {
+  margin-bottom : 12px;
+  font-family: Muli; color: #484848; font-size: 15px; font-weight: normal;
+}
+
+#summary a:hover:hover .entry {
+  color : #FF6666;
 }
 
 #article-body
@@ -772,23 +815,6 @@ html, body, #root, #app
   width: 100%;
 }
 
-#summary {
-  margin: 82px 0 42px 0;
-  list-style: upper-roman;
-  list-style-position: inside;
-}
-
-#summary a .entry {
-  margin-bottom : 12px;
-  font-family: Muli; color: #484848; font-size: 18px; font-weight: bold;
-}
-
-#summary {
-}
-
-#summary a:hover:hover .entry {
-  color : #FF6666;
-}
 
 #article-footer {}
 
@@ -1684,6 +1710,10 @@ html, body, #root, #app
 {
   margin: 75px auto 0 auto;
 }
+#about-main .btn:hover {
+  color: #FFF;
+}
+
 
 /*---Loading--*/
 .page-loading

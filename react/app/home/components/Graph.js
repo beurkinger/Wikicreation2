@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {getGraphData} from '../async';
@@ -9,71 +10,75 @@ import GraphModel from '../d3/GraphModel';
 import GraphView from '../d3/GraphView';
 import {showPreviewPanel} from '../../preview/actions';
 
-
-const Graph = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired,
-    data : React.PropTypes.shape({
-      nodes : React.PropTypes.array.isRequired,
-      links : React.PropTypes.array.isRequired
-    })
-  },
-  componentWillMount : function () {
+class Graph extends React.Component {
+  constructor (props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.resize = this.resize.bind(this);
+  }
+  componentWillMount () {
     getGraphData();
     this.setModel(this.props.data);
-  },
-  componentDidMount : function () {
+  }
+  componentDidMount () {
     this.startD3();
     window.addEventListener("resize", this.resize);
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     this.stopD3();
     this.setModel(nextProps.data);
     if (this.props.locale !== nextProps.locale) {
       getGraphData();
     }
-  },
-  componentDidUpdate : function () {
+  }
+  componentDidUpdate () {
     this.startD3()
-  },
-  componentWillUnmount : function () {
+  }
+  componentWillUnmount () {
     this.stopD3();
     window.removeEventListener("resize", this.resize);
-  },
-  setModel : function (data)
-  {
+  }
+  setModel (data) {
     this.model = new GraphModel(data);
-  },
-  startD3 : function () {
+  }
+  startD3 () {
     let elt = ReactDom.findDOMNode(this);
     this.view = new GraphView(this.model, elt);
-    this.controller = new GraphController(this.model, this.view, this.clickHandler);
+    this.controller = new GraphController(this.model, this.view, this.handleClick);
     this.view.start();
-  },
-  stopD3 : function () {
+  }
+  stopD3 () {
     if (this.view) this.view.stop();
     if (this.controller) this.controller.stop();
     this.view = null;
     this.model = null;
     this.controller = null;
-  },
-  resize : function () {
+  }
+  resize () {
     this.stopD3();
     this.setModel(this.props.data);
     this.startD3();
-  },
-  clickHandler : function (id) {
+  }
+  handleClick (id) {
     getPreview(parseInt(id));
     this.props.showPreviewPanel();
-  },
-  render : function () {
+  }
+  render () {
     return (
       <div id="graph">
         <canvas></canvas>
       </div>
     )
   }
-});
+}
+
+Graph.propTypes = {
+  locale : PropTypes.string.isRequired,
+  data : PropTypes.shape({
+    nodes : PropTypes.array.isRequired,
+    links : PropTypes.array.isRequired
+  })
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale,

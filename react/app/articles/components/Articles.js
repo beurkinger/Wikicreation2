@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {setStdTitlebar} from '../../header/actions';
@@ -7,26 +8,22 @@ import {getCategories} from '../../shared/async';
 import ArticlesAside from './ArticlesAside';
 import ArticlesContent from './ArticlesContent';
 
-const Articles = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired,
-    title : React.PropTypes.string.isRequired
-  },
-  componentWillMount : function () {
+class Articles extends React.Component {
+  componentWillMount () {
     getArticles();
     getCategories()
     this.updateTitlebar(this.props);
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     this.updateTitlebar(nextProps);
     if (this.props.locale !== nextProps.locale) {
       getArticles();
     }
-  },
-  updateTitlebar : function (props) {
+  }
+  updateTitlebar (props) {
     this.props.setTitlebar(props.title);
-  },
-  render: function () {
+  }
+  render () {
     return (
       <main id="main-container">
         <ArticlesAside />
@@ -34,7 +31,12 @@ const Articles = React.createClass({
       </main>
     )
   }
-});
+}
+
+Articles.propTypes = {
+  locale : PropTypes.string.isRequired,
+  title : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale,

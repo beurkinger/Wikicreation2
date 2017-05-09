@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 
 import * as actions from '../actions';
 import {APP_LOCALES} from '../../config';
@@ -19,16 +20,12 @@ const LanguageSwitch = (props) => {
 };
 
 LanguageSwitch.propTypes = {
-  locale: React.PropTypes.string.isRequired,
+  locale: PropTypes.string.isRequired
 };
-
-const mapStateToProps = (store) => ({
-   locale: store.messages.locale
-});
 
 const mapDispatchToProps = (dispatch) => ({
   setFrench: () => dispatch(actions.setLocale(APP_LOCALES.FR)),
   setEnglish: () => dispatch(actions.setLocale(APP_LOCALES.EN)),
 });
 
-module.exports = connect(mapStateToProps, mapDispatchToProps)(LanguageSwitch);
+module.exports = connect(null, mapDispatchToProps)(LanguageSwitch);

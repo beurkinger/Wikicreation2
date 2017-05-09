@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const Keywords = (props) => {
   let str = '';
@@ -13,12 +13,8 @@ const Keywords = (props) => {
 };
 
 Keywords.propTypes = {
-  array : React.PropTypes.array,
-  empty : React.PropTypes.string.isRequired
+  array : PropTypes.array,
+  empty : PropTypes.string.isRequired
 };
 
-const mapStateToProps = (store) => ({
-  empty : store.messages.strings.article.keywords.empty,
-});
-
-module.exports = connect(mapStateToProps)(Keywords);
+module.exports = Keywords;

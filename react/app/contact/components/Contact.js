@@ -1,27 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import ContactAside from './ContactAside';
 import ContactContent from './ContactContent';
 import {setStdTitlebar} from '../../header/actions';
 
-const Contact = React.createClass({
-  propTypes : {
-    title : React.PropTypes.string.isRequired
-  },
-  componentWillMount : function () {
+class Contact extends React.Component {
+  componentWillMount () {
     this.props.setTitlebar(this.props.title);
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     this.props.setTitlebar(nextProps.title);
-  },
-  render: () => (
-    <main id="main-container">
-      <ContactAside />
-      <ContactContent />
-    </main>
-  )
-});
+  }
+  render () {
+    return (
+      <main id="main-container">
+        <ContactAside />
+        <ContactContent />
+      </main>
+    )
+  }
+}
+
+Contact.propTypes = {
+  title : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   title : store.messages.strings.contact.main.title

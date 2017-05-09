@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import ArticleCard from './ArticleCard';
@@ -31,9 +32,9 @@ const ArticleCategory = props => {
 
 ArticleCategory.propTypes =
 {
-  id : React.PropTypes.number.isRequired,
-  name : React.PropTypes.string.isRequired,
-  articles : React.PropTypes.array.isRequired
+  id : PropTypes.number.isRequired,
+  name : PropTypes.string.isRequired,
+  articles : PropTypes.array.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

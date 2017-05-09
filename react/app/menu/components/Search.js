@@ -1,41 +1,42 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import browserHistory from 'react-router/lib/browserHistory'
 
 import {filterArticlesTitle, emptyArticlesFilter} from '../../articles/actions';
 import {hideMenu} from '../../menu/actions';
 
-
-const Search = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string,
-    label : React.PropTypes.string,
-    search : React.PropTypes.func.isRequired
-  },
-  getInitialState : () => ({
-    searchStr : ''
-  }),
-  handleInput : function (e) {
-    this.setState({ searchStr : e.target.value });
-  },
-  handleSubmit : function (e) {
+class Search extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      searchStr : ''
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleSubmit (e) {
     e.preventDefault();
     this.props.search(this.state.searchStr);
     browserHistory.push('/' + this.props.locale + '/articles');
-  },
-  render : function () {
+  }
+  render () {
     return (
       <form className="search-form" onSubmit={this.handleSubmit}>
         <input  className="search-field"
-                onChange={this.handleInput}
+                onChange={(e) => this.setState({ searchStr : e.target.value }) }
                 value={this.state.searchStr}
                 placeholder={this.props.label} />
               <button type="submit" className="search-btn"></button>
       </form>
     )
   }
-});
+}
 
+Search.propTypes = {
+  locale : PropTypes.string,
+  label : PropTypes.string,
+  search : PropTypes.func.isRequired
+};
 
 const mapStateToProps = (store) => ({
     locale : store.messages.locale

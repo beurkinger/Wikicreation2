@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import browserHistory from 'react-router/lib/browserHistory'
 
 import {getAuthor} from '../../author/async';
@@ -31,13 +32,13 @@ const AuthorCard = props => {
 
 AuthorCard.propTypes =
 {
-  locale : React.PropTypes.string.isRequired,
-  id : React.PropTypes.number.isRequired,
-  name : React.PropTypes.string.isRequired,
-  title : React.PropTypes.string.isRequired,
-  school : React.PropTypes.string.isRequired,
-  pic : React.PropTypes.string.isRequired,
-  showAuthorPanel : React.PropTypes.func.isRequired
+  locale : PropTypes.string.isRequired,
+  id : PropTypes.number.isRequired,
+  name : PropTypes.string.isRequired,
+  title : PropTypes.string.isRequired,
+  school : PropTypes.string.isRequired,
+  pic : PropTypes.string.isRequired,
+  showAuthorPanel : PropTypes.func.isRequired
 };
 
 const mapStateToProps = (store) => ({

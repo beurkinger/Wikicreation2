@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import {hideMenu} from '../../menu/actions';
@@ -14,7 +15,7 @@ const MenusBackground = (props) => {
 };
 
 MenusBackground.propTypes = {
-  isVisible : React.PropTypes.bool.isRequired
+  isVisible : PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (store) => ({ isVisible : store.menusBackground.isVisible });

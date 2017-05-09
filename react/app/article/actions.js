@@ -11,6 +11,7 @@ export function articleSuccess (json) {
     language : json.language,
     date : json.date,
     keywords : json.keywords,
+    abstract : json.abstract,
     summary : json.summary,
     body : json.body,
     footnotes : json.footnotes,

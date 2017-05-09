@@ -27,7 +27,10 @@ class GraphView {
 		this.interactionIsClick = false;
 		this.interactionHover;
 
-		this.transform = zoomIdentity;
+		// this.transform = zoomIdentity;
+
+		this.centerOfView = this.prevCenter = { "x": this.width/2, "y": this.height/2 };
+		this.progress = 0;
 	}
 
 	stop () {
@@ -35,8 +38,6 @@ class GraphView {
 	}
 
 	start(){
-
-
 		var ratio = window.devicePixelRatio || 1;
 
 		this.canvas.style.width = this.width+'px',
@@ -45,7 +46,7 @@ class GraphView {
 		this.canvas.height = this.height*ratio;
 
 		this.context.scale(ratio,ratio);
-		this.context.translate(this.width / 2, this.height / 2);
+		//this.context.translate(this.centerOfView.x, this.centerOfView.y);
 
 		this.simulation = forceSimulation(this._model.nodes)
 			.force("charge", forceManyBody().strength( d => this._model.setByDepth( d.depth, -300, -300, -300)))
@@ -61,28 +62,30 @@ class GraphView {
 
 		for (var i = 0; i < 10; ++i) this.simulation.tick();
 
-		select("canvas")
-			.call(zoom().scaleExtent([1,1]).on("zoom", this.zoomed.bind(this)))
-			.call(this.updateView.bind(this));
-	}
-	zoomed() {
-		this.transform = event.transform;
-		this.updateView();
+		// select("canvas")
+		// 	.call(zoom().scaleExtent([1,1]).on("zoom", this.zoomed.bind(this)))
+		// 	.call(this.updateView.bind(this));
 	}
 
+	// zoomed() {
+	// 	this.transform = event.transform;
+	// 	this.updateView();
+	// }
+
 	reheat(){
-		this.simulation.alpha( 0.01 ).restart();//ALPHA EST PASSE A 0.01
+		this.simulation.alpha( 0.01 ).restart();
 		this._model.links.forEach( d => {
 			if( this._model.selectedLinks.filter( n => d == n ).length == 0) d.animLink.amount = 0 ;
 		});
 	}
 
 	updateView(){
+			if(this.progress < 1) this.progress +=0.03;
+			else this.progress = 1;
 			this.context.save();
 			this.clearCanvas();
 			this.context.beginPath();
-			this.context.translate(this.transform.x, this.transform.y);
-			this.context.scale(this.transform.k, this.transform.k);
+			this.context.translate(this.prevCenter.x*(1-this.easeIn(this.progress)) + this.easeIn(this.progress)*this.centerOfView.x , this.prevCenter.y*(1-this.easeIn(this.progress)) + this.easeIn(this.progress)*this.centerOfView.y);
 			this.drawLinks();
 			this.drawNodes();
 			this.context.restore();
@@ -95,7 +98,6 @@ class GraphView {
 		this._model.newNodes.forEach( d => d.animNode.drawNode(false));
 
 		if( this._model.exploredNode != null){
-
 			this._model.exploredNode.animNode.drawNode(false);
 			this._model.exploredNode.animNode.drawText();
 		}
@@ -107,7 +109,11 @@ class GraphView {
 	}
 
 	clearCanvas(){
-		this.context.clearRect(-this.width/2, -this.height/2, this.width, this.height);
+		this.context.clearRect(0, 0, this.width, this.height);
+	}
+
+	easeIn(t){
+		return t<.5 ? 8*t*t*t*t : 1-8*(--t)*t*t*t;
 	}
 }
 

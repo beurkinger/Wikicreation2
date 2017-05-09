@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
@@ -11,13 +12,13 @@ const Header = (props) => (
     <Link to={"/" + props.locale + "/"} id="main-logo"></Link>
     <Titlebar />
     <div className="menu-ham clickable" onClick={props.showMenu}></div>
-    <LanguageSwitch />
+    <LanguageSwitch locale={props.locale} />
   </header>
 );
 
 Header.propTypes = {
-  locale : React.PropTypes.string.isRequired,
-  showMenu: React.PropTypes.func.isRequired
+  locale : PropTypes.string.isRequired,
+  showMenu: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (store) => ({

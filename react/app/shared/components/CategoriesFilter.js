@@ -1,15 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import CheckboxFilter from '../../shared/components/CheckboxFilter';
 
-const CategoriesFilter = React.createClass({
-  propTypes: {
-    categories : React.PropTypes.array.isRequired,
-    filter : React.PropTypes.array.isRequired,
-    handleChange : React.PropTypes.func.isRequired
-  },
-  getCheckbox : function (category) {
+class CategoriesFilter extends React.Component {
+  constructor (props) {
+    super(props);
+    this.getCheckbox = this.getCheckbox.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+  }
+
+  getCheckbox (category) {
     let isChecked = this.props.filter.indexOf(category.id) !== -1 ? true : false;
     return (
       <CheckboxFilter label={category.name}
@@ -18,9 +20,8 @@ const CategoriesFilter = React.createClass({
                       handleChange={this.handleCheckboxChange}
                       key={category.id} />
     )
-  },
-  handleCheckboxChange : function (categoryId)
-  {
+  }
+  handleCheckboxChange (categoryId) {
     let filter =  this.props.filter.slice(0);
     let index = filter.indexOf(categoryId);
     if (index !== -1) {
@@ -29,15 +30,21 @@ const CategoriesFilter = React.createClass({
       filter.push(categoryId);
     }
     this.props.handleChange(filter);
-  },
-  render: function () {
+  }
+  render () {
     return (
       <div className="filters">
         { this.props.categories.map(this.getCheckbox) }
       </div>
     )
   }
-});
+}
+
+CategoriesFilter.propTypes = {
+  categories : PropTypes.array.isRequired,
+  filter : PropTypes.array.isRequired,
+  handleChange : PropTypes.func.isRequired
+};
 
 const mapStateToProps = (store) => ({
      categories: store.categories.list,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
 
@@ -20,7 +21,7 @@ const NavMenu = (props) => {
   return (
     <nav id="nav-menu">
       <div className="menu-exit clickable" onClick={props.hideMenu}></div>
-      <LanguageSwitch />
+      <LanguageSwitch locale={props.locale} />
       <Search label={props.messages.search} />
       <ul className="pages-list">
         {props.mainLinks.map(createLink)}
@@ -33,11 +34,11 @@ const NavMenu = (props) => {
 };
 
 NavMenu.propTypes = {
-  locale : React.PropTypes.string.isRequired,
-  messages : React.PropTypes.object.isRequired,
-  hideMenu: React.PropTypes.func.isRequired,
-  mainLinks: React.PropTypes.array.isRequired,
-  secondaryLinks: React.PropTypes.array.isRequired
+  locale : PropTypes.string.isRequired,
+  messages : PropTypes.object.isRequired,
+  hideMenu: PropTypes.func.isRequired,
+  mainLinks: PropTypes.array.isRequired,
+  secondaryLinks: PropTypes.array.isRequired
 };
 
 const mapStateToProps = (store) => ({

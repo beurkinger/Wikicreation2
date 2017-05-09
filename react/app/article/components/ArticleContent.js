@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import {setPercentRead} from '../actions';
@@ -10,32 +11,30 @@ import Footnotes from './Footnotes';
 import Keywords from './Keywords';
 import Summary from './Summary';
 
-const ArticleContent = React.createClass({
-  propTypes: {
-    messages : React.PropTypes.object.isRequired,
-    locale : React.PropTypes.string.isRequired,
-    id : React.PropTypes.number.isRequired,
-    title: React.PropTypes.string.isRequired,
-    date: React.PropTypes.string.isRequired,
-    categoryName: React.PropTypes.string.isRequired,
-    categoryId: React.PropTypes.number.isRequired,
-    keywords: React.PropTypes.array.isRequired,
-    summary: React.PropTypes.string.isRequired,
-    body: React.PropTypes.string.isRequired,
-    authorName : React.PropTypes.string.isRequired,
-    isTitlebarVisible : React.PropTypes.bool.isRequired
-  },
-  componentWillMount : function () {
+class ArticleContent extends React.Component {
+  constructor (props) {
+    super(props);
     this.body = null;
     this.title = null;
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+  shouldComponentUpdate (nextProps) {
+    if (nextProps.id !== this.props.id
+    || nextProps.locale !== this.props.locale
+    || nextProps.isDone !== this.props.isDone) {
+      return true;
+    }
+    return false;
+  }
+  componentWillMount () {
     this.props.setPercentRead(0) ;
-  },
-  handleScroll : function (e) {
+  }
+  handleScroll (e) {
     let container = e.target;
     this.updatePercentRead(container);
     this.updateTitle(container);
-  },
-  updatePercentRead : function (container) {
+  }
+  updatePercentRead (container) {
     //On récupère la référence au corps du texte de l'article
     let body = this.body;
     //Distance entre le haut de la fenetre et le container
@@ -53,8 +52,8 @@ const ArticleContent = React.createClass({
     //On limite le pourcentage à 100
     percent = percent > 100 ? 100 : percent;
     this.props.setPercentRead(percent);
-  },
-  updateTitle: function (container) {
+  }
+  updateTitle (container) {
     //On récupère la référence au titre de l'article
     let title = this.title;
     //Position de la partie supérieure du container
@@ -62,32 +61,47 @@ const ArticleContent = React.createClass({
     //Position  de la partie inférieur du titre
     let titleBottom = title.getBoundingClientRect().bottom;
 
-    if (titleBottom <= mainTop)
-    {
+    if (titleBottom <= mainTop) {
       if (!this.props.isTitlebarVisible) this.props.showTitlebar();
-    }
-    else
-    {
+    } else {
       if (this.props.isTitlebarVisible) this.props.hideTitlebar();
     }
-  },
-  render: function () {
+  }
+  render () {
     return (
       <div id="main-content" onScroll={this.handleScroll}>
         <article id="article-main">
-          <h5 className="article-infos">
-            {this.props.categoryName} • <DateStr date={this.props.date} format="month-year" locale={this.props.locale} />
-          </h5>
-          <h2 className="article-title" ref={(elt) => { this.title = elt }}>
-            {this.props.title}
-          </h2>
-          <h3 className="article-author">
-            {this.props.authorName}
-          </h3>
-          <h4 className="article-keywords">
-            {this.props.messages.keywords} <Keywords array={this.props.keywords} />
-          </h4>
-          <Summary summary={this.props.summary} />
+          <header id="article-header">
+            <h5 className="article-infos">
+              {this.props.categoryName} • <DateStr date={this.props.date} format="month-year" locale={this.props.locale} />
+            </h5>
+            <h2 className="article-title" ref={(elt) => { this.title = elt }}>
+              {this.props.title}
+            </h2>
+            <h3 className="article-author">
+              {this.props.authorName}
+            </h3>
+            <h6 className="article-author-details">
+              {this.props.authorTitle}, {this.props.authorSchool}.
+            </h6>
+            <hr/>
+            <h3 className="detail-title">
+              Abstract :
+            </h3>
+            <p className="detail" dangerouslySetInnerHTML={{__html: this.props.abstract}}>
+            </p>
+            <h3 className="detail-title">
+              {this.props.messages.keywords}
+            </h3>
+            <p className="detail">
+              <Keywords array={this.props.keywords} empty={this.props.keywordsEmpty}/>
+            </p>
+            <h3 className="detail-title">
+              {this.props.messages.summary}
+            </h3>
+            <Summary summary={this.props.summary} />
+            <hr/>
+          </header>
           <div id="article-body" dangerouslySetInnerHTML={{__html: this.props.body}} ref={(elt) => { this.body = elt }}></div>
           <footer id="article-footer">
             <Footnotes title={this.props.messages.footnotes} footnotes={this.props.footnotes} />
@@ -104,22 +118,40 @@ const ArticleContent = React.createClass({
       </div>
     );
   }
-});
+}
+
+ArticleContent.propTypes = {
+  messages : PropTypes.object.isRequired,
+  locale : PropTypes.string.isRequired,
+  id : PropTypes.number.isRequired,
+  isDone : PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  authorName : PropTypes.string.isRequired,
+  authorTitle : PropTypes.string.isRequired,
+  authorSchool : PropTypes.string.isRequired,
+  categoryName: PropTypes.string.isRequired,
+  categoryId: PropTypes.number.isRequired,
+  abstract: PropTypes.string.isRequired,
+  keywords: PropTypes.array.isRequired,
+  summary: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  authorName : PropTypes.string.isRequired,
+  isTitlebarVisible : PropTypes.bool.isRequired,
+  keywordsEmpty : PropTypes.string.isRequired
+};
 
 const mapStateToProps = function (store) {
    return {
      messages : store.messages.strings.article.content,
-     locale : store.messages.locale,
-     id : store.article.id,
      title: store.article.title,
      date: store.article.date,
-     keywords: store.article.keywords,
+     abstract: store.article.abstract,
      summary: store.article.summary,
      body: store.article.body,
      footnotes : store.article.footnotes,
      categoryId : store.article.categoryId,
      categoryName : store.article.categoryName,
-     authorName : store.article.authorName,
      isTitlebarVisible : store.titlebar.isVisible
    };
 };

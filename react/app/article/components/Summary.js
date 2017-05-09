@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Summary = (props) => {
   return (
@@ -7,7 +8,7 @@ const Summary = (props) => {
 };
 
 Summary.propTypes = {
-  summary : React.PropTypes.string.isRequired
+  summary : PropTypes.string.isRequired
 };
 
 module.exports = Summary

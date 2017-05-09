@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { PAGE_TYPE_STD, PAGE_TYPE_ARTICLE } from '../constants';
@@ -23,9 +24,9 @@ const Titlebar = (props) => {
 };
 
 Titlebar.propTypes = {
-  isVisible : React.PropTypes.bool.isRequired,
-  pageType : React.PropTypes.string.isRequired,
-  title : React.PropTypes.string.isRequired,
+  isVisible : PropTypes.bool.isRequired,
+  pageType : PropTypes.string.isRequired,
+  title : PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (store) => ({

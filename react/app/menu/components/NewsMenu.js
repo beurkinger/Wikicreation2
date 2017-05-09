@@ -1,25 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
 
 import {hideMenu} from '../actions';
 import {getNews} from '../async';
 
-const NewsMenu = React.createClass({
-  propTypes: {
-    locale : React.PropTypes.string.isRequired,
-    messages : React.PropTypes.object.isRequired,
-    articles: React.PropTypes.array.isRequired
-  },
-  componentDidMount: () => {
+class NewsMenu extends React.Component {
+  constructor (props) {
+    super(props);
+    this.getArticle = this.getArticle.bind(this);
+  }
+  componentDidMount () {
     getNews();
-  },
-  componentWillUpdate: function (nextProps) {
+  }
+  shouldComponentUpdate (nextProps) {
     if (this.props.locale !== nextProps.locale) {
       getNews();
     }
-  },
-  createArticle: function(article) {
+    if ( (nextProps.isDone !== this.props.isDone
+    || nextProps.isVisible !== this.props.isVisible)
+    && nextProps.isVisible) {
+      return true;
+    }
+    return false;
+  }
+  getArticle (article) {
       return (
         <div className="article" key={article.id}>
           <h3 className="title">
@@ -38,25 +44,33 @@ const NewsMenu = React.createClass({
           </Link>
         </div>
       );
-  },
-  render: function () {
+  }
+  render () {
     return (
       <div id="news-menu">
         <h2 className="menu-title">
           {this.props.messages.newArticles}
         </h2>
 
-        {this.props.articles.map(this.createArticle)}
+        {this.props.articles.map(this.getArticle)}
       </div>
     );
   }
-});
+}
+
+NewsMenu.propTypes = {
+  locale : PropTypes.string.isRequired,
+  messages : PropTypes.object.isRequired,
+  articles: PropTypes.array.isRequired,
+  isVisible : PropTypes.bool.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale,
   messages : store.messages.strings.menu.newsMenu,
   articles : store.news.list,
-  hideMenu: React.PropTypes.func.isRequired
+  isDone : store.news.isDone,
+  hideMenu: PropTypes.func.isRequired
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {APP_LOCALES} from '../../config';
@@ -6,14 +7,11 @@ import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
 import BackToTop from '../../shared/components/BackToTop';
 
-const CommitteesContent = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired
-  },
-  getLocalizedContent : function () {
+class CommitteesContent extends React.Component {
+  getLocalizedContent   () {
     return this.props.locale === APP_LOCALES.EN ? <ContentEn /> : <ContentFr />;
-  },
-  render: function () {
+  }
+  render  () {
     return (
       <div id="main-content">
         <div id="committee-main">
@@ -23,7 +21,11 @@ const CommitteesContent = React.createClass({
       </div>
     )
   }
-});
+}
+
+CommitteesContent.propTypes = {
+  locale : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import ContactForm from './ContactForm';
@@ -48,11 +49,11 @@ const ContactContent = (props)  => (
 );
 
 ContactContent.propTypes = {
-  director : React.PropTypes.string.isRequired,
-  manager : React.PropTypes.string.isRequired,
-  artistic : React.PropTypes.string.isRequired,
-  ux : React.PropTypes.string.isRequired,
-  developers : React.PropTypes.string.isRequired
+  director : PropTypes.string.isRequired,
+  manager : PropTypes.string.isRequired,
+  artistic : PropTypes.string.isRequired,
+  ux : PropTypes.string.isRequired,
+  developers : PropTypes.string.isRequired
 };
 
 const mapStateToProps = (store) => ({

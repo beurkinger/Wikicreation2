@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import browserHistory from 'react-router/lib/browserHistory'
 
@@ -12,17 +13,13 @@ import PreviewBackground from '../../preview/components/PreviewBackground';
 import {setLocale} from '../../shared/actions';
 import store from '../../store';
 
-const Main = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired,
-    setLocale : React.PropTypes.func.isRequired
-  },
-  componentWillMount : function () {
+class Main extends React.Component {
+  componentWillMount () {
     if (this.props.params && this.props.params.locale) {
       this.getLocaleFromPath(this.props.params.locale, this.props.locale);
     }
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     let locale = this.props.params.locale;
     let nextLocale = nextProps.locale;
     let path = this.props.location.pathname;
@@ -31,14 +28,14 @@ const Main = React.createClass({
     if (locale !== nextLocale && path === nextPath) {
       this.setPathFromLocale(locale, nextLocale, path);
     }
-  },
-  getLocaleFromPath : function (routeLocale, locale) {
+  }
+  getLocaleFromPath (routeLocale, locale) {
     if (routeLocale !== locale
     && (routeLocale === APP_LOCALES.FR || routeLocale === APP_LOCALES.EN)) {
       this.props.setLocale(routeLocale);
     }
-  },
-  setPathFromLocale : function (locale, nextLocale, path) {
+  }
+  setPathFromLocale (locale, nextLocale, path) {
     let nextPath = '';
     let index = path.indexOf(locale);
     if (index !== -1) {
@@ -47,8 +44,8 @@ const Main = React.createClass({
       nextPath = '/' + nextLocale + path;
     }
     browserHistory.push(nextPath);
-  },
-  getCategory : function () {
+  }
+  getCategory () {
     let pathname = this.props.location.pathname;
     if (pathname === '/'
     || pathname === '/' + APP_LOCALES.FR + '/'
@@ -56,8 +53,8 @@ const Main = React.createClass({
       return 'blue';
     }
     return 'white';
-  },
-  render : function () {
+  }
+  render () {
     return (
       <div id="app" className={this.getCategory()}>
         <Header />
@@ -70,7 +67,12 @@ const Main = React.createClass({
       </div>
     )
   }
-});
+}
+
+Main.propTypes = {
+  locale : PropTypes.string.isRequired,
+  setLocale : PropTypes.func.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale

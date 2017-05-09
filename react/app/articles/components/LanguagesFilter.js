@@ -1,15 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import CheckboxFilter from '../../shared/components/CheckboxFilter';
 import {ARTICLE_LANGUAGES} from '../constants';
 
-const LanguagesFilter = React.createClass({
-  propTypes: {
-    filter : React.PropTypes.array.isRequired,
-    handleChange : React.PropTypes.func.isRequired
-  },
-  getCheckbox : function (language) {
+class LanguagesFilter extends React.Component {
+  getCheckbox (language) {
     let isChecked = this.props.filter.indexOf(language.id) !== -1 ? true : false;
     return (
       <CheckboxFilter label={language.name}
@@ -18,9 +15,8 @@ const LanguagesFilter = React.createClass({
                       handleChange={this.handleCheckboxChange}
                       key={language.id} />
     )
-  },
-  handleCheckboxChange : function (languageId)
-  {
+  }
+  handleCheckboxChange (languageId) {
     let filter =  this.props.filter.slice(0);
     let index = filter.indexOf(languageId);
     if (index !== -1) {
@@ -29,14 +25,19 @@ const LanguagesFilter = React.createClass({
       filter.push(languageId);
     }
     this.props.handleChange(filter);
-  },
-  render: function () {
+  }
+  render () {
     return (
       <div className="filters">
         { ARTICLE_LANGUAGES.map(this.getCheckbox) }
       </div>
     )
   }
-});
+}
+
+LanguagesFilter.propTypes = {
+  filter : PropTypes.array.isRequired,
+  handleChange : PropTypes.func.isRequired
+};
 
 module.exports = LanguagesFilter;

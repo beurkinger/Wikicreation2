@@ -1,24 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import httpPostHelper from '../../shared/helpers/httpPostHelper';
 import {REST_MAIN_PATH, REST_PATHS} from '../../config';
 
 
-const ContactForm = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired,
-    name : React.PropTypes.string.isRequired,
-    email : React.PropTypes.string.isRequired,
-    message : React.PropTypes.string.isRequired,
-    errorMissing : React.PropTypes.string.isRequired,
-    errorEmail : React.PropTypes.string.isRequired,
-    errorServer : React.PropTypes.string.isRequired,
-    send : React.PropTypes.string.isRequired,
-    sending : React.PropTypes.string.isRequired,
-    sent : React.PropTypes.string.isRequired
-  },
-  getInitialState: function() {
-    return {
+class ContactForm extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
       name : '',
       email : '',
       message : '',
@@ -27,8 +17,10 @@ const ContactForm = React.createClass({
       errorMessage : '',
       sent : false
     };
-  },
-  getForm : function () {
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  getForm () {
     return (
       <form id="contact-form" onSubmit={this.handleSubmit} >
         <input type="text" value={this.state.name} onInput={(e) => this.setState({ name : e.target.value})} placeholder={this.props.name} required />
@@ -40,14 +32,14 @@ const ContactForm = React.createClass({
         </button>
       </form>
     )
-  },
-  getThanks : function () {
+  }
+  getThanks () {
     return <p className="success"><strong>{this.props.sent}</strong></p>;
-  },
-  getError : function () {
+  }
+  getError () {
     if (this.state.error) return <p className='error'>{this.state.errorMessage}</p>;
-  },
-  handleSubmit : function (e) {
+  }
+  handleSubmit (e) {
     e.preventDefault();
     let state = this.state;
     if (state.isSending) return false;
@@ -63,8 +55,8 @@ const ContactForm = React.createClass({
       this.sendData(state);
       return false;
     }
-  },
-  sendData : function (state) {
+  }
+  sendData (state) {
     let url = '/' + this.props.locale + REST_MAIN_PATH + REST_PATHS.contact;
     httpPostHelper(url, state, () => {
       this.setState({error : false, isSending : false, sent : true});
@@ -72,11 +64,24 @@ const ContactForm = React.createClass({
     () => {
       this.setState({error : true, errorMessage : this.props.errorServer, isSending : false, sent : false});
     });
-  },
-  render : function () {
+  }
+  render () {
     return this.state.sent ? this.getThanks() : this.getForm();
   }
-});
+}
+
+ContactForm.propTypes = {
+  locale : PropTypes.string.isRequired,
+  name : PropTypes.string.isRequired,
+  email : PropTypes.string.isRequired,
+  message : PropTypes.string.isRequired,
+  errorMissing : PropTypes.string.isRequired,
+  errorEmail : PropTypes.string.isRequired,
+  errorServer : PropTypes.string.isRequired,
+  send : PropTypes.string.isRequired,
+  sending : PropTypes.string.isRequired,
+  sent : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale,

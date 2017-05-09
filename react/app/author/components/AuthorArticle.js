@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import DateStr from '../../shared/components/DateStr';
 import Link from 'react-router/lib/Link'
@@ -17,13 +18,13 @@ const AuthorArticle = (props) => (
 );
 
 AuthorArticle.propTypes = {
-  locale : React.PropTypes.string.isRequired,
-  id : React.PropTypes.number.isRequired,
-  title : React.PropTypes.string.isRequired,
-  date : React.PropTypes.string.isRequired,
-  categoryId : React.PropTypes.number.isRequired,
-  categoryName : React.PropTypes.string.isRequired,
-  handleClick : React.PropTypes.func.isRequired
+  locale : PropTypes.string.isRequired,
+  id : PropTypes.number.isRequired,
+  title : PropTypes.string.isRequired,
+  date : PropTypes.string.isRequired,
+  categoryId : PropTypes.number.isRequired,
+  categoryName : PropTypes.string.isRequired,
+  handleClick : PropTypes.func.isRequired
 };
 
 module.exports = AuthorArticle;

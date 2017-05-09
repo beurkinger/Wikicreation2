@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import ArticlesCategory from './ArticlesCategory';
@@ -25,8 +26,8 @@ const ArticlesContent = (props) => {
 };
 
 ArticlesContent.propTypes = {
-  articles : React.PropTypes.array.isRequired,
-  isArticlesDone : React.PropTypes.bool.isRequired
+  articles : PropTypes.array.isRequired,
+  isArticlesDone : PropTypes.bool.isRequired
 };
 
 const mapStateToProps = function (store) {

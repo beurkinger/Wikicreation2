@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Link from 'react-router/lib/Link';
 
@@ -6,18 +7,14 @@ import {setStdTitlebar} from '../../header/actions';
 import ContributeAside from './ContributeAside';
 import ContributeContent from './ContributeContent';
 
-
-const Contribute = React.createClass({
-  propTypes : {
-    title : React.PropTypes.string.isRequired
-  },
-  componentWillMount : function () {
+class Contribute extends React.Component {
+  componentWillMount () {
     this.props.setTitlebar(this.props.title);
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     this.props.setTitlebar(nextProps.title);
-  },
-  render : function () {
+  }
+  render () {
     return (
       <main id="main-container">
         <ContributeAside />
@@ -25,7 +22,11 @@ const Contribute = React.createClass({
       </main>
     )
   }
-});
+}
+
+Contribute.propTypes = {
+  title : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   title : store.messages.strings.contribute.main.title

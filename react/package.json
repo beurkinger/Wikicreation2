@@ -6,12 +6,13 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --history-api-fallback",
-    "cleancss" : "cleancss -o ../press/wp-content/themes/wikicreation/css/style.min.css ../press/wp-content/themes/wikicreation/css/style.css"
+    "cleancss": "cleancss -o ../press/wp-content/themes/wikicreation/css/style.min.css ../press/wp-content/themes/wikicreation/css/style.css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "d3": "^4.5.0",
+    "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",

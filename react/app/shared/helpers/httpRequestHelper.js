@@ -4,8 +4,12 @@ const httpRequestHelper = (url, success, fail) => {
   xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   xhr.onload = function() {
     if (xhr.status === 200 && xhr.readyState === 4 && xhr.getResponseHeader('content-type') !== 'text/html') {
-      let response = JSON.parse(xhr.responseText);
-      if (success && typeof success === 'function') success(response);
+      try {
+       let response = JSON.parse(xhr.responseText);
+       if (success && typeof success === 'function') success(response);
+      } catch(e) {
+        if (fail && typeof fail === 'function') fail('Error parsing response.');
+      }
       xhr = null;
     }
     else {

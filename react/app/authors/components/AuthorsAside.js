@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {emptyAuthorsFilter, filterAuthorsName, filterAuthorsCategory} from '../actions';
@@ -42,12 +43,12 @@ const AuthorsAside =(props) => {
 };
 
 AuthorsAside.propTypes = {
-  messages : React.PropTypes.object.isRequired,
-  categories : React.PropTypes.array.isRequired,
-  isCategoriesDone : React.PropTypes.bool.isRequired,
-  name : React.PropTypes.string.isRequired,
-  filterName : React.PropTypes.func.isRequired,
-  filterCategory : React.PropTypes.func.isRequired,
+  messages : PropTypes.object.isRequired,
+  categories : PropTypes.array.isRequired,
+  isCategoriesDone : PropTypes.bool.isRequired,
+  name : PropTypes.string.isRequired,
+  filterName : PropTypes.func.isRequired,
+  filterCategory : PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (store) => ({

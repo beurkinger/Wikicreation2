@@ -1,30 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {setStdTitlebar} from '../../header/actions';
 import CommitteesAside from './CommitteesAside';
 import CommitteesContent from './CommitteesContent';
 
-const Committees = React.createClass({
-  propTypes : {
-    title : React.PropTypes.string.isRequired
-  },
-  componentWillMount : function () {
+class Committees extends React.Component {
+  componentWillMount () {
     this.updateTitlebar(this.props);
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     this.updateTitlebar(nextProps);
-  },
-  updateTitlebar : function (props) {
+  }
+  updateTitlebar (props) {
     this.props.setTitlebar(props.title);
-  },
-  render: () => (
-    <main id="main-container">
-      <CommitteesAside />
-      <CommitteesContent />
-    </main>
-  )
-});
+  }
+  render () {
+    return (
+      <main id="main-container">
+        <CommitteesAside />
+        <CommitteesContent />
+      </main>
+    )
+  }
+}
+
+Committees.propTypes = {
+  title : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   title : store.messages.strings.committee.main.title

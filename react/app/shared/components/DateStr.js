@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 //Liste des différents de format de date que le component accepte en props
 const FORMAT_FULL = 'full'; // ex : "01 janvier 2017"
@@ -65,9 +66,9 @@ DateStr.defaultProps = {
 };
 
 DateStr.propTypes = {
-  date: React.PropTypes.string.isRequired,
-  format: React.PropTypes.string,
-  locale: React.PropTypes.string
+  date: PropTypes.string.isRequired,
+  format: PropTypes.string,
+  locale: PropTypes.string
 };
 
 module.exports = DateStr;

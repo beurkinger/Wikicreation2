@@ -8,6 +8,7 @@ class GraphModel{
 		this.nodesAdded = new Event(this);
 		this.linksAdded = new Event(this);
 
+		this.firstNode = this.nodes.filter( d => d.depth==1)[0];
 		this.defaultNodes = this.nodes.filter( d => d.depth<=2 );
 		this.selectedNodes = this.defaultNodes;
 		this.exploredNode; //Ajout d'une exploredNode
@@ -35,7 +36,7 @@ class GraphModel{
 	selectRelations(subject, clickHandler){
 		switch(subject.depth) {
 			case 1:
-				//this.newLinks = this.recurseLinks(subject);
+				// this.newLinks = this.recurseLinks(subject);
 				break;
 			case 2:
 				this.selectedNodes = this.newNodes;

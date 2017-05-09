@@ -1,21 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Link from 'react-router/lib/Link';
 
 import {setStdTitlebar} from '../../header/actions';
 
 
-const Error = React.createClass({
-  propTypes : {
-    title : React.PropTypes.string.isRequired
-  },
-  componentWillMount : function () {
+class Error extends React.Component {
+  componentWillMount () {
     this.props.setTitlebar(this.props.title);
-  },
-  componentWillUpdate : function (nextProps) {
+  }
+  componentWillUpdate (nextProps) {
     this.props.setTitlebar(nextProps.title);
-  },
-  render : function () {
+  }
+  render () {
     return (
       <main id="main-container">
         <div id="main-content" className="full-size">
@@ -41,7 +39,11 @@ const Error = React.createClass({
       </main>
     )
   }
-});
+}
+
+Error.propTypes = {
+  title : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   title : store.messages.strings.error.title,

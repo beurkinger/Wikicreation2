@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import Link from 'react-router/lib/Link';
 
 const ArticleCard = props => {
@@ -18,9 +18,9 @@ const ArticleCard = props => {
 
 ArticleCard.propTypes =
 {
-  handleClick :  React.PropTypes.func.isRequired,
-  id : React.PropTypes.number.isRequired,
-  title : React.PropTypes.string.isRequired
+  handleClick :  PropTypes.func.isRequired,
+  id : PropTypes.number.isRequired,
+  title : PropTypes.string.isRequired
 };
 
 module.exports = ArticleCard;

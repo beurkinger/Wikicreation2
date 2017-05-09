@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import AuthorCard from './AuthorCard';
@@ -26,8 +27,8 @@ const AuthorsContent = (props) => {
 };
 
 AuthorsContent.propTypes = {
-  authors : React.PropTypes.array.isRequired,
-  isAuthorsDone : React.PropTypes.bool.isRequired
+  authors : PropTypes.array.isRequired,
+  isAuthorsDone : PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (store) => ({

@@ -12,15 +12,13 @@ class GraphController {
 		.on("mousemove", this.mousemove.bind(this));
 	}
 
-	stop() {
+	stop(){
 		// select(this._view.canvas)
 		// .on("click", null)
 		// .on("mousemove", null);
 	}
 
-
-
-	mousemove () {
+	mousemove(){
 		if ( this.getSubject() != this.hoverSubject && typeof this.getSubject()=="object" ){
 			this.hoverSubject = this.getSubject();
 			this._model.hoverRelations(this.hoverSubject);
@@ -33,20 +31,33 @@ class GraphController {
 		}
 	}
 
-	click () {
-		if (event.defaultPrevented) return;
-		if(this.clickSubject == this.getSubject() || this.getSubject() == null){
+	click(){
+		if(this.clickSubject == this.getSubject()){
 			this.clickSubject = [];
+			this.hoverSubject = "none";
+			this._model.exploredNode = null;
 			this._model.restoreDefault();
 		}
-		else if(this.clickSubject!=this.getSubject() && ( this._model.defaultNodes.indexOf(this.getSubject())!=-1 || this._model.selectedNodes.indexOf(this.getSubject())!=-1 )){
-			this.clickSubject = this.getSubject();
+		else if(this.clickSubject!=this.getSubject() && ( this._model.defaultNodes.indexOf(this.getSubject())!=-1 || this._model.selectedNodes.indexOf(this.getSubject())!=-1 ) || this.getSubject() == null){
+			this.clickSubject = this.getSubject() || this._model.firstNode;
+
+			this._view.progress = 0;
+			this._view.prevCenter = Object.assign({}, this._view.centerOfView);
+			// xDIFF = Xtarget - Xorigin
+			this._view.centerOfView.x = this._view.width/2 - this.clickSubject.x;
+			this._view.centerOfView.y = this._view.height/2 - this.clickSubject.y;
+
 			this._model.selectRelations(this.clickSubject, this.clickHandler);
+			if(this.clickSubject == this._model.firstNode){
+				this.hoverSubject = "none";
+				this._model.exploredNode = null;
+				this._model.restoreDefault();
+			}
 		}
 	}
 
-	getSubject () {
-		return this._view.simulation.find(mouse(this._view.canvas)[0] - this._view.width/2 - this._view.transform.x, mouse(this._view.canvas)[1]- this._view.height/2 - this._view.transform.y, 60);
+	getSubject(){
+		return this._view.simulation.find(mouse(this._view.canvas)[0] - this._view.centerOfView.x, mouse(this._view.canvas)[1]- this._view.centerOfView.y , 60);
 	}
 }
 

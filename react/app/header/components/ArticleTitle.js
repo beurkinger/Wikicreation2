@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import DateStr from '../../shared/components/DateStr';
@@ -13,10 +14,10 @@ const ArticleTitle = (props) => (
 );
 
 ArticleTitle.propTypes = {
-  locale : React.PropTypes.string.isRequired,
-  categoryName : React.PropTypes.string.isRequired,
-  date : React.PropTypes.string.isRequired,
-  categoryName : React.PropTypes.string.isRequired
+  locale : PropTypes.string.isRequired,
+  categoryName : PropTypes.string.isRequired,
+  date : PropTypes.string.isRequired,
+  categoryName : PropTypes.string.isRequired
 };
 
 const mapStateToProps = (store) => ({

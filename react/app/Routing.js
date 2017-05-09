@@ -16,23 +16,25 @@ import Home from './home/components/Home';
 import Legal from './legal/components/Legal';
 import Main from './main/components/Main';
 
-const Routing = React.createClass({
-  render: () => (
-    <Router history={browserHistory}>
-      <Route path="/(:locale/)" component={Main}>
-        <IndexRoute component={Home}/>
-        <Route path="/(:locale/)about" component={About}/>
-        <Route path="/(:locale/)articles" component={Articles}/>
-        <Route path="/(:locale/)articles/:id" component={Article}/>
-        <Route path="/(:locale/)authors(/:id)" component={Authors}/>
-        <Route path="/(:locale/)contribute" component={Contribute}/>
-        <Route path="/(:locale/)committees" component={Committees}/>
-        <Route path="/(:locale/)credits-and-contact" component={Contact}/>
-        <Route path="/(:locale/)legal-notices" component={Legal}/>
-        <Route path="*" component={Error} />
-      </Route>
-    </Router>
-  )
-});
+class Routing extends React.Component {
+  render () {
+    return (
+      <Router history={browserHistory}>
+        <Route path="/(:locale/)" component={Main}>
+          <IndexRoute component={Home}/>
+          <Route path="/(:locale/)about" component={About}/>
+          <Route path="/(:locale/)articles" component={Articles}/>
+          <Route path="/(:locale/)articles/:id" component={Article}/>
+          <Route path="/(:locale/)authors(/:id)" component={Authors}/>
+          <Route path="/(:locale/)contribute" component={Contribute}/>
+          <Route path="/(:locale/)committees" component={Committees}/>
+          <Route path="/(:locale/)credits-and-contact" component={Contact}/>
+          <Route path="/(:locale/)legal-notices" component={Legal}/>
+          <Route path="*" component={Error} />
+        </Route>
+      </Router>
+    )
+  }
+}
 
 module.exports = Routing;

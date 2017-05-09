@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {APP_LOCALES} from '../../config';
@@ -7,14 +8,11 @@ import ContentFr from './localized/ContentFr';
 import ContributeForm from './ContributeForm';
 import BackToTop from '../../shared/components/BackToTop';
 
-const ContributeContent = React.createClass({
-  propTypes : {
-    locale : React.PropTypes.string.isRequired
-  },
-  getLocalizedContent : function () {
+class ContributeContent extends React.Component {
+  getLocalizedContent () {
     return this.props.locale === APP_LOCALES.EN ? <ContentEn /> : <ContentFr />;
-  },
-  render: function () {
+  }
+  render () {
     return (
       <div id="main-content">
         <div id="contribute-main">
@@ -25,7 +23,11 @@ const ContributeContent = React.createClass({
       </div>
     )
   }
-});
+}
+
+ContributeContent.propTypes = {
+  locale : PropTypes.string.isRequired
+};
 
 const mapStateToProps = (store) => ({
   locale : store.messages.locale

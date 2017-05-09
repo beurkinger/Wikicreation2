@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Footnotes = (props) => {
   if (!props.footnotes || props.footnotes.trim() === '') return null;
@@ -13,8 +14,8 @@ const Footnotes = (props) => {
 };
 
 Footnotes.propTypes = {
-  title : React.PropTypes.string.isRequired,
-  footnotes : React.PropTypes.string.isRequired
+  title : PropTypes.string.isRequired,
+  footnotes : PropTypes.string.isRequired
 };
 
 module.exports = Footnotes
