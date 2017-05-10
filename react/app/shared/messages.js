@@ -101,7 +101,8 @@ messages[APP_LOCALES.FR] = {
       errorServer : "Erreur lors de l'envoi. Merci de réessayer.",
       send : "Envoyer",
       sending : 'Envoi...',
-      sent : 'Votre message a bien été envoyé. Merci.'
+      sent : 'Votre message a bien été envoyé. Merci.',
+      instructions : 'Les articles sont à envoyer au format <strong>.doc</strong> ou <strong>.docx</strong>, <strong>.pdf</strong> ou <strong>.rtf</strong>. Taille maximum du fichier : <strong>5 mo</strong>.'
     }
   },
   committee : {
@@ -262,7 +263,8 @@ messages[APP_LOCALES.EN] = {
       errorServer : "There was an error sending your message. Please try again.",
       send : "Send",
       sending : 'Sending...',
-      sent : 'Your message has been sent. Thanks.'
+      sent : 'Your message has been sent. Thanks.',
+      instructions : 'Attachment must be in either <strong>.doc</strong>, <strong>.docx</strong>, <strong>.pdf</strong> or <strong>.rtf</strong> format. Maximum file size : <strong>5 mo</strong>.'
     }
   },
   error : {

@@ -63,14 +63,13 @@ class ContributeForm extends React.Component {
        </div>
        <div>
        	 <div className="left-row">
-       	 	{this.props.name}
+       	 	{this.props.doc}
        	 </div>
        	 <div className="right-row">
-       		 <input type="file" onChange={this.handleFile} className="file" required />
-           <div>
-            Les articles sont à envoyer au format <strong>.doc</strong> ou <strong>.docx</strong>, <strong>.pdf</strong> ou <strong>.rtf</strong>
-        </div>
-       	 </div>
+     		    <input type="file" onChange={this.handleFile} className="file" required />
+            <div dangerouslySetInnerHTML={{__html: this.props.instructions}}>
+            </div>
+     	   </div>
      	 </div>
        <div>
          <div className="left-row"></div>
@@ -173,6 +172,7 @@ const mapStateToProps = (store) => ({
   send : store.messages.strings.contribute.form.send,
   sending : store.messages.strings.contribute.form.sending,
   sent : store.messages.strings.contribute.form.sent,
+  instructions : store.messages.strings.contribute.form.instructions,
 });
 
 module.exports = connect(mapStateToProps)(ContributeForm);

@@ -32,14 +32,16 @@ class GraphController {
 	}
 
 	click(){
+		console.log(this.getSubject());
 		if(this.clickSubject == this.getSubject()){
 			this.clickSubject = [];
 			this.hoverSubject = "none";
 			this._model.exploredNode = null;
 			this._model.restoreDefault();
 		}
-		else if(this.clickSubject!=this.getSubject() && ( this._model.defaultNodes.indexOf(this.getSubject())!=-1 || this._model.selectedNodes.indexOf(this.getSubject())!=-1 ) || this.getSubject() == null){
-			this.clickSubject = this.getSubject() || this._model.firstNode;
+		else{
+			this.clickSubject = this._model.defaultNodes.concat(this._model.selectedNodes).indexOf(this.getSubject()) == -1 ? this._model.firstNode : this.getSubject() ;
+			// this.clickSubject = this.getSubject() || this._model.firstNode;
 
 			this._view.progress = 0;
 			this._view.prevCenter = Object.assign({}, this._view.centerOfView);
