@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
 
+import DateStr from '../../shared/components/DateStr';
 import {hideMenu} from '../actions';
 import {getNews} from '../async';
 
@@ -28,6 +29,9 @@ class NewsMenu extends React.Component {
   getArticle (article) {
       return (
         <div className="article" key={article.id}>
+          <h5 className="infos">
+            { article.category[0].name } • <DateStr date={article.date} format="month-year" locale={this.props.locale} />
+          </h5>
           <h3 className="title">
             {article.title}
           </h3>

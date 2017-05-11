@@ -149,6 +149,7 @@ html, body, #root, #app
   display: inline-block;
   margin: 0 15px 0 16px;
   width: 0; height: 10px;
+  border: 0;
 }
 
 #main-header .language .separator, #article-preview .separator
@@ -417,10 +418,16 @@ html, body, #root, #app
   border-bottom: 1px solid #484848;
 }
 
+#news-menu .infos
+{
+  font-family: Muli; color: #484848; font-size: 13px; font-weight: 200;
+  margin: 35px 0 10px 0;
+}
+
 #news-menu .title
 {
   display: block;
-  margin: 35px 0 5px 0;
+  margin: 10px 0 5px 0;
   font-family: Montserrat; font-size: 20px; font-weight: bold;
   line-height: 100%;
 }

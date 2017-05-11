@@ -122,17 +122,23 @@ function get_article( $data ){
 
 function get_news(){
 	GLOBAL $wpdb;
-	$sql = "SELECT po.id, po.post_title FROM wp_posts AS po " .
+	$sql = "SELECT po.id, po.post_title, po.post_date FROM wp_posts AS po " .
 	"WHERE po.post_type='post' AND po.post_status='publish' ORDER BY po.post_date DESC LIMIT 5";
 	$posts = $wpdb->get_results($sql);
 	// $posts = get_posts(array("posts_per_page" => 5, 'orderby' => 'date', 'order' => 'desc'));
 	$news = array();
 	foreach ($posts as $post) {
+		$categories = wp_get_post_categories($post->id, ['fields'=>'all']);
+		foreach ($categories as $catKey => $category) {
+			$categories[$catKey] = ['id' => $category->term_id, 'name' => __($category->name)];
+		}
 		$authorId = get_post_meta($post->id, 'auteur')[0];
 		$abstract = __(get_post_meta($post->id, 'abstract')[0]);
 		$post = [
 			'id' => $post->id,
 			'title' => __($post->post_title),
+			'date' => $post->post_date,
+			'category' => $categories,
 			'author' => get_post($authorId)->post_title,
 			'desc' => substr($abstract, 0, 420)."..."
 		];
