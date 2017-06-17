@@ -48,7 +48,7 @@ html, body, #root, #app
 #root, #app
 {
   position: fixed;
-  min-width: 1000px; min-height: 640px;
+  min-width: 640px; min-height: 640px;
   overflow: hidden;
 }
 
@@ -86,12 +86,17 @@ html, body, #root, #app
   background-image: url('../img/main-logo-blue.svg');
 }
 
+#main-title-container,
+#main-content {
+  min-width: 640px;
+  width: calc(100% - 360px);
+  box-sizing: border-box;
+  left: 360px;
+}
+
 #main-title-container
 {
   position: absolute; bottom: 30px; left: 360px;
-  width: 100%;
-  padding-right: 360px;
-  box-sizing: border-box;
 }
 
 #main-title-container h1
@@ -99,7 +104,7 @@ html, body, #root, #app
   line-height: 100%;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding-left: 15%;
+  padding-left: 14%;
 }
 
 #main-title-container .std-title
@@ -111,7 +116,7 @@ html, body, #root, #app
 #main-title-container .article-infos
 {
   font-family: Muli; color: #484848; font-size: 13px; font-weight: 200;
-  padding-left: 15%;
+  padding-left: 14%;
   margin-bottom: 10px;
 }
 
@@ -695,10 +700,9 @@ html, body, #root, #app
 /*---Main content---*/
 #main-content
 {
-  box-sizing: border-box;
-  position: fixed; top: 100px; left: 360px;
-  height: 100%; width: 100%; min-width: 1000px;
-  padding: 54px 360px 150px 0;
+  position: fixed; top: 100px;
+  height: 100%;
+  padding: 54px 0 150px 0;
   overflow-y: auto;
 }
 
@@ -714,7 +718,7 @@ html, body, #root, #app
 #article-main, #about-main, #contact-main, #legal-main, #committee-main, #contribute-main, #authors-main, #articles-main
 {
   display: block;
-  padding: 0px 15%;
+  padding: 0px 14%;
   max-width: 680px;
   font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
 }
@@ -756,7 +760,11 @@ html, body, #root, #app
 #article-header hr {
   display: block; width: 100%; height: 0;
   border-bottom: 1px solid #484848;
-  margin: 28px 0 42px 0;
+  margin:  42px 0 60px 0;
+}
+
+#article-header hr:first-of-type {
+  margin: 60px 0 42px 0;
 }
 
 #article-header .detail-title {
@@ -879,7 +887,7 @@ html, body, #root, #app
   font-family: Muli; color: #484848; font-size: 15px; font-weight: 200;
   column-count: 2;
   column-gap: 75px;
-  padding-right: 15%;
+  padding-right: 14%;
   max-width: 100%;
 }
 
@@ -1094,7 +1102,7 @@ html, body, #root, #app
   display: block;
   width: 150px; height: 150px;
   border: 4px solid #FF6666;
-  margin: 0 auto 50px auto;
+  margin: 14px auto 58px auto;
   border-radius: 100%;
 }
 
@@ -1331,7 +1339,7 @@ html, body, #root, #app
 #legal-main h3,
 #contribute-main h3
 {
-  margin: 44px 0 24px 0;
+  margin: 52px 0 28px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid #FF6666;
   width: 300px;
@@ -1409,7 +1417,7 @@ html, body, #root, #app
 {
   position: absolute; top: 0; left: 0;
   width: 100%; height: 100%;
-  min-width:1000px;
+  min-width: 1000px;
 }
 
 #graph canvas
@@ -1438,7 +1446,7 @@ html, body, #root, #app
 {
   width: 100%;
   padding-left: 360px;
-  transition: 500ms;
+  transition: 350ms;
 }
 
 #article-preview.extend.hide
@@ -1450,10 +1458,11 @@ html, body, #root, #app
 
 #article-preview.extend #article-preview-content
 {
-  padding: 70px 150px;
-  max-width: 640px;
+  width: calc(100% - 360px);
+  padding: 70px 0 0 14%;
+  max-width: 680px;
   overflow-y: auto;
-  transition: 500ms;
+  transition: 350ms;
 }
 
 #article-preview .preview-exit
@@ -1462,6 +1471,11 @@ html, body, #root, #app
   position: absolute;
   height: 16px;
   top: 50px; left: 70px;
+}
+
+#article-preview.extend .preview-exit
+{
+  display: none;
 }
 
 #article-preview .article-infos
@@ -1754,13 +1768,12 @@ html, body, #root, #app
 #main-content .page-loading
 {
   top: -100px;
-  padding: 0 360px 0 0;
+  padding: 0;
 }
 
 #main-aside .page-loading
 {
   background: #F5F5F5;
-  padding: 0;
 }
 
 @keyframes spinner-anim {

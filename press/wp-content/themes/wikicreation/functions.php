@@ -27,8 +27,12 @@ function get_articles($data){
 	"ON (ta.term_id = re.term_taxonomy_id) " .
 	"WHERE po.post_type='post' AND po.post_status='publish' AND ta.taxonomy='category' ";
 
-	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN ($catsParams) ";
-	if (isset($titleParam) && $titleParam != '') $sql .= "AND po.post_title LIKE '%$titleParam%' ";
+	if (isset($catsParams) && $catsParams != '') {
+		$sql .= "AND ca.term_id IN ($catsParams) ";
+	}
+	if (isset($titleParam) && $titleParam != '' && strlen($titleParam) > 2) {
+		$sql .= "AND (po.post_title LIKE '%$titleParam%' OR po.post_content LIKE '%$titleParam%') ";
+	}
 	$sql .= "ORDER BY ca.term_id ASC";
 	$results = $wpdb->get_results($sql);
 
@@ -188,8 +192,12 @@ function get_authors($data){
 
 	GLOBAL $wpdb;
 	$sql = "	SELECT DISTINCT au.id, au.post_title FROM wp_posts AS au LEFT JOIN (wp_posts AS po, wp_postmeta as me, wp_terms AS ca, wp_term_relationships AS reca) ON (po.id = me.post_id AND au.id = me.meta_value AND po.id = reca.object_id AND ca.term_id = reca.term_taxonomy_id) WHERE au.post_type='auteur' AND au.post_status='publish' ";
-	if (isset($catsParams) && $catsParams != '') $sql .= "AND ca.term_id IN ($catsParams) ";
-	if (isset($nameParam) && $nameParam != '') $sql .= "AND au.post_title LIKE '%$nameParam%' ";
+	if (isset($catsParams) && $catsParams != '') {
+		$sql .= "AND ca.term_id IN ($catsParams) ";
+	}
+	if (isset($nameParam) && $nameParam != '' && strlen($nameParam) > 2) {
+		$sql .= "AND au.post_title LIKE '%$nameParam%' ";
+	}
 	$sql .= "ORDER BY au.post_title ASC";
 	$results = $wpdb->get_results($sql);
 

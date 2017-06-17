@@ -43,7 +43,7 @@ class Preview extends React.Component {
     this.timeout = setTimeout(() => {
       browserHistory.push('/' + this.props.locale + '/articles/' + this.props.id);
       this.props.hideExtendedPreviewPanel();
-    }, 750);
+    }, 450);
   }
   render  () {
     return (

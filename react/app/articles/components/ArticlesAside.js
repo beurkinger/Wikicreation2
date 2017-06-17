@@ -7,7 +7,7 @@ import {getArticles} from '../async';
 import CategoriesFilter from '../../shared/components/CategoriesFilter';
 import FilterReset from '../../shared/components/FilterReset';
 import PageLoading from '../../shared/components/PageLoading';
-import TextFilter from '../../shared/components/TextFilter';
+import Search from '../../shared/components/Search';
 
 const ArticlesAside = (props) => {
   const handleTitleFilter = (str) => {
@@ -29,7 +29,7 @@ const ArticlesAside = (props) => {
   return (
     <aside id="main-aside">
       <PageLoading switches={[props.isCategoriesDone]} />
-      <TextFilter value={props.title}
+      <Search     value={props.title}
                   handleChange={handleTitleFilter}
                   label={props.messages.writeToFilter} />
       <div className="info">

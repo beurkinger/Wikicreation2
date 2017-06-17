@@ -32,7 +32,6 @@ class GraphController {
 	}
 
 	click(){
-		console.log(this.getSubject());
 		if(this.clickSubject == this.getSubject()){
 			this.clickSubject = [];
 			this.hoverSubject = "none";

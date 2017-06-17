@@ -123,7 +123,7 @@ messages[APP_LOCALES.FR] = {
     goBack : 'Revenir au site'
   },
   filter : {
-    writeToFilter : 'Filter par nom',
+    writeToFilter : 'Rechercher',
     filterBy : 'Filtrer par',
     languages : 'Langues',
     themes : 'Thèmes',
@@ -275,7 +275,7 @@ messages[APP_LOCALES.EN] = {
     goBack : 'Go back'
   },
   filter : {
-    writeToFilter : 'Filter by name',
+    writeToFilter : 'Search',
     filterBy : 'Filter by',
     languages : 'Languages',
     themes : 'Themes',

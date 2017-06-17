@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'react-router/lib/Link';
 import { connect } from 'react-redux';
+import browserHistory from 'react-router/lib/browserHistory'
 
+import {filterArticlesTitle, emptyArticlesFilter} from '../../articles/actions';
 import {hideMenu} from '../actions';
 import LanguageSwitch from '../../shared/components/LanguageSwitch';
-import Search from './Search';
+import Search from '../../shared/components/Search';
 
 const NavMenu = (props) => {
   const createLink = (link) => {
@@ -18,11 +20,16 @@ const NavMenu = (props) => {
       </li>
     );
   };
+  const searchHandler = (str) => {
+    props.search(str);
+    browserHistory.push('/' + props.locale + '/articles');
+  };
   return (
     <nav id="nav-menu">
       <div className="menu-exit clickable" onClick={props.hideMenu}></div>
       <LanguageSwitch locale={props.locale} />
-      <Search label={props.messages.search} />
+      <Search   label={props.messages.search}
+                handleChange={searchHandler} />
       <ul className="pages-list">
         {props.mainLinks.map(createLink)}
       </ul>
@@ -49,7 +56,12 @@ const mapStateToProps = (store) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  hideMenu: () => dispatch(hideMenu())
+  hideMenu: () => dispatch(hideMenu()),
+  search : (str) => {
+    dispatch(emptyArticlesFilter());
+    dispatch(filterArticlesTitle(str));
+    dispatch(hideMenu());
+  }
 });
 
 module.exports = connect(mapStateToProps, mapDispatchToProps)(NavMenu);
