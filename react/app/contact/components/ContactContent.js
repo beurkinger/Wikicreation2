@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import ContactForm from './ContactForm';
+import Logos from '../../logos/components/Logos';
 import BackToTop from '../../shared/components/BackToTop';
 
 const ContactContent = (props)  => (
@@ -43,6 +44,7 @@ const ContactContent = (props)  => (
         Elias Ousghir
       </p>
       <ContactForm />
+      <Logos />
     </div>
     <BackToTop target="#contact-main"></BackToTop>
   </div>

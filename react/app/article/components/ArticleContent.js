@@ -10,6 +10,8 @@ import DateStr from '../../shared/components/DateStr';
 import Footnotes from './Footnotes';
 import Keywords from './Keywords';
 import Summary from './Summary';
+import Logos from '../../logos/components/Logos';
+
 
 class ArticleContent extends React.Component {
   constructor (props) {
@@ -113,6 +115,7 @@ class ArticleContent extends React.Component {
             URL : {WEBSITE_URL}/{this.props.locale}/articles/{this.props.id}
             </p>
           </footer>
+          <Logos />
         </article>
         <BackToTop target="#article-main"/>
       </div>

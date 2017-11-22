@@ -6,6 +6,7 @@ import Link from 'react-router/lib/Link'
 import {APP_LOCALES} from '../../config';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
+import Logos from '../../logos/components/Logos';
 import BackToTop from '../../shared/components/BackToTop';
 
 class AboutContent extends React.Component {
@@ -22,6 +23,7 @@ class AboutContent extends React.Component {
                 className="btn btn-red btn-arrow-right" >
             {this.props.becomeAuthor}
           </Link>
+          <Logos />
         </div>
         <BackToTop target="#about-main"></BackToTop>
       </div>

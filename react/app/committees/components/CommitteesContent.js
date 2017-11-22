@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {APP_LOCALES} from '../../config';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
+import Logos from '../../logos/components/Logos';
 import BackToTop from '../../shared/components/BackToTop';
 
 class CommitteesContent extends React.Component {
@@ -16,6 +17,7 @@ class CommitteesContent extends React.Component {
       <div id="main-content">
         <div id="committee-main">
           {this.getLocalizedContent()}
+          <Logos/>
         </div>
         <BackToTop target="#committee-main"></BackToTop>
       </div>

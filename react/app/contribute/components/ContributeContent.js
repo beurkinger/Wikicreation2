@@ -6,6 +6,7 @@ import {APP_LOCALES} from '../../config';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
 import ContributeForm from './ContributeForm';
+import Logos from '../../logos/components/Logos';
 import BackToTop from '../../shared/components/BackToTop';
 
 class ContributeContent extends React.Component {
@@ -18,6 +19,7 @@ class ContributeContent extends React.Component {
         <div id="contribute-main">
           {this.getLocalizedContent()}
           <ContributeForm/>
+          <Logos />
         </div>
         <BackToTop target="#contribute-main"></BackToTop>
       </div>

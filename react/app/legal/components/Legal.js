@@ -7,6 +7,7 @@ import {APP_LOCALES} from '../../config';
 import {setStdTitlebar} from '../../header/actions';
 import ContentEn from './localized/ContentEn';
 import ContentFr from './localized/ContentFr';
+import Logos from '../../logos/components/Logos';
 import BackToTop from '../../shared/components/BackToTop';
 
 class Legal extends React.Component {
@@ -25,6 +26,7 @@ class Legal extends React.Component {
         <div id="main-content">
           <div id="legal-main">
             {this.getLocalizedContent()}
+            <Logos />
           </div>
           <BackToTop target="#legal-main"></BackToTop>
         </div>

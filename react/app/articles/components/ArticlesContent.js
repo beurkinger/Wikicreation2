@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import ArticlesCategory from './ArticlesCategory';
 import PageLoading from '../../shared/components/PageLoading';
+import Logos from '../../logos/components/Logos';
 import BackToTop from '../../shared/components/BackToTop';
 
 const ArticlesContent = (props) => {
@@ -18,7 +19,10 @@ const ArticlesContent = (props) => {
     <div id="main-content">
       <PageLoading switches={[props.isArticlesDone]} />
       <div id="articles-main">
-        {props.articles.map(getCategory)}
+        <div id="articles-main-columns">
+          {props.articles.map(getCategory)}
+        </div>
+        <Logos />
       </div>
       <BackToTop target="#articles-main"></BackToTop>
     </div>

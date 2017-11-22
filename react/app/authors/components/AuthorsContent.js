@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import AuthorCard from './AuthorCard';
 import PageLoading from '../../shared/components/PageLoading';
+import Logos from '../../logos/components/Logos';
 import BackToTop from '../../shared/components/BackToTop';
 
 const AuthorsContent = (props) => {
@@ -20,6 +21,7 @@ const AuthorsContent = (props) => {
       <PageLoading switches={[props.isAuthorsDone]} />
       <div id="authors-main">
         { props.authors.map(getAuthor) }
+        <Logos />
       </div>
       <BackToTop target="#authors-main"></BackToTop>
     </div>

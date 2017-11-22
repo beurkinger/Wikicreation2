@@ -21,6 +21,13 @@ class Home extends React.Component {
       <main id="main-container" className="graph-container">
         <PageLoading switches={[this.props.isDone]} />
         <Graph />
+        <div id="home-logos">
+          <img src="/wp-content/themes/wikicreation/img/logo-accueil-acte.png" className="logo"/>
+          <img src="/wp-content/themes/wikicreation/img/logo-accueil-paris1.png" className="logo"/>
+          <img src="/wp-content/themes/wikicreation/img/logo-accueil-cnrs.png" className="logo"/>
+          <img src="/wp-content/themes/wikicreation/img/logo-accueil-labexcap.png" className="logo"/>
+          <img src="/wp-content/themes/wikicreation/img/logo-accueil-mmi.png" className="logo"/>
+        </div>
       </main>
     )
   }
